@@ -121,7 +121,6 @@ if (isV2 && tasksId) {
     Priority: { select: { name: "P2" } },
     Project: { relation: [{ id: projectPageId }] },
     Notes: rt("CLAUDE.md の運用に合わせる。"),
-    Link: { url: "" },
   });
 
   await createPage(tasksId, {
