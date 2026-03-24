@@ -1,0 +1,21 @@
+---
+description: POSTCABINETS / ClaudeCode — Notion ハブとタスク運用
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# POSTCABINETS（このリポジトリ）
+
+- **正本**: 計画・決定・**実行タスク**は **Notion**（`CLAUDE.md` は補助とルール）。シークレットは `.env` のみ。
+- **構造（v2）**: **Projects** = 案件・取り組みの束。**Tasks** = 日々の実行単位。**Owner** = `Human` / `Claude` / `Either`（誰が手を動かすかを可視化）。
+- **人の見え方**: Notion で **Tasks** をボード表示（Status）し、**Owner でフィルタ**。今日やるのは Human と Either を優先。
+- **Claude の動き**: セッションでは `Owner=Claude` または `Either` の Todo を拾い、終了時に Tasks / Decisions 更新案を箇条書きで出す。COPAIN だけに縛らない（Brand / Area で区別）。
+
+## npm（ルート）
+
+- `notion:env` / `notion:verify` / `notion:hub`（v2: Projects+Tasks+…） / `notion:seed` / `pulse:discord`（Active Projects + オープン Tasks） / `browser:daemon`
+
+## 意思決定
+
+価格・契約・個人情報・公開・Go/No-Go は人。実装・調査・下書きは Claude 可。

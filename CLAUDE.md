@@ -1,18 +1,18 @@
-# COPAIN AI / プロジェクト運用（Claude Code 向け）
+# POSTCABINETS / ClaudeCode 運用（このリポジトリ）
 
-## Claude Code メモリ（ここまでの状態・要約）
+## Claude Code メモリ（要約）
 
-- **目的**: 第 1 事業は **COPAIN AI** 完成に寄せる。LINE 公式＋育成型自動化、課金はクレジット/サブスク仮説。OpenClaw 全面か **LINE→バックエンド→モデル** の簡易版かは未確定（スパイク優先）。
-- **運用**: **Notion が正本**。`.env` にのみシークレット。`npm run notion:env` で Notion を設定。
-- **確認済み（ユーザー作業後）**: `notion:verify` は **成功**（インテグレーション有効）。Notion 上に **「ClaudeCode DB」** ページが検索で見えている。
-- **未了の可能性**: **`.notion-hub.json` が無ければ** `npm run notion:hub` → `npm run notion:seed` が次（COPAIN 用 5 DB と初期行）。
-- **自動化**: **Playwright** で `npm run browser:daemon`（設定は `browser/browser-runner.config.json`）。**Discord** は Webhook で `pulse:discord` 等。
-- **このファイル**をプロジェクト単位の「記憶」として更新する。方針変更は **Notion Decisions** と両方を合わせる。
+- **スコープ**: **POSTCABINETS** 全体のオペレーション。**COPAIN** はその中の案件の一つ（他と同列。DB 名も COPAIN 専用にしない）。
+- **目的（事業）**: COPAIN AI 完成、LINE＋育成型自動化、課金仮説などは **Projects の Brand/Area** で表現。
+- **運用**: **Notion が正本**。`.env` のみシークレット。`npm run notion:env` で Notion を設定。
+- **Notion ハブ v2**: **Projects**（案件）＋ **Tasks**（実行単位）＋ Owner（Human/Claude/Either）。`.notion-hub.json` は `notion:hub` で生成。
+- **自動化**: Playwright `browser:daemon`、Discord `pulse:discord`（Active Projects ＋オープン Tasks）。
+- **方針変更**は `CLAUDE.md` と Notion **Decisions** の両方を矛盾なく更新する。
 
 ## 単一の真実（Single Source of Truth）
 
 - **計画・決定・タスク・リスク・顧客メモの正本は Notion**（このリポジトリ内のメモは一時的な下書きにしない。更新は Notion を先に更新する）。
-- 作業前に Notion の **Projects / Decisions / Weekly** を確認し、終わったら同じページまたは DB に結果を追記する。
+- 作業前に Notion の **Tasks（Owner 別） / Projects（Active） / Weekly** を確認し、終わったら **Tasks と Decisions** に結果を追記する。
 - シークレット（Notion token、Discord Bot token、Webhook、API キー）は **`.env` にのみ**置き、**絶対にコミットしない**。
 
 ## セキュリティ（必須）
@@ -32,14 +32,22 @@
 - **あなた（人）がやること**: 価格、契約、公開コピー、個人情報の扱い、自動送信の可否、新規事業の Go/No-Go。
 - **エージェント／自動化がやってよいこと**: 調査、下書き、リポジトリ内の実装、Notion 更新案の提示、Discord への進捗通知（Webhook 経由など）。
 
-## Notion ハブの使い方
+## Notion ハブの構造（v2・POSTCABINETS）
 
-- 親ページの下に次の DB がある想定（`scripts/notion-hub-create.mjs` で作成可能）:
-  - **Projects**: COPAIN / LINE / 課金 / OpenClaw 検証 などのイシュー単位。
-  - **Decisions**: 決定事項と理由・日付。
-  - **Weekly**: 週のフォーカスとトップ 3 の成果。
-  - **Risks**: 法務・技術・運用リスク。
-  - **Triggers**: 定期確認や「次にやること」のトリガー定義（Discord 通知と紐づけ可能）。
+**目的**: Claude Code が動きつつ、**あなたが一覧で見て、今日やることをすぐ実行できる**こと。
+
+| DB | 役割 | 使い分け |
+|----|------|----------|
+| **Projects** | 案件・取り組みの「束」 | COPAIN も研修もインフラも **1 行＝1 案件**。Area / Brand で区別。 |
+| **Tasks** | 日々の **1 アクション** | **Owner** = Human（あなた）/ Claude / Either。Status でボード化。Project に紐づけ。 |
+| **Decisions** | 決定ログ | 方針・境界（誰が何を決めるか）。 |
+| **Weekly** | 週のフォーカス | 可視化のリズム。 |
+| **Risks** | リスク | 法務・技術・運用。 |
+| **Triggers** | 自動化のきっかけ | cron / Discord 等。 |
+
+**あなた向けダッシュボードのおすすめ**: Tasks を **ボード表示（Status）**し、フィルタで **Owner = Human または Either**、今日の Due。Claude には **Owner = Claude または Either** の Todo を先に処理してもらう。
+
+**既に COPAIN 名義の DB だけある場合**: Notion で **新しい親ページ**（例: POSTCABINETS Hub）を作り、インテグレーションに接続 → `.env` の `NOTION_PARENT_PAGE_ID` をそのページに変更 → `npm run notion:hub` → `npm run notion:seed`。古い DB はアーカイブしてよい。
 
 ## Discord の役割
 
@@ -54,9 +62,9 @@
 |----------|------|
 | `npm run notion:env` | **対話で .env に Notion トークンと親ページ ID を書き込む**（チャットに貼らない） |
 | `npm run notion:verify` | Notion インテグレーション疎通 |
-| `npm run notion:hub` | 親ページ直下に 5 DB 作成 + `.notion-hub.json` に ID 保存 |
-| `npm run notion:seed` | Projects / Decisions 等に初期行（既に行がある場合はスキップ。上書きは `NOTION_SEED_FORCE=1`） |
-| `npm run pulse:discord` | Projects の **Active** を Discord Webhook に投稿 |
+| `npm run notion:hub` | 親ページ直下に **v2** DB（Projects, **Tasks**, Decisions, Weekly, Risks, Triggers）+ `.notion-hub.json` |
+| `npm run notion:seed` | 初期行（既に Projects に行がある場合はスキップ。上書きは `NOTION_SEED_FORCE=1`） |
+| `npm run pulse:discord` | **Active Projects** ＋ **オープン Tasks**（Inbox〜Blocked）を Discord に投稿 |
 | `npm run discord:test` | Webhook テスト投稿 |
 | `npm run bootstrap` | verify → hub → seed → discord:test を連続実行 |
 
@@ -74,14 +82,14 @@
 
 ## 次にやること（常にこの順で迷わない）
 
-1. **Notion**: 親ページを 1 つ作り、インテグレーションに接続する。`npm run notion:env` で `.env` を埋める（または手入力）。
-2. **スクリプト**: `npm run notion:verify` → `npm run notion:hub` → `npm run notion:seed`。
-3. **Discord**: Webhook URL を `.env` の `DISCORD_WEBHOOK_URL` に設定し、`npm run discord:test`。Bot トークンは対話 Bot を作る段階まで `.env` のみで管理（漏洩時は再発行）。
-4. **運用**: 迷ったら `npm run pulse:discord` で Active プロジェクトを Discord に流す。
-5. **技術スパイク**: 「LINE Messaging API + 最小バックエンド + モデル」の受信返信（OpenClaw 全導入は並行検証）。
+1. **Notion**: 親ページを 1 つ作り、インテグレーションに接続。`npm run notion:env` で `.env` を埋める。
+2. **v2 ハブ**: `npm run notion:verify` → `npm run notion:hub` → `npm run notion:seed`（既存 COPAIN 専用 DB しかない場合は **新親ページ**でやり直すとスッキリ）。
+3. **Discord**: `DISCORD_WEBHOOK_URL` を設定し、`npm run discord:test`。
+4. **毎日**: `pulse:discord` でサマリー。自分は **Tasks の Human / Either** から 1 件だけ実行。
+5. **技術スパイク**: LINE / OpenClaw 等は **Projects に案件**、細かい作業は **Tasks** に分割。
 
 ## Claude Code に求める行動
 
-- セッション開始時: Notion の Projects / Weekly を読む前提でユーザーに確認するか、ユーザーが貼った Notion リンクを優先する。
-- セッション終了時: 変更があれば Notion 更新内容を箇条書きで提案する（ユーザーが貼りやすい形式）。
-- 新しい「方針」はこの `CLAUDE.md` と Notion の Decisions の両方に矛盾がないようにする。
+- セッション開始: **Tasks（Claude / Either）** と **Active Projects** を確認するよう促す。リンクがあればそれを優先。
+- セッション終了: **Tasks / Decisions** の更新案を箇条書き（Notion にコピペしやすく）。
+- COPAIN に限定した表現にしない。**POSTCABINETS 全体**のタスクとして記述する。

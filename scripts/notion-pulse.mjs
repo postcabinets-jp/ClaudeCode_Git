@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Projects DB の Status=Active を取得し、Discord Webhook に要約投稿。
- * 要環境変数: NOTION_TOKEN, NOTION_HUB または .notion-hub.json, DISCORD_WEBHOOK_URL
+ * Discord Webhook に要約投稿。
+ * v2: Active Projects + オープンな Tasks（Todo/Doing/Blocked）
+ * v1: Active Projects のみ
  */
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
@@ -20,16 +21,19 @@ if (!token) {
   process.exit(1);
 }
 if (!webhook) {
-  console.error("DISCORD_WEBHOOK_URL が未設定です。Discord サーバーで Webhook を作成し .env に追加してください。");
+  console.error("DISCORD_WEBHOOK_URL が未設定です。");
   process.exit(1);
 }
 if (!existsSync(hubPath)) {
-  console.error(".notion-hub.json がありません。notion-hub-create を先に実行してください。");
+  console.error(".notion-hub.json がありません。");
   process.exit(1);
 }
 
 const hub = JSON.parse(readFileSync(hubPath, "utf8"));
 const projectsId = hub.databases?.projects?.id;
+const tasksId = hub.databases?.tasks?.id;
+const isV2 = (hub.version ?? 1) >= 2 && tasksId;
+
 if (!projectsId) {
   console.error("projects データベース ID がありません。");
   process.exit(1);
@@ -37,26 +41,27 @@ if (!projectsId) {
 
 const headers = notionHeaders(token);
 
-const res = await fetch(`https://api.notion.com/v1/databases/${projectsId}/query`, {
-  method: "POST",
-  headers,
-  body: JSON.stringify({
-    filter: {
-      property: "Status",
-      select: { equals: "Active" },
-    },
-    page_size: 20,
-  }),
-});
-
-const data = await res.json();
-if (!res.ok) {
-  console.error("Notion query 失敗:", res.status, data);
-  process.exit(1);
+async function queryDb(databaseId, body) {
+  const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(`${res.status} ${JSON.stringify(data)}`);
+  }
+  return data;
 }
 
-const lines = ["**COPAIN — Active Projects**", ""];
-for (const page of data.results ?? []) {
+const projRes = await queryDb(projectsId, {
+  filter: { property: "Status", select: { equals: "Active" } },
+  page_size: 20,
+});
+
+const lines = ["**POSTCABINETS — 朝イチサマリー**", "", "### Active Projects", ""];
+
+for (const page of projRes.results ?? []) {
   const p = page.properties;
   const name = p?.Name?.title?.map((t) => t.plain_text).join("") ?? "(無題)";
   const next = p?.["Next action"]?.rich_text?.map((t) => t.plain_text).join("") ?? "";
@@ -67,8 +72,37 @@ for (const page of data.results ?? []) {
   lines.push("");
 }
 
-if (lines.length <= 2) {
-  lines.push("_Active な行はありません。Notion の Projects を更新してください。_");
+if ((projRes.results?.length ?? 0) === 0) {
+  lines.push("_Active な Project はありません。_", "");
+}
+
+if (isV2) {
+  const taskRes = await queryDb(tasksId, {
+    filter: {
+      or: [
+        { property: "Status", select: { equals: "Todo" } },
+        { property: "Status", select: { equals: "Doing" } },
+        { property: "Status", select: { equals: "Blocked" } },
+        { property: "Status", select: { equals: "Inbox" } },
+      ],
+    },
+    page_size: 30,
+  });
+
+  lines.push("### オープン Tasks（Inbox〜Blocked）", "");
+
+  for (const page of taskRes.results ?? []) {
+    const p = page.properties;
+    const t = p?.Title?.title?.map((x) => x.plain_text).join("") ?? "(無題)";
+    const st = p?.Status?.select?.name ?? "";
+    const ow = p?.Owner?.select?.name ?? "";
+    const pr = p?.Priority?.select?.name ?? "";
+    lines.push(`• [${st}] **${t}** (${ow}) ${pr}`);
+  }
+
+  if ((taskRes.results?.length ?? 0) === 0) {
+    lines.push("_オープンな Task はありません。_");
+  }
 }
 
 let content = lines.join("\n");
@@ -88,4 +122,4 @@ if (!wh.ok) {
   process.exit(1);
 }
 
-console.log("OK: Discord に Active Projects を投稿しました。");
+console.log("OK: Discord にサマリーを投稿しました。");

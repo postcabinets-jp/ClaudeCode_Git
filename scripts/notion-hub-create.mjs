@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+/**
+ * POSTCABINETS / ClaudeCode 向け Notion ハブ（v2）
+ * - Projects: 案件・取り組み単位（複数タスクの束）
+ * - Tasks: 実行単位（Owner: Human / Claude / Either で可視化）
+ * 先に Projects DB を作り、Tasks に relation で接続する。
+ */
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
@@ -23,64 +29,6 @@ const select = (options) => ({
   },
 });
 
-const schemas = [
-  [
-    "COPAIN — Projects",
-    "projects",
-    {
-      Name: { title: {} },
-      Status: select(["Idea", "Active", "Blocked", "Done"]),
-      Phase: select(["Discovery", "MVP", "Beta", "GA"]),
-      Priority: { number: { format: "number" } },
-      "Next action": { rich_text: {} },
-      "LINE/OpenClaw": { checkbox: {} },
-      Updated: { date: {} },
-      URL: { url: {} },
-    },
-  ],
-  [
-    "COPAIN — Decisions",
-    "decisions",
-    {
-      Title: { title: {} },
-      Date: { date: {} },
-      Status: select(["Proposed", "Accepted", "Superseded"]),
-      Context: { rich_text: {} },
-    },
-  ],
-  [
-    "COPAIN — Weekly",
-    "weekly",
-    {
-      Week: { title: {} },
-      Focus: { rich_text: {} },
-      "Top 3": { rich_text: {} },
-      Blockers: { rich_text: {} },
-    },
-  ],
-  [
-    "COPAIN — Risks",
-    "risks",
-    {
-      Title: { title: {} },
-      Severity: select(["Low", "Medium", "High"]),
-      Area: select(["Legal", "Product", "Tech", "Ops", "Finance"]),
-      Mitigation: { rich_text: {} },
-    },
-  ],
-  [
-    "COPAIN — Triggers",
-    "triggers",
-    {
-      Name: { title: {} },
-      Type: select(["cron", "webhook", "manual", "discord"]),
-      Cadence: { rich_text: {} },
-      "Last run": { date: {} },
-      Notes: { rich_text: {} },
-    },
-  ],
-];
-
 async function createDatabase(title, properties) {
   const res = await fetch("https://api.notion.com/v1/databases", {
     method: "POST",
@@ -99,14 +47,106 @@ async function createDatabase(title, properties) {
 }
 
 const hub = {
-  version: 1,
+  version: 2,
+  name: "POSTCABINETS-ClaudeCode",
   createdAt: new Date().toISOString(),
   parentPageId: parentId,
   databases: {},
 };
 
-console.log("親ページに DB を作成します…");
-for (const [title, key, props] of schemas) {
+console.log("POSTCABINETS ハブ（v2）を親ページに作成します…");
+
+const projectsDb = await createDatabase("POSTCABINETS — Projects", {
+  Name: { title: {} },
+  Status: select(["Idea", "Active", "Paused", "Done"]),
+  Area: select(["Product", "Ops", "Biz", "Tech", "Org", "Other"]),
+  Brand: {
+    multi_select: {
+      options: [
+        { name: "POSTCABINETS" },
+        { name: "COPAIN" },
+        { name: "Other" },
+      ],
+    },
+  },
+  Priority: { number: { format: "number" } },
+  "Next action": { rich_text: {} },
+  Updated: { date: {} },
+  URL: { url: {} },
+});
+
+hub.databases.projects = {
+  id: projectsDb.id,
+  url: projectsDb.url ?? null,
+  title: "POSTCABINETS — Projects",
+};
+
+const tasksDb = await createDatabase("POSTCABINETS — Tasks", {
+  Title: { title: {} },
+  Status: select(["Inbox", "Todo", "Doing", "Blocked", "Done"]),
+  Owner: select(["Human", "Claude", "Either"]),
+  Priority: select(["P0", "P1", "P2", "P3"]),
+  Due: { date: {} },
+  Project: {
+    relation: {
+      database_id: projectsDb.id,
+    },
+  },
+  Notes: { rich_text: {} },
+  Link: { url: {} },
+});
+
+hub.databases.tasks = {
+  id: tasksDb.id,
+  url: tasksDb.url ?? null,
+  title: "POSTCABINETS — Tasks",
+};
+
+const rest = [
+  [
+    "POSTCABINETS — Decisions",
+    "decisions",
+    {
+      Title: { title: {} },
+      Date: { date: {} },
+      Status: select(["Proposed", "Accepted", "Superseded"]),
+      Context: { rich_text: {} },
+    },
+  ],
+  [
+    "POSTCABINETS — Weekly",
+    "weekly",
+    {
+      Week: { title: {} },
+      Focus: { rich_text: {} },
+      "Top 3": { rich_text: {} },
+      Blockers: { rich_text: {} },
+    },
+  ],
+  [
+    "POSTCABINETS — Risks",
+    "risks",
+    {
+      Title: { title: {} },
+      Severity: select(["Low", "Medium", "High"]),
+      Area: select(["Legal", "Product", "Tech", "Ops", "Finance", "Other"]),
+      Mitigation: { rich_text: {} },
+    },
+  ],
+  [
+    "POSTCABINETS — Triggers",
+    "triggers",
+    {
+      Name: { title: {} },
+      Type: select(["cron", "webhook", "manual", "discord"]),
+      Cadence: { rich_text: {} },
+      "Last run": { date: {} },
+      Notes: { rich_text: {} },
+    },
+  ],
+];
+
+for (const [title, key, props] of rest) {
   const db = await createDatabase(title, props);
   hub.databases[key] = {
     id: db.id,
@@ -116,7 +156,12 @@ for (const [title, key, props] of schemas) {
   console.log("作成:", title, "→", db.url ?? db.id);
 }
 
+console.log("作成: POSTCABINETS — Projects →", projectsDb.url ?? projectsDb.id);
+console.log("作成: POSTCABINETS — Tasks →", tasksDb.url ?? tasksDb.id);
+
 const hubPath = resolve(root, ".notion-hub.json");
 writeFileSync(hubPath, JSON.stringify(hub, null, 2), "utf8");
 console.log("ハブ定義を保存:", hubPath);
-console.log("完了。Notion で親ページを開いて確認してください。");
+console.log(
+  "完了。既に COPAIN 名義の DB がある場合は Notion 上で併存します。新ハブだけ使うならこの親ページを「POSTCABINETS Hub」などに分けると整理しやすいです。",
+);
