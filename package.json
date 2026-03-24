@@ -3,6 +3,7 @@
   "private": true,
   "description": "COPAIN AI — Notion ハブ & Claude Code 用スクリプト",
   "scripts": {
+    "notion:env": "node scripts/notion-env-setup.mjs",
     "notion:verify": "node scripts/notion-verify.mjs",
     "notion:hub": "node scripts/notion-hub-create.mjs",
     "notion:seed": "node scripts/notion-seed.mjs",

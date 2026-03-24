@@ -19,6 +19,7 @@ alwaysApply: true
 
 ## npm スクリプト（ルート）
 
+- `npm run notion:env` — 対話で Notion の .env を完了
 - `npm run notion:verify` — Notion 疎通
 - `npm run notion:hub` — 親ページ下に DB 作成 + `.notion-hub.json`
 - `npm run notion:seed` — 初期行投入

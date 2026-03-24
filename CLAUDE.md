@@ -43,6 +43,7 @@
 
 | コマンド | 内容 |
 |----------|------|
+| `npm run notion:env` | **対話で .env に Notion トークンと親ページ ID を書き込む**（チャットに貼らない） |
 | `npm run notion:verify` | Notion インテグレーション疎通 |
 | `npm run notion:hub` | 親ページ直下に 5 DB 作成 + `.notion-hub.json` に ID 保存 |
 | `npm run notion:seed` | Projects / Decisions 等に初期行（既に行がある場合はスキップ。上書きは `NOTION_SEED_FORCE=1`） |
@@ -64,7 +65,7 @@
 
 ## 次にやること（常にこの順で迷わない）
 
-1. **Notion**: 親ページを 1 つ作り、インテグレーションに共有する。`.env` に `NOTION_TOKEN` と `NOTION_PARENT_PAGE_ID` を設定する。
+1. **Notion**: 親ページを 1 つ作り、インテグレーションに接続する。`npm run notion:env` で `.env` を埋める（または手入力）。
 2. **スクリプト**: `npm run notion:verify` → `npm run notion:hub` → `npm run notion:seed`。
 3. **Discord**: Webhook URL を `.env` の `DISCORD_WEBHOOK_URL` に設定し、`npm run discord:test`。Bot トークンは対話 Bot を作る段階まで `.env` のみで管理（漏洩時は再発行）。
 4. **運用**: 迷ったら `npm run pulse:discord` で Active プロジェクトを Discord に流す。
