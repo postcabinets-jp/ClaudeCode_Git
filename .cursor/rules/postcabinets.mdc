@@ -14,7 +14,7 @@ alwaysApply: true
 
 ## npm（ルート）
 
-- `notion:env` / `notion:verify` / `notion:hub`（v2: Projects+Tasks+…） / `notion:seed` / `pulse:discord`（Active Projects + オープン Tasks） / `browser:daemon`
+- `notion:env` / `notion:verify` / `notion:reset`（直下 DB 全アーカイブ→hub→seed） / `notion:hub` / `notion:seed` / `pulse:discord` / `browser:daemon`
 
 ## 意思決定
 

@@ -4,6 +4,7 @@
 *.pem
 node_modules/
 .notion-hub.json
+.notion-hub.json.bak.*
 
 # 権限リストにローカル秘密が含まれる場合がある
 .claude/settings.local.json

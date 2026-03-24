@@ -47,7 +47,8 @@
 
 **あなた向けダッシュボードのおすすめ**: Tasks を **ボード表示（Status）**し、フィルタで **Owner = Human または Either**、今日の Due。Claude には **Owner = Claude または Either** の Todo を先に処理してもらう。
 
-**既に COPAIN 名義の DB だけある場合**: Notion で **新しい親ページ**（例: POSTCABINETS Hub）を作り、インテグレーションに接続 → `.env` の `NOTION_PARENT_PAGE_ID` をそのページに変更 → `npm run notion:hub` → `npm run notion:seed`。古い DB はアーカイブしてよい。
+**古い DB を消して作り直す（推奨）**: 同じ親ページのままでよい。`npm run notion:reset` が **親ページ直下の子データベースをすべてアーカイブ** → `notion:hub` → `notion:seed` まで実行する。`.notion-hub.json` は `.bak.<時刻>` に退避される。  
+（親ページに置きたい **別の直下 DB** がある場合は、消えるので先に移動するか別親ページを使う。）
 
 ## Discord の役割
 
@@ -63,6 +64,7 @@
 | `npm run notion:env` | **対話で .env に Notion トークンと親ページ ID を書き込む**（チャットに貼らない） |
 | `npm run notion:verify` | Notion インテグレーション疎通 |
 | `npm run notion:hub` | 親ページ直下に **v2** DB（Projects, **Tasks**, Decisions, Weekly, Risks, Triggers）+ `.notion-hub.json` |
+| `npm run notion:reset` | **直下の子 DB を全アーカイブ** → `hub` → `seed` まで一括（`--yes` 同梱） |
 | `npm run notion:seed` | 初期行（既に Projects に行がある場合はスキップ。上書きは `NOTION_SEED_FORCE=1`） |
 | `npm run pulse:discord` | **Active Projects** ＋ **オープン Tasks**（Inbox〜Blocked）を Discord に投稿 |
 | `npm run discord:test` | Webhook テスト投稿 |
@@ -83,7 +85,7 @@
 ## 次にやること（常にこの順で迷わない）
 
 1. **Notion**: 親ページを 1 つ作り、インテグレーションに接続。`npm run notion:env` で `.env` を埋める。
-2. **v2 ハブ**: `npm run notion:verify` → `npm run notion:hub` → `npm run notion:seed`（既存 COPAIN 専用 DB しかない場合は **新親ページ**でやり直すとスッキリ）。
+2. **v2 ハブ**: `npm run notion:verify` → 既存を消してよければ **`npm run notion:reset`**、または `notion:hub` → `notion:seed`。
 3. **Discord**: `DISCORD_WEBHOOK_URL` を設定し、`npm run discord:test`。
 4. **毎日**: `pulse:discord` でサマリー。自分は **Tasks の Human / Either** から 1 件だけ実行。
 5. **技術スパイク**: LINE / OpenClaw 等は **Projects に案件**、細かい作業は **Tasks** に分割。

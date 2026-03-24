@@ -6,6 +6,7 @@
     "notion:env": "node scripts/notion-env-setup.mjs",
     "notion:verify": "node scripts/notion-verify.mjs",
     "notion:hub": "node scripts/notion-hub-create.mjs",
+    "notion:reset": "node scripts/notion-hub-reset.mjs --yes",
     "notion:seed": "node scripts/notion-seed.mjs",
     "pulse:discord": "node scripts/notion-pulse.mjs",
     "discord:test": "node scripts/discord-webhook-test.mjs",
