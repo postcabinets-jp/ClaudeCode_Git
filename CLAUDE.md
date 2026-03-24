@@ -1,5 +1,14 @@
 # COPAIN AI / プロジェクト運用（Claude Code 向け）
 
+## Claude Code メモリ（ここまでの状態・要約）
+
+- **目的**: 第 1 事業は **COPAIN AI** 完成に寄せる。LINE 公式＋育成型自動化、課金はクレジット/サブスク仮説。OpenClaw 全面か **LINE→バックエンド→モデル** の簡易版かは未確定（スパイク優先）。
+- **運用**: **Notion が正本**。`.env` にのみシークレット。`npm run notion:env` で Notion を設定。
+- **確認済み（ユーザー作業後）**: `notion:verify` は **成功**（インテグレーション有効）。Notion 上に **「ClaudeCode DB」** ページが検索で見えている。
+- **未了の可能性**: **`.notion-hub.json` が無ければ** `npm run notion:hub` → `npm run notion:seed` が次（COPAIN 用 5 DB と初期行）。
+- **自動化**: **Playwright** で `npm run browser:daemon`（設定は `browser/browser-runner.config.json`）。**Discord** は Webhook で `pulse:discord` 等。
+- **このファイル**をプロジェクト単位の「記憶」として更新する。方針変更は **Notion Decisions** と両方を合わせる。
+
 ## 単一の真実（Single Source of Truth）
 
 - **計画・決定・タスク・リスク・顧客メモの正本は Notion**（このリポジトリ内のメモは一時的な下書きにしない。更新は Notion を先に更新する）。
