@@ -90,6 +90,8 @@ const tasksDb = await createDatabase("POSTCABINETS — Tasks", {
   Project: {
     relation: {
       database_id: projectsDb.id,
+      type: "single_property",
+      single_property: {},
     },
   },
   Notes: { rich_text: {} },
