@@ -1,0 +1,21 @@
+name: VoiceTypingMac
+options:
+  bundleIdPrefix: com.voicetyping
+  deploymentTarget:
+    macOS: "13.0"
+
+settings:
+  SWIFT_VERSION: "5.9"
+  DEVELOPMENT_TEAM: ""
+
+targets:
+  VoiceTypingMac:
+    type: application
+    platform: macOS
+    sources:
+      - VoiceTypingMac
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.voicetyping.mac
+      INFOPLIST_FILE: VoiceTypingMac/Info.plist
+    entitlements:
+      path: VoiceTypingMac/VoiceTypingMac.entitlements
