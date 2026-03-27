@@ -152,6 +152,38 @@
   /* フルスクリーンモード */
   .terminal-view.fullscreen .terminal-header { display: none; }
   .terminal-view.fullscreen .terminal-frame { height: 100dvh; }
+
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: calc(80px + var(--safe-bottom));
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(22, 33, 62, 0.95);
+    border: 1px solid rgba(233, 69, 96, 0.4);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    color: var(--text);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    text-align: center;
+    max-width: 90vw;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .toast .cmd {
+    font-family: 'SF Mono', 'Menlo', monospace;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+  }
 </style>
 </head>
 <body>
@@ -204,6 +236,9 @@
   <iframe class="terminal-frame" id="terminalFrame" allow="clipboard-read; clipboard-write"></iframe>
 </div>
 
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
 <script>
 const TTYD_HOST = location.hostname;
 const TTYD_PORT = 7681;
@@ -227,6 +262,14 @@ async function checkStatus() {
   }
 }
 
+// Toast: show a hint for what to type
+function showToast(message, durationMs = 4000) {
+  const toast = document.getElementById('toast');
+  toast.innerHTML = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), durationMs);
+}
+
 function openTerminal(mode) {
   const frame = document.getElementById('terminalFrame');
   const title = document.getElementById('terminalTitle');
@@ -245,34 +288,26 @@ function openTerminal(mode) {
   document.getElementById('launcher').classList.add('hidden');
   document.getElementById('terminalView').classList.add('active');
 
-  // ttydが開いた後にコマンドを自動入力
-  // iframe内のttydは数秒後にWebSocket接続が確立される
-  // 自動コマンド送信はttyd APIを使う
-  setTimeout(() => {
-    sendCommand(mode);
-  }, 2000);
-}
-
-function sendCommand(mode) {
-  const commands = {
-    resume: 'claude --resume\n',
-    new: 'claude\n',
-    shell: '',
-    sessions: 'claude sessions list\n'
+  // Show a toast with the command to type
+  const hints = {
+    resume: 'Type: <span class="cmd">claude --resume</span>',
+    new:    'Type: <span class="cmd">claude</span>',
+    shell:  'Ready — use as normal terminal',
+    sessions: 'Type: <span class="cmd">claude sessions list</span>'
   };
 
-  const cmd = commands[mode];
-  if (!cmd) return;
-
-  // ttydはWebSocket経由で入力を受け付ける
-  // iframe内なので直接は制御できないが、
-  // ttyd起動スクリプト側で対応する
+  const hint = hints[mode];
+  if (hint) {
+    setTimeout(() => showToast(hint, 4000), 1500);
+  }
 }
 
 function backToLauncher() {
   document.getElementById('terminalFrame').src = 'about:blank';
   document.getElementById('terminalView').classList.remove('active', 'fullscreen');
   document.getElementById('launcher').classList.remove('hidden');
+  // Hide any lingering toast
+  document.getElementById('toast').classList.remove('show');
 }
 
 function toggleFullscreen() {
