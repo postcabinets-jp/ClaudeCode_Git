@@ -1,0 +1,325 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AC14B10C8F6035FE5A99046 /* RegexCleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787545890AA67F7D60AD40AB /* RegexCleanup.swift */; };
+		37816EFD55B4DEF06EA798A2 /* FloatingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1227C135A42B94142B5CD5 /* FloatingWindow.swift */; };
+		387E5874BD095975C41B37EA /* LLMFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A446A1DEB64795D4A79C6 /* LLMFormatter.swift */; };
+		75F8A210F185D8B840E94BED /* TextInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697DB410257EF5D28BF62D7 /* TextInjector.swift */; };
+		7CE210CE1A1BE6EAD6F0EF4E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6FB7A5D90051BBD6F0A772 /* SettingsView.swift */; };
+		A44BB80272660C7768A0CBA3 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8566A556D1F45BC0E02340 /* HotkeyManager.swift */; };
+		C5386D8228D494ACEFD8641C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DAC4089234D2D508D06CCA /* Settings.swift */; };
+		D0EE19ADDE1B2FBED7DDBC1B /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D93A178857BD6683ACAE7D /* SpeechManager.swift */; };
+		E4D9161B904070D4F456FC9B /* VoiceTypingMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBC62EC258165EAACB4C229 /* VoiceTypingMacApp.swift */; };
+		F5E690CAC60B8387DA88D8A8 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F808760868295994BCE56643 /* Models.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		31F3CCCFC4494A0F25B85C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3B5A446A1DEB64795D4A79C6 /* LLMFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMFormatter.swift; sourceTree = "<group>"; };
+		49D93A178857BD6683ACAE7D /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		65DAC4089234D2D508D06CCA /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		787545890AA67F7D60AD40AB /* RegexCleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexCleanup.swift; sourceTree = "<group>"; };
+		7B1227C135A42B94142B5CD5 /* FloatingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingWindow.swift; sourceTree = "<group>"; };
+		9697DB410257EF5D28BF62D7 /* TextInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInjector.swift; sourceTree = "<group>"; };
+		9A92908B09786C93D0FDE9C1 /* VoiceTypingMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceTypingMac.entitlements; sourceTree = "<group>"; };
+		9DE6617F7A974A4DB172E81A /* VoiceTypingMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceTypingMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABBC62EC258165EAACB4C229 /* VoiceTypingMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTypingMacApp.swift; sourceTree = "<group>"; };
+		BB6FB7A5D90051BBD6F0A772 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DC8566A556D1F45BC0E02340 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		F808760868295994BCE56643 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5CDCF9D368F17B52015FDAC8 /* VoiceTypingMac */ = {
+			isa = PBXGroup;
+			children = (
+				7B1227C135A42B94142B5CD5 /* FloatingWindow.swift */,
+				DC8566A556D1F45BC0E02340 /* HotkeyManager.swift */,
+				31F3CCCFC4494A0F25B85C69 /* Info.plist */,
+				3B5A446A1DEB64795D4A79C6 /* LLMFormatter.swift */,
+				F808760868295994BCE56643 /* Models.swift */,
+				787545890AA67F7D60AD40AB /* RegexCleanup.swift */,
+				65DAC4089234D2D508D06CCA /* Settings.swift */,
+				BB6FB7A5D90051BBD6F0A772 /* SettingsView.swift */,
+				49D93A178857BD6683ACAE7D /* SpeechManager.swift */,
+				9697DB410257EF5D28BF62D7 /* TextInjector.swift */,
+				9A92908B09786C93D0FDE9C1 /* VoiceTypingMac.entitlements */,
+				ABBC62EC258165EAACB4C229 /* VoiceTypingMacApp.swift */,
+			);
+			path = VoiceTypingMac;
+			sourceTree = "<group>";
+		};
+		642442269F44736183FE5D67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DE6617F7A974A4DB172E81A /* VoiceTypingMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F5C6B3D3306E5288A6BC600 = {
+			isa = PBXGroup;
+			children = (
+				5CDCF9D368F17B52015FDAC8 /* VoiceTypingMac */,
+				642442269F44736183FE5D67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1284EC8F5FA38FBAA12AB5 /* VoiceTypingMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9A136F9B98BC3E7C2524963 /* Build configuration list for PBXNativeTarget "VoiceTypingMac" */;
+			buildPhases = (
+				628085CB8E6D954EB105A7F5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoiceTypingMac;
+			packageProductDependencies = (
+			);
+			productName = VoiceTypingMac;
+			productReference = 9DE6617F7A974A4DB172E81A /* VoiceTypingMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E11755A4D2849CAF67A7362C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					8D1284EC8F5FA38FBAA12AB5 = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = B6A65FF017EE8853FD3BEB46 /* Build configuration list for PBXProject "VoiceTypingMac" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6F5C6B3D3306E5288A6BC600;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 642442269F44736183FE5D67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1284EC8F5FA38FBAA12AB5 /* VoiceTypingMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		628085CB8E6D954EB105A7F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37816EFD55B4DEF06EA798A2 /* FloatingWindow.swift in Sources */,
+				A44BB80272660C7768A0CBA3 /* HotkeyManager.swift in Sources */,
+				387E5874BD095975C41B37EA /* LLMFormatter.swift in Sources */,
+				F5E690CAC60B8387DA88D8A8 /* Models.swift in Sources */,
+				0AC14B10C8F6035FE5A99046 /* RegexCleanup.swift in Sources */,
+				C5386D8228D494ACEFD8641C /* Settings.swift in Sources */,
+				7CE210CE1A1BE6EAD6F0EF4E /* SettingsView.swift in Sources */,
+				D0EE19ADDE1B2FBED7DDBC1B /* SpeechManager.swift in Sources */,
+				75F8A210F185D8B840E94BED /* TextInjector.swift in Sources */,
+				E4D9161B904070D4F456FC9B /* VoiceTypingMacApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		42E3FBDE8DE5E5D7E9089D9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		5AFA06A54CEF80CBD121CDF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VoiceTypingMac/VoiceTypingMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VoiceTypingMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.voicetyping.mac;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B7619C04BDC3345480B724AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		C4E60F5FDE673CCCD6DB38AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VoiceTypingMac/VoiceTypingMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VoiceTypingMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.voicetyping.mac;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6A65FF017EE8853FD3BEB46 /* Build configuration list for PBXProject "VoiceTypingMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42E3FBDE8DE5E5D7E9089D9B /* Debug */,
+				B7619C04BDC3345480B724AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D9A136F9B98BC3E7C2524963 /* Build configuration list for PBXNativeTarget "VoiceTypingMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFA06A54CEF80CBD121CDF1 /* Debug */,
+				C4E60F5FDE673CCCD6DB38AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E11755A4D2849CAF67A7362C /* Project object */;
+}
