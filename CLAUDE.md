@@ -1,5 +1,9 @@
 # POSTCABINETS / ClaudeCode 運用（このリポジトリ）
 
+## 共有メモリ（Git管理）
+
+セッション横断のメモリは `.claude-memory/` に保存されている。新しいセッション開始時に `.claude-memory/MEMORY.md` を読んでプロジェクト状態を把握すること。
+
 ## Claude Code メモリ（要約）
 
 - **スコープ**: **POSTCABINETS** 全体のオペレーション。**COPAIN** はその中の案件の一つ（他と同列。DB 名も COPAIN 専用にしない）。
