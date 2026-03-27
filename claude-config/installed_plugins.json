@@ -1,0 +1,1395 @@
+{
+  "version": 2,
+  "plugins": {
+    "everything-claude-code@everything-claude-code": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/everything-claude-code/everything-claude-code/1.8.0",
+        "version": "1.8.0",
+        "installedAt": "2026-03-07T00:09:33.114Z",
+        "lastUpdated": "2026-03-07T00:09:33.114Z",
+        "gitCommitSha": "03b3e0d0da32e6c2239a8e0f8e25f2a4cf55513f"
+      }
+    ],
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/github/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-19T15:19:00.292Z",
+        "lastUpdated": "2026-03-25T09:36:40.351Z",
+        "gitCommitSha": "158ef95c6f7fc1b5629b5a915e2af2c07d15e237"
+      }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.6",
+        "version": "5.0.6",
+        "installedAt": "2026-03-24T23:33:26.851Z",
+        "lastUpdated": "2026-03-26T04:45:28.429Z",
+        "gitCommitSha": "8ea39819eed74fe2a0338e71789f06b30e953041"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:34:32.102Z",
+        "lastUpdated": "2026-03-24T23:34:32.114Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/frontend-design/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:43:00.654Z",
+        "lastUpdated": "2026-03-25T09:36:40.419Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "context7@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/context7/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:43:11.411Z",
+        "lastUpdated": "2026-03-25T09:36:40.331Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/ralph-loop/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:43:32.115Z",
+        "lastUpdated": "2026-03-25T09:36:40.453Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "playwright@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/playwright/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:43:44.936Z",
+        "lastUpdated": "2026-03-25T09:36:40.323Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:44:06.446Z",
+        "lastUpdated": "2026-03-25T09:36:40.479Z",
+        "gitCommitSha": "79caa0d824acb760fd9c023acb39c6c7da5ee7fc"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/figma/2.0.2",
+        "version": "2.0.2",
+        "installedAt": "2026-03-24T23:44:20.346Z",
+        "lastUpdated": "2026-03-24T23:44:20.346Z",
+        "gitCommitSha": "d5a23b08688169014e8ef1a45ca545847becffe2"
+      }
+    ],
+    "agent-sdk-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:21.334Z",
+        "lastUpdated": "2026-03-25T09:36:40.440Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "clangd-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:25.047Z",
+        "lastUpdated": "2026-03-24T23:48:25.047Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:27.026Z",
+        "lastUpdated": "2026-03-24T23:48:27.026Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/code-review/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:29.438Z",
+        "lastUpdated": "2026-03-25T09:36:40.408Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:31.467Z",
+        "lastUpdated": "2026-03-24T23:48:31.467Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/commit-commands/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:34.834Z",
+        "lastUpdated": "2026-03-25T09:36:40.425Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "csharp-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/csharp-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:38.979Z",
+        "lastUpdated": "2026-03-24T23:48:38.979Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "explanatory-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/explanatory-output-style/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:43.054Z",
+        "lastUpdated": "2026-03-25T09:36:40.430Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/feature-dev/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:44.780Z",
+        "lastUpdated": "2026-03-25T09:36:40.446Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "gopls-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:47.140Z",
+        "lastUpdated": "2026-03-24T23:48:47.140Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "hookify@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/hookify/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:48.997Z",
+        "lastUpdated": "2026-03-25T09:36:40.485Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "jdtls-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/jdtls-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:50.305Z",
+        "lastUpdated": "2026-03-24T23:48:50.305Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "kotlin-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/kotlin-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:53.207Z",
+        "lastUpdated": "2026-03-24T23:48:53.207Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "learning-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/learning-output-style/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:48:55.297Z",
+        "lastUpdated": "2026-03-25T09:36:40.435Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "lua-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/lua-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:48:58.573Z",
+        "lastUpdated": "2026-03-24T23:48:58.573Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "mcp-server-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/mcp-server-dev/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:04.081Z",
+        "lastUpdated": "2026-03-25T09:36:40.474Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "php-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/php-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:49:06.650Z",
+        "lastUpdated": "2026-03-24T23:49:06.650Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "playground@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/playground/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:08.216Z",
+        "lastUpdated": "2026-03-25T09:36:40.463Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "plugin-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/plugin-dev/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:10.080Z",
+        "lastUpdated": "2026-03-25T09:36:40.500Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:11.882Z",
+        "lastUpdated": "2026-03-25T09:36:40.458Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "pyright-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/pyright-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:49:14.799Z",
+        "lastUpdated": "2026-03-24T23:49:14.799Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "ruby-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/ruby-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:49:17.436Z",
+        "lastUpdated": "2026-03-24T23:49:17.436Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "rust-analyzer-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:49:19.683Z",
+        "lastUpdated": "2026-03-24T23:49:19.683Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "security-guidance@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/security-guidance/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:23.083Z",
+        "lastUpdated": "2026-03-25T09:36:40.414Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "swift-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:49:26.286Z",
+        "lastUpdated": "2026-03-24T23:49:26.286Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:49:29.565Z",
+        "lastUpdated": "2026-03-24T23:49:29.565Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "asana@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/asana/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:31.450Z",
+        "lastUpdated": "2026-03-25T09:36:40.382Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "discord@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/discord/0.0.4",
+        "version": "0.0.4",
+        "installedAt": "2026-03-24T23:49:34.006Z",
+        "lastUpdated": "2026-03-24T23:49:34.006Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "fakechat@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/fakechat/0.0.1",
+        "version": "0.0.1",
+        "installedAt": "2026-03-24T23:49:41.325Z",
+        "lastUpdated": "2026-03-24T23:49:41.325Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "firebase@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/firebase/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:43.465Z",
+        "lastUpdated": "2026-03-25T09:36:40.367Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "gitlab@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/gitlab/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:46.534Z",
+        "lastUpdated": "2026-03-25T09:36:40.360Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "greptile@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/greptile/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:48.365Z",
+        "lastUpdated": "2026-03-25T09:36:40.395Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "imessage@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/imessage/0.0.1",
+        "version": "0.0.1",
+        "installedAt": "2026-03-24T23:49:51.090Z",
+        "lastUpdated": "2026-03-24T23:49:51.090Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "laravel-boost@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/laravel-boost/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:53.317Z",
+        "lastUpdated": "2026-03-25T09:36:40.371Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "linear@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/linear/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:56.248Z",
+        "lastUpdated": "2026-03-25T09:36:40.401Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "serena@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/serena/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:49:57.970Z",
+        "lastUpdated": "2026-03-25T09:36:40.377Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/slack/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:50:03.406Z",
+        "lastUpdated": "2026-03-24T23:50:03.406Z",
+        "gitCommitSha": "7b9458950d38bb01ddb48b669f9fa89bcdfd98b8"
+      }
+    ],
+    "supabase@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/supabase/unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-24T23:50:06.087Z",
+        "lastUpdated": "2026-03-25T09:36:40.389Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "telegram@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-plugins-official/telegram/0.0.4",
+        "version": "0.0.4",
+        "installedAt": "2026-03-24T23:50:09.150Z",
+        "lastUpdated": "2026-03-24T23:50:09.150Z",
+        "gitCommitSha": "b10b583de281385442474e836644534b938b2678"
+      }
+    ],
+    "accessibility-compliance@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/accessibility-compliance/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:51:17.202Z",
+        "lastUpdated": "2026-03-24T23:51:17.202Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "agent-orchestration@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/agent-orchestration/1.2.1",
+        "version": "1.2.1",
+        "installedAt": "2026-03-24T23:51:19.327Z",
+        "lastUpdated": "2026-03-24T23:51:19.327Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "agent-teams@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/agent-teams/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-03-24T23:51:21.713Z",
+        "lastUpdated": "2026-03-24T23:51:21.713Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "api-scaffolding@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/api-scaffolding/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:51:26.802Z",
+        "lastUpdated": "2026-03-24T23:51:26.802Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "api-testing-observability@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/api-testing-observability/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:51:29.114Z",
+        "lastUpdated": "2026-03-24T23:51:29.114Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "application-performance@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/application-performance/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:51:32.140Z",
+        "lastUpdated": "2026-03-24T23:51:32.140Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "arm-cortex-microcontrollers@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/arm-cortex-microcontrollers/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:51:34.537Z",
+        "lastUpdated": "2026-03-24T23:51:34.537Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "backend-api-security@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/backend-api-security/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:51:38.218Z",
+        "lastUpdated": "2026-03-24T23:51:38.218Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "backend-development@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/backend-development/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-03-24T23:51:40.139Z",
+        "lastUpdated": "2026-03-24T23:51:40.139Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "blockchain-web3@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/blockchain-web3/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:51:44.269Z",
+        "lastUpdated": "2026-03-24T23:51:44.269Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "business-analytics@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/business-analytics/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:51:47.963Z",
+        "lastUpdated": "2026-03-24T23:51:47.963Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "c4-architecture@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/c4-architecture/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:51:57.219Z",
+        "lastUpdated": "2026-03-24T23:51:57.219Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "cicd-automation@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/cicd-automation/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:52:03.361Z",
+        "lastUpdated": "2026-03-24T23:52:03.361Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "cloud-infrastructure@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/cloud-infrastructure/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:52:07.340Z",
+        "lastUpdated": "2026-03-24T23:52:07.340Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "code-documentation@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/code-documentation/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:52:17.273Z",
+        "lastUpdated": "2026-03-24T23:52:17.273Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "code-refactoring@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/code-refactoring/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:52:34.326Z",
+        "lastUpdated": "2026-03-24T23:52:34.326Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "codebase-cleanup@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/codebase-cleanup/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:52:47.885Z",
+        "lastUpdated": "2026-03-24T23:52:47.885Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "comprehensive-review@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/comprehensive-review/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:52:57.315Z",
+        "lastUpdated": "2026-03-24T23:52:57.315Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "conductor@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/conductor/1.2.1",
+        "version": "1.2.1",
+        "installedAt": "2026-03-24T23:53:13.586Z",
+        "lastUpdated": "2026-03-24T23:53:13.586Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "content-marketing@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/content-marketing/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:20.991Z",
+        "lastUpdated": "2026-03-24T23:53:20.991Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "context-management@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/context-management/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:27.595Z",
+        "lastUpdated": "2026-03-24T23:53:27.595Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "customer-sales-automation@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/customer-sales-automation/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:32.432Z",
+        "lastUpdated": "2026-03-24T23:53:32.432Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "data-engineering@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/data-engineering/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-03-24T23:53:35.001Z",
+        "lastUpdated": "2026-03-24T23:53:35.001Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "data-validation-suite@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/data-validation-suite/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:37.158Z",
+        "lastUpdated": "2026-03-24T23:53:37.158Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "database-cloud-optimization@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/database-cloud-optimization/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:38.966Z",
+        "lastUpdated": "2026-03-24T23:53:38.966Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "database-design@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/database-design/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:40.579Z",
+        "lastUpdated": "2026-03-24T23:53:40.579Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "database-migrations@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/database-migrations/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:43.115Z",
+        "lastUpdated": "2026-03-24T23:53:43.115Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "debugging-toolkit@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/debugging-toolkit/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:45.152Z",
+        "lastUpdated": "2026-03-24T23:53:45.152Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "dependency-management@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/dependency-management/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:46.915Z",
+        "lastUpdated": "2026-03-24T23:53:46.915Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "deployment-strategies@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/deployment-strategies/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:48.893Z",
+        "lastUpdated": "2026-03-24T23:53:48.893Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "deployment-validation@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/deployment-validation/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:50.731Z",
+        "lastUpdated": "2026-03-24T23:53:50.731Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "developer-essentials@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/developer-essentials/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-03-24T23:53:52.127Z",
+        "lastUpdated": "2026-03-24T23:53:52.127Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "distributed-debugging@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/distributed-debugging/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:54.173Z",
+        "lastUpdated": "2026-03-24T23:53:54.173Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "documentation-generation@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/documentation-generation/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:53:55.330Z",
+        "lastUpdated": "2026-03-24T23:53:55.330Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "dotnet-contribution@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/dotnet-contribution/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-03-24T23:53:56.722Z",
+        "lastUpdated": "2026-03-24T23:53:56.722Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "error-debugging@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/error-debugging/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:53:58.446Z",
+        "lastUpdated": "2026-03-24T23:53:58.446Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "error-diagnostics@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/error-diagnostics/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:54:00.963Z",
+        "lastUpdated": "2026-03-24T23:54:00.963Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "framework-migration@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/framework-migration/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-03-24T23:54:04.990Z",
+        "lastUpdated": "2026-03-24T23:54:04.990Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "frontend-mobile-development@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/frontend-mobile-development/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:54:08.049Z",
+        "lastUpdated": "2026-03-24T23:54:08.049Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "frontend-mobile-security@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/frontend-mobile-security/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:54:11.403Z",
+        "lastUpdated": "2026-03-24T23:54:11.403Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "full-stack-orchestration@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/full-stack-orchestration/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:54:13.350Z",
+        "lastUpdated": "2026-03-24T23:54:13.350Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "functional-programming@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/functional-programming/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:54:15.403Z",
+        "lastUpdated": "2026-03-24T23:54:15.403Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "game-development@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/game-development/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:54:19.054Z",
+        "lastUpdated": "2026-03-24T23:54:19.054Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "git-pr-workflows@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/git-pr-workflows/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:54:21.785Z",
+        "lastUpdated": "2026-03-24T23:54:21.785Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "hr-legal-compliance@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/hr-legal-compliance/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:54:24.883Z",
+        "lastUpdated": "2026-03-24T23:54:24.883Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "incident-response@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/incident-response/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-03-24T23:54:27.077Z",
+        "lastUpdated": "2026-03-24T23:54:27.077Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "javascript-typescript@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/javascript-typescript/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:54:29.400Z",
+        "lastUpdated": "2026-03-24T23:54:29.400Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "julia-development@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/julia-development/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:54:32.955Z",
+        "lastUpdated": "2026-03-24T23:54:32.955Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "jvm-languages@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/jvm-languages/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:54:39.688Z",
+        "lastUpdated": "2026-03-24T23:54:39.688Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "kubernetes-operations@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/kubernetes-operations/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:54:46.517Z",
+        "lastUpdated": "2026-03-24T23:54:46.517Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "llm-application-dev@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/llm-application-dev/2.0.5",
+        "version": "2.0.5",
+        "installedAt": "2026-03-24T23:54:50.866Z",
+        "lastUpdated": "2026-03-24T23:54:50.866Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "machine-learning-ops@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/machine-learning-ops/1.2.1",
+        "version": "1.2.1",
+        "installedAt": "2026-03-24T23:54:55.558Z",
+        "lastUpdated": "2026-03-24T23:54:55.558Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "meigen-ai-design@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/meigen-ai-design/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:55:01.146Z",
+        "lastUpdated": "2026-03-24T23:55:01.146Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "multi-platform-apps@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/multi-platform-apps/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:55:07.682Z",
+        "lastUpdated": "2026-03-24T23:55:07.682Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "observability-monitoring@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/observability-monitoring/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:55:16.445Z",
+        "lastUpdated": "2026-03-24T23:55:16.445Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "payment-processing@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/payment-processing/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:55:21.188Z",
+        "lastUpdated": "2026-03-24T23:55:21.188Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "performance-testing-review@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/performance-testing-review/1.2.1",
+        "version": "1.2.1",
+        "installedAt": "2026-03-24T23:55:24.214Z",
+        "lastUpdated": "2026-03-24T23:55:24.214Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "python-development@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/python-development/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:55:26.796Z",
+        "lastUpdated": "2026-03-24T23:55:26.796Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "quantitative-trading@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/quantitative-trading/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:55:28.934Z",
+        "lastUpdated": "2026-03-24T23:55:28.934Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "reverse-engineering@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/reverse-engineering/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T23:55:31.413Z",
+        "lastUpdated": "2026-03-24T23:55:31.413Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "security-compliance@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/security-compliance/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:55:34.622Z",
+        "lastUpdated": "2026-03-24T23:55:34.622Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "security-scanning@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/security-scanning/1.3.1",
+        "version": "1.3.1",
+        "installedAt": "2026-03-24T23:55:38.522Z",
+        "lastUpdated": "2026-03-24T23:55:38.522Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "seo-analysis-monitoring@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/seo-analysis-monitoring/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:55:41.383Z",
+        "lastUpdated": "2026-03-24T23:55:41.383Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "seo-content-creation@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/seo-content-creation/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:55:44.167Z",
+        "lastUpdated": "2026-03-24T23:55:44.167Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "seo-technical-optimization@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/seo-technical-optimization/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:55:46.333Z",
+        "lastUpdated": "2026-03-24T23:55:46.333Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "shell-scripting@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/shell-scripting/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:55:48.599Z",
+        "lastUpdated": "2026-03-24T23:55:48.599Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "startup-business-analyst@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/startup-business-analyst/1.0.5",
+        "version": "1.0.5",
+        "installedAt": "2026-03-24T23:55:51.208Z",
+        "lastUpdated": "2026-03-24T23:55:51.208Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "systems-programming@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/systems-programming/1.2.2",
+        "version": "1.2.2",
+        "installedAt": "2026-03-24T23:55:53.271Z",
+        "lastUpdated": "2026-03-24T23:55:53.271Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "tdd-workflows@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/tdd-workflows/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-03-24T23:55:56.692Z",
+        "lastUpdated": "2026-03-24T23:55:56.692Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "team-collaboration@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/team-collaboration/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:56:04.141Z",
+        "lastUpdated": "2026-03-24T23:56:04.141Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "ui-design@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/ui-design/1.0.3",
+        "version": "1.0.3",
+        "installedAt": "2026-03-24T23:56:07.555Z",
+        "lastUpdated": "2026-03-24T23:56:07.555Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "unit-testing@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/unit-testing/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:56:11.503Z",
+        "lastUpdated": "2026-03-24T23:56:11.503Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "web-scripting@claude-code-workflows": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-workflows/web-scripting/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-24T23:56:15.092Z",
+        "lastUpdated": "2026-03-24T23:56:15.092Z",
+        "gitCommitSha": "1ad2f007d5e9ec822a2d79e727ac1dcdf5f66f11"
+      }
+    ],
+    "sales@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/sales/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:19.143Z",
+        "lastUpdated": "2026-03-25T00:08:19.143Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "marketing@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/marketing/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:20.711Z",
+        "lastUpdated": "2026-03-25T00:08:20.711Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "finance@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/finance/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:22.151Z",
+        "lastUpdated": "2026-03-25T00:08:22.151Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "product-management@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/product-management/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:23.198Z",
+        "lastUpdated": "2026-03-25T00:08:23.198Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "productivity@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/productivity/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:24.778Z",
+        "lastUpdated": "2026-03-25T00:08:24.778Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "enterprise-search@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/enterprise-search/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:26.477Z",
+        "lastUpdated": "2026-03-25T00:08:26.477Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "customer-support@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/customer-support/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:27.554Z",
+        "lastUpdated": "2026-03-25T00:08:27.554Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "human-resources@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/human-resources/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:28.590Z",
+        "lastUpdated": "2026-03-25T00:08:28.590Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "legal@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/legal/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:29.546Z",
+        "lastUpdated": "2026-03-25T00:08:29.546Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "operations@knowledge-work-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/knowledge-work-plugins/operations/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-25T00:08:30.641Z",
+        "lastUpdated": "2026-03-25T00:08:30.641Z",
+        "gitCommitSha": "d2ba7f65cec6502f048286b432dfee2ae59bfdff"
+      }
+    ],
+    "c-level-skills@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/c-level-skills/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:16.062Z",
+        "lastUpdated": "2026-03-25T00:09:16.062Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ],
+    "business-growth-skills@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/business-growth-skills/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:18.507Z",
+        "lastUpdated": "2026-03-25T00:09:18.507Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ],
+    "marketing-skills@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/marketing-skills/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:20.019Z",
+        "lastUpdated": "2026-03-25T00:09:20.019Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ],
+    "finance-skills@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/finance-skills/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:21.242Z",
+        "lastUpdated": "2026-03-25T00:09:21.242Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ],
+    "pm-skills@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/pm-skills/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:23.220Z",
+        "lastUpdated": "2026-03-25T00:09:23.220Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ],
+    "product-skills@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/product-skills/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:28.149Z",
+        "lastUpdated": "2026-03-25T00:09:28.149Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ],
+    "executive-mentor@claude-code-skills": [
+      {
+        "scope": "user",
+        "installPath": "/Users/apple/.claude/plugins/cache/claude-code-skills/executive-mentor/2.1.2",
+        "version": "2.1.2",
+        "installedAt": "2026-03-25T00:09:31.484Z",
+        "lastUpdated": "2026-03-25T00:09:31.484Z",
+        "gitCommitSha": "17228eff68e215404c25de5ca671f50aa5d46170"
+      }
+    ]
+  }
+}

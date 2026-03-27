@@ -17,3 +17,6 @@ logs/
 remote-app/icon-*.png
 remote-app/icon.svg
 remote-app/gen-icons.sh
+
+# claude-config: シークレットは含めない（テンプレートのみ）
+claude-config/settings.local.json

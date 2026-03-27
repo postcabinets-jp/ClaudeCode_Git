@@ -1,0 +1,38 @@
+{
+  "0155678efff3": {
+    "name": "claude for me",
+    "root": "/Users/apple/claude for me",
+    "remote": "",
+    "last_seen": "2026-03-27T00:45:38.054461Z"
+  },
+  "4e4dab115fb1": {
+    "name": "videoforge",
+    "root": "/Users/apple/POSTCABINETS.co-ltd/videoforge",
+    "remote": "",
+    "last_seen": "2026-03-26T15:06:54.529634Z"
+  },
+  "64c374b27625": {
+    "name": "remote-app",
+    "root": "/Users/apple/claude for me/remote-app",
+    "remote": "",
+    "last_seen": "2026-03-26T23:22:03.381892Z"
+  },
+  "b57616d156c8": {
+    "name": "ScreenRecorder",
+    "root": "/Users/apple/claude for me/ScreenRecorder",
+    "remote": "",
+    "last_seen": "2026-03-27T00:05:10.425268Z"
+  },
+  "250735729f2d": {
+    "name": "claude for me",
+    "root": "/Users/apple/claude for me",
+    "remote": "git@github.com:postcabinets-jp/ClaudeCode_Git.git",
+    "last_seen": "2026-03-27T00:48:42.607485Z"
+  },
+  "fdba39e74be7": {
+    "name": "claude for me",
+    "root": "/Users/apple/claude for me",
+    "remote": "git@github.com-postcabinets:postcabinets-jp/ClaudeCode_Git.git",
+    "last_seen": "2026-03-27T00:49:16.722927Z"
+  }
+}

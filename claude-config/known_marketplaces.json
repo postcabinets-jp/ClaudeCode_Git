@@ -1,0 +1,42 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/apple/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-03-27T00:47:54.241Z"
+  },
+  "everything-claude-code": {
+    "source": {
+      "source": "directory",
+      "path": "/Users/apple/everything-claude-code"
+    },
+    "installLocation": "/Users/apple/everything-claude-code",
+    "lastUpdated": "2026-03-07T00:09:28.402Z"
+  },
+  "claude-code-workflows": {
+    "source": {
+      "source": "github",
+      "repo": "wshobson/agents"
+    },
+    "installLocation": "/Users/apple/.claude/plugins/marketplaces/claude-code-workflows",
+    "lastUpdated": "2026-03-24T23:50:59.192Z"
+  },
+  "knowledge-work-plugins": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/knowledge-work-plugins"
+    },
+    "installLocation": "/Users/apple/.claude/plugins/marketplaces/knowledge-work-plugins",
+    "lastUpdated": "2026-03-25T00:08:09.913Z"
+  },
+  "claude-code-skills": {
+    "source": {
+      "source": "github",
+      "repo": "alirezarezvani/claude-skills"
+    },
+    "installLocation": "/Users/apple/.claude/plugins/marketplaces/claude-code-skills",
+    "lastUpdated": "2026-03-25T00:08:44.012Z"
+  }
+}
