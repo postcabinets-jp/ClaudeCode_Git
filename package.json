@@ -11,9 +11,15 @@
     "pulse:discord": "node scripts/notion-pulse.mjs",
     "discord:test": "node scripts/discord-webhook-test.mjs",
     "bootstrap": "npm run notion:verify && npm run notion:hub && npm run notion:seed && npm run discord:test",
+    "notion:sessions:init": "node scripts/notion-sessions-db.mjs",
+    "session:log": "node scripts/session-log.mjs",
     "browser:install": "playwright install chromium",
     "browser:daemon": "node scripts/browser-daemon.mjs",
     "weekly:review": "node scripts/weekly-review.mjs",
+    "kokkai:fetch": "node scripts/kokkai-fetch.mjs",
+    "kokkai:fetch:week": "node scripts/kokkai-fetch.mjs --days 7",
+    "kokkai:sync": "node scripts/kokkai-sync.mjs",
+    "kokkai:sync:dry": "node scripts/kokkai-sync.mjs --dry-run",
     "loop:morning": "node scripts/autonomous-loop.mjs morning",
     "loop:sync": "node scripts/autonomous-loop.mjs sync",
     "loop:weekly": "node scripts/autonomous-loop.mjs weekly",
@@ -26,6 +32,7 @@
     "remote:status": "echo 'Launcher: http://'$(tailscale ip -4)':7680' && echo 'Terminal: http://'$(tailscale ip -4)':7681'"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
     "playwright": "^1.51.0"
   },
   "engines": {
