@@ -30,6 +30,7 @@ def test_post_project_returns_201():
 
     assert response.status_code == 201
     assert "id" in response.json()
+    assert "requirements" in response.json()
 
 
 def test_get_matches_returns_top3():
