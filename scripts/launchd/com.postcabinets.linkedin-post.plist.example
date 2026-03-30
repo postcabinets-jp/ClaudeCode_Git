@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.postcabinets.linkedin-post</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
+    <string>/Users/apple/claude for me/scripts/linkedin-post.mjs</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/apple/claude for me</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+  <!-- 15分ごとに実行（900秒） -->
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <key>StandardOutPath</key>
+  <string>/tmp/linkedin-post.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/linkedin-post.err</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

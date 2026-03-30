@@ -31,7 +31,11 @@
     "remote:start": "node remote-app/server.mjs",
     "remote:status": "echo 'Launcher: http://'$(tailscale ip -4)':7680' && echo 'Terminal: http://'$(tailscale ip -4)':7681'",
     "notion:extract-tasks": "node scripts/notion-extract-tasks.mjs",
-    "notion:nightly-scan": "node scripts/notion-nightly-scan.mjs"
+    "notion:nightly-scan": "node scripts/notion-nightly-scan.mjs",
+    "linkedin:setup-notion": "node scripts/linkedin-setup-notion.mjs",
+    "linkedin:setup": "node scripts/linkedin-setup.mjs",
+    "linkedin:generate": "node scripts/linkedin-generate.mjs",
+    "linkedin:post": "node scripts/linkedin-post.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",

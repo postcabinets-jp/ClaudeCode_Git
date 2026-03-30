@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.postcabinets.linkedin-generate</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
+    <string>/Users/apple/claude for me/scripts/linkedin-generate.mjs</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/apple/claude for me</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+  <!-- 毎朝 7:00 に実行（日曜はスクリプト側でスキップ） -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>7</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/tmp/linkedin-generate.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/linkedin-generate.err</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
