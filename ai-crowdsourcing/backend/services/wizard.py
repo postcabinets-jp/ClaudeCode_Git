@@ -5,12 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-_api_key = os.environ.get("OPENAI_API_KEY")
-if not _api_key:
-    raise ValueError("OPENAI_API_KEY が設定されていません。")
-
-_openai = OpenAI(api_key=_api_key)
-
 TASK_SCHEMAS: dict[str, list[str]] = {
     "sns_post": ["platform", "tone", "deliverables", "character_limit", "hashtag_policy"],
     "document": ["format", "pages", "target_audience", "deliverables", "style"],
@@ -19,25 +13,53 @@ TASK_SCHEMAS: dict[str, list[str]] = {
     "other": ["deliverables", "acceptance_criteria", "communication_style"],
 }
 
+RAW_INPUT_MAX_LEN = 4000
+
+
+def _get_client() -> OpenAI:
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        raise ValueError("OPENAI_API_KEY が設定されていません。")
+    return OpenAI(api_key=key)
+
 
 def structure_requirements(task_type: str, raw_input: str) -> dict:
     """
     発注者の自然言語入力をタスク種別に応じた構造化JSONに変換する。
     未記載のフィールドはAIが業界標準から補完する。
     """
-    fields = TASK_SCHEMAS.get(task_type, TASK_SCHEMAS["other"])
-    prompt = (
-        f"あなたはクラウドソーシングプラットフォームの要件定義AIです。\n"
-        f"発注者の入力を解析し、以下のフィールドを含むJSONを返してください。\n"
-        f"未記載のフィールドは業界標準の推奨値で補完してください。\n\n"
-        f"タスク種別: {task_type}\n"
-        f"必須フィールド: {fields}\n"
-        f"発注者の入力: {raw_input}\n\n"
-        f"JSONのみ返してください。説明文は不要です。"
-    )
-    response = _openai.chat.completions.create(
+    if task_type not in TASK_SCHEMAS:
+        raise ValueError(f"不明なタスク種別: {task_type!r}")
+    if len(raw_input) > RAW_INPUT_MAX_LEN:
+        raise ValueError(f"入力が長すぎます（上限: {RAW_INPUT_MAX_LEN}文字）")
+
+    fields = TASK_SCHEMAS[task_type]
+    client = _get_client()
+    response = client.chat.completions.create(
         model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
+        messages=[
+            {
+                "role": "system",
+                "content": (
+                    "あなたはクラウドソーシングプラットフォームの要件定義AIです。\n"
+                    f"タスク種別: {task_type}\n"
+                    f"必須フィールド: {fields}\n"
+                    "発注者の入力を解析し、指定フィールドを含むJSONのみ返してください。"
+                    "未記載のフィールドは業界標準の推奨値で補完してください。"
+                ),
+            },
+            {
+                "role": "user",
+                "content": raw_input,
+            },
+        ],
         response_format={"type": "json_object"},
     )
-    return json.loads(response.choices[0].message.content)
+
+    content = response.choices[0].message.content
+    if not content:
+        raise ValueError("OpenAI から空のレスポンスが返されました。")
+    try:
+        return json.loads(content)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"OpenAI レスポンスのJSON解析に失敗: {e}") from e
