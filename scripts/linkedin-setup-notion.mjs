@@ -1,3 +1,5 @@
+import { appendFileSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import { notionFetch } from "./lib/notion.mjs";
 
@@ -39,6 +41,17 @@ const res = await notionFetch("/v1/databases", token, {
     },
   }),
 });
+
+// .envに LINKEDIN_DB_ID を追記（既に存在する場合はスキップ）
+const root = projectRoot();
+const envPath = resolve(root, ".env");
+const envContent = readFileSync(envPath, "utf8");
+if (!envContent.includes("LINKEDIN_DB_ID=")) {
+  appendFileSync(envPath, `\nLINKEDIN_DB_ID=${res.id}\n`);
+  console.log(".envにLINKEDIN_DB_IDを追記しました");
+} else {
+  console.log("LINKEDIN_DB_IDは既に.envに存在します");
+}
 
 console.log("DB作成完了:", res.id);
 console.log("LINKEDIN_DB_ID=" + res.id);
