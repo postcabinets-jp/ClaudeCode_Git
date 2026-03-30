@@ -4,8 +4,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# モジュールレベルでインスタンス化（テストでモック可能）
-_openai = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "dummy-key-for-testing"))
+_api_key = os.environ.get("OPENAI_API_KEY")
+if not _api_key:
+    raise ValueError(
+        "OPENAI_API_KEY が設定されていません。.env ファイルを確認してください。"
+    )
+
+_openai = OpenAI(api_key=_api_key)
 
 
 def generate_embedding(text: str) -> list[float]:
