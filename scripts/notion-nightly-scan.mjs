@@ -23,6 +23,31 @@ if (!existsSync(hubPath)) { console.error(".notion-hub.json がありません")
 const hub = JSON.parse(readFileSync(hubPath, "utf8"));
 const tasksDbId = hub.databases?.tasks?.id;
 if (!tasksDbId) { console.error("tasks DB ID が .notion-hub.json にありません"); process.exit(1); }
+const sessionsDbId = hub.databases?.sessions?.id;
+
+/** Sessions DB に実行ログを記録する */
+async function logToSessions(token, sessionsDbId, dateLabel, jstDate, summary) {
+  if (!sessionsDbId) return;
+  const { notionFetch } = await import("./lib/notion.mjs");
+  const isoDate = new Date(jstDate).toISOString().slice(0, 10);
+  try {
+    await notionFetch("/v1/pages", token, {
+      method: "POST",
+      body: JSON.stringify({
+        parent: { database_id: sessionsDbId },
+        properties: {
+          Title: { title: [{ type: "text", text: { content: `[nightly-scan] ${dateLabel}` } }] },
+          Date: { date: { start: isoDate } },
+          Conclusion: { rich_text: [{ type: "text", text: { content: summary } }] },
+          ConclusionType: { select: { name: "自動実行" } },
+        },
+      }),
+    });
+    console.log("[nightly-scan] Sessions DB に記録しました");
+  } catch (err) {
+    console.error("[nightly-scan] Sessions DB への記録失敗:", err.message);
+  }
+}
 
 // 昨日の日付（JST）
 const jst = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
@@ -35,10 +60,10 @@ const page = await findThoughtNotePage(token, yesterday);
 if (!page) { console.log(`[nightly-scan] 思考ノートなし: ${yesterday} → スキップ`); process.exit(0); }
 
 const toggleText = await getClaudeTasksToggleText(token, page.id);
-if (!toggleText.trim()) { console.log("[nightly-scan] Claudeトグルなし → スキップ"); process.exit(0); }
+if (!toggleText.trim()) { console.log("[nightly-scan] Claudeトグルなし → スキップ"); await logToSessions(token, sessionsDbId, yesterday, jst, "Claudeトグルなし"); process.exit(0); }
 
 const tasks = await extractTasks(toggleText);
-if (tasks.length === 0) { console.log("[nightly-scan] 抽出タスクなし → スキップ"); process.exit(0); }
+if (tasks.length === 0) { console.log("[nightly-scan] 抽出タスクなし → スキップ"); await logToSessions(token, sessionsDbId, yesterday, jst, "抽出タスクなし"); process.exit(0); }
 
 let created = 0;
 const createdTitles = [];
@@ -64,3 +89,9 @@ if (created > 0 && webhook) {
   });
   console.log(res.ok ? "[nightly-scan] Discord通知送信済み" : `[nightly-scan] Discord通知失敗: ${res.status}`);
 }
+
+// Sessions DB にログを記録
+const summary = created > 0
+  ? `${created}件登録: ${createdTitles.map(t => t.replace(/^• /, "")).join(" / ")}`
+  : "タスクなし";
+await logToSessions(token, sessionsDbId, yesterday, jst, summary);
