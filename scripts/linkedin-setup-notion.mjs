@@ -1,11 +1,20 @@
 import { appendFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
-import { notionFetch } from "./lib/notion.mjs";
+import { notionFetch, normalizeNotionId } from "./lib/notion.mjs";
 
-loadDotEnv(projectRoot());
+const root = projectRoot();
+loadDotEnv(root);
+
 const token = process.env.NOTION_TOKEN;
-const LINKEDIN_PAGE_ID = "3339bf08-eefd-8165-9638-fcd36a6fee37";
+if (!token) {
+  console.error("NOTION_TOKEN が未設定です。.env を確認してください。");
+  process.exit(1);
+}
+
+const LINKEDIN_PAGE_ID = normalizeNotionId(
+  process.env.LINKEDIN_PARENT_PAGE_ID ?? "3339bf08-eefd-8165-9638-fcd36a6fee37"
+);
 
 const res = await notionFetch("/v1/databases", token, {
   method: "POST",
@@ -43,7 +52,6 @@ const res = await notionFetch("/v1/databases", token, {
 });
 
 // .envに LINKEDIN_DB_ID を追記（既に存在する場合はスキップ）
-const root = projectRoot();
 const envPath = resolve(root, ".env");
 const envContent = readFileSync(envPath, "utf8");
 if (!envContent.includes("LINKEDIN_DB_ID=")) {
