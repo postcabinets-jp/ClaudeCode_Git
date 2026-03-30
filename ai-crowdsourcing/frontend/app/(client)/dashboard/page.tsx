@@ -1,5 +1,4 @@
 import { ProjectBoard } from '@/components/client/ProjectBoard'
-import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 
 const MOCK_PROJECTS = [
@@ -13,7 +12,7 @@ export default function DashboardPage() {
     <main className="max-w-5xl mx-auto p-6 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">進行中の案件</h1>
-        <Link href="/post" className={buttonVariants()}>＋ 新しく発注する</Link>
+        <Link href="/post" className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90">＋ 新しく発注する</Link>
       </div>
       <ProjectBoard projects={MOCK_PROJECTS} />
     </main>
