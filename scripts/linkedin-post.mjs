@@ -30,6 +30,22 @@ if (drafts.length === 0) {
 const draft = drafts[0];
 console.log("投稿対象:", draft.title);
 
+// 本文チェック
+if (!draft.body || draft.body.trim() === "") {
+  console.error("投稿本文が空です。投稿をスキップします:", draft.title);
+  await updatePostStatus(draft.id, token, { status: "エラー" }).catch(() => {});
+  if (webhook) {
+    await fetch(webhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `❌ LinkedIn自動投稿エラー: 投稿本文が空です\n対象: ${draft.title}`,
+      }),
+    }).catch((e) => console.error("Discord通知失敗:", e.message));
+  }
+  process.exit(1);
+}
+
 let browser;
 try {
   const { browser: b, context } = await launchWithSession();
@@ -63,15 +79,24 @@ try {
     linkedInUrl,
   });
 
-  console.log("投稿完了:", linkedInUrl);
+  const fallbackUrl = "https://www.linkedin.com/feed/";
+  if (linkedInUrl && linkedInUrl !== fallbackUrl) {
+    console.log("投稿完了:", linkedInUrl);
+  } else {
+    console.log("投稿完了（URL取得失敗）");
+  }
 
   // Discord通知
   if (webhook) {
+    const urlLine =
+      linkedInUrl && linkedInUrl !== fallbackUrl
+        ? `\n🔗 ${linkedInUrl}`
+        : "\n🔗 URL取得失敗（投稿は成功した可能性があります）";
     await fetch(webhook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `✅ LinkedInに投稿しました\nタイトル: ${draft.title}\n🔗 ${linkedInUrl}`,
+        content: `✅ LinkedInに投稿しました\nタイトル: ${draft.title}${urlLine}`,
       }),
     }).catch((e) => console.error("Discord通知失敗:", e.message));
   }
