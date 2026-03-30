@@ -29,7 +29,9 @@
     "ttyd:stop": "pkill -f ttyd",
     "ttyd:status": "pgrep -fl ttyd && echo 'URL: http://'$(tailscale ip -4)':7681' || echo 'ttyd is not running'",
     "remote:start": "node remote-app/server.mjs",
-    "remote:status": "echo 'Launcher: http://'$(tailscale ip -4)':7680' && echo 'Terminal: http://'$(tailscale ip -4)':7681'"
+    "remote:status": "echo 'Launcher: http://'$(tailscale ip -4)':7680' && echo 'Terminal: http://'$(tailscale ip -4)':7681'",
+    "notion:extract-tasks": "node scripts/notion-extract-tasks.mjs",
+    "notion:nightly-scan": "node scripts/notion-nightly-scan.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
