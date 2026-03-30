@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import projects, matching
+from routers import projects, matching, payments
 
 app = FastAPI(title="AI Crowdsourcing API", version="0.1.0")
 
@@ -14,6 +14,7 @@ app.add_middleware(
 
 app.include_router(projects.router)
 app.include_router(matching.router)
+app.include_router(payments.router)
 
 @app.get("/health")
 def health():
