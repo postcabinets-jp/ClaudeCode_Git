@@ -43,8 +43,9 @@ def test_generate_embedding_is_mocked():
     mock_response = MagicMock()
     mock_response.data = [MagicMock(embedding=[0.1] * 1536)]
 
-    with patch("services.embedding._openai") as mock_openai:
-        mock_openai.embeddings.create.return_value = mock_response
+    with patch("services.embedding._get_client") as mock_get_client:
+        mock_get_client.return_value = MagicMock()
+        mock_get_client.return_value.embeddings.create.return_value = mock_response
         from services.embedding import generate_embedding
         result = generate_embedding("テストテキスト")
 
