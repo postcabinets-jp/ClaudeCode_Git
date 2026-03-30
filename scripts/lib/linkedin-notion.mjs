@@ -36,20 +36,26 @@ export async function getRecentTitles(dbId, token, limit = 5) {
 
 /**
  * 未投稿（投稿OKなし・ステータス=下書き）の件数を返す
+ * @throws {Error} Notion API がエラーを返した場合
  */
 export async function countPendingDrafts(dbId, token) {
-  const res = await notionFetch(`/v1/databases/${dbId}/query`, token, {
-    method: "POST",
-    body: JSON.stringify({
-      filter: {
-        and: [
-          { property: "投稿OK", checkbox: { equals: false } },
-          { property: "ステータス", select: { equals: "下書き" } },
-        ],
-      },
-    }),
-  });
-  return res.results.length;
+  const filter = {
+    and: [
+      { property: "投稿OK", checkbox: { equals: false } },
+      { property: "ステータス", select: { equals: "下書き" } },
+    ],
+  };
+  let count = 0;
+  let cursor;
+  do {
+    const res = await notionFetch(`/v1/databases/${dbId}/query`, token, {
+      method: "POST",
+      body: JSON.stringify({ filter, ...(cursor ? { start_cursor: cursor } : {}) }),
+    });
+    count += res.results.length;
+    cursor = res.has_more ? res.next_cursor : undefined;
+  } while (cursor);
+  return count;
 }
 
 /**
@@ -73,21 +79,27 @@ export async function createDraft(dbId, token, { title, body, pillar }) {
 
 /**
  * 投稿OK=true かつ ステータス=下書き のページを生成日の古い順に取得
+ * @throws {Error} Notion API がエラーを返した場合
  */
 export async function getApprovedDrafts(dbId, token) {
-  const res = await notionFetch(`/v1/databases/${dbId}/query`, token, {
-    method: "POST",
-    body: JSON.stringify({
-      filter: {
-        and: [
-          { property: "投稿OK", checkbox: { equals: true } },
-          { property: "ステータス", select: { equals: "下書き" } },
-        ],
-      },
-      sorts: [{ property: "生成日", direction: "ascending" }],
-    }),
-  });
-  return res.results.map((p) => ({
+  const filter = {
+    and: [
+      { property: "投稿OK", checkbox: { equals: true } },
+      { property: "ステータス", select: { equals: "下書き" } },
+    ],
+  };
+  const sorts = [{ property: "生成日", direction: "ascending" }];
+  const pages = [];
+  let cursor;
+  do {
+    const res = await notionFetch(`/v1/databases/${dbId}/query`, token, {
+      method: "POST",
+      body: JSON.stringify({ filter, sorts, ...(cursor ? { start_cursor: cursor } : {}) }),
+    });
+    pages.push(...res.results);
+    cursor = res.has_more ? res.next_cursor : undefined;
+  } while (cursor);
+  return pages.map((p) => ({
     id: p.id,
     url: p.url,
     title: p.properties.タイトル?.title?.[0]?.plain_text ?? "",
