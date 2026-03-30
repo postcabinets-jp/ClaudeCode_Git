@@ -45,7 +45,7 @@ if (pendingCount >= 3) {
       body: JSON.stringify({
         content: `⏭️ LinkedIn投稿生成をスキップ\n未確認の下書きが${pendingCount}件あります。Notionで確認・承認してください。`,
       }),
-    });
+    }).catch((e) => console.error("Discord通知失敗:", e.message));
   }
   process.exit(0);
 }
@@ -114,7 +114,7 @@ ${strategyDoc}`,
           body: JSON.stringify({
             content: `❌ LinkedIn投稿生成に失敗しました\nエラー: ${err.message}`,
           }),
-        });
+        }).catch((e) => console.error("Discord通知失敗:", e.message));
       }
       process.exit(1);
     }
@@ -122,11 +122,26 @@ ${strategyDoc}`,
 }
 
 // Notionに保存
-const page = await createDraft(dbId, token, {
-  title: result.title,
-  body: result.body,
-  pillar,
-});
+let page;
+try {
+  page = await createDraft(dbId, token, {
+    title: result.title,
+    body: result.body,
+    pillar,
+  });
+} catch (err) {
+  console.error("Notion保存失敗:", err.message);
+  if (webhook) {
+    await fetch(webhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `❌ LinkedIn投稿のNotion保存に失敗しました\nエラー: ${err.message}`,
+      }),
+    }).catch((e) => console.error("Discord通知失敗:", e.message));
+  }
+  process.exit(1);
+}
 
 console.log("下書きを作成しました:", result.title);
 
@@ -138,5 +153,5 @@ if (webhook) {
     body: JSON.stringify({
       content: `📝 LinkedIn投稿下書きを作成しました\nタイトル: ${result.title}\n柱: ${pillar}\n→ Notionで確認・編集して「投稿OK」をチェックしてください\n🔗 ${page.url}`,
     }),
-  });
+  }).catch((e) => console.error("Discord通知失敗:", e.message));
 }
