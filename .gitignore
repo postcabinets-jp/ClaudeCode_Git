@@ -20,3 +20,6 @@ remote-app/gen-icons.sh
 
 # claude-config: シークレットは含めない（テンプレートのみ）
 claude-config/settings.local.json
+
+# LinkedIn session state (sensitive)
+.linkedin-session.json
