@@ -35,7 +35,10 @@
     "linkedin:setup-notion": "node scripts/linkedin-setup-notion.mjs",
     "linkedin:setup": "node scripts/linkedin-setup.mjs",
     "linkedin:generate": "node scripts/linkedin-generate.mjs",
-    "linkedin:post": "node scripts/linkedin-post.mjs"
+    "linkedin:post": "node scripts/linkedin-post.mjs",
+    "linear:setup": "node scripts/linear-setup.mjs",
+    "linear:loop": "node scripts/linear-agent-loop.mjs",
+    "linear:morning": "node scripts/linear-morning-summary.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
