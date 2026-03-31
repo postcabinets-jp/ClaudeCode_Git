@@ -10,7 +10,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import Anthropic from "@anthropic-ai/sdk";
+import { execFileSync } from "node:child_process";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import { createLinearClient, createIssue, fetchStateMap } from "./lib/linear.mjs";
 import { sendMessage, fetchMessages } from "./lib/discord-bot.mjs";
@@ -99,17 +99,19 @@ const prompt = [
   `- replyは日本語・フレンドリーな口調で200字以内`,
 ].join("\n");
 
+// claude CLIのパスを動的に解決（環境によってパスが異なる）
+const claudePath = process.env.CLAUDE_PATH
+  || execFileSync("which", ["claude"], { encoding: "utf8" }).trim();
+
 let claudeOutput;
 try {
-  const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-  const response = await anthropic.messages.create({
-    model: "claude-sonnet-4-6",
-    max_tokens: 1024,
-    messages: [{ role: "user", content: prompt }],
-  });
-  claudeOutput = response.content[0].text.trim();
+  claudeOutput = execFileSync(claudePath, ["--print", prompt], {
+    cwd: root,
+    timeout: 3 * 60 * 1000,
+    encoding: "utf8",
+  }).trim();
 } catch (err) {
-  console.error("[morning-reply] Claude APIエラー:", err.message);
+  console.error("[morning-reply] Claude実行エラー:", err.message);
   await sendMessage(DISCORD_BOT_TOKEN, DISCORD_MORNING_CHANNEL_ID,
     "⚠️ 壁打ち処理中にエラーが発生しました。もう一度話しかけてください。",
     newMessages[newMessages.length - 1].id
