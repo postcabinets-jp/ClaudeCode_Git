@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
+    "@linear/sdk": "^80.0.0",
     "playwright": "^1.51.0"
   },
   "engines": {
