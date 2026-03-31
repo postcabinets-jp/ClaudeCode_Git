@@ -10,7 +10,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { execFileSync } from "node:child_process";
+import Anthropic from "@anthropic-ai/sdk";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import { createLinearClient, createIssue, fetchStateMap } from "./lib/linear.mjs";
 import { sendMessage, fetchMessages } from "./lib/discord-bot.mjs";
@@ -101,13 +101,15 @@ const prompt = [
 
 let claudeOutput;
 try {
-  claudeOutput = execFileSync("claude", ["--print", prompt], {
-    cwd: root,
-    timeout: 3 * 60 * 1000,
-    encoding: "utf8",
-  }).trim();
+  const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const response = await anthropic.messages.create({
+    model: "claude-sonnet-4-6",
+    max_tokens: 1024,
+    messages: [{ role: "user", content: prompt }],
+  });
+  claudeOutput = response.content[0].text.trim();
 } catch (err) {
-  console.error("[morning-reply] Claude実行エラー:", err.message);
+  console.error("[morning-reply] Claude APIエラー:", err.message);
   await sendMessage(DISCORD_BOT_TOKEN, DISCORD_MORNING_CHANNEL_ID,
     "⚠️ 壁打ち処理中にエラーが発生しました。もう一度話しかけてください。",
     newMessages[newMessages.length - 1].id
