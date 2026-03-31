@@ -2,7 +2,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
-import { createLinearClient, fetchStateMap } from "./lib/linear.mjs";
+import { createLinearClient } from "./lib/linear.mjs";
 import { Client } from "@notionhq/client";
 
 const root = projectRoot();
@@ -20,16 +20,12 @@ console.log(`${"=".repeat(60)}\n`);
 
 if (LINEAR_API_KEY && LINEAR_TEAM_ID && LINEAR_CLAUDE_USER_ID) {
   const client = createLinearClient(LINEAR_API_KEY);
-  const stateMap = await fetchStateMap(client, LINEAR_TEAM_ID);
-
-  const inProgressId = stateMap.get("In Progress");
-  const todoId = stateMap.get("Todo");
 
   const issues = await client.issues({
     filter: {
       team: { id: { eq: LINEAR_TEAM_ID } },
       assignee: { id: { eq: LINEAR_CLAUDE_USER_ID } },
-      state: { id: { in: [inProgressId, todoId].filter(Boolean) } },
+      state: { type: { in: ["unstarted", "started"] } },
     },
     orderBy: "priority",
   });

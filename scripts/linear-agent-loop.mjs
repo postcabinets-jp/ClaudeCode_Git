@@ -81,11 +81,11 @@ if (!inProgressStateId || !doneStateId) {
 const issues = await fetchTodoIssues(client, LINEAR_TEAM_ID, LINEAR_CLAUDE_USER_ID);
 
 const executableIssues = issues
-  .filter(i => !requiresApprovalLabelId || !i.labelIds?.includes(requiresApprovalLabelId))
+  .filter(i => !requiresApprovalLabelId || !i._labelIds?.includes(requiresApprovalLabelId))
   .slice(0, MAX_ISSUES_PER_RUN);
 
 const approvalNeededIssues = requiresApprovalLabelId
-  ? issues.filter(i => i.labelIds?.includes(requiresApprovalLabelId))
+  ? issues.filter(i => i._labelIds?.includes(requiresApprovalLabelId))
   : [];
 
 for (const issue of approvalNeededIssues) {

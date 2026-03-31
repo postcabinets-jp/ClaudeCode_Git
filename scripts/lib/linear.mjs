@@ -26,7 +26,15 @@ export async function fetchTodoIssues(client, teamId, claudeUserId) {
     },
     orderBy: "priority",
   });
-  return issues.nodes;
+  // labels はリレーションなので非同期で解決してIDリストを付与する
+  const nodes = await Promise.all(
+    issues.nodes.map(async (issue) => {
+      const labels = await issue.labels();
+      issue._labelIds = labels.nodes.map((l) => l.id);
+      return issue;
+    })
+  );
+  return nodes;
 }
 
 /**

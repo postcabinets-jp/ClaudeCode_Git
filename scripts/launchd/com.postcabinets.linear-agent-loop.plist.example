@@ -8,7 +8,8 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/usr/local/bin/node</string>
+    <string>/usr/bin/env</string>
+    <string>node</string>
     <string>/Users/apple/claude for me/scripts/linear-agent-loop.mjs</string>
   </array>
 
