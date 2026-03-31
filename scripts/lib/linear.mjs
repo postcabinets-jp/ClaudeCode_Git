@@ -22,7 +22,7 @@ export async function fetchTodoIssues(client, teamId, claudeUserId) {
     filter: {
       team: { id: { eq: teamId } },
       assignee: { id: { eq: claudeUserId } },
-      state: { type: { eq: "unstarted" } },
+      state: { type: { in: ["unstarted", "backlog"] } },
     },
     orderBy: "updatedAt",
   });
