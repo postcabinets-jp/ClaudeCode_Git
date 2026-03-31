@@ -23,3 +23,6 @@ claude-config/settings.local.json
 
 # LinkedIn session state (sensitive)
 .linkedin-session.json
+
+# Executive Assistant local overrides
+CLAUDE.local.md
