@@ -24,7 +24,7 @@ export async function fetchTodoIssues(client, teamId, claudeUserId) {
       assignee: { id: { eq: claudeUserId } },
       state: { type: { eq: "unstarted" } },
     },
-    orderBy: "priority",
+    orderBy: "updatedAt",
   });
   // labels はリレーションなので非同期で解決してIDリストを付与する
   const nodes = await Promise.all(
@@ -34,7 +34,12 @@ export async function fetchTodoIssues(client, teamId, claudeUserId) {
       return issue;
     })
   );
-  return nodes;
+  // priority: 1=Urgent, 2=High, 3=Medium, 4=Low, 0=None → 昇順でソート（0は最後）
+  return nodes.sort((a, b) => {
+    const pa = a.priority === 0 ? 999 : a.priority;
+    const pb = b.priority === 0 ? 999 : b.priority;
+    return pa - pb;
+  });
 }
 
 /**
