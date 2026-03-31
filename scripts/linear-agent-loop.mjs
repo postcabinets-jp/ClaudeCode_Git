@@ -36,6 +36,8 @@ async function notifyDiscord(message) {
 }
 
 function executeWithClaude(issue) {
+  // セキュリティ前提: IssueはLinearの内部ツールでのみ作成される（外部ユーザー入力ではない）
+  // execFileSync + 配列引数でシェルインジェクションを防止している
   const prompt = [
     `# Linear Issue: ${issue.title}`,
     ``,
@@ -64,6 +66,9 @@ const labelMap = await fetchLabelMap(client, LINEAR_TEAM_ID);
 const inProgressStateId = stateMap.get("In Progress");
 const doneStateId = stateMap.get("Done");
 const backlogStateId = stateMap.get("Backlog");
+if (!backlogStateId) {
+  console.warn("[linear-loop] 警告: WorkflowStateに 'Backlog' が見つかりません。エラー時は 'In Progress' のままになります。");
+}
 const blockedLabelId = labelMap.get("status:blocked");
 const requiresApprovalLabelId = labelMap.get("requires-approval");
 
@@ -110,11 +115,16 @@ for (const issue of executableIssues) {
     await notifyDiscord(`✅ **完了** [${issue.title}](${issue.url})\n${output.slice(0, 200)}`);
     console.log(`[linear-loop] 完了: ${issue.title}`);
   } else {
-    const updatePayload = { stateId: backlogStateId ?? inProgressStateId };
-    if (blockedLabelId) updatePayload.labelIds = [blockedLabelId];
-    await client.updateIssue(issue.id, updatePayload);
-    await addComment(client, issue.id, `❌ エラー\n\n\`\`\`\n${output}\n\`\`\``);
-    await notifyDiscord(`❌ **エラー** [${issue.title}](${issue.url})\n\`${output.slice(0, 200)}\``);
+    try {
+      const updatePayload = { stateId: backlogStateId ?? inProgressStateId };
+      if (blockedLabelId) updatePayload.labelIds = [blockedLabelId];
+      await client.updateIssue(issue.id, updatePayload);
+      await addComment(client, issue.id, `❌ エラー\n\n\`\`\`\n${output}\n\`\`\``);
+      await notifyDiscord(`❌ **エラー** [${issue.title}](${issue.url})\n\`${output.slice(0, 200)}\``);
+    } catch (updateErr) {
+      console.error(`[linear-loop] Linear更新失敗: ${updateErr.message}`);
+      await notifyDiscord(`❌ **エラー（Linear更新失敗）** ${issue.title}`).catch(() => {});
+    }
     console.error(`[linear-loop] エラー: ${issue.title}\n${output}`);
   }
 }
