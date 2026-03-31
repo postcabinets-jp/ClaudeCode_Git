@@ -4,22 +4,28 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.postcabinets.linear-agent-loop</string>
+  <string>com.postcabinets.discord-morning</string>
 
   <key>ProgramArguments</key>
   <array>
     <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
-    <string>/Users/apple/claude for me/scripts/linear-agent-loop.mjs</string>
+    <string>/Users/apple/claude for me/scripts/discord-morning.mjs</string>
   </array>
 
-  <key>StartInterval</key>
-  <integer>900</integer>
+  <!-- 毎朝 5:00 に実行 -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>5</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
 
   <key>StandardOutPath</key>
-  <string>/Users/apple/Library/Logs/linear-agent-loop.log</string>
+  <string>/Users/apple/Library/Logs/discord-morning.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/Users/apple/Library/Logs/linear-agent-loop.error.log</string>
+  <string>/Users/apple/Library/Logs/discord-morning.error.log</string>
 
   <key>RunAtLoad</key>
   <false/>

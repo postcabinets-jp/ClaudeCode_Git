@@ -38,12 +38,17 @@
     "linkedin:post": "node scripts/linkedin-post.mjs",
     "linear:setup": "node scripts/linear-setup.mjs",
     "linear:loop": "node scripts/linear-agent-loop.mjs",
-    "linear:morning": "node scripts/linear-morning-summary.mjs"
+    "linear:morning": "node scripts/linear-morning-summary.mjs",
+    "morning:post": "node scripts/discord-morning.mjs",
+    "morning:reply": "node scripts/discord-morning-reply.mjs",
+    "bot:daemon": "node scripts/discord-bot-daemon.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
     "@linear/sdk": "^80.0.0",
-    "playwright": "^1.51.0"
+    "@notionhq/client": "^5.16.0",
+    "playwright": "^1.51.0",
+    "ws": "^8.20.0"
   },
   "engines": {
     "node": ">=20"

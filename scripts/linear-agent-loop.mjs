@@ -1,6 +1,6 @@
 // scripts/linear-agent-loop.mjs
-import { execFileSync } from "node:child_process";
-import { resolve } from "node:path";
+import { execFileSync, spawnSync } from "node:child_process";
+import { resolve, existsSync } from "node:path";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import {
   createLinearClient,
@@ -76,6 +76,27 @@ if (!inProgressStateId || !doneStateId) {
   console.error("WorkflowStateに 'In Progress' または 'Done' が見つかりません");
   console.error("Linearのワークフロー設定を確認してください");
   process.exit(1);
+}
+
+// ── 朝ミーティング返信チェック ─────────────────────────────
+const morningStatePath = resolve(root, ".morning-session.json");
+if (existsSync(morningStatePath)) {
+  try {
+    const morningState = JSON.parse(
+      (await import("node:fs")).default.readFileSync(morningStatePath, "utf8")
+    );
+    const today = new Date().toISOString().slice(0, 10);
+    if (morningState.date === today && morningState.status !== "done") {
+      console.log("[linear-loop] 朝ミーティング返信チェック中...");
+      spawnSync(
+        process.execPath,
+        [resolve(root, "scripts/discord-morning-reply.mjs")],
+        { cwd: root, stdio: "inherit", timeout: 3 * 60 * 1000 }
+      );
+    }
+  } catch (e) {
+    console.warn("[linear-loop] 朝ミーティングチェックをスキップ:", e.message);
+  }
 }
 
 const issues = await fetchTodoIssues(client, LINEAR_TEAM_ID, LINEAR_CLAUDE_USER_ID);

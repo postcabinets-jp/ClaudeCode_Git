@@ -4,25 +4,27 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.postcabinets.linear-agent-loop</string>
+  <string>com.postcabinets.discord-bot-daemon</string>
 
   <key>ProgramArguments</key>
   <array>
     <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
-    <string>/Users/apple/claude for me/scripts/linear-agent-loop.mjs</string>
+    <string>/Users/apple/claude for me/scripts/discord-bot-daemon.mjs</string>
   </array>
 
-  <key>StartInterval</key>
-  <integer>900</integer>
+  <!-- クラッシュしたら自動再起動 -->
+  <key>KeepAlive</key>
+  <true/>
+
+  <!-- ログイン時に自動起動 -->
+  <key>RunAtLoad</key>
+  <true/>
 
   <key>StandardOutPath</key>
-  <string>/Users/apple/Library/Logs/linear-agent-loop.log</string>
+  <string>/Users/apple/Library/Logs/discord-bot-daemon.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/Users/apple/Library/Logs/linear-agent-loop.error.log</string>
-
-  <key>RunAtLoad</key>
-  <false/>
+  <string>/Users/apple/Library/Logs/discord-bot-daemon.error.log</string>
 
   <key>EnvironmentVariables</key>
   <dict>
