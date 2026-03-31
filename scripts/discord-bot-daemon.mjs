@@ -7,7 +7,8 @@
 // launchd: scripts/launchd/com.postcabinets.discord-bot-daemon.plist.example
 
 import { spawnSync } from "node:child_process";
-import { resolve, existsSync } from "node:path";
+import { resolve } from "node:path";
+import { existsSync } from "node:fs";
 import { createRequire } from "node:module";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import { sendMessage } from "./lib/discord-bot.mjs";
