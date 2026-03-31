@@ -6,10 +6,10 @@
 
 set -e
 
-REPO_DIR="/Users/apple/claude for me"
+REPO_DIR="/Users/nobu/claude for me"
 REPO_URL="git@github.com:postcabinets-jp/ClaudeCode_Git.git"
 NODE_VERSION="v20.19.5"
-NODE_BIN="/Users/apple/.nvm/versions/node/${NODE_VERSION}/bin"
+NODE_BIN="/Users/nobu/.nvm/versions/node/${NODE_VERSION}/bin"
 LAUNCHD_DIR="$HOME/Library/LaunchAgents"
 
 echo ""
@@ -40,7 +40,7 @@ if [ ! -f "$REPO_DIR/.env" ]; then
   echo "⚠️  .env が見つかりません。"
   echo "   MacBookから以下でコピーしてください："
   echo ""
-  echo "   scp 'macbook-ip:/Users/apple/claude for me/.env' '$REPO_DIR/.env'"
+  echo "   scp 'macbook-ip:/Users/nobu/claude for me/.env' '$REPO_DIR/.env'"
   echo ""
   echo "   .env をコピー後、このスクリプトを再実行してください。"
   exit 1
@@ -92,20 +92,20 @@ cat > "$AUTO_PULL_PLIST" << EOF
   <array>
     <string>/bin/bash</string>
     <string>-c</string>
-    <string>cd "/Users/apple/claude for me" && git pull origin main --ff-only >> /Users/apple/Library/Logs/git-autopull.log 2>&1 && /Users/apple/.nvm/versions/node/${NODE_VERSION}/bin/npm install --silent 2>/dev/null || true</string>
+    <string>cd "/Users/nobu/claude for me" && git pull origin main --ff-only >> /Users/nobu/Library/Logs/git-autopull.log 2>&1 && /Users/nobu/.nvm/versions/node/${NODE_VERSION}/bin/npm install --silent 2>/dev/null || true</string>
   </array>
   <key>StartInterval</key>
   <integer>300</integer>
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>/Users/apple/Library/Logs/git-autopull.log</string>
+  <string>/Users/nobu/Library/Logs/git-autopull.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/apple/Library/Logs/git-autopull.error.log</string>
+  <string>/Users/nobu/Library/Logs/git-autopull.error.log</string>
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>
-    <string>/Users/apple/.nvm/versions/node/${NODE_VERSION}/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    <string>/Users/nobu/.nvm/versions/node/${NODE_VERSION}/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
     <key>HOME</key>
     <string>/Users/apple</string>
   </dict>

@@ -8,8 +8,8 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
-    <string>/Users/apple/claude for me/scripts/discord-morning.mjs</string>
+    <string>/Users/nobu/.nvm/versions/node/v20.19.5/bin/node</string>
+    <string>/Users/nobu/claude for me/scripts/discord-morning.mjs</string>
   </array>
 
   <!-- 毎朝 5:00 に実行 -->
@@ -22,10 +22,10 @@
   </dict>
 
   <key>StandardOutPath</key>
-  <string>/Users/apple/Library/Logs/discord-morning.log</string>
+  <string>/Users/nobu/Library/Logs/discord-morning.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/Users/apple/Library/Logs/discord-morning.error.log</string>
+  <string>/Users/nobu/Library/Logs/discord-morning.error.log</string>
 
   <key>RunAtLoad</key>
   <false/>
@@ -33,7 +33,7 @@
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>
-    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    <string>/Users/nobu/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
     <key>HOME</key>
     <string>/Users/apple</string>
   </dict>
