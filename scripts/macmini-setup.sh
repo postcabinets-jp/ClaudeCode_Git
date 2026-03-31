@@ -8,8 +8,8 @@ set -e
 
 REPO_DIR="/Users/nobu/claude for me"
 REPO_URL="git@github.com:postcabinets-jp/ClaudeCode_Git.git"
-NODE_VERSION="v20.19.5"
-NODE_BIN="/Users/nobu/.nvm/versions/node/${NODE_VERSION}/bin"
+NODE_VERSION="$(node --version 2>/dev/null | tr -d '\n')"
+NODE_BIN="$(dirname $(which node))"
 LAUNCHD_DIR="$HOME/Library/LaunchAgents"
 
 echo ""
@@ -67,7 +67,8 @@ register_plist() {
   # 既存を一度アンロード（エラーは無視）
   launchctl unload "$dst" 2>/dev/null || true
 
-  cp "$src" "$dst"
+  # NodeパスをこのMacのものに書き換え
+  sed "s|/Users/nobu/.nvm/versions/node/[^/]*/bin|$NODE_BIN|g" "$src" > "$dst"
   launchctl load "$dst"
   echo "  ✅ $label 登録完了"
 }
@@ -92,22 +93,22 @@ cat > "$AUTO_PULL_PLIST" << EOF
   <array>
     <string>/bin/bash</string>
     <string>-c</string>
-    <string>cd "/Users/nobu/claude for me" && git pull origin main --ff-only >> /Users/nobu/Library/Logs/git-autopull.log 2>&1 && /Users/nobu/.nvm/versions/node/${NODE_VERSION}/bin/npm install --silent 2>/dev/null || true</string>
+    <string>cd "$REPO_DIR" && git pull origin main --ff-only >> $HOME/Library/Logs/git-autopull.log 2>&1 && $NODE_BIN/npm install --silent 2>/dev/null || true</string>
   </array>
   <key>StartInterval</key>
   <integer>300</integer>
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>/Users/nobu/Library/Logs/git-autopull.log</string>
+  <string>$HOME/Library/Logs/git-autopull.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/nobu/Library/Logs/git-autopull.error.log</string>
+  <string>$HOME/Library/Logs/git-autopull.error.log</string>
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>
-    <string>/Users/nobu/.nvm/versions/node/${NODE_VERSION}/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    <string>$NODE_BIN:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
     <key>HOME</key>
-    <string>/Users/apple</string>
+    <string>$HOME</string>
   </dict>
 </dict>
 </plist>
