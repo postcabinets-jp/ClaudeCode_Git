@@ -7,7 +7,7 @@
 // launchd: scripts/launchd/com.postcabinets.discord-bot-daemon.plist.example
 
 import { spawnSync } from "node:child_process";
-import { resolve } from "node:path";
+import { resolve, existsSync } from "node:path";
 import { createRequire } from "node:module";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import { sendMessage } from "./lib/discord-bot.mjs";
@@ -133,6 +133,21 @@ async function handleMessage(msg) {
 
   log(`メッセージ受信: ${msg.author.username}: ${msg.content.slice(0, 50)}`);
 
+  // セッションファイルがなければ今日分を作成してから返信スクリプトを呼ぶ
+  const morningStatePath = resolve(root, ".morning-session.json");
+  if (!existsSync(morningStatePath)) {
+    const today = new Date().toISOString().slice(0, 10);
+    const { writeFileSync } = await import("node:fs");
+    writeFileSync(morningStatePath, JSON.stringify({
+      date: today,
+      messageId: msg.id,
+      channelId: DISCORD_MORNING_CHANNEL_ID,
+      status: "active",
+      lastProcessedMessageId: null,
+    }, null, 2));
+    log(`セッションファイルを新規作成: ${today}`);
+  }
+
   // 朝ミーティング返信スクリプトを実行
   const result = spawnSync(
     process.execPath,
@@ -142,7 +157,6 @@ async function handleMessage(msg) {
 
   if (result.status !== 0) {
     log(`返信スクリプトエラー: ${result.stderr?.slice(0, 200)}`);
-    // エラー時はDiscordに通知
     await sendMessage(
       DISCORD_BOT_TOKEN,
       DISCORD_MORNING_CHANNEL_ID,
