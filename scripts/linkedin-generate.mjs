@@ -20,10 +20,11 @@ loadDotEnv(root);
 const token = process.env.NOTION_TOKEN;
 const dbId = process.env.LINKEDIN_DB_ID;
 const webhook = process.env.DISCORD_WEBHOOK_URL;
+const authToken = process.env.ANTHROPIC_AUTH_TOKEN;
 const anthropicKey = process.env.ANTHROPIC_API_KEY;
 
-if (!token || !dbId || !anthropicKey) {
-  console.error("必要な環境変数が未設定です: NOTION_TOKEN, LINKEDIN_DB_ID, ANTHROPIC_API_KEY");
+if (!token || !dbId || (!authToken && !anthropicKey)) {
+  console.error("必要な環境変数が未設定です: NOTION_TOKEN, LINKEDIN_DB_ID, ANTHROPIC_AUTH_TOKEN（またはANTHROPIC_API_KEY）");
   process.exit(1);
 }
 
@@ -66,7 +67,9 @@ const recentTitlesText = recentTitles.length > 0
 const dayNames = ["日", "月", "火", "水", "木", "金", "土"];
 const dayName = dayNames[new Date().getDay()];
 
-const client = new Anthropic({ apiKey: anthropicKey });
+const client = authToken
+  ? new Anthropic({ authToken })
+  : new Anthropic({ apiKey: anthropicKey });
 
 let result = null;
 let attempts = 0;
