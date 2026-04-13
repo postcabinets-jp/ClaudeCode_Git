@@ -333,68 +333,50 @@ export default function MyPage() {
           overflow: "hidden",
           boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
         }}>
-          {/* 再診断 */}
-          <button
-            onClick={() => router.push("/diagnosis")}
-            style={{
-              width: "100%",
-              padding: "16px 20px",
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-              backgroundColor: "transparent",
-              border: "none",
-              borderBottom: "1px solid #F5F2EE",
-              cursor: "pointer",
-              textAlign: "left",
-            }}
-          >
-            <div style={{
-              width: 36,
-              height: 36,
-              borderRadius: 10,
-              backgroundColor: "#F5F3F0",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 18,
-              flexShrink: 0,
-            }}>🔍</div>
-            <span style={{ flex: 1, fontSize: 15, color: "#1E2D2A" }}>再診断する</span>
-            <span style={{ fontSize: 16, color: "#CCCCCC" }}>›</span>
-          </button>
-
-          {/* 健康レポート */}
-          <button
-            onClick={() => router.push("/report")}
-            style={{
-              width: "100%",
-              padding: "16px 20px",
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-              backgroundColor: "transparent",
-              border: "none",
-              borderBottom: "1px solid #F5F2EE",
-              cursor: "pointer",
-              textAlign: "left",
-            }}
-          >
-            <div style={{
-              width: 36,
-              height: 36,
-              borderRadius: 10,
-              backgroundColor: "#F5F3F0",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 18,
-              flexShrink: 0,
-            }}>📊</div>
-            <span style={{ flex: 1, fontSize: 15, color: "#1E2D2A" }}>健康レポート</span>
-            <span style={{ fontSize: 16, color: "#CCCCCC" }}>›</span>
-          </button>
-
+          {[
+            { icon: "🛒", label: "購入履歴", onClick: () => router.push("/kampo"), badge: null },
+            { icon: "📦", label: "定期便の管理", onClick: () => router.push("/kampo"), badge: "準備中" },
+            { icon: "⚙️", label: "設定", onClick: () => {}, badge: null },
+          ].map((item, i, arr) => (
+            <button
+              key={item.label}
+              onClick={item.onClick}
+              style={{
+                width: "100%",
+                padding: "16px 20px",
+                display: "flex",
+                alignItems: "center",
+                gap: 14,
+                backgroundColor: "transparent",
+                border: "none",
+                borderBottom: i < arr.length - 1 ? "1px solid #F5F2EE" : "none",
+                cursor: "pointer",
+                textAlign: "left",
+                fontFamily: "inherit",
+              }}
+            >
+              <div style={{
+                width: 36, height: 36, borderRadius: 10,
+                backgroundColor: "#F5F3F0",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 18, flexShrink: 0,
+              }}>
+                {item.icon}
+              </div>
+              <span style={{ flex: 1, fontSize: 15, color: "#1A1A1A" }}>{item.label}</span>
+              {item.badge && (
+                <span style={{
+                  fontSize: 11, fontWeight: 600,
+                  color: "#C8A96E",
+                  backgroundColor: "rgba(200,169,110,0.12)",
+                  borderRadius: 10, padding: "4px 8px",
+                }}>
+                  {item.badge}
+                </span>
+              )}
+              <span style={{ fontSize: 16, color: "#CCCCCC" }}>›</span>
+            </button>
+          ))}
         </div>
 
         {/* Logout */}
