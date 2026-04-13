@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "x-harness": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@x-harness/mcp@latest"
+      ],
+      "env": {
+        "X_HARNESS_API_URL": "https://postcabinets-x.round-resonance-083a.workers.dev",
+        "X_HARNESS_API_KEY": "xh_5128209a56ca358e78ec593553ae6c39"
+      }
+    },
+    "line-harness": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@line-harness/mcp-server@latest"
+      ],
+      "env": {
+        "LINE_HARNESS_API_URL": "https://postcabinets.round-resonance-083a.workers.dev",
+        "LINE_HARNESS_API_KEY": "57e3672b4e060c4164420a0fc62d70772a1ec43a69a405241777e93000a4c2be"
+      }
+    }
+  }
+}

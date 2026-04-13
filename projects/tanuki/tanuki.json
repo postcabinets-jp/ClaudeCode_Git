@@ -1,0 +1,7 @@
+{
+  "model": "qwen3:8b",
+  "ollamaUrl": "http://localhost:11434/api/chat",
+  "maxToolSteps": 10,
+  "maxHistory": 50,
+  "mcpServers": {}
+}

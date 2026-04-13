@@ -1,0 +1,19 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/health/route": "/api/health",
+  "/auth/callback/route": "/auth/callback",
+  "/character/page": "/character",
+  "/checkin/page": "/checkin",
+  "/diagnosis/page": "/diagnosis",
+  "/home/page": "/home",
+  "/inquiry/page": "/inquiry",
+  "/kampo/[id]/page": "/kampo/[id]",
+  "/kampo/page": "/kampo",
+  "/manifest.json/route": "/manifest.json",
+  "/mypage/page": "/mypage",
+  "/onboarding/page": "/onboarding",
+  "/page": "/",
+  "/report/page": "/report",
+  "/result/page": "/result"
+}

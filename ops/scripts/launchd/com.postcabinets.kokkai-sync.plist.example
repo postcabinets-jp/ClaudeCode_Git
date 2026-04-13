@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.postcabinets.kokkai-sync</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
+    <string>/Users/apple/claude for me/scripts/kokkai-sync.mjs</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/apple/claude for me</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+  <!-- 毎日 12:00 と 19:00 の2回実行（審議は昼〜夕方が多い） -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Hour</key>
+      <integer>12</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <dict>
+      <key>Hour</key>
+      <integer>19</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+  </array>
+  <key>StandardOutPath</key>
+  <string>/tmp/kokkai-sync.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/kokkai-sync.err</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

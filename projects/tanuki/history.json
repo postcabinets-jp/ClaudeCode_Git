@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "content": "ホームディレクトリのファイル一覧見せて"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"tool\": \"list_files\", \"args\": {\"directory\": \"~/\"}}"
+  },
+  {
+    "role": "user",
+    "content": "ツール実行結果:\n      .CFUserTextEncoding\n      .DS_Store\n[DIR] .Trash\n[DIR] .android\n[DIR] .antigravity\n[DIR] .anydesk\n[DIR] .app-store\n      .bash_history\n[DIR] .bun\n[DIR] .bundle\n[DIR] .cache\n[DIR] .claude\n      .claude.json\n      .claude.json.backup\n[DIR] .clawdbot\n[DIR] .cocoapods\n[DIR] .codex\n[DIR] .collaborator\n[DIR] .config\n[DIR] .cups\n[DIR] .cursor\n[DIR] .dart-tool\n[DIR] .dartServer\n[DIR] .degit\n[DIR] .docker\n[DIR] .dropbox\n      .emulator_console_auth_token\n[DIR] .expo\n      .flutter\n[DIR] .gem\n[DIR] .gemini\n[DIR] .genspark-tool-cli\n      .gitconfig\n[DIR] .gradle\n[DIR] .icube-remote-ssh\n[DIR] .jpolitics\n[DIR] .kiro\n      .lesshst\n[DIR] .lmstudio\n      .lmstudio-home-pointer\n[DIR] .local\n[DIR] .matplotlib\n[DIR] .moltbot\n[DIR] .n8n\n[DIR] .nemoclaw\n[DIR] .npm\n[DIR] .nvm\n      .obsidian-cli.sock\n[DIR] .ollama\n[DIR] .openclaw\n\n結果を踏まえて、次のステップに進むか、完了なら結果を報告してください。"
+  },
+  {
+    "role": "assistant",
+    "content": "ホームディレクトリ内のファイル一覧です。以下に主要なファイルとディレクトリを表示します：\n\n**ディレクトリ**\n- .Trash\n- .android\n- .antigravity\n- .anydesk\n- .app-store\n- .bun\n- .bundle\n- .cache\n- .clawdbot\n- .cocoapods\n- .codex\n- .collaborator\n- .config\n- .cups\n- .cursor\n- .dart-tool\n- .dartServer\n- .degit\n- .docker\n- .dropbox\n- .icube-remote-ssh\n- .gradle\n- .lmstudio\n- .local\n- .matplotlib\n- .moltbot\n- .n8n\n- .nemoclaw\n- .npm\n- .nvm\n- .ollama\n- .openclaw\n\n**ファイル**\n- .CFUserTextEncoding\n- .DS_Store\n- .bash_history\n- .claude.json\n- .claude.json.backup\n- .emulator_console_auth_token\n- .obsidian-cli.sock\n\n必要に応じて特定のファイルやディレクトリについて詳しく教えてください！"
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "01_invoice_flow": {
+    "title": "事例01: 請求書PDF→仕訳CSV 自動化フロー",
+    "page_id": "32e9bf08eefd8198b85ef470134a98b0",
+    "url": "https://kroki.io/mermaid/svg/eNptkE9LAkEYxu99ihe7Fmr0ByKCXPMcFF2iQ667FSwYWx2CPbQzmYvbH6O2xEwJFE3JCC-lVt-l19m1Wx-h2WEPHprD8L4zv-d53pltfWtvB9biY8DX0kbot3J9AsOW7b4S9_5tJZ5YSOrhxZkIHpeikYhbLobdkhXahMnJRQOpg-QJaQvpMZotND_RbCAxkdgGxHyv6i1I2tZhSgEpnVJCmyIlJsTceth8RvOLXd4iyRkgiXAbkGaR9pF8ubkPlu2KfM6wvsMyFsufI-39ZK9-Hv3CvasNegVeeI0LdtZl1mmQIYkMZhdYu-jVr7z7NtIykndu62XqLG8ZEBd5ORiFhtkmsx1mVflJ4BQXTtLqundTca28ActCZ4KqK4oSZv0avxBDIqki7SB98MenlnfT4KrAZTn4sBefIHxvIqW8MCCxEfouZWDQc4aNDmufDbr-G4Ro_-BIU2AJ1F1Nmx9X1dnkbHJCTmtp3e_UESYWMNOKnJKn_2cSATOlyPJcdIT5A9lm9AQ="
+  },
+  "02_sales_report": {
+    "title": "事例02: 週次営業レポート自動生成フロー",
+    "page_id": "32e9bf08eefd81e4a529cdd902f353fe",
+    "url": "https://kroki.io/mermaid/svg/eNptkEtLAlEUx_d9isMErZKohEpCyPG1aVW0ERc6jwqHJqyIwEXOTR0t0ygT8pGGkVFo4aIn9F06zair-gjNXA0UunDv5vx-53_uWQ0HNtdg2TkCxlnwMT-XpynQsgdIqkhaSLJI3jHamA-GJ-yovCDJI7lHQpAkUXkyi0Rl_GCx2CPs0goqdVSalCv1ahFwmE1r58BKgR1eAFbmBcZP4xymBiwNVaFbiHfqKpI3TY3r5WyfYSnj9DFIorRjRVOv6TRaLt65S-i5B0PpJk661bTpZvJ6q94-TgzpLh-jJdPd_Ue9edZzr_L6cwFJBpUaklv6qkOK28d8XlS-nzNg9is0emk9uXajlQ_NsGhRfyv3NSeMgcu4bqp76KdKsBgIh3h5d4OK5gD3Vbq_0t_mqOuh-1uSAlwIo3d6Kteuf0TAa4xQjIEWe9SLSa1x9PUaN3gqbG3vSQIsgLguSbbRaevcLB8c52RJDttGRVEcYBx9xipwPGf9n_H2mSmB42YmB5hf5gjylw=="
+  },
+  "03_screening": {
+    "title": "事例03: 書類選考効率化フロー",
+    "page_id": "32e9bf08eefd816e89ebc9cfed427da0",
+    "url": "https://kroki.io/mermaid/svg/eNptkE1LAkEYx-99iocVOiW9aAgSgu9669BNOti6VrBgWB0CD7s7GZYvSJagrVZmQZaClGmb2Hdp3HG99REalw00Gpi5zO_5_Wf-2_Hw3g5seOaALmeI-b4upIG0paGiaA_i8OON2QSz2ZEYKmn1NKs1mlj81AZ9eibANcHrRXDz4cMIB-5YhGM2dZFbFx2DJnbVdGnUyZDmK7nqrXt8a1vxRQeRU5YlNZ9VUye_-p5A0s9_9LrKNbkHz0R4kQUsvWOpidETRlWMEEYidZBq3sj16LA3xDixIHthlbQ643JOe7wcDm5nEN_Ed94Atd-lWRhVsFTH6AWj1AzmDzFflQKMKzWSux_VFK2RpUWMb5IG5YV58NHt1-mA_uszGIs9TUBY6uiPbGDUN_CAUaVCJVjMEFkYdSQ1VSfFZgKCNEtOGlmqUNLuZNJW1FaZDuvT-wdHPG0Zors8bzdxNitrYRfYGB-L203RaHSKcRmMlWMjrPV_JmgwKxzL2panmB-Y2e0i"
+  },
+  "04_knowledge_base": {
+    "title": "事例04: 就業規則ナレッジベース フロー",
+    "page_id": "32e9bf08eefd8193bd2cf08ce746e75a",
+    "url": "https://kroki.io/mermaid/svg/eNqNj0tLAlEYhvf9ig_bJqFJUYSQ122LduHCxpkKBgyrReDmjHdnYeWlvGXSpCJoRiQFg_2YjzMzO_sJzRxn4SKiszhwOM_7fO93nIiencBBYAXMs3fo-O6Uq0Anr9rzyOiVaCG3HwjtHiXWvZtuTDUwpaL04YiA0-lN0nybNh-M4QjJlzFTzTsJPsug1MAvRi9jPPjjMd4RYW4_c98DbQ3oOENlhcp1a8K48ZeORQMsegdaZkrVyj9DPusfgla0_wi6MqPZzGIjlG7166zRf7KbhSzmRmFMuYtkbLwNabXEttZaBf29h-RF_5ygVDSmRSRNlOS52rEbLOAkBJkryKaGWeEaaO2uVstRtapXBnNVZkaazyKRTRdKaSR1JGlzAX1UMcsww_nFlchDCIRTUdxZFTa2OZd7jYuL8YT5EoQlxmczHp6LcZ7fmbDNuHmO23ItMT9F5O3m"
+  },
+  "05_sns": {
+    "title": "事例05: SNS投稿自動企画フロー",
+    "page_id": "32e9bf08eefd81529a75f9e2fd618f00",
+    "url": "https://kroki.io/mermaid/svg/eNptkE9LAkEYh-99ipcVOiVlaJGEoKvWpQiMLuJB190SljasDoEH3aFcNNtILYIFkazEPyF1KEryu_Syu3aqj9Ds4KGggZnLPL9n3t9sZ5N7O7AZngK6gnHuu1G9A7N-YlYLqHZRHSHpozrgY1tcAtzuQG7c6WNhNH4f0jMHvJNoXQIvJw_TIvBKWuQSzBVirhKYx5plaFh4MPWKOTKQFJEMqfd_HYvyzg2EHcFFE6xS3W7TMSo05JmzjJ5da1ja-eSZMGMjce7DqHy96IBqH8kNkitUn5HcI3mymtofNup49WcGEx0JYeStU1Ud-Mx8-Q-94tBnbbBrbybRrdOi3XqdABGYhijdK6zIunKQUXZhjd_IwSrrfgyx9ZjziaRHx0CSp8XDoeVUdjaAhe642DHLdfv67fP0kQqZcf_gSBYhCFJGlv2upZRvKbUwIyiykvW7JEn6xfATxisKacH7P7M6YeZFQVj0_GJ-ACXp2sw="
+  },
+  "06_secretary_ai": {
+    "title": "事例06: 秘書AI（Gmail×Notion×Calendar）フロー",
+    "page_id": "32e9bf08eefd81519377fab08ec29363",
+    "url": "https://kroki.io/mermaid/svg/eNpt0F9LwlAYBvD7PsXLhK4SNQVLQtDN9KboorvwYm6zhOXC7CJasE1EycSgfySSGmpkmFhdlEJ-mHnmvOsj5M6GGHju3nN-zwPv2U_RRwewSy3B9AT2iN_q9TOED-kEvxFLOfxapa23Oy6ncyKVHdp9k4iC3e4XMYAtckeEoJFp3AHJ0ycsB6TAckQUtwUNCuQZMckV9ZaM-i2Ub6C3MnGOn0ncpOc-NKkpAmXU3HyCOaPuDxpWrB4TjgYXE6k3-uqIEDJstQ6zq38QlRRdyoiwidUTmLOWyaJaz4IULEMI420hnRCS5iZhvH0BVGWoKt-q0qWC-A9U-VXPtVHhdvwwmFy-zzqMPEnzXJKlU2ZDBDdkYfzSV-Wi9lhzq3JDK11p9fw0hWPH6VOegwDEEzzvs3FeD-NmVhiBF1I-WzwenzNBy3g4hmU8i03YMqscw3hdi03EMm7P-hobmzN_hgnJ1A=="
+  },
+  "07_slack_digest": {
+    "title": "事例07: Slack日次ダイジェスト自動生成フロー",
+    "page_id": "32e9bf08eefd815baffed0bbadae2d93",
+    "url": "https://kroki.io/mermaid/svg/eNptkF1LwmAYhs_7FQ8TOkr8YBJICDq_ToKgzsSDObeMBobVQeCB21qsUVoJCkOtgbbASjwJ-8L_0ru95Fk_oW1NUOiB5-i5rpv7fXcr9EEJdpIrYE88R_zc3jzCNk8z-xBhShuFSiAWDgbN95cAbg-IPPj9serfeZPaqkLCMfotoHj6uMgCVS6yRN7NSjgoUM69qQKS2kh6QuIEiQYSR0hSLGWAhKGlnM30nqdQrpLMEV-aDvi0gWtdPH6znjUkXFhT-fteWAJTTrZm2NktJ1uSkDhE0scSk3aY-jlg5Qr3Otbd2LpWPSAJq5CyN-2CGbdoF-KkOanhnoakGhL788KvdmFPy7hfgEd13OnO5Etzqlcha1fuyBCxX4MEw5IfzM8mVlXc0G3JtQ6PTngW4sDt8XzUR9KhCFlYY8p8uRL1cRy3wCTmDMsUGfJ_JusxYZZh1kMLzC9Spb2s"
+  },
+  "08_contract_review": {
+    "title": "事例08: 契約書自動レビューフロー",
+    "page_id": "32e9bf08eefd81b5a3fff4c372a7cafb",
+    "url": "https://kroki.io/mermaid/svg/eNpt0VtLAkEUB_D3PsXBoKckKEmICHRXTSHoobfooda1hIWN7QJBL7rbhUzsKmmZt0TSzC2lLCS_S-PMrk_1EdqdNkpo4MAw8_sfODPL0uLqCsyxA2As17ztM3uqAC4da02FXLZmWe_kkjQy5RPFZYEHVgpv8rYFsNuntukeZpjZbXCbsZskMMLiRpAHRgwaiDZ0mxQY8_4sDkiuoOgLitZJJt_L7SA5gqJlJMvGieUZ6tl523tCBX2vgmPn5LJJkup3ok95zK4nKpCjOL5v6I0cVrLd1kEvddTHvCYr50DLlrS0oj_mtbMibqn44bqP-UyWroJWfSKlWi_SIbWC9naLY6k-Nk1HOQGtfIHru91OhhxGyFW2lzy1GAtD4DHKa5TPqGka89OHjf2-AJLvkJxBchvJ-1bST2XAmD2d-2glALcjeu0ZF6ta4VWvxK0o5dSvrW8ZX-KCUFgQJgb5cSc_OjrMiYIoTQyGQqE_xm0ZB88FOcf_JvDTx-ngxrg_5gsfGeZo"
+  },
+  "09_competitor_watch": {
+    "title": "事例09: 競合サイト監視フロー",
+    "page_id": "32e9bf08eefd8147b197fdc4f4214e17",
+    "url": "https://kroki.io/mermaid/svg/eNptkEtLQkEUx_d9ioNCqyQqQ5AQ9PraBELtwoVdrw-6YJgRgot0wFdZ4hN8pJaS9FDBSAvTDzPNaLs-Qt7xLhQaGBg4v_9jjtvvOPXAoXEN5kd_pPitXadh-vxO0vHdaXO8d-zf1JF8lGTDGJUwGuHIUGEHlUoXsomO4IXf6_YEYJ-zMZB2b2ilOos9kas8GTRI-S4EBsmzWQBOdJw7BeB8TkFhZ2kGyQY4aZ4dAo58YJTECGFUxJEBRo_sHSe3BTIuyhKOJZNEihZbONzG4Q4ZdEg8Sru52QiFwCiZ5VJAmglafqPNCol9ylIjSzNJQKYH3-MGrY8W2ApgloBoHmiht_j2bPJFkvUVxsIq388rv2L0gFFfXg3qy5gJ1sE8vxZW90B08Cc_l6VprRUCK9MmYdEboxeMqkwbZxvEkcxifTSZn7Yncz9meBYIigLoweUVRa1S0Kj5HX6D94k-v1bpcrmWGIPMqAXeyav_Z6wysy3wvGZrifkDYMfprw=="
+  },
+  "10_seo_ranking": {
+    "title": "事例10: SEOランキング自動チェックフロー",
+    "page_id": "32e9bf08eefd8171832cc73d4ac34757",
+    "url": "https://kroki.io/mermaid/svg/eNpLL0osyFAIceFSAALHaKUP8yd3KTxbMuf5lkUvF7Q92dvrHBxmk1Skb2do8HzJvsPTTQ28w5ViFXR17Wqetna8bNio_WR3F5CqUXACaV4yTcE5J7E0JVXBOT8lVSkWbKwTSLmCM9jwTgVjoKFPdi99sqPryY7uFxP2Pm6a9Kxr79P2XVDVzmDVLiDVU7YovFjW-HT9vqf750AdgaYZRY8rSM_8hQrPNq941tIP1mD8uGGOJUgPsmoXBTUFV7AON5COSQsVnvbNfzp7wZPd616sWvN-TzfQxudrpz1b2AHV4AZW7A72QLfC46b1j5tXPm5a8rhp0ePmzY-bO552LAXbBhZY-bh5D1DscfOax81zIWygMWBziksqc1IVHBXSMnNyrJSNTSwtUpJ0kvNz8ouslNPS0pDUOEHVmKQmpySbYFfjAlWTam6SbJyMXY07VI1RanKyuSGSGgD8I9gZ"
+  },
+  "11_kpi_anomaly": {
+    "title": "事例11: KPI異常検知→先手提案フロー",
+    "page_id": "32e9bf08eefd81c69220f4df06cfdec3",
+    "url": "https://kroki.io/mermaid/svg/eNptjzFPwlAUhXd_xU2JkxKFgAZiSKAgk4mJxoUwQGmVpAaDOph0sLwgLQTBCDhYRGIXQUQ3QhASf4rP92DDn2BbOzB4hzfce75zzjvMJk6OYD-8BMYEY8xP67YI0aAHVoAMEbkpYlTAaIRzk61kdi3g8k71MVGu2L0DJg5OZ0CimkKUJpa7s04Py5PZeGS8EoRMK70BrJg4T_HAZlI8E7dCQiYGrHmvlYGoZcOB9muf7-71ZStjWn8jgwG51KmukcLQxlgr7e-G5RzOFSUIW32bQK5b5P7RqEUfqvNRifTH016DthUbDVto9DiRFmGH3ZUgEmO-NHU-qADJK1QtYfmVVqoGgFHb_CzqWkUwUjF6xqiOkTIrdEip_v2hUaX6b6MOlu8k2Dad80B7T-YSvWDUtAzNKhZ0enYh8hAEIS2Kfocv6fUlN1a5jJjJ-h2CICxoQrbGw3MpzvO_JmJr3DzHbboWNL9eS9Yu"
+  },
+  "12_line_bot": {
+    "title": "事例12: LINE FAQ Bot構築フロー",
+    "page_id": "32e9bf08eefd811685c5e98d945d376e",
+    "url": "https://kroki.io/mermaid/svg/eNptkE1LAlEUhvf9ioMtKyr7kCICndEIIoraiQu7zlQ0MGEFBbNo5lJZKvZlQxkKoRST0cKNSeh_6TAfruonNHObooV3dznP85733vV0cnsDVvk-cE84HviqXGXBrrbN46NYeLlbOp5ZSw_PRveJIMEAIC0jzSKtofaA9HmJjwUSMDQ0q1h6zbqvO0YZ1Ucrd2JXWwpEvLTqDXBSci8lACenBBaGag61BtJ3pKeoXVqlJqqFQII1iHhpwMUDH3e3n80CLMwvRiEi7zLROTHMbNG-rliZc5_nGM97mwoGmC3dyeiovaHWQUqRFpnnhbi9nIZhFn8X8ay2WSrbL9eoaqidKRD1Yi7rYOYbP4OerIGqrkCMfdUTuK_u0idUn-2HlmPk3RmqbVRvfTXG1BUpSba6h3d2pabAnGdeVP_MnPnaNjv3rsCMnd0DSYAwiJuSNN0vjk2R0eAgkSU57d5E8R8T8ZlxgaTIeG8m6jNBgZDQaG-G85mRSRKamPjHfAOdJ-pZ"
+  },
+  "13_spreadsheet_to_notion": {
+    "title": "事例13: スプレッドシート→Notion DB移行フロー",
+    "page_id": "32e9bf08eefd81adb7bcccf5acee80e9",
+    "url": "https://kroki.io/mermaid/svg/eNpLL0osyFAIceFSAALHaKUP8yd3KbxcuPzpukXOwWE2SUX6dkYGj5unPm5a-LhpyePm1U872p5NXawUq6Cra1fztHXFy-YVL1atfdy4_8W-PUCyRsEJZMiSaQrOOYmlKakKzvkpqUqxYOOdQHoUnEHyU1oUXrb3vljS_qxv0suZQHN3P25a_7h5zePmzY-bdoDJDVBdzmCb_PJLMvPzFHydA2oUXEAmTFwKdebj5nmPm3Y-btrv4oRThytIx6Q9Ck-ntr1Y3Y5HoRs4BOYqPF2_7-n-OU83Ln22dgtcuYuCrh5Q_ePmVWCX7nnctP1x83KgY4EWEFLgxgVWUVxSmZOq4KiQlpmTY6Wcam6SbJysk5yfk19kpZyWloakxgmqxiQ1OSXZBLsaF6gao9TkZHND7GpciVDjhksNAMxx3Dw="
+  },
+  "14_daily_report": {
+    "title": "事例14: 日報→週次サマリー自動生成フロー",
+    "page_id": "32e9bf08eefd819288c2c763e4fd2649",
+    "url": "https://kroki.io/mermaid/svg/eNptkM9KAlEUxvc9xcGgVVKaEUUIOv7bFC3aiQsbxxKGJswWgYucKyqaKEQamqmVCGqFGSQotehNOs2kq3qE7h1daHXhXDiX3_d959zdoPdgD7ZtM0CPxa37Lp-VYFMKBaR9NV9TKm2bdX0nuGA2LirZ9Ft-mT0mYjoP6PXm8IiDDW4rDFamvc0BJ3qPfAJwkk_QeTRXK2OB07yTMIg3lNT5sBj7fIqOAU4DbAzIxOCjlxyetDFyryay6tWllo4kj-QO5S7KdZQfkCSURG1KbXfr3guVr24GBo3HYfUUSQ9JjokIQbmJpD-FO1jYRZJWGZBUkXSQZCk0SpM72kMc5RuUn5HUaTsld2rLpEAt1dis8jUb6hdpgzmw03LQcv75LpfmEAUqV1s0v4WkRPPpZuOFC6yjC0eaapHe6cFLHyOv1FszPwwdiwJYwB8QxbVZ_9IqbzDO85IoBWnn908w1jFjEngfb_qfcY0Zo8DzK4YJ5gctzOwt"
+  },
+  "15_auto_response": {
+    "title": "事例15: 問い合わせ自動応答フロー",
+    "page_id": "32e9bf08eefd81bc870cf7530fd999fe",
+    "url": "https://kroki.io/mermaid/svg/eNpt0E1LAkEYB_B7n-JhpFuRmSVISLqmvRAUdFs8bOtYwpahFUQbqBOlhRil0YtYlhG9iIdAgl78Lk1j26k-Qruze9BoTgPz-z_zn5mPS8sLMOvvAn15RfRzfngDrJinqS22n6FpfXNGSYWSF0ruh-fifZ5WKeOw2z-eGygEvb0eNbgoRRWYEqZV8Bn56hEIirQaxiDEwhiF-GSfQUHYQNrOHdsrssz2V6WMNvmZwMcM2btV8PMCpxDwzrD6G2uWWL6ukVdriAkdBhw14MELsKNG67pm2g7VP6irgKEKN9DaTWqVw3-UgYIGOq4CTdcpeeAPvbCQnyOzstYsfDT1f8hScktJkZKMCmMiei9lv5_ywHKPrZO0Pv6zVrDCozyckBScGKGpe-358iuZUmFcRGZpSlIdlwW4D-O1dj0hIrP8Xx3kelFakuZxvD0xKSJKypTkDJ5-ouRK3-ghnkqsrCsYvBCJKorbhl1OeUDukWNKLO62RSKRNuOzjBPLYdn5vxmzjAPLsqu_zfwC7Er_bQ=="
+  }
+}

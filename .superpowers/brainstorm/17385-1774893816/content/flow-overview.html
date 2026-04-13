@@ -1,0 +1,93 @@
+<h2>LinkedIn 自動投稿パイプライン — 全体フロー</h2>
+<p class="subtitle">Notion下書き → 人間チェック → 自動投稿</p>
+
+<div class="section">
+  <div style="display:flex; flex-direction:column; gap:12px; max-width:700px; margin:0 auto;">
+
+    <!-- Step 1 -->
+    <div style="background:#1a1a2e; border:1px solid #6c63ff; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px;">
+      <div style="background:#6c63ff; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; flex-shrink:0;">1</div>
+      <div>
+        <div style="font-weight:bold; font-size:15px;">🤖 Claude が投稿下書きを生成</div>
+        <div style="color:#aaa; font-size:13px; margin-top:4px;">LinkedIn戦略設計書の3つの柱に基づいて、週3本の投稿案をNotionに自動作成</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div style="text-align:center; color:#6c63ff; font-size:20px;">↓</div>
+
+    <!-- Step 2 -->
+    <div style="background:#1a1a2e; border:1px solid #6c63ff; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px;">
+      <div style="background:#6c63ff; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; flex-shrink:0;">2</div>
+      <div>
+        <div style="font-weight:bold; font-size:15px;">📬 Discord通知 → あなたが確認</div>
+        <div style="color:#aaa; font-size:13px; margin-top:4px;">「Notionに投稿案を追加しました」と通知。Notionを開いて内容をチェック</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div style="text-align:center; color:#6c63ff; font-size:20px;">↓</div>
+
+    <!-- Step 3 -->
+    <div style="background:#1a1a2e; border:1px solid #22c55e; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px;">
+      <div style="background:#22c55e; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-weight:bold; font-size:15px;">✅ あなたが「投稿OK」チェック</div>
+        <div style="color:#aaa; font-size:13px; margin-top:4px;">Notionの投稿ページでプロパティ「投稿OK」にチェックを入れる（必要なら内容も編集）</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div style="text-align:center; color:#6c63ff; font-size:20px;">↓</div>
+
+    <!-- Step 4 -->
+    <div style="background:#1a1a2e; border:1px solid #6c63ff; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px;">
+      <div style="background:#6c63ff; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; flex-shrink:0;">4</div>
+      <div>
+        <div style="font-weight:bold; font-size:15px;">🔄 定期ポーリング（cron）が変化を検知</div>
+        <div style="color:#aaa; font-size:13px; margin-top:4px;">15〜30分ごとにNotionをチェック。「投稿OK=true かつ 未投稿」の行を発見</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div style="text-align:center; color:#6c63ff; font-size:20px;">↓</div>
+
+    <!-- Step 5 -->
+    <div style="background:#1a1a2e; border:1px solid #f59e0b; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px;">
+      <div style="background:#f59e0b; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; flex-shrink:0; color:#000;">5</div>
+      <div>
+        <div style="font-weight:bold; font-size:15px;">🚀 LinkedIn に自動投稿</div>
+        <div style="color:#aaa; font-size:13px; margin-top:4px;">LinkedIn API または Playwright でブラウザ操作 → 投稿完了後、Notionのステータスを「投稿済」に更新</div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div style="text-align:center; color:#6c63ff; font-size:20px;">↓</div>
+
+    <!-- Step 6 -->
+    <div style="background:#1a1a2e; border:1px solid #22c55e; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px;">
+      <div style="background:#22c55e; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; flex-shrink:0;">6</div>
+      <div>
+        <div style="font-weight:bold; font-size:15px;">📊 Discord で完了報告</div>
+        <div style="color:#aaa; font-size:13px; margin-top:4px;">「投稿しました: [タイトル]」をDiscordに通知。Notionのステータスも「投稿済」に</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <div style="background:#111; border:1px solid #333; border-radius:8px; padding:16px; max-width:700px; margin:0 auto;">
+    <div style="font-size:13px; color:#888; margin-bottom:8px;">⚡ KEY DECISION — 投稿方法</div>
+    <div style="display:flex; gap:16px;">
+      <div style="flex:1; padding:12px; background:#1a1a2e; border-radius:8px; border:1px solid #444;">
+        <div style="font-weight:bold; color:#6c63ff;">A. LinkedIn API</div>
+        <div style="font-size:12px; color:#aaa; margin-top:6px;">安定・公式。ただし申請が必要でアクセス許可まで時間がかかる可能性あり</div>
+      </div>
+      <div style="flex:1; padding:12px; background:#1a1a2e; border-radius:8px; border:1px solid #444;">
+        <div style="font-weight:bold; color:#f59e0b;">B. Playwright（ブラウザ操作）</div>
+        <div style="font-size:12px; color:#aaa; margin-top:6px;">今すぐ動く。APIなし。LinkedInの利用規約上グレーゾーンだが実用的</div>
+      </div>
+    </div>
+  </div>
+</div>

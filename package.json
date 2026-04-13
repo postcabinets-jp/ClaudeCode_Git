@@ -41,7 +41,11 @@
     "linear:morning": "node scripts/linear-morning-summary.mjs",
     "morning:post": "node scripts/discord-morning.mjs",
     "morning:reply": "node scripts/discord-morning-reply.mjs",
-    "bot:daemon": "node scripts/discord-bot-daemon.mjs"
+    "bot:daemon": "node scripts/discord-bot-daemon.mjs",
+    "claw": "node scripts/claw.mjs",
+    "claw:daemon": "node scripts/claw-daemon.mjs",
+    "granola:sync": "node scripts/granola-sync.mjs",
+    "granola:sync:stdin": "node scripts/granola-sync.mjs --stdin"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
@@ -52,5 +56,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "wrangler": "^4.81.1"
   }
 }

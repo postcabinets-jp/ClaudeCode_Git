@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>維新PRESS {{VOL}}｜{{DATE_JP}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --g:#1B6B3A;--gd:#134D2A;--gp:#E8F5EC;
+      --r:#C41E3A;--w:#FFF;--k:#111;--k2:#444;
+      --y:#FFD700;--yb:#FFFAE6;--gr:#D8D8D4;--bd:#BBB;
+    }
+    body{font-family:"Noto Sans JP",sans-serif;color:var(--k);background:#999}
+    .pg{width:210mm;height:297mm;margin:4mm auto;background:var(--w);position:relative;overflow:hidden;box-shadow:0 1px 10px rgba(0,0,0,.3)}
+    @media print{body{background:none}.pg{page-break-after:always;margin:0;box-shadow:none}.pg:last-child{page-break-after:avoid}}
+
+    /* 表面 */
+    .f1{position:absolute;top:0;left:0;right:0;height:11mm;background:var(--g);color:var(--w);padding:0 5mm;display:flex;justify-content:space-between;align-items:center}
+    .f1 .t{font-family:"Noto Serif JP",serif;font-weight:900;font-size:15pt;letter-spacing:.15em}
+    .f1 .t b{font-family:"Inter",sans-serif;font-weight:900;letter-spacing:.03em}
+    .f1 .m{text-align:right;font-size:6.5pt;line-height:1.5}
+    .f1 .m b{font-family:"Inter",sans-serif;font-weight:900;font-size:13pt;display:block}
+    .f2{position:absolute;top:11mm;left:0;right:0;height:5mm;background:var(--gp);border-bottom:1px solid var(--g);padding:0 5mm;display:flex;justify-content:space-between;align-items:center;font-size:6.5pt;color:var(--gd)}
+    .f3{position:absolute;top:16mm;left:0;right:0;height:54mm;padding:3mm 5mm;display:flex;gap:4mm;border-bottom:1.5px solid var(--g)}
+    .f3 .ph{width:38mm;height:48mm;background:var(--gr);border:1px solid var(--bd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:7pt;color:#888;overflow:hidden}
+    .f3 .ph img{width:100%;height:100%;object-fit:cover}
+    .f3 .inf{flex:1;padding-top:1mm}
+    .f3 .p1{font-size:7.5pt;color:var(--g);font-weight:700}
+    .f3 .p2{font-size:7pt;color:var(--k2);margin-top:.5mm}
+    .f3 .rb{font-size:7pt;color:var(--k2);letter-spacing:.4em;margin-top:2mm}
+    .f3 .nm{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28pt;line-height:1.15;color:var(--k)}
+    .f3 .bi{font-size:7pt;color:var(--k2);margin-top:1.5mm}
+    .f4{position:absolute;top:70mm;left:0;right:0;height:20mm;background:var(--yb);border-bottom:1.5px solid var(--g);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .f4 .mc{font-family:"Noto Serif JP",serif;font-weight:900;font-size:16pt;color:var(--gd);line-height:1.45;text-align:center}
+    .f4 .sc{font-size:8pt;color:var(--k2);margin-top:1mm}
+    .f5{position:absolute;top:90mm;left:0;right:0;height:102mm;padding:3mm 5mm 0}
+    .f5 .tg{display:inline-block;background:var(--g);color:var(--w);font-size:6.5pt;font-weight:700;padding:.5mm 2.5mm;margin-bottom:1.5mm}
+    .f5 h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:13pt;line-height:1.4;border-left:3px solid var(--g);padding-left:3mm;margin-bottom:2.5mm}
+    .f5 .ph{width:100%;height:50mm;background:var(--gr);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:7pt;color:#888;overflow:hidden}
+    .f5 .ph img{width:100%;height:100%;object-fit:cover}
+    .f5 .cap{font-size:6pt;color:var(--k2);text-align:right;margin:.5mm 0 1.5mm}
+    .f5 p{font-size:8.5pt;line-height:1.8;text-align:justify}
+    .f6{position:absolute;top:192mm;left:0;right:0;height:83mm;padding:0 5mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+    .f6i{border-top:2px solid var(--g);padding-top:2mm}
+    .f6i .tg{display:inline-block;background:var(--g);color:var(--w);font-size:5.5pt;font-weight:700;padding:.3mm 2mm;margin-bottom:1mm}
+    .f6i h3{font-size:9.5pt;font-weight:900;line-height:1.4;margin-bottom:2mm}
+    .f6i .ph{width:100%;height:30mm;background:var(--gr);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:6.5pt;color:#888;overflow:hidden;margin-bottom:1.5mm}
+    .f6i .ph img{width:100%;height:100%;object-fit:cover}
+    .f6i p{font-size:7.5pt;line-height:1.7}
+    .f7{position:absolute;bottom:0;left:0;right:0;height:12mm;background:var(--g);color:var(--w);padding:0 5mm;display:flex;justify-content:space-between;align-items:center}
+    .f7 .l{font-size:7pt;line-height:1.5}
+    .f7 .l b{font-size:8.5pt;display:block}
+    .f7 .tel{font-family:"Inter",sans-serif;font-weight:900;font-size:14pt}
+
+    /* 裏面 */
+    .b1{position:absolute;top:0;left:0;right:0;height:10mm;background:var(--g);color:var(--w);padding:0 5mm;display:flex;justify-content:space-between;align-items:center}
+    .b1 h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:12pt;letter-spacing:.05em}
+    .b1 .v{font-size:7pt;opacity:.8}
+    .b2{position:absolute;top:10mm;left:0;right:0;height:138mm;padding:3mm 5mm}
+    .b2 .st{font-family:"Noto Serif JP",serif;font-weight:900;font-size:12pt;border-bottom:2px double var(--g);padding-bottom:1.5mm;margin-bottom:2mm}
+    .b2 .ss{font-size:7pt;color:var(--k2);margin-bottom:2.5mm}
+    .qa{margin-bottom:3mm;padding-bottom:2.5mm;border-bottom:.5px solid #DDD}
+    .qa:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .qa .qt{font-weight:900;font-size:9.5pt;color:var(--gd);margin-bottom:1.5mm}
+    .qr_{display:flex;gap:2mm;margin-bottom:1mm}
+    .qr_ .lb{width:6mm;height:6mm;font-weight:900;font-size:8pt;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--w)}
+    .qr_ .lb.q{background:var(--r)}
+    .qr_ .lb.a{background:var(--g)}
+    .qr_ .tx{font-size:7.5pt;line-height:1.7}
+    .qr_ .tx.qb{font-weight:700}
+    .b3{position:absolute;top:148mm;left:0;right:0;height:36mm;background:var(--gd);color:var(--w);padding:3mm 5mm}
+    .b3 .tt{font-weight:900;font-size:9.5pt;text-align:center;margin-bottom:2mm;letter-spacing:.15em}
+    .b3 .rw{display:flex;justify-content:space-around;text-align:center}
+    .b3 .rw+.rw{margin-top:1.5mm;padding-top:1.5mm;border-top:.5px solid rgba(255,255,255,.2)}
+    .b3 .c{flex:1}
+    .b3 .c .n{font-family:"Inter",sans-serif;font-weight:900;font-size:16pt;color:var(--y);line-height:1.2}
+    .b3 .c .l{font-size:6.5pt;opacity:.85;margin-top:.3mm}
+    .b4{position:absolute;top:184mm;left:0;right:0;height:44mm;padding:3.5mm 5mm}
+    .b4 .bx{border:1.5px solid var(--g);padding:3mm 3.5mm;position:relative;height:100%}
+    .b4 .bx .lb{position:absolute;top:-2.5mm;left:3mm;background:var(--g);color:var(--w);font-size:6pt;font-weight:700;padding:.3mm 2mm}
+    .b4 .bx h3{font-size:9.5pt;font-weight:900;line-height:1.4;margin-bottom:1.5mm;margin-top:.5mm}
+    .b4 .bx p{font-size:7.5pt;line-height:1.75}
+    .b5{position:absolute;top:228mm;left:0;right:0;height:14mm;background:var(--yb);border-top:1.5px solid var(--g);border-bottom:1.5px solid var(--g);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .b5 .t_{font-weight:900;font-size:9.5pt;color:var(--gd)}
+    .b5 .d_{font-size:7pt;color:var(--k2);margin-top:.5mm}
+    .b6{position:absolute;top:242mm;left:0;right:0;bottom:0;background:var(--g);color:var(--w);padding:3mm 5mm}
+    .b6 .gr{display:flex;justify-content:space-between;align-items:flex-start}
+    .b6 .pr{font-size:6.5pt;line-height:1.6}
+    .b6 .pr b{font-size:8pt;display:block;margin-bottom:.5mm}
+    .b6 .qrs{display:flex;gap:2.5mm}
+    .b6 .qi{text-align:center}
+    .b6 .qi .qb{width:13mm;height:13mm;background:var(--w);display:flex;align-items:center;justify-content:center;font-size:6pt;font-weight:700;color:var(--gd)}
+    .b6 .qi .ql{font-size:5pt;margin-top:.3mm;opacity:.8}
+    .b6 .nx{font-size:6pt;color:var(--y);margin-top:2mm}
+
+    @media screen and (max-width:600px){.pg{width:100%;height:auto}.pg>*{position:relative!important;top:auto!important;bottom:auto!important}.f6{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- 表面 -->
+<div class="pg">
+  <div class="f1">
+    <div class="t">維新<b>PRESS</b></div>
+    <div class="m"><b>{{VOL}}</b>{{YEAR_JP}}</div>
+  </div>
+  <div class="f2">
+    <span>発行：大阪府議会議員 前田将臣事務所</span>
+    <span>{{DATE_FULL}}</span>
+  </div>
+  <div class="f3">
+    <div class="ph">{{PORTRAIT}}</div>
+    <div class="inf">
+      <div class="p1">大阪維新の会 大阪府議会議員</div>
+      <div class="p2">維新府議団　岸和田市選挙区</div>
+      <div class="rb">まえだ のぶみ</div>
+      <div class="nm">前田将臣の府政報告</div>
+      <div class="bi">児童養護施設出身／1期目</div>
+    </div>
+  </div>
+  <div class="f4">
+    <div class="mc">{{CATCH_MAIN}}</div>
+    <div class="sc">{{CATCH_SUB}}</div>
+  </div>
+  <div class="f5">
+    <div class="tg">{{MAIN_TAG}}</div>
+    <h2>{{MAIN_HEADLINE}}</h2>
+    <div class="ph">{{MAIN_PHOTO}}</div>
+    <div class="cap">{{MAIN_CAPTION}}</div>
+    <p>{{MAIN_BODY}}</p>
+  </div>
+  <div class="f6">
+    <div class="f6i">
+      <div class="tg">{{SUB1_TAG}}</div>
+      <h3>{{SUB1_HEADLINE}}</h3>
+      <div class="ph">{{SUB1_PHOTO}}</div>
+      <p>{{SUB1_BODY}}</p>
+    </div>
+    <div class="f6i">
+      <div class="tg">{{SUB2_TAG}}</div>
+      <h3>{{SUB2_HEADLINE}}</h3>
+      <div class="ph">{{SUB2_PHOTO}}</div>
+      <p>{{SUB2_BODY}}</p>
+    </div>
+  </div>
+  <div class="f7">
+    <div class="l"><b>前田将臣事務所</b>〒596-0825 大阪府岸和田市土生町4-4-6 新川第一ビル402</div>
+    <div class="tel">070-2313-4792</div>
+  </div>
+</div>
+
+<!-- 裏面 -->
+<div class="pg">
+  <div class="b1">
+    <h2>前田将臣の府政報告　{{BACK_TITLE}}</h2>
+    <div class="v">維新PRESS {{VOL}}・{{DATE_JP}}</div>
+  </div>
+  <div class="b2">
+    <div class="st">{{QA_SECTION_TITLE}}</div>
+    <div class="ss">{{QA_SECTION_SUB}}</div>
+    {{QA_ITEMS}}
+  </div>
+  <div class="b3">
+    <div class="tt">{{RESULTS_TITLE}}</div>
+    {{RESULTS_ROWS}}
+  </div>
+  <div class="b4">
+    <div class="bx">
+      <div class="lb">コラム</div>
+      <h3>{{COLUMN_TITLE}}</h3>
+      <p>{{COLUMN_BODY}}</p>
+    </div>
+  </div>
+  <div class="b5">
+    <div class="t_">府民相談のご案内　毎週水曜日　事務所にて</div>
+    <div class="d_">福祉・教育・生活のことなど、お気軽にお声がけください。相談無料・秘密厳守</div>
+  </div>
+  <div class="b6">
+    <div class="gr">
+      <div class="pr">
+        <b>前田将臣（大阪府議会議員）</b>
+        岸和田市選挙区・1期目／大阪維新の会所属<br>
+        〒596-0825 岸和田市土生町4-4-6 新川第一ビル402<br>
+        TEL 070-2313-4792
+      </div>
+      <div class="qrs">
+        <div class="qi"><div class="qb">QR</div><div class="ql">LINE公式</div></div>
+        <div class="qi"><div class="qb">QR</div><div class="ql">Instagram</div></div>
+        <div class="qi"><div class="qb">QR</div><div class="ql">公式サイト</div></div>
+      </div>
+    </div>
+    <div class="nx">{{NEXT_PREVIEW}}</div>
+  </div>
+</div>
+
+<!--
+  テンプレート変数一覧:
+
+  【固定（毎号同じ）】
+  事務所名、住所、電話番号、プロフィール、QRコード → HTML内に直書き
+
+  【号ごとに変更】
+  {{VOL}}            - Vol.1, Vol.2, ...
+  {{YEAR_JP}}        - 令和8年度
+  {{DATE_JP}}        - 令和8年4月号
+  {{DATE_FULL}}      - 2026年（令和8年）4月発行
+  {{PORTRAIT}}       - 顔写真 <img> タグ or プレースホルダテキスト
+  {{CATCH_MAIN}}     - キャッチコピー（改行は<br>）
+  {{CATCH_SUB}}      - サブキャッチ
+  {{MAIN_TAG}}       - メイン記事タグ（議会質問、政策提言 等）
+  {{MAIN_HEADLINE}}  - メイン記事見出し（改行は<br>）
+  {{MAIN_PHOTO}}     - メイン写真 <img> or プレースホルダ (横幅全面×50mm)
+  {{MAIN_CAPTION}}   - 写真キャプション
+  {{MAIN_BODY}}      - メイン記事本文（250字以内）
+  {{SUB1_TAG}}       - サブ1タグ
+  {{SUB1_HEADLINE}}  - サブ1見出し
+  {{SUB1_PHOTO}}     - サブ1写真 <img> or プレースホルダ (93×30mm)
+  {{SUB1_BODY}}      - サブ1本文（100字以内）
+  {{SUB2_TAG}}       - サブ2タグ
+  {{SUB2_HEADLINE}}  - サブ2見出し
+  {{SUB2_PHOTO}}     - サブ2写真 <img> or プレースホルダ (93×30mm)
+  {{SUB2_BODY}}      - サブ2本文（100字以内）
+  {{BACK_TITLE}}     - 裏面タイトル（3月定例会 等）
+  {{QA_SECTION_TITLE}} - Q&Aセクションタイトル
+  {{QA_SECTION_SUB}}   - Q&Aセクションサブ
+  {{QA_ITEMS}}       - Q&A HTMLブロック（下記テンプレで生成）
+  {{RESULTS_TITLE}}  - 実績セクションタイトル
+  {{RESULTS_ROWS}}   - 実績 HTMLブロック（下記テンプレで生成）
+  {{COLUMN_TITLE}}   - コラムタイトル
+  {{COLUMN_BODY}}    - コラム本文（180字以内）
+  {{NEXT_PREVIEW}}   - 次号予告
+
+  【Q&Aアイテムテンプレート】（{{QA_ITEMS}} に挿入）
+  <div class="qa">
+    <div class="qt">タイトル</div>
+    <div class="qr_"><div class="lb q">Q</div><div class="tx qb">質問文</div></div>
+    <div class="qr_"><div class="lb a">A</div><div class="tx">答弁文</div></div>
+  </div>
+
+  【実績行テンプレート】（{{RESULTS_ROWS}} に挿入）
+  <div class="rw">
+    <div class="c"><div class="n">値</div><div class="l">ラベル</div></div>
+    <div class="c"><div class="n">値</div><div class="l">ラベル</div></div>
+    <div class="c"><div class="n">値</div><div class="l">ラベル</div></div>
+  </div>
+
+  【写真の埋め込み方】
+  プレースホルダ: テキストをそのまま書く（例: 提供写真に差し替え（93×30mm））
+  実写真: <img src="相対パスor絶対パス" alt="説明">
+-->
+</body>
+</html>

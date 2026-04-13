@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[50991,["/_next/static/chunks/0wrxa1apqk4q6.js"],"ViewportBoundary"]
+3:I[50991,["/_next/static/chunks/0wrxa1apqk4q6.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#2C4A3E"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"てあて薬局"}],["$","meta","1",{"name":"description","content":"あなたの疲れに寄り添う、オーダーメイドの漢方体験"}],["$","link","2",{"rel":"manifest","href":"/manifest.json"}],["$","meta","3",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","4",{"name":"apple-mobile-web-app-title","content":"てあて薬局"}],["$","meta","5",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"L2_siT-s_Mw_B0VJc4Zmy"}

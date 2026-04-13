@@ -1,0 +1,99 @@
+<h2>§3 コンテンツ生成ロジック</h2>
+<p class="subtitle">毎朝7時 — Claude APIが戦略設計書を読んで投稿を生成</p>
+
+<div class="section" style="max-width:720px; margin:0 auto;">
+
+  <!-- Rotation -->
+  <div style="margin-bottom:24px;">
+    <div style="color:#6c63ff; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">柱ローテーション（週7日）</div>
+    <div style="display:grid; grid-template-columns: repeat(7, 1fr); gap:6px;">
+      <div style="background:#1e1e3a; border:1px solid #6c63ff; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">月</div>
+        <div style="font-size:12px; font-weight:bold; color:#6c63ff;">柱1</div>
+        <div style="font-size:10px; color:#aaa; margin-top:4px;">経営ログ</div>
+      </div>
+      <div style="background:#1e1e3a; border:1px solid #444; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">火</div>
+        <div style="font-size:12px; font-weight:bold; color:#aaa;">柱1</div>
+        <div style="font-size:10px; color:#888; margin-top:4px;">経営ログ</div>
+      </div>
+      <div style="background:#1e1e3a; border:1px solid #22c55e; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">水</div>
+        <div style="font-size:12px; font-weight:bold; color:#22c55e;">柱2</div>
+        <div style="font-size:10px; color:#aaa; margin-top:4px;">設計思想</div>
+      </div>
+      <div style="background:#1e1e3a; border:1px solid #444; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">木</div>
+        <div style="font-size:12px; font-weight:bold; color:#aaa;">柱2</div>
+        <div style="font-size:10px; color:#888; margin-top:4px;">設計思想</div>
+      </div>
+      <div style="background:#1e1e3a; border:1px solid #f59e0b; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">金</div>
+        <div style="font-size:12px; font-weight:bold; color:#f59e0b;">柱3</div>
+        <div style="font-size:10px; color:#aaa; margin-top:4px;">社会視点</div>
+      </div>
+      <div style="background:#1e1e3a; border:1px solid #444; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">土</div>
+        <div style="font-size:12px; font-weight:bold; color:#aaa;">柱1</div>
+        <div style="font-size:10px; color:#888; margin-top:4px;">経営ログ</div>
+      </div>
+      <div style="background:#1e1e3a; border:1px solid #444; border-radius:8px; padding:10px 6px; text-align:center;">
+        <div style="font-size:11px; color:#888; margin-bottom:4px;">日</div>
+        <div style="font-size:12px; font-weight:bold; color:#aaa;">休み</div>
+        <div style="font-size:10px; color:#888; margin-top:4px;">生成なし</div>
+      </div>
+    </div>
+    <div style="font-size:12px; color:#888; margin-top:8px;">※ 日曜は生成しない（週6本）。Notionに未投稿が溜まっている場合はスキップ。</div>
+  </div>
+
+  <!-- Prompt structure -->
+  <div style="margin-bottom:24px;">
+    <div style="color:#22c55e; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">Claude APIへのプロンプト構造</div>
+    <div style="background:#0f0f1a; border:1px solid #333; border-radius:12px; padding:16px 18px; font-size:13px; font-family:monospace; line-height:1.8; color:#ccc;">
+      <span style="color:#6c63ff;">[System]</span><br>
+      あなたはPOST CABINETS代表・前田暢のLinkedIn投稿担当です。<br>
+      以下の戦略設計書に従って投稿を作成してください。<br>
+      <span style="color:#888;">（設計書の全文を埋め込む）</span><br><br>
+      <span style="color:#6c63ff;">[User]</span><br>
+      今日は{曜日}です。{柱名}の投稿を1本作成してください。<br>
+      - 文字数: 300〜600字<br>
+      - トーン: 気取らない。リアル。試行錯誤も見せる<br>
+      - 過去の投稿と重複しないよう: {過去5件のタイトル一覧}<br>
+      - JSON形式で返してください: {"title": "...", "body": "..."}
+    </div>
+  </div>
+
+  <!-- Duplicate guard -->
+  <div style="margin-bottom:24px;">
+    <div style="color:#f59e0b; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">重複防止 & 品質ガード</div>
+    <div style="background:#0f0f1a; border:1px solid #333; border-radius:12px; padding:16px 18px;">
+      <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="color:#f59e0b; flex-shrink:0;">①</div>
+          <div>Notionから直近5件の投稿タイトルを取得してプロンプトに含める（同テーマの繰り返し防止）</div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="color:#f59e0b; flex-shrink:0;">②</div>
+          <div>未投稿（投稿OK未チェック）が3件以上溜まっている場合は新規生成をスキップ</div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="color:#f59e0b; flex-shrink:0;">③</div>
+          <div>生成された本文が200字未満 or JSONパースエラーの場合は再生成（最大2回）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Discord notification -->
+  <div>
+    <div style="color:#aaa; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">Discord通知フォーマット</div>
+    <div style="background:#0f0f1a; border:1px solid #333; border-radius:12px; padding:14px 16px; font-size:13px; font-family:monospace; color:#ccc; line-height:1.7;">
+      <span style="color:#6c63ff;">📝 LinkedIn投稿下書きを作成しました</span><br>
+      タイトル: AIを導入して最初にやった失敗の話<br>
+      柱: 経営の実践ログ（柱1）<br>
+      → Notionで確認・編集して「投稿OK」をチェックしてください<br>
+      <span style="color:#888; font-size:11px;">🔗 [Notionリンク]</span>
+    </div>
+  </div>
+
+</div>

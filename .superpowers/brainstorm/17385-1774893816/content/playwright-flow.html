@@ -1,0 +1,83 @@
+<h2>§2 Playwright投稿フロー & エラーハンドリング</h2>
+<p class="subtitle">ログイン維持から投稿完了・失敗時まで</p>
+
+<div class="section" style="max-width:720px; margin:0 auto;">
+
+  <!-- Login state -->
+  <div style="margin-bottom:24px;">
+    <div style="color:#6c63ff; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">ログイン状態の維持</div>
+    <div style="background:#0f0f1a; border:1px solid #6c63ff; border-radius:12px; padding:16px 18px;">
+      <div style="display:flex; gap:16px; align-items:flex-start;">
+        <div style="flex:1;">
+          <div style="font-size:13px; font-weight:bold; margin-bottom:8px;">初回セットアップ（手動・1回のみ）</div>
+          <div style="font-size:12px; color:#ccc; background:#111; border-radius:6px; padding:8px 12px; font-family:monospace;">
+            node scripts/linkedin-setup.mjs<br>
+            <span style="color:#888;"># ブラウザが開くので手動ログイン</span><br>
+            <span style="color:#888;"># Cookie を .linkedin-session.json に保存</span>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:13px; font-weight:bold; margin-bottom:8px;">通常投稿時（自動）</div>
+          <div style="font-size:12px; color:#ccc; background:#111; border-radius:6px; padding:8px 12px; font-family:monospace;">
+            storageState: '.linkedin-session.json'<br>
+            <span style="color:#888;"># ログイン不要で直接投稿ページへ</span><br>
+            <span style="color:#888;"># Cookieが切れたら再セットアップ案内</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px; font-size:12px; color:#f59e0b;">⚠️ .linkedin-session.json は .gitignore に追加（認証情報のため）</div>
+    </div>
+  </div>
+
+  <!-- Post flow -->
+  <div style="margin-bottom:24px;">
+    <div style="color:#22c55e; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">投稿ステップ（Playwright操作）</div>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div style="display:flex; gap:10px; align-items:center; background:#0f0f1a; border:1px solid #333; border-radius:8px; padding:10px 14px;">
+        <div style="background:#22c55e; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; flex-shrink:0;">1</div>
+        <div style="font-size:13px;">linkedin.com を storageState で開く（ヘッドレス）</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; background:#0f0f1a; border:1px solid #333; border-radius:8px; padding:10px 14px;">
+        <div style="background:#22c55e; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; flex-shrink:0;">2</div>
+        <div style="font-size:13px;">「投稿を始める」ボタンをクリック</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; background:#0f0f1a; border:1px solid #333; border-radius:8px; padding:10px 14px;">
+        <div style="background:#22c55e; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; flex-shrink:0;">3</div>
+        <div style="font-size:13px;">テキストエリアに本文を入力（Notionの「本文」フィールド）</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; background:#0f0f1a; border:1px solid #333; border-radius:8px; padding:10px 14px;">
+        <div style="background:#22c55e; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; flex-shrink:0;">4</div>
+        <div style="font-size:13px;">「投稿する」ボタンをクリック → URL取得</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; background:#0f0f1a; border:1px solid #333; border-radius:8px; padding:10px 14px;">
+        <div style="background:#22c55e; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; flex-shrink:0;">5</div>
+        <div style="font-size:13px;">Notionを更新: ステータス=「投稿済」、投稿日時・投稿URLを記録</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error handling -->
+  <div>
+    <div style="color:#ef4444; font-size:12px; font-weight:bold; letter-spacing:1px; margin-bottom:8px;">エラーハンドリング</div>
+    <div style="background:#0f0f1a; border:1px solid #333; border-radius:12px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0;">
+        <div style="padding:10px 14px; border-right:1px solid #333; border-bottom:1px solid #333; font-size:12px; color:#888; font-weight:bold;">エラー種別</div>
+        <div style="padding:10px 14px; border-right:1px solid #333; border-bottom:1px solid #333; font-size:12px; color:#888; font-weight:bold;">対処</div>
+        <div style="padding:10px 14px; border-bottom:1px solid #333; font-size:12px; color:#888; font-weight:bold;">通知</div>
+
+        <div style="padding:10px 14px; border-right:1px solid #333; border-bottom:1px solid #333; font-size:12px;">Cookie切れ</div>
+        <div style="padding:10px 14px; border-right:1px solid #333; border-bottom:1px solid #333; font-size:12px;">ステータス=「要再ログイン」</div>
+        <div style="padding:10px 14px; border-bottom:1px solid #333; font-size:12px; color:#f59e0b;">Discord警告（セットアップ案内）</div>
+
+        <div style="padding:10px 14px; border-right:1px solid #333; border-bottom:1px solid #333; font-size:12px;">ボタンが見つからない</div>
+        <div style="padding:10px 14px; border-right:1px solid #333; border-bottom:1px solid #333; font-size:12px;">3回リトライ後にエラー</div>
+        <div style="padding:10px 14px; border-bottom:1px solid #333; font-size:12px; color:#ef4444;">Discord警告</div>
+
+        <div style="padding:10px 14px; border-right:1px solid #333; font-size:12px;">ネットワークエラー</div>
+        <div style="padding:10px 14px; border-right:1px solid #333; font-size:12px;">次回ポーリングで再試行</div>
+        <div style="padding:10px 14px; font-size:12px; color:#888;">サイレント（3回失敗でDiscord）</div>
+      </div>
+    </div>
+  </div>
+
+</div>

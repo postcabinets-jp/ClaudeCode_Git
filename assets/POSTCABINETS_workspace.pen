@@ -1,0 +1,16 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "id": "main-frame",
+      "type": "frame",
+      "name": "Workspace",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "fill": "#F5F5F5",
+      "children": []
+    }
+  ]
+}

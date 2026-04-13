@@ -1,0 +1,3 @@
+module.exports=[11853,a=>{"use strict";var b=a.i(37018);async function c(){let a=(0,b.createClient)(),{data:c,error:d}=await a.auth.signInWithOAuth({provider:"google",options:{redirectTo:`${window.location.origin}/auth/callback`}});if(d)throw d;return c}async function d(){let a=(0,b.createClient)(),{error:c}=await a.auth.signOut();if(c)throw c}async function e(){let a=(0,b.createClient)(),{data:{session:c}}=await a.auth.getSession();return c}async function f(){let a=(0,b.createClient)(),{data:{user:c}}=await a.auth.getUser();return c}a.s(["getSession",0,e,"getUser",0,f,"signInWithGoogle",0,c,"signOut",0,d])}];
+
+//# sourceMappingURL=projects_teateyakkyoku_app_src_lib_supabase_auth_ts_0cd6h8a._.js.map

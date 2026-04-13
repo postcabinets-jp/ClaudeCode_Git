@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-forest: #2C4A3E;
+  --color-forest-dark: #1E3830;
+  --color-forest-mid: #3D5F52;
+  --color-forest-light: #6B9E8F;
+  --color-forest-pale: #A8C5BB;
+  --color-terra: #E8956D;
+  --color-terra-light: #FFF0E8;
+  --color-cream: #FDF8F2;
+  --color-cream-warm: #F0EDE8;
+  --color-cream-muted: #E8E0D5;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-forest-dark);
+  }
+
+  /* モバイル最適化 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  input, button, textarea {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-forest text-cream font-bold py-4 px-6 rounded-3xl w-full flex items-center justify-center gap-2 transition-opacity active:opacity-80;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-forest font-semibold py-4 px-6 rounded-3xl w-full flex items-center justify-center gap-2 border border-cream-muted transition-opacity active:opacity-80;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl p-4 shadow-sm;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+}

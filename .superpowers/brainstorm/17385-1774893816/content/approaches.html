@@ -1,0 +1,106 @@
+<h2>実装アプローチ比較</h2>
+<p class="subtitle">どの構成で自動化パイプラインを組むか選んでください</p>
+
+<div class="options">
+
+  <!-- Option A -->
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>launchd + Node.js スクリプト（推奨）</h3>
+      <p>既存の <code>autonomous-loop.mjs</code> / <code>notion-pulse.mjs</code> パターンを踏襲。2つのlaunchd jobで完結。</p>
+      <div style="margin-top:10px; font-size:13px;">
+        <div style="display:flex; gap:24px;">
+          <div>
+            <div style="color:#22c55e; font-weight:bold; margin-bottom:4px;">✅ メリット</div>
+            <ul style="margin:0; padding-left:16px; color:#ccc;">
+              <li>既存インフラそのまま使える</li>
+              <li>追加依存なし</li>
+              <li>Mac常駐・確実に動く</li>
+              <li>コードシンプル</li>
+            </ul>
+          </div>
+          <div>
+            <div style="color:#ef4444; font-weight:bold; margin-bottom:4px;">⚠️ デメリット</div>
+            <ul style="margin:0; padding-left:16px; color:#ccc;">
+              <li>Macが起動していないと動かない</li>
+              <li>スリープ中は実行されない</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px; background:#111; border-radius:6px; padding:8px 12px; font-size:12px; color:#888;">
+        job1（毎朝7時）: Claude API で下書き生成 → Notionに保存 → Discord通知<br>
+        job2（15分ごと）: Notion「投稿OK」をポーリング → Playwright でLinkedIn投稿
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Claude Code スケジュール（RemoteTrigger）</h3>
+      <p>Claude Codeのスケジュール機能でエージェントを起動。コード最小限。</p>
+      <div style="margin-top:10px; font-size:13px;">
+        <div style="display:flex; gap:24px;">
+          <div>
+            <div style="color:#22c55e; font-weight:bold; margin-bottom:4px;">✅ メリット</div>
+            <ul style="margin:0; padding-left:16px; color:#ccc;">
+              <li>スクリプト実装量が少ない</li>
+              <li>Claude Code管理画面で制御可能</li>
+            </ul>
+          </div>
+          <div>
+            <div style="color:#ef4444; font-weight:bold; margin-bottom:4px;">⚠️ デメリット</div>
+            <ul style="margin:0; padding-left:16px; color:#ccc;">
+              <li>Claude Codeセッション依存</li>
+              <li>トークンコスト増</li>
+              <li>長期安定性に懸念</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px; background:#111; border-radius:6px; padding:8px 12px; font-size:12px; color:#888;">
+        /schedule で毎朝・毎15分のエージェントを登録。Notion読み書き・Playwright操作をClaudeが直接実行。
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>A + Webhook（ハイブリッド）</h3>
+      <p>launchd基盤にNotionのWebhookを追加。「投稿OK」と同時にリアルタイム投稿。</p>
+      <div style="margin-top:10px; font-size:13px;">
+        <div style="display:flex; gap:24px;">
+          <div>
+            <div style="color:#22c55e; font-weight:bold; margin-bottom:4px;">✅ メリット</div>
+            <ul style="margin:0; padding-left:16px; color:#ccc;">
+              <li>チェックと同時に即時投稿</li>
+              <li>ポーリング不要</li>
+            </ul>
+          </div>
+          <div>
+            <div style="color:#ef4444; font-weight:bold; margin-bottom:4px;">⚠️ デメリット</div>
+            <ul style="margin:0; padding-left:16px; color:#ccc;">
+              <li>Webhook受信サーバーが必要</li>
+              <li>構成が複雑になる</li>
+              <li>Notion Webhookは有料プランのみ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px; background:#111; border-radius:6px; padding:8px 12px; font-size:12px; color:#888;">
+        Notion → Webhook → ローカルサーバー → Playwright投稿。リアルタイムだが複雑。
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:20px; background:#1a1a2e; border:1px solid #6c63ff; border-radius:8px; padding:14px 18px; max-width:700px; margin:20px auto 0;">
+  <div style="font-size:13px; color:#6c63ff; font-weight:bold; margin-bottom:6px;">💡 おすすめ: A</div>
+  <div style="font-size:13px; color:#ccc;">既存の <code>autonomous-loop.mjs</code> や <code>notion-pulse.mjs</code> と同じパターンなので、コードを書く量が最小限。launchd で安定稼働。Cは現時点では過剰設計。</div>
+</div>

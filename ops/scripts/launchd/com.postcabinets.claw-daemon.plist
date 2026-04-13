@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.postcabinets.claw-daemon</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin/node</string>
+    <string>/Users/apple/claude for me/scripts/claw-daemon.mjs</string>
+  </array>
+
+  <!-- クラッシュ・スリープ復帰で自動再起動 -->
+  <key>KeepAlive</key>
+  <true/>
+
+  <!-- ログイン時に自動起動 -->
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/apple/Library/Logs/claw-daemon.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/apple/Library/Logs/claw-daemon.error.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/apple/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    <key>HOME</key>
+    <string>/Users/apple</string>
+  </dict>
+</dict>
+</plist>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>維新PRESS vol.1｜令和8年4月号</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --g:#1B6B3A;--gd:#134D2A;--gp:#E8F5EC;
+      --r:#C41E3A;--w:#FFF;--k:#111;--k2:#444;
+      --y:#FFD700;--yb:#FFFAE6;--gr:#D8D8D4;--bd:#BBB;
+    }
+    body{font-family:"Noto Sans JP",sans-serif;color:var(--k);background:#999}
+    .pg{width:210mm;height:297mm;margin:4mm auto;background:var(--w);position:relative;overflow:hidden;box-shadow:0 1px 10px rgba(0,0,0,.3)}
+    @media print{body{background:none}.pg{page-break-after:always;margin:0;box-shadow:none}.pg:last-child{page-break-after:avoid}}
+
+    /* ===== 表面 ===== */
+    /* 紙名 0-11mm */
+    .f1{position:absolute;top:0;left:0;right:0;height:11mm;background:var(--g);color:var(--w);padding:0 5mm;display:flex;justify-content:space-between;align-items:center}
+    .f1 .t{font-family:"Noto Serif JP",serif;font-weight:900;font-size:15pt;letter-spacing:.15em}
+    .f1 .t b{font-family:"Inter",sans-serif;font-weight:900;letter-spacing:.03em}
+    .f1 .m{text-align:right;font-size:6.5pt;line-height:1.5}
+    .f1 .m b{font-family:"Inter",sans-serif;font-weight:900;font-size:13pt;display:block}
+
+    /* 発行帯 11-16mm */
+    .f2{position:absolute;top:11mm;left:0;right:0;height:5mm;background:var(--gp);border-bottom:1px solid var(--g);padding:0 5mm;display:flex;justify-content:space-between;align-items:center;font-size:6.5pt;color:var(--gd)}
+
+    /* ヒーロー 16-70mm */
+    .f3{position:absolute;top:16mm;left:0;right:0;height:54mm;padding:3mm 5mm;display:flex;gap:4mm;border-bottom:1.5px solid var(--g)}
+    .f3 .ph{width:38mm;height:48mm;background:var(--gr);border:1px solid var(--bd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:7pt;color:#888}
+    .f3 .inf{flex:1;padding-top:1mm}
+    .f3 .p1{font-size:7.5pt;color:var(--g);font-weight:700}
+    .f3 .p2{font-size:7pt;color:var(--k2);margin-top:.5mm}
+    .f3 .rb{font-size:7pt;color:var(--k2);letter-spacing:.4em;margin-top:2mm}
+    .f3 .nm{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28pt;line-height:1.15;color:var(--k)}
+    .f3 .bi{font-size:7pt;color:var(--k2);margin-top:1.5mm}
+
+    /* キャッチ 70-90mm */
+    .f4{position:absolute;top:70mm;left:0;right:0;height:20mm;background:var(--yb);border-bottom:1.5px solid var(--g);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .f4 .mc{font-family:"Noto Serif JP",serif;font-weight:900;font-size:16pt;color:var(--gd);line-height:1.45;text-align:center}
+    .f4 .sc{font-size:8pt;color:var(--k2);margin-top:1mm}
+
+    /* メイン記事 90-192mm */
+    .f5{position:absolute;top:90mm;left:0;right:0;height:102mm;padding:3mm 5mm 0}
+    .f5 .tg{display:inline-block;background:var(--g);color:var(--w);font-size:6.5pt;font-weight:700;padding:.5mm 2.5mm;margin-bottom:1.5mm}
+    .f5 h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:13pt;line-height:1.4;border-left:3px solid var(--g);padding-left:3mm;margin-bottom:2.5mm}
+    .f5 .ph{width:100%;height:50mm;background:var(--gr);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:7pt;color:#888}
+    .f5 .cap{font-size:6pt;color:var(--k2);text-align:right;margin:.5mm 0 1.5mm}
+    .f5 p{font-size:8.5pt;line-height:1.8;text-align:justify}
+
+    /* サブ記事 192-275mm */
+    .f6{position:absolute;top:192mm;left:0;right:0;height:83mm;padding:0 5mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+    .f6i{border-top:2px solid var(--g);padding-top:2mm}
+    .f6i .tg{display:inline-block;background:var(--g);color:var(--w);font-size:5.5pt;font-weight:700;padding:.3mm 2mm;margin-bottom:1mm}
+    .f6i h3{font-size:9.5pt;font-weight:900;line-height:1.4;margin-bottom:2mm}
+    .f6i .ph{width:100%;height:30mm;background:var(--gr);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:6.5pt;color:#888;margin-bottom:1.5mm}
+    .f6i p{font-size:7.5pt;line-height:1.7}
+
+    /* 連絡先 285-297mm */
+    .f7{position:absolute;bottom:0;left:0;right:0;height:12mm;background:var(--g);color:var(--w);padding:0 5mm;display:flex;justify-content:space-between;align-items:center}
+    .f7 .l{font-size:7pt;line-height:1.5}
+    .f7 .l b{font-size:8.5pt;display:block}
+    .f7 .tel{font-family:"Inter",sans-serif;font-weight:900;font-size:14pt}
+
+    /* ===== 裏面 ===== */
+    /* ヘッダー 0-10mm */
+    .b1{position:absolute;top:0;left:0;right:0;height:10mm;background:var(--g);color:var(--w);padding:0 5mm;display:flex;justify-content:space-between;align-items:center}
+    .b1 h2{font-family:"Noto Serif JP",serif;font-weight:900;font-size:12pt;letter-spacing:.05em}
+    .b1 .v{font-size:7pt;opacity:.8}
+
+    /* Q&A 10-148mm */
+    .b2{position:absolute;top:10mm;left:0;right:0;height:138mm;padding:3mm 5mm}
+    .b2 .st{font-family:"Noto Serif JP",serif;font-weight:900;font-size:12pt;border-bottom:2px double var(--g);padding-bottom:1.5mm;margin-bottom:2mm}
+    .b2 .ss{font-size:7pt;color:var(--k2);margin-bottom:2.5mm}
+    .qa{margin-bottom:3mm;padding-bottom:2.5mm;border-bottom:.5px solid #DDD}
+    .qa:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .qa .qt{font-weight:900;font-size:9.5pt;color:var(--gd);margin-bottom:1.5mm}
+    .qr_{display:flex;gap:2mm;margin-bottom:1mm}
+    .qr_ .lb{width:6mm;height:6mm;font-weight:900;font-size:8pt;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--w)}
+    .qr_ .lb.q{background:var(--r)}
+    .qr_ .lb.a{background:var(--g)}
+    .qr_ .tx{font-size:7.5pt;line-height:1.7}
+    .qr_ .tx.qb{font-weight:700}
+
+    /* 実績帯 148-184mm */
+    .b3{position:absolute;top:148mm;left:0;right:0;height:36mm;background:var(--gd);color:var(--w);padding:3mm 5mm}
+    .b3 .tt{font-weight:900;font-size:9.5pt;text-align:center;margin-bottom:2mm;letter-spacing:.15em}
+    .b3 .rw{display:flex;justify-content:space-around;text-align:center}
+    .b3 .rw+.rw{margin-top:1.5mm;padding-top:1.5mm;border-top:.5px solid rgba(255,255,255,.2)}
+    .b3 .c{flex:1}
+    .b3 .c .n{font-family:"Inter",sans-serif;font-weight:900;font-size:16pt;color:var(--y);line-height:1.2}
+    .b3 .c .l{font-size:6.5pt;opacity:.85;margin-top:.3mm}
+
+    /* コラム 184-228mm */
+    .b4{position:absolute;top:184mm;left:0;right:0;height:44mm;padding:3.5mm 5mm}
+    .b4 .bx{border:1.5px solid var(--g);padding:3mm 3.5mm;position:relative;height:100%}
+    .b4 .bx .lb{position:absolute;top:-2.5mm;left:3mm;background:var(--g);color:var(--w);font-size:6pt;font-weight:700;padding:.3mm 2mm}
+    .b4 .bx h3{font-size:9.5pt;font-weight:900;line-height:1.4;margin-bottom:1.5mm;margin-top:.5mm}
+    .b4 .bx p{font-size:7.5pt;line-height:1.75}
+
+    /* 相談案内 228-242mm */
+    .b5{position:absolute;top:228mm;left:0;right:0;height:14mm;background:var(--yb);border-top:1.5px solid var(--g);border-bottom:1.5px solid var(--g);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .b5 .t_{font-weight:900;font-size:9.5pt;color:var(--gd)}
+    .b5 .d_{font-size:7pt;color:var(--k2);margin-top:.5mm}
+
+    /* フッター 242-297mm */
+    .b6{position:absolute;top:242mm;left:0;right:0;bottom:0;background:var(--g);color:var(--w);padding:3mm 5mm}
+    .b6 .gr{display:flex;justify-content:space-between;align-items:flex-start}
+    .b6 .pr{font-size:6.5pt;line-height:1.6}
+    .b6 .pr b{font-size:8pt;display:block;margin-bottom:.5mm}
+    .b6 .qrs{display:flex;gap:2.5mm}
+    .b6 .qi{text-align:center}
+    .b6 .qi .qb{width:13mm;height:13mm;background:var(--w);display:flex;align-items:center;justify-content:center;font-size:6pt;font-weight:700;color:var(--gd)}
+    .b6 .qi .ql{font-size:5pt;margin-top:.3mm;opacity:.8}
+    .b6 .nx{font-size:6pt;color:var(--y);margin-top:2mm}
+
+    @media screen and (max-width:600px){.pg{width:100%;height:auto}.pg>*{position:relative!important;top:auto!important;bottom:auto!important}.f6{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- 表面 -->
+<div class="pg">
+  <div class="f1">
+    <div class="t">維新<b>PRESS</b></div>
+    <div class="m"><b>Vol.1</b>令和8年度</div>
+  </div>
+  <div class="f2">
+    <span>発行：大阪府議会議員 前田将臣事務所</span>
+    <span>2026年（令和8年）4月発行</span>
+  </div>
+  <div class="f3">
+    <div class="ph">顔写真<br>(38×48mm)</div>
+    <div class="inf">
+      <div class="p1">大阪維新の会 大阪府議会議員</div>
+      <div class="p2">維新府議団　岸和田市選挙区</div>
+      <div class="rb">まえだ のぶみ</div>
+      <div class="nm">前田将臣の府政報告</div>
+      <div class="bi">児童養護施設出身／1期目</div>
+    </div>
+  </div>
+  <div class="f4">
+    <div class="mc">児童養護から府議会へ。<br>子どもの未来を、仕組みで守る。</div>
+    <div class="sc">令和8年3月定例会　一般質問のご報告</div>
+  </div>
+  <div class="f5">
+    <div class="tg">議会質問</div>
+    <h2>児童養護施設の支援拡充と<br>里親制度の推進を提案</h2>
+    <div class="ph">提供写真に差し替え（横幅全面×50mm）</div>
+    <div class="cap">3月5日　大阪府議会本会議にて一般質問</div>
+    <p>3月5日、大阪府議会本会議で子育て支援をテーマに一般質問に立ちました。児童養護施設出身の当事者として、施設退所後の自立支援の不足と里親委託率の低さを具体的なデータとともに指摘。施設職員の処遇改善、退所者への住居・就労支援パッケージの創設、里親登録数を5年で1.5倍にする数値目標の設定の3点を提案しました。知事からは「前向きに検討する」との答弁を得ています。</p>
+  </div>
+  <div class="f6">
+    <div class="f6i">
+      <div class="tg">地域活動</div>
+      <h3>地域防災訓練に参加<br>住民200名と避難経路を確認</h3>
+      <div class="ph">提供写真に差し替え（93×30mm）</div>
+      <p>3月12日、岸和田市の防災訓練に参加。住民約200名とともに避難経路を歩き、高齢者の避難支援体制に課題があることを確認。要支援者名簿の更新と個別避難計画の策定を市に要望します。</p>
+    </div>
+    <div class="f6i">
+      <div class="tg">教育</div>
+      <h3>小学校でキャリア教育授業<br>児童120名に「選択肢」を伝える</h3>
+      <div class="ph">提供写真に差し替え（93×30mm）</div>
+      <p>3月22日、岸和田市立小学校で特別授業を実施。児童養護施設で育った経験を交え「どんな環境からでも未来は選べる」と伝えました。児童120名が参加し好評をいただきました。</p>
+    </div>
+  </div>
+  <div class="f7">
+    <div class="l"><b>前田将臣事務所</b>〒596-0825 大阪府岸和田市土生町4-4-6 新川第一ビル402</div>
+    <div class="tel">070-2313-4792</div>
+  </div>
+</div>
+
+<!-- 裏面 -->
+<div class="pg">
+  <div class="b1">
+    <h2>前田将臣の府政報告　3月定例会</h2>
+    <div class="v">維新PRESS vol.1・2026年4月</div>
+  </div>
+  <div class="b2">
+    <div class="st">3月定例会　一般質問の概要</div>
+    <div class="ss">令和8年3月5日　大阪府議会本会議</div>
+    <div class="qa">
+      <div class="qt">児童養護施設退所者への自立支援</div>
+      <div class="qr_"><div class="lb q">Q</div><div class="tx qb">施設退所後の若者の住居確保・就労支援が不足している。退所者への包括的な支援パッケージの創設を求めるが、府の考えは。</div></div>
+      <div class="qr_"><div class="lb a">A</div><div class="tx">住居・就労・生活の3分野を一体的に支援する仕組みの必要性は認識している。先進自治体の事例も参考に、前向きに検討する。（知事答弁）</div></div>
+    </div>
+    <div class="qa">
+      <div class="qt">里親委託率の向上</div>
+      <div class="qr_"><div class="lb q">Q</div><div class="tx qb">大阪府の里親委託率は全国平均を下回っている。里親登録数を5年で1.5倍にする数値目標の設定を提案する。</div></div>
+      <div class="qr_"><div class="lb a">A</div><div class="tx">里親委託の推進は重要課題。数値目標の設定も含め、里親リクルートの強化策を検討してまいりたい。（知事答弁）</div></div>
+    </div>
+    <div class="qa">
+      <div class="qt">泉州産業振興基金の創設</div>
+      <div class="qr_"><div class="lb q">Q</div><div class="tx qb">泉州地域の中小企業のデジタル化・AI活用を支援する基金の創設を2月委員会で提案した。予算措置の状況は。</div></div>
+      <div class="qr_"><div class="lb a">A</div><div class="tx">令和8年度当初予算案に泉州産業振興基金として3,000万円を計上。中小企業のデジタル化支援に活用する。（府民文化部答弁）</div></div>
+    </div>
+  </div>
+  <div class="b3">
+    <div class="tt">3月の活動実績</div>
+    <div class="rw">
+      <div class="c"><div class="n">1回</div><div class="l">府議会一般質問</div></div>
+      <div class="c"><div class="n">3,000万円</div><div class="l">産業振興基金を確保</div></div>
+      <div class="c"><div class="n">15件</div><div class="l">府民相談対応</div></div>
+    </div>
+    <div class="rw">
+      <div class="c"><div class="n">200名</div><div class="l">防災訓練参加者</div></div>
+      <div class="c"><div class="n">5社</div><div class="l">経営者意見交換</div></div>
+      <div class="c"><div class="n">120名</div><div class="l">キャリア授業参加</div></div>
+    </div>
+  </div>
+  <div class="b4">
+    <div class="bx">
+      <div class="lb">コラム</div>
+      <h3>中小企業とAI　泉州の現場から見えた可能性</h3>
+      <p>3月18日、泉州地域の中小企業経営者5社との意見交換会を開催しました。人手不足と業務効率化が共通の課題です。AIを活用した受発注管理や問い合わせ対応の自動化など、すでに成果を出している具体事例を紹介。「うちでもできるのか」という声が多数。私自身、会社経営の現場でAIを活用してきた経験があります。府の産業振興策にも中小企業のデジタル化支援を盛り込むよう働きかけてまいります。</p>
+    </div>
+  </div>
+  <div class="b5">
+    <div class="t_">府民相談のご案内　毎週水曜日　事務所にて</div>
+    <div class="d_">福祉・教育・生活のことなど、お気軽にお声がけください。相談無料・秘密厳守</div>
+  </div>
+  <div class="b6">
+    <div class="gr">
+      <div class="pr">
+        <b>前田将臣（大阪府議会議員）</b>
+        岸和田市選挙区・1期目／大阪維新の会所属<br>
+        〒596-0825 岸和田市土生町4-4-6 新川第一ビル402<br>
+        TEL 070-2313-4792
+      </div>
+      <div class="qrs">
+        <div class="qi"><div class="qb">QR</div><div class="ql">LINE公式</div></div>
+        <div class="qi"><div class="qb">QR</div><div class="ql">Instagram</div></div>
+        <div class="qi"><div class="qb">QR</div><div class="ql">公式サイト</div></div>
+      </div>
+    </div>
+    <div class="nx">次号（vol.2・5月号）：泉州産業振興基金の進捗と6月定例会の質問予定をお届けします。</div>
+  </div>
+</div>
+
+</body>
+</html>

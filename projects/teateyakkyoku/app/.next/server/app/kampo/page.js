@@ -1,0 +1,13 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/kampo/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0rjyng_._.js")
+R.c("server/chunks/ssr/0bsh_next_dist_esm_build_templates_app-page_10ovs6..js")
+R.c("server/chunks/ssr/[root-of-the-server]__0snqntv._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0zsf1gj._.js")
+R.c("server/chunks/ssr/projects_teateyakkyoku_app_src_app_layout_tsx_0db9ifp._.js")
+R.c("server/chunks/ssr/0bsh_next_dist_client_components_0q61qwo._.js")
+R.c("server/chunks/ssr/0bsh_next_dist_client_components_builtin_forbidden_0z_zrny.js")
+R.c("server/chunks/ssr/0bsh_next_dist_client_components_builtin_unauthorized_0jxrz7t.js")
+R.c("server/chunks/ssr/0bsh_next_dist_client_components_builtin_global-error_11w3vro.js")
+R.c("server/chunks/ssr/projects_teateyakkyoku_app__next-internal_server_app_kampo_page_actions_11qtz0f.js")
+R.m(79268)
+module.exports=R.m(79268).exports

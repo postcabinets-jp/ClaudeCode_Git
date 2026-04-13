@@ -13,10 +13,21 @@ playwright-report/
 test-results/
 
 # ローカル生成物
+.granola-cache.json
 logs/
+ops/logs/
 remote-app/icon-*.png
 remote-app/icon.svg
 remote-app/gen-icons.sh
+
+# MCP一時ファイル
+.playwright-mcp/
+
+# 旧メモリフォルダ（~/.claude/projects/memory/ に一本化）
+.claude-memory/
+
+# 外部リポジトリ（サブモジュールではなく参照用clone）
+references/design-md-jp/
 
 # claude-config: シークレットは含めない（テンプレートのみ）
 claude-config/settings.local.json

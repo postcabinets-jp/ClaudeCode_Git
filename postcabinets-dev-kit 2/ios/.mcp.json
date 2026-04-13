@@ -1,0 +1,31 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.supabase.com/mcp?project_ref=YOUR_PROJECT_REF&read_only=false"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN"
+      }
+    },
+    "xcode": {
+      "command": "npx",
+      "args": ["-y", "xcodebuildmcp@latest", "mcp"]
+    },
+    "ios-sim": {
+      "command": "npx",
+      "args": ["-y", "ios-simulator-mcp"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    }
+  }
+}

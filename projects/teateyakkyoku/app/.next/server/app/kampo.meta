@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/kampo/layout,_N_T_/kampo/page,_N_T_/kampo"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/kampo/__PAGE__",
+    "/kampo",
+    "/_index",
+    "/_head"
+  ]
+}
