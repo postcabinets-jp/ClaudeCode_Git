@@ -56,6 +56,16 @@ export default function ShopPage() {
   const baseList = tab === "recommended" ? recommended : filteredAll;
   const displayList = searchKampo(searchQuery, baseList);
 
+  // "all" タブ時: primaryType に一致する漢方を上部ハイライト / 残りを分割
+  const highlightList =
+    tab === "all" && fatigueType && !searchQuery
+      ? displayList.filter((p) => p.types.includes(fatigueType))
+      : [];
+  const restList =
+    tab === "all" && fatigueType && !searchQuery
+      ? displayList.filter((p) => !p.types.includes(fatigueType))
+      : displayList;
+
   return (
     <div style={{
       height: "100svh",
@@ -188,9 +198,41 @@ export default function ShopPage() {
           </div>
         )}
 
+        {/* Highlight Section: "all" タブ × primaryType 一致 × 検索なし */}
+        {highlightList.length > 0 && (
+          <div style={{ padding: "0 16px 4px" }}>
+            <div style={{
+              backgroundColor: "#2C4A3E",
+              borderRadius: 20,
+              padding: "14px 16px 10px",
+              marginBottom: 12,
+            }}>
+              <p style={{ margin: "0 0 10px", fontSize: 11, fontWeight: 700, color: "#E8956D", letterSpacing: 0.5 }}>
+                ★ あなたの{FATIGUE_LABELS[fatigueType!]}タイプにぴったり
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {highlightList.map((p) => (
+                  <ProductCard
+                    key={p.id}
+                    product={p}
+                    isRecommended={true}
+                    highlighted={true}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {restList.length > 0 && (
+              <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 600, color: "#6B9E8F" }}>
+                その他の漢方
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Product List */}
         <div style={{
-          padding: "8px 16px 16px",
+          padding: highlightList.length > 0 ? "0 16px 16px" : "8px 16px 16px",
           display: "flex",
           flexDirection: "column",
           gap: 12,
@@ -217,7 +259,7 @@ export default function ShopPage() {
               </button>
             </div>
           ) : (
-            displayList.map((p) => (
+            restList.map((p) => (
               <ProductCard
                 key={p.id}
                 product={p}
@@ -233,7 +275,7 @@ export default function ShopPage() {
   );
 }
 
-function ProductCard({ product, isRecommended }: { product: KampoProduct; isRecommended: boolean }) {
+function ProductCard({ product, isRecommended, highlighted = false }: { product: KampoProduct; isRecommended: boolean; highlighted?: boolean }) {
   const router = useRouter();
   const emoji = getKampoEmoji(product);
   const availLabel = product.insurance ? "保険適用" : "市販";
@@ -251,11 +293,11 @@ function ProductCard({ product, isRecommended }: { product: KampoProduct; isReco
   return (
     <>
     <div style={{
-      backgroundColor: "#fff",
+      backgroundColor: highlighted ? "rgba(255,255,255,0.07)" : "#fff",
       borderRadius: 20,
       padding: "16px",
-      border: `1.5px solid ${isRecommended ? "#E8956D40" : "#F0EAE0"}`,
-      boxShadow: isRecommended ? "0 4px 16px rgba(232,149,109,0.12)" : "0 2px 8px rgba(0,0,0,0.04)",
+      border: `1.5px solid ${highlighted ? "rgba(232,149,109,0.5)" : isRecommended ? "#E8956D40" : "#F0EAE0"}`,
+      boxShadow: highlighted ? "none" : isRecommended ? "0 4px 16px rgba(232,149,109,0.12)" : "0 2px 8px rgba(0,0,0,0.04)",
     }}>
       <div style={{ display: "flex", gap: 14 }}>
         <div style={{
@@ -301,9 +343,9 @@ function ProductCard({ product, isRecommended }: { product: KampoProduct; isReco
               </span>
             )}
           </div>
-          <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>{product.name}</p>
-          <p style={{ margin: "1px 0 0", fontSize: 11, color: "#A8C5BB" }}>{product.reading}</p>
-          <p style={{ margin: "4px 0 10px", fontSize: 12, color: "#6B7F7A", lineHeight: 1.5 }}>
+          <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: highlighted ? "#FFFFFF" : "#1E2D2A" }}>{product.name}</p>
+          <p style={{ margin: "1px 0 0", fontSize: 11, color: highlighted ? "rgba(255,255,255,0.5)" : "#A8C5BB" }}>{product.reading}</p>
+          <p style={{ margin: "4px 0 10px", fontSize: 12, color: highlighted ? "rgba(255,255,255,0.7)" : "#6B7F7A", lineHeight: 1.5 }}>
             {product.oneLiner}
           </p>
 
