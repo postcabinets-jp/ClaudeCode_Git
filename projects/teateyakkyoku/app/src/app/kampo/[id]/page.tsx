@@ -3,20 +3,12 @@
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
-import { CHARACTERS } from "@/types";
+import { CHARACTERS , FATIGUE_LABELS } from "@/types";
 import { PRODUCTS_DATA, getKampoEmoji } from "@/lib/products-data";
 
 // 漢方の月額価格（円）— 保険適用外は市販価格の目安
 const PRODUCT_PRICE_MAP: Record<string, number> = {
   default: 1480,
-};
-
-const FATIGUE_LABELS: Record<string, string> = {
-  brain: "脳疲労タイプ向け",
-  blood: "血流不足タイプ向け",
-  nerve: "自律神経タイプ向け",
-  organ: "内臓疲労タイプ向け",
-  energy: "エネルギー不足タイプ向け",
 };
 
 export default function KampoDetailPage() {

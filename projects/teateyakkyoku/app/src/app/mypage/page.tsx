@@ -3,18 +3,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
-import { CHARACTERS } from "@/types";
+import { CHARACTERS , FATIGUE_LABELS } from "@/types";
 import { TabBar } from "@/components/TabBar";
 import { Modal } from "@/components/Modal";
 import { signOut } from "@/lib/supabase/auth";
-
-const FATIGUE_LABELS: Record<string, string> = {
-  brain: "脳疲労タイプ",
-  blood: "血流不足タイプ",
-  nerve: "自律神経タイプ",
-  organ: "内臓疲労タイプ",
-  energy: "エネルギー不足タイプ",
-};
 
 
 export default function MyPage() {

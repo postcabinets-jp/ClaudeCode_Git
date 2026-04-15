@@ -2,16 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
-import { CHARACTERS } from "@/types";
+import { CHARACTERS , FATIGUE_LABELS } from "@/types";
 import { TabBar } from "@/components/TabBar";
-
-const FATIGUE_LABELS: Record<string, string> = {
-  brain: "脳疲労タイプ",
-  blood: "血流不足タイプ",
-  nerve: "自律神経タイプ",
-  organ: "内臓疲労タイプ",
-  energy: "エネルギー不足タイプ",
-};
 
 const LEVEL_BADGES: Record<number, { color: string; label: string }> = {
   1: { color: "#6B9E8F", label: "🥚 たまご期" },

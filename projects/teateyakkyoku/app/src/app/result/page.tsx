@@ -3,15 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
-import { CHARACTERS } from "@/types";
-
-const FATIGUE_LABELS: Record<string, string> = {
-  brain: "脳疲労タイプ",
-  blood: "血流不足タイプ",
-  nerve: "自律神経タイプ",
-  organ: "内臓疲労タイプ",
-  energy: "エネルギー不足タイプ",
-};
+import { CHARACTERS , FATIGUE_LABELS } from "@/types";
 
 const TIPS_MAP: Record<string, string[]> = {
   brain: [

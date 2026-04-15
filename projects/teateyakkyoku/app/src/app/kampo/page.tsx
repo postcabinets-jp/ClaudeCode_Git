@@ -5,15 +5,8 @@ import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
 import { TabBar } from "@/components/TabBar";
 import { PRODUCTS_DATA, getProductsByType, getKampoEmoji, type KampoProduct } from "@/lib/products-data";
+import { FATIGUE_LABELS } from "@/types";
 import type { FatigueType } from "@/types";
-
-const FATIGUE_LABELS: Record<FatigueType, string> = {
-  brain: "脳疲労",
-  blood: "血流不足",
-  nerve: "自律神経",
-  organ: "内臓疲労",
-  energy: "エネルギー不足",
-};
 
 type FilterType = FatigueType | "all";
 

@@ -1,3 +1,12 @@
+// ===== 疲労タイプ ラベル（単一定義） =====
+export const FATIGUE_LABELS: Record<string, string> = {
+  brain:  "脳疲労タイプ",
+  blood:  "血流不足タイプ",
+  nerve:  "自律神経タイプ",
+  organ:  "内臓疲労タイプ",
+  energy: "エネルギー不足タイプ",
+};
+
 // ===== 疲労タイプ =====
 export type FatigueType =
   | "brain"      // 脳疲労 → シロ（白い狐）
