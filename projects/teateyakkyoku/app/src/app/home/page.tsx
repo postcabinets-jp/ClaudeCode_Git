@@ -27,8 +27,11 @@ function getCharStatus(score: number): string {
 // 最新診断スコアを 0-100 に換算
 // 4択（0-3点）× 20問 = 最大60点 → 100点換算
 // スコアが高い = 疲れている。0が理想（疲れゼロ）
-function calcFatigueScore(scores: Record<string, number>): number {
-  const total = Object.values(scores).reduce((a, b) => a + b, 0);
+// スコアデータが空の場合は null を返す（未診断判定に使用）
+function calcFatigueScore(scores: Record<string, number>): number | null {
+  const values = Object.values(scores);
+  if (values.length === 0) return null;
+  const total = values.reduce((a, b) => a + b, 0);
   return Math.round((total / 60) * 100);
 }
 
