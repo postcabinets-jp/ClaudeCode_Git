@@ -13,6 +13,34 @@ const FATIGUE_LABELS: Record<string, string> = {
   energy: "エネルギー不足タイプ",
 };
 
+const TIPS_MAP: Record<string, string[]> = {
+  brain: [
+    "就寝1時間前はスマホ・PCをオフにして脳に休憩を与える",
+    "15分の昼寝（パワーナップ）で午後の集中力を回復させる",
+    "酸素・血流を促す深呼吸を1日3回、各1分間おこなう",
+  ],
+  blood: [
+    "毎朝コップ1杯の白湯を飲んで血流を温める",
+    "肩・首のストレッチを1日2回（各5分）おこない血流を促進する",
+    "鉄分・葉酸を含む食品（ほうれん草・あさり）を意識して摂取する",
+  ],
+  nerve: [
+    "起床・就寝時刻を休日も含めて一定に保ち自律神経リズムを整える",
+    "入浴は38〜40℃のぬる湯に15分浸かり副交感神経を優位にする",
+    "不安が浮かんだら「4-7-8呼吸法」（吸4秒・止7秒・吐8秒）を実践する",
+  ],
+  organ: [
+    "夕食は就寝3時間前までに済ませ、消化器官を休ませる",
+    "刺激物（アルコール・コーヒー・辛いもの）を一時的に控える",
+    "腹部を時計回りに優しくマッサージして腸の動きを促す",
+  ],
+  energy: [
+    "1日の優先タスクを3つに絞り、「しない選択」でエネルギーを守る",
+    "タンパク質（卵・豆腐・肉魚）を毎食取り入れて体内エネルギーを補充する",
+    "週2回・30分のウォーキングでミトコンドリア機能を高める",
+  ],
+};
+
 const SCORE_LABELS: Record<string, string> = {
   brain: "脳",
   blood: "血流",
@@ -182,6 +210,53 @@ export default function ResultPage() {
         }}>
           {charBase.description}
         </p>
+
+        {/* Tips Section — TipsSection */}
+        <div style={{
+          width: "100%",
+          backgroundColor: "#1E3830",
+          borderRadius: 20,
+          padding: "20px 20px",
+        }}>
+          <p style={{
+            margin: "0 0 14px",
+            fontSize: 14,
+            fontWeight: 700,
+            color: "#E8956D",
+          }}>
+            この疲労タイプへの対処法
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {(TIPS_MAP[char.type] ?? []).map((tip, i) => (
+              <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                <span style={{
+                  flexShrink: 0,
+                  width: 22,
+                  height: 22,
+                  borderRadius: 11,
+                  backgroundColor: "rgba(232,149,109,0.18)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: "#E8956D",
+                  marginTop: 1,
+                }}>
+                  {i + 1}
+                </span>
+                <p style={{
+                  margin: 0,
+                  fontSize: 13,
+                  color: "#C8DDD6",
+                  lineHeight: 1.7,
+                }}>
+                  {tip}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* CTA Buttons — StartBtns */}
         <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%" }}>
