@@ -6,6 +6,7 @@ import { useUserStore } from "@/store/userStore";
 import { CHARACTERS } from "@/types";
 import { TabBar } from "@/components/TabBar";
 import { getRecommendedProducts, toHomeProductCard } from "@/lib/products-data";
+import { calcFatigueScore, getCharStatus } from "@/lib/diagnosis";
 import type { FatigueType } from "@/types";
 
 const FATIGUE_LABELS: Record<string, string> = {
@@ -15,25 +16,6 @@ const FATIGUE_LABELS: Record<string, string> = {
   organ: "内臓疲労タイプ",
   energy: "エネルギー不足タイプ",
 };
-
-// キャラの状態テキスト — 疲労スコア(0-100換算)に応じて変わる
-function getCharStatus(score: number): string {
-  if (score >= 70) return "かなり疲れているよ…無理しないで";
-  if (score >= 50) return "少し疲れ気味だよ…";
-  if (score >= 30) return "まあまあ元気そうだね！";
-  return "今日も元気いっぱい！";
-}
-
-// 最新診断スコアを 0-100 に換算
-// 4択（0-3点）× 20問 = 最大60点 → 100点換算
-// スコアが高い = 疲れている。0が理想（疲れゼロ）
-// スコアデータが空の場合は null を返す（未診断判定に使用）
-function calcFatigueScore(scores: Record<string, number>): number | null {
-  const values = Object.values(scores);
-  if (values.length === 0) return null;
-  const total = values.reduce((a, b) => a + b, 0);
-  return Math.round((total / 60) * 100);
-}
 
 // タイプ別アドバイス
 const REC_TIPS: Record<string, { title: string; desc: string; emoji: string }[]> = {
