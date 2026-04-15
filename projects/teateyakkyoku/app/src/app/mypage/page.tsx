@@ -226,7 +226,7 @@ export default function MyPage() {
           )}
         </div>
 
-        {/* Character Section — myCharSection */}
+        {/* Diagnosis Section */}
         <div style={{
           backgroundColor: "#fff",
           borderRadius: 20,
@@ -235,74 +235,38 @@ export default function MyPage() {
           boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
         }}>
           <p style={{ margin: "0 0 14px", fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>
-            あなたのキャラクター
+            あなたの疲労タイプ
           </p>
 
-          {char && charBase ? (
-            /* 診断済み：自キャラを大きく表示 */
-            <div
-              onClick={() => router.push("/character")}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 16,
-                backgroundColor: "#F9F6F1",
-                borderRadius: 16,
-                padding: "16px",
-                cursor: "pointer",
-                border: "1.5px solid #E8D8C0",
-                marginBottom: 12,
-              }}
-            >
-              <div style={{
-                width: 72,
-                height: 72,
-                borderRadius: 36,
-                background: "radial-gradient(circle, #3D6B5A, #2C4A3E)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 36,
-                flexShrink: 0,
-                boxShadow: "0 4px 12px rgba(44,74,62,0.2)",
-              }}>
-                {charBase.emoji}
+          {profile.diagnosisHistory.length > 0 ? (
+            <div style={{
+              backgroundColor: "#F9F6F1",
+              borderRadius: 16,
+              padding: "16px",
+              marginBottom: 12,
+              border: "1.5px solid #E8D8C0",
+            }}>
+              <div style={{ fontSize: 11, color: "#E8956D", fontWeight: 600, marginBottom: 6 }}>
+                主要タイプ
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{
-                  fontSize: 11,
-                  color: "#E8956D",
-                  fontWeight: 600,
-                  marginBottom: 4,
-                }}>
-                  {FATIGUE_LABELS[char.type]}
-                </div>
-                <div style={{ fontSize: 18, fontWeight: 800, color: "#1E2D2A", marginBottom: 4 }}>
-                  {char.name}
-                </div>
-                <div style={{
-                  display: "inline-block",
-                  fontSize: 11,
-                  color: "#C8A96E",
-                  backgroundColor: "rgba(200,169,110,0.15)",
-                  borderRadius: 10,
-                  padding: "2px 8px",
-                  fontWeight: 600,
-                }}>
-                  Lv.{char.level}
-                </div>
+              <div style={{ fontSize: 20, fontWeight: 800, color: "#1E2D2A", marginBottom: 4 }}>
+                {FATIGUE_LABELS[profile.diagnosisHistory[0].primaryType]}
               </div>
-              <span style={{ fontSize: 18, color: "#CCCCCC" }}>›</span>
+              {profile.diagnosisHistory[0].secondaryType &&
+                profile.diagnosisHistory[0].secondaryType !== profile.diagnosisHistory[0].primaryType && (
+                <div style={{ fontSize: 12, color: "#6B9E8F" }}>
+                  + {FATIGUE_LABELS[profile.diagnosisHistory[0].secondaryType]}
+                </div>
+              )}
             </div>
           ) : (
-            /* 未診断 */
             <div style={{
               textAlign: "center",
               padding: "20px 0",
               color: "#6B9E8F",
               fontSize: 13,
             }}>
-              まだキャラクターがいません
+              まだ診断していません
             </div>
           )}
 

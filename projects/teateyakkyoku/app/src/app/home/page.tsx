@@ -201,55 +201,58 @@ export default function HomePage() {
             </p>
           )}
 
-          {/* Char area — bG8Io */}
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <div style={{
-              width: 120,
-              height: 120,
-              borderRadius: 60,
-              background: "radial-gradient(circle, #3D6B5A 0%, #2C4A3E 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 56,
-              flexShrink: 0,
-            }}>
-              {charBase?.emoji ?? "🌿"}
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
-              <div>
-                <p style={{ margin: 0, fontSize: 11, color: "#A8C5BB" }}>
-                  {char?.levelName ?? "まだ診断していません"}
-                </p>
-                <p style={{ margin: "2px 0 4px", fontSize: 22, fontWeight: 700, color: "#FDF8F2" }}>
-                  {char?.name ?? "？"}
-                </p>
-                {/* 吹き出し — SpeechBubble */}
+          {/* Fatigue type area */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {latest ? (
+              <>
+                <div style={{
+                  backgroundColor: "#1E3830",
+                  borderRadius: 16,
+                  padding: "14px 16px",
+                }}>
+                  <p style={{ margin: "0 0 4px", fontSize: 11, color: "#A8C5BB" }}>あなたの疲労タイプ</p>
+                  <p style={{ margin: 0, fontSize: 20, fontWeight: 700, color: "#FDF8F2" }}>
+                    {FATIGUE_LABELS[latest.primaryType]}
+                  </p>
+                  {latest.secondaryType && latest.secondaryType !== latest.primaryType && (
+                    <p style={{ margin: "4px 0 0", fontSize: 12, color: "#A8C5BB" }}>
+                      + {FATIGUE_LABELS[latest.secondaryType]}
+                    </p>
+                  )}
+                </div>
                 <div style={{
                   backgroundColor: "#1E3830",
                   borderRadius: 12,
-                  padding: "7px 12px",
+                  padding: "10px 14px",
                 }}>
-                  <p style={{ margin: 0, fontSize: 11, color: "#A8C5BB", whiteSpace: "nowrap" }}>{charStatus}</p>
+                  <p style={{ margin: 0, fontSize: 12, color: "#A8C5BB" }}>{charStatus}</p>
                 </div>
+              </>
+            ) : (
+              <div style={{
+                backgroundColor: "#1E3830",
+                borderRadius: 16,
+                padding: "20px 16px",
+                textAlign: "center",
+              }}>
+                <p style={{ margin: "0 0 12px", fontSize: 13, color: "#A8C5BB" }}>まだ診断していません</p>
+                <button
+                  onClick={() => router.push("/diagnosis")}
+                  style={{
+                    padding: "8px 20px",
+                    borderRadius: 20,
+                    backgroundColor: "#E8956D",
+                    border: "none",
+                    color: "#FFFFFF",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                >
+                  今すぐ診断する
+                </button>
               </div>
-              <button
-                onClick={() => router.push("/character")}
-                style={{
-                  alignSelf: "flex-start",
-                  padding: "6px 14px",
-                  borderRadius: 12,
-                  backgroundColor: "rgba(255,255,255,0.12)",
-                  border: "none",
-                  color: "#FDF8F2",
-                  fontSize: 12,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                }}
-              >
-                詳細を見る
-              </button>
-            </div>
+            )}
           </div>
 
         </div>
@@ -271,7 +274,7 @@ export default function HomePage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 14 }}>🔥</span>
-                <span style={{ fontSize: 12, color: "#6B9E8F" }}>継続日数が増えるとキャラクターが成長</span>
+                <span style={{ fontSize: 12, color: "#6B9E8F" }}>継続日数が増えるとレポートの精度が上がる</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 14 }}>📊</span>
