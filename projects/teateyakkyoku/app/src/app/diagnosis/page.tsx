@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { DIAGNOSIS_QUESTIONS, ANSWER_OPTIONS, calcDiagnosisResult } from "@/lib/diagnosis";
 import { useUserStore } from "@/store/userStore";
@@ -32,8 +32,33 @@ export default function DiagnosisPage() {
   const answeredCount = Object.keys(answers).length;
   const allAnswered = answeredCount === totalQuestions;
 
+  // 各セクションの先頭要素への ref
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const handleAnswer = (id: string, score: number) => {
-    setAnswers((prev) => ({ ...prev, [id]: score }));
+    setAnswers((prev) => {
+      const next = { ...prev, [id]: score };
+
+      // 回答したIDが属するセクションインデックスを特定
+      const sectionIdx = SECTIONS.findIndex((s) => s.ids.includes(id));
+      if (sectionIdx === -1) return next;
+
+      // そのセクションの全問が回答済みかチェック
+      const section = SECTIONS[sectionIdx];
+      const allInSectionAnswered = section.ids.every((qid) => next[qid] !== undefined);
+
+      // 全問回答済みなら次セクションへスクロール
+      if (allInSectionAnswered && sectionIdx < SECTIONS.length - 1) {
+        setTimeout(() => {
+          sectionRefs.current[sectionIdx + 1]?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 100);
+      }
+
+      return next;
+    });
   };
 
   const handleSubmit = () => {
@@ -128,13 +153,17 @@ export default function DiagnosisPage() {
 
       {/* セクション一覧 */}
       <div style={{ padding: "0 16px", marginTop: 16 }}>
-        {SECTIONS.map((section) => {
+        {SECTIONS.map((section, sectionIdx) => {
           const sectionQuestions = DIAGNOSIS_QUESTIONS.filter((q) =>
             section.ids.includes(q.id)
           );
 
           return (
-            <div key={section.label} style={{ marginBottom: 20 }}>
+            <div
+              key={section.label}
+              ref={(el) => { sectionRefs.current[sectionIdx] = el; }}
+              style={{ marginBottom: 20, scrollMarginTop: 100 }}
+            >
               {/* セクションヘッダー */}
               <div
                 style={{
