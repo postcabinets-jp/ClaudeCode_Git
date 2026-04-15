@@ -315,6 +315,85 @@ export default function MyPage() {
           ))}
         </div>
 
+        {/* Diagnosis History — diagnosisHistory */}
+        {profile.diagnosisHistory.length > 0 && (
+          <div style={{
+            backgroundColor: "#fff",
+            borderRadius: 20,
+            padding: "16px",
+            border: "1px solid #F0EAE0",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+          }}>
+            <p style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>
+              診断履歴（直近3回）
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {profile.diagnosisHistory.slice(0, 3).map((record, i) => (
+                <div key={record.createdAt} style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  backgroundColor: i === 0 ? "#F4F9F7" : "#FAFAF8",
+                  borderRadius: 14,
+                  padding: "12px 14px",
+                  border: i === 0 ? "1.5px solid #A8D4C8" : "1px solid #F0EAE0",
+                }}>
+                  <div style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 18,
+                    backgroundColor: CHARACTERS[record.primaryType]?.color ?? "#E0E0E0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 18,
+                    flexShrink: 0,
+                  }}>
+                    {CHARACTERS[record.primaryType]?.emoji}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: "#1E2D2A",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}>
+                      {FATIGUE_LABELS[record.primaryType]}
+                    </div>
+                    {record.secondaryType && record.secondaryType !== record.primaryType && (
+                      <div style={{ fontSize: 11, color: "#6B9E8F", marginTop: 1 }}>
+                        + {FATIGUE_LABELS[record.secondaryType]}
+                      </div>
+                    )}
+                  </div>
+                  <div style={{ fontSize: 11, color: "#A8A09A", flexShrink: 0 }}>
+                    {new Date(record.createdAt).toLocaleDateString("ja-JP", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </div>
+                  {i === 0 && (
+                    <div style={{
+                      fontSize: 10,
+                      fontWeight: 600,
+                      color: "#6B9E8F",
+                      backgroundColor: "rgba(107,158,143,0.12)",
+                      borderRadius: 8,
+                      padding: "3px 7px",
+                      flexShrink: 0,
+                    }}>
+                      最新
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Menu — menuSection */}
         <div style={{
           backgroundColor: "#fff",
