@@ -167,7 +167,22 @@ export default function CheckinPage() {
     if (hasCheckedInToday()) {
       setAlreadyDone(true);
     }
+    // hydration 完了時にスライダーをリセット
+    setValues({ brain: 3, body: 3, stomach: 3, sleep: 3 });
   }, [hasHydrated, profile, router, hasCheckedInToday]);
+
+  // ブラウザの戻るボタン等でページに戻ってきたときもリセット
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        setValues({ brain: 3, body: 3, stomach: 3, sleep: 3 });
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
   // ローディング中
   if (!hasHydrated || !profile) return null;
