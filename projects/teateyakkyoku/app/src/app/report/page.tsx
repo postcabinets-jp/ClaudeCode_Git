@@ -220,6 +220,81 @@ export default function ReportPage() {
           </div>
         </div>
 
+        {/* Weekly Checkin Bar Chart */}
+        {weekData.length > 0 && (() => {
+          // 過去7件を古い順に並べ、日付ラベルと合計スコアを生成
+          const chartData = [...weekData].reverse().map((d) => {
+            const date = new Date(d.createdAt);
+            const label = `${date.getMonth() + 1}/${date.getDate()}`;
+            const total = Object.values(d.scores).reduce((a, b) => a + b, 0);
+            return { label, total };
+          });
+          const maxTotal = Math.max(...chartData.map((d) => d.total), 1);
+          const BAR_MAX_HEIGHT = 80;
+
+          return (
+            <div style={{
+              backgroundColor: "#fff",
+              borderRadius: 20,
+              padding: "16px 20px",
+              border: "1px solid #F0EAE0",
+            }}>
+              <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 700, color: "#6B9E8F", letterSpacing: 1 }}>
+                週次チェックイン推移
+              </p>
+              <p style={{ margin: "0 0 16px", fontSize: 11, color: "#A8C5BB" }}>
+                直近 {chartData.length} 回の疲労スコア合計
+              </p>
+              {/* Bar chart */}
+              <div style={{
+                display: "flex",
+                alignItems: "flex-end",
+                gap: 6,
+                height: BAR_MAX_HEIGHT + 32,
+              }}>
+                {chartData.map((d, i) => {
+                  const barH = Math.max(4, Math.round((d.total / maxTotal) * BAR_MAX_HEIGHT));
+                  const isLatest = i === chartData.length - 1;
+                  return (
+                    <div key={i} style={{
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: 4,
+                      justifyContent: "flex-end",
+                    }}>
+                      {/* Score label */}
+                      <span style={{ fontSize: 10, fontWeight: 700, color: isLatest ? "#E8956D" : "#6B9E8F" }}>
+                        {d.total}
+                      </span>
+                      {/* Bar */}
+                      <div style={{
+                        width: "100%",
+                        height: barH,
+                        backgroundColor: isLatest ? "#E8956D" : "#A8C5BB",
+                        borderRadius: "4px 4px 0 0",
+                        opacity: isLatest ? 1 : 0.6,
+                      }} />
+                      {/* Date label */}
+                      <span style={{ fontSize: 9, color: "#6B9E8F", whiteSpace: "nowrap" }}>
+                        {d.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* Legend */}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
+                <div style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: "#E8956D" }} />
+                <span style={{ fontSize: 10, color: "#6B9E8F" }}>最新</span>
+                <div style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: "#A8C5BB", opacity: 0.6, marginLeft: 8 }} />
+                <span style={{ fontSize: 10, color: "#6B9E8F" }}>過去</span>
+              </div>
+            </div>
+          );
+        })()}
+
         {/* Weekly Average */}
         {weekData.length > 0 && (
           <div style={{
