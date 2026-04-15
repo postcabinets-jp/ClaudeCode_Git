@@ -2,13 +2,20 @@ import { createClient } from "@/lib/supabase/client";
 
 export async function signInWithGoogle() {
   const supabase = createClient();
+
+  // WebView環境（LINE内ブラウザ等）ではdisallowed_useragentが発生するため
+  // skipBrowserRedirect + window.location.href で強制リダイレクト
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
       redirectTo: `${window.location.origin}/auth/callback`,
+      skipBrowserRedirect: true,
     },
   });
   if (error) throw error;
+  if (data.url) {
+    window.location.href = data.url;
+  }
   return data;
 }
 

@@ -19,15 +19,25 @@ export default function OnboardingPage() {
   );
 }
 
+// WebView判定（LINE・Instagram等のアプリ内ブラウザ）
+function isWebView(): boolean {
+  if (typeof window === "undefined") return false;
+  const ua = navigator.userAgent;
+  return /Line|FBAN|FBAV|Instagram|Twitter|Snapchat|wv|WebView/.test(ua) ||
+    (/Android/.test(ua) && /Version\/\d/.test(ua) && !/Chrome/.test(ua));
+}
+
 function OnboardingContent() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isInWebView, setIsInWebView] = useState(false);
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const error = searchParams.get("error");
     if (error) setErrorMsg(decodeURIComponent(error));
+    setIsInWebView(isWebView());
   }, [searchParams]);
 
   const handleGoogleLogin = async () => {
@@ -112,6 +122,27 @@ function OnboardingContent() {
         </div>
 
         <div style={{ marginTop: "auto", paddingTop: 32, display: "flex", flexDirection: "column", gap: 12 }}>
+          {/* WebView警告（LINE・アプリ内ブラウザ対策） */}
+          {isInWebView && (
+            <div style={{
+              backgroundColor: "rgba(255,200,0,0.12)",
+              border: "1px solid rgba(255,200,0,0.3)",
+              borderRadius: 12,
+              padding: "12px 14px",
+              display: "flex",
+              flexDirection: "column",
+              gap: 8,
+            }}>
+              <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#FFD060" }}>
+                ブラウザで開いてください
+              </p>
+              <p style={{ margin: 0, fontSize: 12, color: "#C8D8C0", lineHeight: 1.5 }}>
+                このブラウザではGoogleログインがご利用できません。
+                右上の「...」→「ブラウザで開く」またはChromeでアクセスしてください。
+              </p>
+            </div>
+          )}
+
           {/* エラーメッセージ */}
           {errorMsg && (
             <div style={{
