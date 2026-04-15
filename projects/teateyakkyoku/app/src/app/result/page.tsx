@@ -305,24 +305,29 @@ export default function ResultPage() {
           >
             <span>💊</span> おすすめ漢方を見る
           </button>
-        </div>
 
-        {/* Share row — shareRow */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+          {/* Share CTA — ShareBtn */}
           <button
             onClick={handleShare}
             style={{
-              background: "none",
-              border: "none",
+              width: "100%",
+              height: 52,
+              borderRadius: 28,
+              backgroundColor: "rgba(255,255,255,0.10)",
+              color: copied ? "#4CAF8A" : "#FDF8F2",
+              fontSize: 14,
+              fontWeight: 600,
+              border: `1px solid ${copied ? "rgba(76,175,138,0.5)" : "rgba(255,255,255,0.18)"}`,
               cursor: "pointer",
-              fontSize: 12,
-              color: "#6B9E8F",
               display: "flex",
               alignItems: "center",
-              gap: 4,
+              justifyContent: "center",
+              gap: 8,
+              transition: "color 0.2s, border-color 0.2s",
             }}
           >
-            <span>{copied ? "✅" : "📤"}</span> {copied ? "コピーしました！" : "結果をシェア"}
+            <span>{copied ? "✅" : "📤"}</span>
+            {copied ? "コピーしました！" : "診断をシェアする"}
           </button>
         </div>
       </div>
