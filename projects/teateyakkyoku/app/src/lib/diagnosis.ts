@@ -1,37 +1,50 @@
 import type { FatigueType, DiagnosisResult } from "@/types";
 
+// 回答選択肢（4択: 0〜3点）
+export const ANSWER_OPTIONS = [
+  { label: "よくある", score: 3 },
+  { label: "たまにある", score: 2 },
+  { label: "あまりない", score: 1 },
+  { label: "ない", score: 0 },
+] as const;
+
 // 診断質問（各タイプ4問 = 計20問）
+// 各カテゴリ固有の症状に特化し、重複を最小化
 export const DIAGNOSIS_QUESTIONS = [
-  // 脳疲労
-  { id: "b1", text: "考えすぎて眠れないことがある", category: "brain" as FatigueType },
-  { id: "b2", text: "集中力が続かない・頭がぼーっとする", category: "brain" as FatigueType },
-  { id: "b3", text: "小さなことが気になって止まらない", category: "brain" as FatigueType },
-  { id: "b4", text: "記憶力や判断力が落ちた気がする", category: "brain" as FatigueType },
-  // 血流不足
-  { id: "bl1", text: "手足が冷えやすい", category: "blood" as FatigueType },
-  { id: "bl2", text: "肩こり・頭痛が慢性的にある", category: "blood" as FatigueType },
-  { id: "bl3", text: "顔色が悪い・青白いと言われる", category: "blood" as FatigueType },
-  { id: "bl4", text: "生理不順・生理痛がひどい（該当する方）", category: "blood" as FatigueType },
-  // 自律神経
-  { id: "n1", text: "気温の変化に体がついていけない", category: "nerve" as FatigueType },
-  { id: "n2", text: "朝スッキリ起きられない・夜眠れない", category: "nerve" as FatigueType },
-  { id: "n3", text: "緊張したり、急に不安になることがある", category: "nerve" as FatigueType },
-  { id: "n4", text: "動悸・息切れ・めまいがある", category: "nerve" as FatigueType },
-  // 内臓疲労
-  { id: "o1", text: "食後に眠くなる・胃が重い", category: "organ" as FatigueType },
-  { id: "o2", text: "お腹が張りやすい・便通が不安定", category: "organ" as FatigueType },
-  { id: "o3", text: "食欲がムラになりやすい", category: "organ" as FatigueType },
-  { id: "o4", text: "お酒を飲むと次の日がつらい", category: "organ" as FatigueType },
-  // エネルギー不足
-  { id: "e1", text: "朝からだるくて体が重い", category: "energy" as FatigueType },
-  { id: "e2", text: "やる気が出ない・何もしたくない", category: "energy" as FatigueType },
-  { id: "e3", text: "少し動くだけで疲れる", category: "energy" as FatigueType },
-  { id: "e4", text: "風邪を引きやすい・治りが遅い", category: "energy" as FatigueType },
+  // 脳疲労 — 思考・集中・情緒の過負荷
+  { id: "b1", text: "頭の中で考えが止まらず、切り替えられない", category: "brain" as FatigueType },
+  { id: "b2", text: "集中しようとしても、すぐに頭がぼんやりする", category: "brain" as FatigueType },
+  { id: "b3", text: "些細なことで感情が揺れやすくなった", category: "brain" as FatigueType },
+  { id: "b4", text: "人の名前や予定をすぐ忘れてしまう", category: "brain" as FatigueType },
+
+  // 血流不足 — 冷え・血色・循環
+  { id: "bl1", text: "手先や足先が冷たく、温まりにくい", category: "blood" as FatigueType },
+  { id: "bl2", text: "唇や爪の色が白っぽい・青っぽい", category: "blood" as FatigueType },
+  { id: "bl3", text: "肩や首がこりやすく、ほぐしても戻りやすい", category: "blood" as FatigueType },
+  { id: "bl4", text: "目の下にクマができやすい", category: "blood" as FatigueType },
+
+  // 自律神経 — リズム・体温調節・心拍
+  { id: "n1", text: "季節の変わり目や天気の変化で体調を崩す", category: "nerve" as FatigueType },
+  { id: "n2", text: "急に汗をかいたり、寒気がしたりする", category: "nerve" as FatigueType },
+  { id: "n3", text: "動悸や息苦しさを感じることがある", category: "nerve" as FatigueType },
+  { id: "n4", text: "寝つきが悪い、または夜中に目が覚める", category: "nerve" as FatigueType },
+
+  // 内臓疲労 — 消化・食欲・お腹
+  { id: "o1", text: "食後に胃が重い・もたれる感じがする", category: "organ" as FatigueType },
+  { id: "o2", text: "お腹が張る・ガスがたまりやすい", category: "organ" as FatigueType },
+  { id: "o3", text: "食欲にムラがあり、食べたくない時がある", category: "organ" as FatigueType },
+  { id: "o4", text: "便通が不安定（便秘・軟便を繰り返す）", category: "organ" as FatigueType },
+
+  // エネルギー不足 — だるさ・免疫・活力
+  { id: "e1", text: "休んでも疲れが取れず、だるさが続く", category: "energy" as FatigueType },
+  { id: "e2", text: "少し体を動かしただけで、すぐ疲れる", category: "energy" as FatigueType },
+  { id: "e3", text: "風邪をひきやすい、または治りが遅い", category: "energy" as FatigueType },
+  { id: "e4", text: "声に力が出ない・話すのがおっくうに感じる", category: "energy" as FatigueType },
 ];
 
 // スコア集計 → 診断結果
 export function calcDiagnosisResult(
-  answers: Record<string, number> // questionId → 0〜4点
+  answers: Record<string, number> // questionId → 0〜3点
 ): DiagnosisResult {
   const scores: Record<FatigueType, number> = {
     brain: 0, blood: 0, nerve: 0, organ: 0, energy: 0,
@@ -41,19 +54,19 @@ export function calcDiagnosisResult(
     scores[q.category] += answers[q.id] ?? 0;
   }
 
-  // 同点グループ内をシャッフルしてから降順ソート（Math.randomソートはバイアスあり）
+  // 降順ソート（同点の場合は安定ソートで元の順序を維持 — ランダム性を排除）
   const entries = Object.entries(scores) as [FatigueType, number][];
-  // フィッシャー–イェーツシャッフルで先に順番をランダム化
-  for (let i = entries.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [entries[i], entries[j]] = [entries[j], entries[i]];
-  }
   const sorted = entries.sort((a, b) => b[1] - a[1]);
 
+  const primary = sorted[0];
+  const secondary = sorted[1];
+
+  // 1点差以内は混合タイプとして secondary を意味ある形で返す
+  // 差が大きい場合でも secondaryType は2位のカテゴリを返す
   return {
     scores,
-    primaryType: sorted[0][0],
-    secondaryType: sorted[1][0],
+    primaryType: primary[0],
+    secondaryType: secondary[0],
     createdAt: new Date().toISOString(),
   };
 }

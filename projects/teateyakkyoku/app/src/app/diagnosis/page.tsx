@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { DIAGNOSIS_QUESTIONS, calcDiagnosisResult } from "@/lib/diagnosis";
+import { DIAGNOSIS_QUESTIONS, ANSWER_OPTIONS, calcDiagnosisResult } from "@/lib/diagnosis";
 import { useUserStore } from "@/store/userStore";
 
 type FatigueSection = {
@@ -25,25 +25,21 @@ export default function DiagnosisPage() {
   const setProfile = useUserStore((s) => s.setProfile);
   const profile = useUserStore((s) => s.profile);
 
-  const [answers, setAnswers] = useState<Record<string, "yes" | "no">>({});
+  // answers: questionId → score (0〜3)
+  const [answers, setAnswers] = useState<Record<string, number>>({});
 
   const totalQuestions = DIAGNOSIS_QUESTIONS.length;
   const answeredCount = Object.keys(answers).length;
   const allAnswered = answeredCount === totalQuestions;
 
-  const handleAnswer = (id: string, choice: "yes" | "no") => {
-    setAnswers((prev) => ({ ...prev, [id]: choice }));
+  const handleAnswer = (id: string, score: number) => {
+    setAnswers((prev) => ({ ...prev, [id]: score }));
   };
 
   const handleSubmit = () => {
     if (!allAnswered) return;
 
-    const scores: Record<string, number> = {};
-    for (const [id, choice] of Object.entries(answers)) {
-      scores[id] = choice === "yes" ? 1 : 0;
-    }
-
-    const result = calcDiagnosisResult(scores);
+    const result = calcDiagnosisResult(answers);
 
     if (!profile) {
       setProfile({
@@ -138,10 +134,7 @@ export default function DiagnosisPage() {
           );
 
           return (
-            <div
-              key={section.label}
-              style={{ marginBottom: 20 }}
-            >
+            <div key={section.label} style={{ marginBottom: 20 }}>
               {/* セクションヘッダー */}
               <div
                 style={{
@@ -175,18 +168,16 @@ export default function DiagnosisPage() {
                 }}
               >
                 {sectionQuestions.map((q, idx) => {
-                  const answered = answers[q.id];
+                  const selectedScore = answers[q.id];
+                  const isAnswered = selectedScore !== undefined;
                   const isLast = idx === sectionQuestions.length - 1;
 
                   return (
                     <div
                       key={q.id}
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 12,
                         padding: "14px 16px",
-                        backgroundColor: answered ? "#F5F0E8" : "#FFFFFF",
+                        backgroundColor: isAnswered ? "#F5F0E8" : "#FFFFFF",
                         borderBottom: isLast ? "none" : "1px solid #F0EAE0",
                         transition: "background-color 0.15s ease",
                       }}
@@ -194,8 +185,7 @@ export default function DiagnosisPage() {
                       {/* 質問テキスト */}
                       <p
                         style={{
-                          margin: 0,
-                          flex: 1,
+                          margin: "0 0 10px",
                           fontSize: 14,
                           color: "#1E2D2A",
                           lineHeight: 1.5,
@@ -204,50 +194,46 @@ export default function DiagnosisPage() {
                         {q.text}
                       </p>
 
-                      {/* はい / いいえ ボタン */}
-                      <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                        <button
-                          onClick={() => handleAnswer(q.id, "yes")}
-                          style={{
-                            width: 48,
-                            height: 36,
-                            borderRadius: 8,
-                            border: "none",
-                            cursor: "pointer",
-                            backgroundColor:
-                              answered === "yes" ? "#2C4A3E" : "#F0EAE0",
-                            color: answered === "yes" ? "#FFFFFF" : "#6B9E8F",
-                            fontSize: 13,
-                            fontWeight: 700,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            transition: "background-color 0.15s ease, color 0.15s ease",
-                          }}
-                        >
-                          {answered === "yes" ? "✓" : "はい"}
-                        </button>
-                        <button
-                          onClick={() => handleAnswer(q.id, "no")}
-                          style={{
-                            width: 48,
-                            height: 36,
-                            borderRadius: 8,
-                            border: "1px solid #E0D8CE",
-                            cursor: "pointer",
-                            backgroundColor:
-                              answered === "no" ? "#F5F0E8" : "#FFFFFF",
-                            color: answered === "no" ? "#1E2D2A" : "#AAAAAA",
-                            fontSize: 13,
-                            fontWeight: answered === "no" ? 700 : 400,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            transition: "background-color 0.15s ease, color 0.15s ease",
-                          }}
-                        >
-                          {answered === "no" ? "✕" : "いいえ"}
-                        </button>
+                      {/* 4択ボタン */}
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: 6,
+                        }}
+                      >
+                        {ANSWER_OPTIONS.map((option) => {
+                          const isSelected = selectedScore === option.score;
+                          return (
+                            <button
+                              key={option.score}
+                              onClick={() => handleAnswer(q.id, option.score)}
+                              style={{
+                                flex: 1,
+                                height: 36,
+                                borderRadius: 8,
+                                border: isSelected
+                                  ? "none"
+                                  : "1px solid #E0D8CE",
+                                cursor: "pointer",
+                                backgroundColor: isSelected
+                                  ? "#2C4A3E"
+                                  : "#FFFFFF",
+                                color: isSelected ? "#FFFFFF" : "#6B9E8F",
+                                fontSize: 12,
+                                fontWeight: isSelected ? 700 : 500,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                transition:
+                                  "background-color 0.15s ease, color 0.15s ease",
+                                whiteSpace: "nowrap",
+                                padding: "0 4px",
+                              }}
+                            >
+                              {option.label}
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   );
