@@ -22,9 +22,9 @@ const SCORE_LABELS: Record<string, string> = {
 };
 
 function getScoreLabel(score: number): string {
-  if (score >= 4) return "高め";
-  if (score >= 3) return "やや高め";
-  if (score >= 2) return "普通";
+  if (score >= 10) return "高め";
+  if (score >= 7) return "やや高め";
+  if (score >= 4) return "普通";
   if (score >= 1) return "低め";
   return "なし";
 }
