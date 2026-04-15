@@ -7,8 +7,8 @@ import { signInWithGoogle } from "@/lib/supabase/auth";
 
 const STEPS = [
   { emoji: "🔍", title: "5分の疲労診断", desc: "10の質問であなたの疲れタイプがわかる" },
-  { emoji: "🌱", title: "キャラクターを育てる", desc: "毎日のチェックインでキャラが成長する" },
-  { emoji: "💊", title: "専門家が選ぶ漢方", desc: "タイプ別に最適な漢方をお届け" },
+  { emoji: "📊", title: "毎日のチェックインで追跡", desc: "体調の変化をグラフで可視化して記録できる" },
+  { emoji: "💊", title: "専門家が選ぶ漢方", desc: "診断タイプ別に最適な漢方をお届け" },
 ];
 
 export default function OnboardingPage() {
