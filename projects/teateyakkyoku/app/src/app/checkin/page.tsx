@@ -157,6 +157,7 @@ export default function CheckinPage() {
   });
 
   const [alreadyDone, setAlreadyDone] = useState(false);
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
     if (!hasHydrated) return;
@@ -189,6 +190,47 @@ export default function CheckinPage() {
 
   // キャラアイコン（未設定でも表示できるようにフォールバック）
   const charEmoji = profile.character?.emoji ?? "🌿";
+
+  // 記録完了フィードバック（0.8秒表示 → ホームへ遷移）
+  if (done) {
+    return (
+      <div
+        style={{
+          height: "100svh",
+          backgroundColor: "#FDF8F2",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 20,
+          fontFamily: "'Inter', 'Hiragino Sans', sans-serif",
+          animation: "fadeIn 0.25s ease",
+        }}
+      >
+        <style>{`@keyframes fadeIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }`}</style>
+        <div style={{ fontSize: 64 }}>✅</div>
+        <p
+          style={{
+            margin: 0,
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#1E2D2A",
+          }}
+        >
+          記録しました！
+        </p>
+        <p
+          style={{
+            margin: 0,
+            fontSize: 14,
+            color: "#6B9E8F",
+          }}
+        >
+          今日もお疲れさまです
+        </p>
+      </div>
+    );
+  }
 
   // 既にチェックイン済み
   if (alreadyDone) {
@@ -270,7 +312,10 @@ export default function CheckinPage() {
     }
 
     incrementCheckin();
-    router.push("/home");
+    setDone(true);
+    setTimeout(() => {
+      router.push("/home");
+    }, 800);
   };
 
   return (
