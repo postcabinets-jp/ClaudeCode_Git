@@ -4,6 +4,7 @@
   "description": "あなたの疲れに寄り添う、オーダーメイドの漢方体験",
   "start_url": "/",
   "display": "standalone",
+  "prefer_related_applications": false,
   "background_color": "#FDF8F2",
   "theme_color": "#2C4A3E",
   "orientation": "portrait",

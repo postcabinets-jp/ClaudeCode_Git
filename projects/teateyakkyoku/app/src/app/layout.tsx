@@ -5,7 +5,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "てあて薬局",
   description: "あなたの疲れに寄り添う、オーダーメイドの漢方体験",
-  manifest: "/manifest.json",
+  // manifest を外すことでブラウザのPWAインストールバナーを抑制
+  // appleWebApp は Safari の「ホーム画面に追加」時のアプリ表示に使用
   appleWebApp: { capable: true, statusBarStyle: "default", title: "てあて薬局" },
 };
 
