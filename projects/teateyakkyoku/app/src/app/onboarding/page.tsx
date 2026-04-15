@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { signInWithGoogle } from "@/lib/supabase/auth";
 
 const STEPS = [
@@ -10,8 +12,23 @@ const STEPS = [
 ];
 
 export default function OnboardingPage() {
+  return (
+    <Suspense>
+      <OnboardingContent />
+    </Suspense>
+  );
+}
+
+function OnboardingContent() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    if (error) setErrorMsg(decodeURIComponent(error));
+  }, [searchParams]);
 
   const handleGoogleLogin = async () => {
     setLoading(true);
@@ -145,6 +162,24 @@ export default function OnboardingPage() {
             )}
             {loading ? "ログイン中..." : "Googleで始める"}
           </button>
+
+          {/* ゲストで始める */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button
+              onClick={() => router.push("/diagnosis")}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#A8C5BB",
+                fontSize: 13,
+                cursor: "pointer",
+                padding: "8px 0",
+                fontFamily: "inherit",
+              }}
+            >
+              名前なしで今すぐ始める →
+            </button>
+          </div>
 
           {/* 下部テキスト */}
           <p style={{

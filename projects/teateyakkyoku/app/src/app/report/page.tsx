@@ -23,6 +23,9 @@ const SCORE_COLORS: Record<string, string> = {
 export default function ReportPage() {
   const router = useRouter();
   const profile = useUserStore((s) => s.profile);
+  const hasHydrated = useUserStore((s) => s._hasHydrated);
+
+  if (!hasHydrated) return null;
 
   const history = profile?.diagnosisHistory ?? [];
   const latest = history[0];

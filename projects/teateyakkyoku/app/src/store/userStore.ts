@@ -75,9 +75,10 @@ export const useUserStore = create<UserStore>()(
         };
 
         set({ profile: updatedProfile });
-        // Supabase同期（fire-and-forget）
-        upsertUser(updatedProfile).catch(console.error);
-        saveDiagnosis(profile.id, result).catch(console.error);
+        // Supabase同期: upsertUser完了後にsaveDiagnosis（外部キー制約のため順序が必要）
+        upsertUser(updatedProfile)
+          .then(() => saveDiagnosis(updatedProfile.id, result))
+          .catch(console.error);
       },
 
       hasCheckedInToday: () => {

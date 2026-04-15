@@ -29,6 +29,7 @@ function InquiryForm() {
     if (profile?.nickname && !name) {
       setName(profile.nickname);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile?.nickname]);
 
   async function handleSubmit(e: React.FormEvent) {

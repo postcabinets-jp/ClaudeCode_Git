@@ -32,6 +32,11 @@
   }
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
 @layer components {
   .btn-primary {
     @apply bg-forest text-cream font-bold py-4 px-6 rounded-3xl w-full flex items-center justify-center gap-2 transition-opacity active:opacity-80;

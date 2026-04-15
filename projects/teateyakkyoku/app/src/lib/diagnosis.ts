@@ -41,11 +41,14 @@ export function calcDiagnosisResult(
     scores[q.category] += answers[q.id] ?? 0;
   }
 
-  const sorted = (Object.entries(scores) as [FatigueType, number][])
-    .sort((a, b) => {
-      if (b[1] !== a[1]) return b[1] - a[1];
-      return Math.random() - 0.5; // 同点はランダム
-    });
+  // 同点グループ内をシャッフルしてから降順ソート（Math.randomソートはバイアスあり）
+  const entries = Object.entries(scores) as [FatigueType, number][];
+  // フィッシャー–イェーツシャッフルで先に順番をランダム化
+  for (let i = entries.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [entries[i], entries[j]] = [entries[j], entries[i]];
+  }
+  const sorted = entries.sort((a, b) => b[1] - a[1]);
 
   return {
     scores,

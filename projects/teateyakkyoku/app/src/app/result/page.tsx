@@ -22,29 +22,32 @@ const SCORE_LABELS: Record<string, string> = {
 };
 
 function getScoreLabel(score: number): string {
-  if (score >= 12) return "高め";
-  if (score >= 8) return "やや高め";
-  if (score >= 4) return "普通";
-  return "低め";
+  if (score >= 4) return "高め";
+  if (score >= 3) return "やや高め";
+  if (score >= 2) return "普通";
+  if (score >= 1) return "低め";
+  return "なし";
 }
 
 export default function ResultPage() {
   const router = useRouter();
   const profile = useUserStore((s) => s.profile);
+  const hasHydrated = useUserStore((s) => s._hasHydrated);
   const latestDiagnosis = profile?.diagnosisHistory[0];
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    if (!hasHydrated) return;
     if (!latestDiagnosis || !profile?.character) {
       router.replace("/diagnosis");
     }
-  }, [latestDiagnosis, profile, router]);
+  }, [hasHydrated, latestDiagnosis, profile, router]);
 
+  if (!hasHydrated) return null;
   if (!latestDiagnosis || !profile?.character) return null;
 
   const char = profile.character;
   const charBase = CHARACTERS[char.type];
-
-  const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
     const text = `てあて薬局で診断！\n私の疲労タイプは「${FATIGUE_LABELS[char.type]}」でした。\nパートナーは${char.name}${charBase.emoji}`;
@@ -118,22 +121,27 @@ export default function ResultPage() {
         </h1>
 
         {/* Character circle — CharBirthCircle */}
-        <div style={{
-          width: 220,
-          height: 220,
-          borderRadius: 110,
-          background: "radial-gradient(circle, #3D6B5A 0%, #2C4A3E 100%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 8,
-          boxShadow: "0 0 0 20px rgba(232,149,109,0.08), 0 20px 60px rgba(232,149,109,0.18)",
-          flexShrink: 0,
-        }}>
-          <span style={{ fontSize: 80, lineHeight: 1 }}>{charBase.emoji}</span>
-          <span style={{ color: "#E8956D", fontSize: 17, fontWeight: 700 }}>{char.name}</span>
-          <span style={{ color: "#A8C5BB", fontSize: 12 }}>{char.levelName}</span>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+          <div style={{
+            width: 220,
+            height: 220,
+            borderRadius: 110,
+            background: "radial-gradient(circle, #3D6B5A 0%, #2C4A3E 100%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            boxShadow: "0 0 0 20px rgba(232,149,109,0.08), 0 20px 60px rgba(232,149,109,0.18)",
+            flexShrink: 0,
+          }}>
+            <span style={{ fontSize: 80, lineHeight: 1 }}>{charBase.emoji}</span>
+            <span style={{ color: "#E8956D", fontSize: 17, fontWeight: 700 }}>{char.name}</span>
+            <span style={{ color: "#A8C5BB", fontSize: 12 }}>{char.levelName}</span>
+          </div>
+          <p style={{ margin: 0, fontSize: 13, color: "#A8C5BB", textAlign: "center" }}>
+            チェックインを続けると{char.name}が育ちます
+          </p>
         </div>
 
         {/* Score Cards — EN29o */}
@@ -175,29 +183,54 @@ export default function ResultPage() {
           {charBase.description}
         </p>
 
-        {/* CTA Button — StartBtn */}
-        <button
-          onClick={() => router.push("/home")}
-          style={{
-            width: "100%",
-            height: 56,
-            borderRadius: 28,
-            backgroundColor: "#E8956D",
-            color: "#1E3830",
-            fontSize: 15,
-            fontWeight: 700,
-            border: "none",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-            boxShadow: "0 8px 24px rgba(232,149,109,0.4)",
-          }}
-        >
-          {char.name}と一緒に始める
-          <span>→</span>
-        </button>
+        {/* CTA Buttons — StartBtns */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%" }}>
+          {/* Primary CTA: チェックイン開始 */}
+          <button
+            onClick={() => router.push("/home")}
+            style={{
+              width: "100%",
+              height: 56,
+              borderRadius: 28,
+              backgroundColor: "#E8956D",
+              color: "#1E3830",
+              fontSize: 15,
+              fontWeight: 700,
+              border: "none",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              boxShadow: "0 8px 24px rgba(232,149,109,0.4)",
+            }}
+          >
+            毎日チェックインを始める
+            <span>→</span>
+          </button>
+
+          {/* Secondary CTA: おすすめ漢方 */}
+          <button
+            onClick={() => router.push("/kampo")}
+            style={{
+              width: "100%",
+              height: 52,
+              borderRadius: 28,
+              backgroundColor: "rgba(255,255,255,0.10)",
+              color: "#FDF8F2",
+              fontSize: 14,
+              fontWeight: 600,
+              border: "1px solid rgba(255,255,255,0.18)",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+            }}
+          >
+            <span>💊</span> おすすめ漢方を見る
+          </button>
+        </div>
 
         {/* Share row — shareRow */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>

@@ -78,7 +78,15 @@ export async function saveDiagnosis(
   try {
     const supabase = createClient();
 
-    // users テーブルから内部UUIDを取得
+    // users テーブルから内部UUIDを取得（upsertで存在保証してから取得）
+    const { error: upsertError } = await supabase
+      .from("users")
+      .upsert({ anon_id: anonId }, { onConflict: "anon_id" });
+
+    if (upsertError) {
+      console.error("[db] saveDiagnosis: upsert failed", upsertError.message);
+    }
+
     const { data: user, error: userError } = await supabase
       .from("users")
       .select("id")

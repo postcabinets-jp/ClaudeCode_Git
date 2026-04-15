@@ -1,9 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
 import { CHARACTERS } from "@/types";
 import { PRODUCTS_DATA, getKampoEmoji } from "@/lib/products-data";
+
+// 漢方の月額価格（円）— 保険適用外は市販価格の目安
+const PRODUCT_PRICE_MAP: Record<string, number> = {
+  default: 1480,
+};
 
 const FATIGUE_LABELS: Record<string, string> = {
   brain: "脳疲労タイプ向け",
@@ -18,6 +24,7 @@ export default function KampoDetailPage() {
   const params = useParams();
   const id = typeof params.id === "string" ? params.id : Array.isArray(params.id) ? params.id[0] : "";
   const profile = useUserStore((s) => s.profile);
+  const [purchasing, setPurchasing] = useState(false);
 
   const product = PRODUCTS_DATA.find((p) => p.id === id);
 
@@ -31,6 +38,33 @@ export default function KampoDetailPage() {
   const charBase = char ? CHARACTERS[char.type] : null;
   const primaryType = product.types[0];
   const typeLabel = primaryType ? FATIGUE_LABELS[primaryType] : null;
+  const productPrice = PRODUCT_PRICE_MAP[product.id] ?? PRODUCT_PRICE_MAP.default;
+
+  const handlePurchase = async () => {
+    setPurchasing(true);
+    try {
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId: product.id,
+          productName: product.name,
+          price: productPrice,
+          quantity: 1,
+        }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("決済の準備ができていません。しばらくしてからお試しください。");
+      }
+    } catch {
+      alert("エラーが発生しました。");
+    } finally {
+      setPurchasing(false);
+    }
+  };
 
   return (
     <div style={{
@@ -202,13 +236,28 @@ export default function KampoDetailPage() {
         {/* CTA */}
         <div style={{ display: "flex", flexDirection: "column", gap: 10, paddingTop: 8 }}>
           <button
-            onClick={() => router.push(`/inquiry?kampo=${product.id}`)}
+            onClick={handlePurchase}
+            disabled={purchasing}
             style={{
               width: "100%", height: 56, borderRadius: 28,
-              backgroundColor: "#2C4A3E", color: "#FDF8F2",
-              fontSize: 15, fontWeight: 700, border: "none", cursor: "pointer",
+              backgroundColor: purchasing ? "#A8C5BB" : "#2C4A3E", color: "#FDF8F2",
+              fontSize: 15, fontWeight: 700, border: "none",
+              cursor: purchasing ? "default" : "pointer",
               display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
               fontFamily: "inherit",
+              boxShadow: purchasing ? "none" : "0 4px 16px rgba(0,0,0,0.20)",
+            }}
+          >
+            {purchasing ? "処理中…" : `¥${productPrice.toLocaleString()} で購入する`}
+          </button>
+          <button
+            onClick={() => router.push(`/inquiry?kampo=${product.id}`)}
+            style={{
+              width: "100%", height: 48, borderRadius: 24,
+              backgroundColor: "#FDF8F2", color: "#2C4A3E",
+              fontSize: 14, fontWeight: 600,
+              border: "1px solid #E0D8CC",
+              cursor: "pointer", fontFamily: "inherit",
             }}
           >
             薬局に相談する
@@ -216,10 +265,10 @@ export default function KampoDetailPage() {
           <button
             onClick={() => router.push("/chat")}
             style={{
-              width: "100%", height: 48, borderRadius: 24,
-              backgroundColor: "#FDF8F2", color: "#2C4A3E",
-              fontSize: 14, fontWeight: 600,
-              border: "1px solid #E0D8CC",
+              width: "100%", height: 44, borderRadius: 22,
+              backgroundColor: "transparent", color: "#8A9E98",
+              fontSize: 13, fontWeight: 500,
+              border: "none",
               cursor: "pointer", fontFamily: "inherit",
             }}
           >

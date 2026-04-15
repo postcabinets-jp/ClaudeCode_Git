@@ -3,13 +3,14 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/userStore";
-import { getSession } from "@/lib/supabase/auth";
+import { getSession, getUser } from "@/lib/supabase/auth";
 
 // エントリーポイント: セッション・プロフィール状態に応じてルーティング
 export default function RootPage() {
   const router = useRouter();
   const profile = useUserStore((s) => s.profile);
   const hasHydrated = useUserStore((s) => s._hasHydrated);
+  const setProfileFromGoogle = useUserStore((s) => s.setProfileFromGoogle);
 
   useEffect(() => {
     if (!hasHydrated) return;
@@ -20,16 +21,27 @@ export default function RootPage() {
       if (session) {
         // セッションあり
         if (profile) {
+          // LocalStorageにprofileが存在 → そのまま/homeへ
           router.replace("/home");
         } else {
-          // 初回ユーザー（診断未実施）
-          router.replace("/diagnosis");
+          // LocalStorageにprofileがない（Googleログイン直後など）
+          // Supabaseのユーザー情報でprofileを初期化してから/homeへ
+          const user = await getUser();
+          if (user) {
+            setProfileFromGoogle({
+              id: user.id,
+              name: user.user_metadata?.full_name || user.email?.split("@")[0] || "ユーザー",
+              email: user.email || "",
+              avatar: user.user_metadata?.avatar_url,
+            });
+          }
+          router.replace("/home");
         }
       } else {
         router.replace("/onboarding");
       }
     })();
-  }, [hasHydrated, profile, router]);
+  }, [hasHydrated, profile, router, setProfileFromGoogle]);
 
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100svh", backgroundColor: "#FDF8F2" }}>

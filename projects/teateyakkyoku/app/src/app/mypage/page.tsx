@@ -16,14 +16,6 @@ const FATIGUE_LABELS: Record<string, string> = {
   energy: "エネルギー不足タイプ",
 };
 
-// 全キャラ一覧（図鑑用）
-const ALL_CHARS = [
-  { type: "brain", emoji: "🦊", name: "シロ" },
-  { type: "blood", emoji: "🐻", name: "ホノ" },
-  { type: "nerve", emoji: "🦌", name: "シカ" },
-  { type: "organ", emoji: "🐢", name: "コテツ" },
-  { type: "energy", emoji: "🐱", name: "モコ" },
-];
 
 export default function MyPage() {
   const router = useRouter();
@@ -34,6 +26,7 @@ export default function MyPage() {
 
   const [editing, setEditing] = useState(false);
   const [newNickname, setNewNickname] = useState("");
+  const [resetModalOpen, setResetModalOpen] = useState(false);
 
   useEffect(() => {
     if (hasHydrated && !profile) router.replace("/onboarding");
@@ -43,8 +36,6 @@ export default function MyPage() {
 
   const char = profile.character;
   const charBase = char ? CHARACTERS[char.type] : null;
-
-  const [resetModalOpen, setResetModalOpen] = useState(false);
 
   const handleLogout = async () => {
     await signOut();
@@ -235,7 +226,7 @@ export default function MyPage() {
           )}
         </div>
 
-        {/* Character Gallery — charSection */}
+        {/* Character Section — myCharSection */}
         <div style={{
           backgroundColor: "#fff",
           borderRadius: 20,
@@ -243,61 +234,96 @@ export default function MyPage() {
           border: "1px solid #F0EAE0",
           boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
         }}>
-          <p style={{ margin: "0 0 12px", fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>
-            キャラクター図鑑
+          <p style={{ margin: "0 0 14px", fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>
+            あなたのキャラクター
           </p>
-          <div style={{ display: "flex", gap: 10 }}>
-            {ALL_CHARS.map((c) => {
-              const unlocked = char?.type === c.type;
-              return (
-                <div
-                  key={c.type}
-                  onClick={() => unlocked && router.push("/character")}
-                  style={{
-                    flex: 1,
-                    backgroundColor: unlocked ? "#fff" : "#F0F0F0",
-                    borderRadius: 18,
-                    padding: 14,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: 6,
-                    opacity: unlocked ? 1 : 0.5,
-                    cursor: unlocked ? "pointer" : "default",
-                    border: unlocked ? "1.5px solid #E0D8CC" : "none",
-                    boxShadow: unlocked ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
-                  }}
-                >
-                  <span style={{ fontSize: 28, color: unlocked ? undefined : "#AAAAAA" }}>
-                    {unlocked ? c.emoji : c.emoji}
-                  </span>
-                  <span style={{
-                    fontSize: 10,
-                    fontWeight: 700,
-                    color: unlocked ? "#1E2D2A" : "#AAAAAA",
-                    textAlign: "center",
-                  }}>
-                    {c.name}
-                  </span>
-                  {!unlocked && (
-                    <span style={{ fontSize: 12, color: "#CCCCCC" }}>🔒</span>
-                  )}
-                  {unlocked && char && (
-                    <div style={{
-                      fontSize: 9,
-                      color: "#C8A96E",
-                      backgroundColor: "rgba(200,169,110,0.15)",
-                      borderRadius: 10,
-                      padding: "2px 7px",
-                      fontWeight: 600,
-                    }}>
-                      Lv.{char.level}
-                    </div>
-                  )}
+
+          {char && charBase ? (
+            /* 診断済み：自キャラを大きく表示 */
+            <div
+              onClick={() => router.push("/character")}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                backgroundColor: "#F9F6F1",
+                borderRadius: 16,
+                padding: "16px",
+                cursor: "pointer",
+                border: "1.5px solid #E8D8C0",
+                marginBottom: 12,
+              }}
+            >
+              <div style={{
+                width: 72,
+                height: 72,
+                borderRadius: 36,
+                background: "radial-gradient(circle, #3D6B5A, #2C4A3E)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 36,
+                flexShrink: 0,
+                boxShadow: "0 4px 12px rgba(44,74,62,0.2)",
+              }}>
+                {charBase.emoji}
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{
+                  fontSize: 11,
+                  color: "#E8956D",
+                  fontWeight: 600,
+                  marginBottom: 4,
+                }}>
+                  {FATIGUE_LABELS[char.type]}
                 </div>
-              );
-            })}
-          </div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "#1E2D2A", marginBottom: 4 }}>
+                  {char.name}
+                </div>
+                <div style={{
+                  display: "inline-block",
+                  fontSize: 11,
+                  color: "#C8A96E",
+                  backgroundColor: "rgba(200,169,110,0.15)",
+                  borderRadius: 10,
+                  padding: "2px 8px",
+                  fontWeight: 600,
+                }}>
+                  Lv.{char.level}
+                </div>
+              </div>
+              <span style={{ fontSize: 18, color: "#CCCCCC" }}>›</span>
+            </div>
+          ) : (
+            /* 未診断 */
+            <div style={{
+              textAlign: "center",
+              padding: "20px 0",
+              color: "#6B9E8F",
+              fontSize: 13,
+            }}>
+              まだキャラクターがいません
+            </div>
+          )}
+
+          {/* 再診断ボタン */}
+          <button
+            onClick={() => router.push("/diagnosis")}
+            style={{
+              width: "100%",
+              padding: "12px",
+              borderRadius: 14,
+              border: "1.5px solid #6B9E8F",
+              backgroundColor: "transparent",
+              color: "#6B9E8F",
+              fontSize: 13,
+              fontWeight: 700,
+              cursor: "pointer",
+              fontFamily: "inherit",
+            }}
+          >
+            再診断して疲労タイプを確認する
+          </button>
         </div>
 
         {/* Stats */}
@@ -334,13 +360,14 @@ export default function MyPage() {
           boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
         }}>
           {[
-            { icon: "🛒", label: "購入履歴", onClick: () => router.push("/kampo"), badge: null },
-            { icon: "📦", label: "定期便の管理", onClick: () => router.push("/kampo"), badge: "準備中" },
-            { icon: "⚙️", label: "設定", onClick: () => {}, badge: null },
+            { icon: "🛒", label: "購入履歴", onClick: () => router.push("/purchases"), badge: null },
+            { icon: "📦", label: "定期便の管理", onClick: null, badge: "準備中" },
+            { icon: "⚙️", label: "設定", onClick: null, badge: "近日公開" },
           ].map((item, i, arr) => (
             <button
               key={item.label}
-              onClick={item.onClick}
+              onClick={item.onClick ?? undefined}
+              disabled={item.onClick === null}
               style={{
                 width: "100%",
                 padding: "16px 20px",
@@ -350,9 +377,10 @@ export default function MyPage() {
                 backgroundColor: "transparent",
                 border: "none",
                 borderBottom: i < arr.length - 1 ? "1px solid #F5F2EE" : "none",
-                cursor: "pointer",
+                cursor: item.onClick === null ? "default" : "pointer",
                 textAlign: "left",
                 fontFamily: "inherit",
+                opacity: item.onClick === null ? 0.55 : 1,
               }}
             >
               <div style={{
@@ -367,14 +395,16 @@ export default function MyPage() {
               {item.badge && (
                 <span style={{
                   fontSize: 11, fontWeight: 600,
-                  color: "#C8A96E",
-                  backgroundColor: "rgba(200,169,110,0.12)",
+                  color: item.onClick === null ? "#AAAAAA" : "#C8A96E",
+                  backgroundColor: item.onClick === null ? "rgba(0,0,0,0.06)" : "rgba(200,169,110,0.12)",
                   borderRadius: 10, padding: "4px 8px",
                 }}>
                   {item.badge}
                 </span>
               )}
-              <span style={{ fontSize: 16, color: "#CCCCCC" }}>›</span>
+              {item.onClick !== null && (
+                <span style={{ fontSize: 16, color: "#CCCCCC" }}>›</span>
+              )}
             </button>
           ))}
         </div>

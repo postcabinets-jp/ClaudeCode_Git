@@ -16,18 +16,18 @@ const FATIGUE_LABELS: Record<string, string> = {
   energy: "エネルギー不足タイプ",
 };
 
-// キャラの状態テキスト — スコアに応じて変わる
+// キャラの状態テキスト — 疲労スコア(0-100換算)に応じて変わる
 function getCharStatus(score: number): string {
-  if (score >= 14) return "かなり疲れているよ…無理しないで";
-  if (score >= 10) return "少し疲れ気味だよ…";
-  if (score >= 6) return "まあまあ元気そうだね！";
+  if (score >= 70) return "かなり疲れているよ…無理しないで";
+  if (score >= 50) return "少し疲れ気味だよ…";
+  if (score >= 30) return "まあまあ元気そうだね！";
   return "今日も元気いっぱい！";
 }
 
-// 最新診断スコアを 0-100 に換算（最大 16×5=80点 → 100%）
+// 最新診断スコアを 0-100 に換算（最大 1点×20問=20点 → 100%）
 function calcFatigueScore(scores: Record<string, number>): number {
   const total = Object.values(scores).reduce((a, b) => a + b, 0);
-  return Math.round((total / 80) * 100);
+  return Math.round((total / 20) * 100);
 }
 
 // タイプ別アドバイス
@@ -90,9 +90,10 @@ export default function HomePage() {
     })();
   }, [hasHydrated, profile, router, setProfileFromGoogle]);
 
+  const hasCheckedInToday = useUserStore((s) => s.hasCheckedInToday);
+
   if (!hasHydrated || !profile) return null;
 
-  const hasCheckedInToday = useUserStore((s) => s.hasCheckedInToday);
   const checkedInToday = hasCheckedInToday();
 
   const char = profile.character;
@@ -252,6 +253,37 @@ export default function HomePage() {
           </div>
 
         </div>
+
+        {/* Continuous Record Value Card — vCRVc (診断済み＆未チェックインのみ) */}
+        {char && !checkedInToday && (
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #F0EAE0",
+            borderRadius: 20,
+            padding: "16px 18px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 10,
+          }}>
+            <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>
+              毎日記録することで...
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 14 }}>🔥</span>
+                <span style={{ fontSize: 12, color: "#6B9E8F" }}>継続日数が増えるとキャラクターが成長</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 14 }}>📊</span>
+                <span style={{ fontSize: 12, color: "#6B9E8F" }}>週次レポートで体調の傾向がわかる</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 14 }}>💊</span>
+                <span style={{ fontSize: 12, color: "#6B9E8F" }}>体調に合った漢方をより精度高く提案</span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Daily Check Button — uq7sF */}
         <button
