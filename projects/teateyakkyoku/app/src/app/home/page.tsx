@@ -24,10 +24,12 @@ function getCharStatus(score: number): string {
   return "今日も元気いっぱい！";
 }
 
-// 最新診断スコアを 0-100 に換算（最大 1点×20問=20点 → 100%）
+// 最新診断スコアを 0-100 に換算
+// 4択（0-3点）× 20問 = 最大60点 → 100点換算
+// スコアが高い = 疲れている。0が理想（疲れゼロ）
 function calcFatigueScore(scores: Record<string, number>): number {
   const total = Object.values(scores).reduce((a, b) => a + b, 0);
-  return Math.round((total / 20) * 100);
+  return Math.round((total / 60) * 100);
 }
 
 // タイプ別アドバイス
@@ -187,19 +189,24 @@ export default function HomePage() {
             )}
             <div style={{ flex: 1 }} />
             {fatigueScore !== null && (
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 2 }}>
-                <span style={{ fontSize: 28, fontWeight: 700, color: "#FFFFFF", lineHeight: 1 }}>
-                  {fatigueScore}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 2 }}>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 2 }}>
+                  <span style={{
+                    fontSize: 28,
+                    fontWeight: 700,
+                    color: fatigueScore >= 70 ? "#E8956D" : fatigueScore >= 40 ? "#F5C96A" : "#7EC8A4",
+                    lineHeight: 1,
+                  }}>
+                    {fatigueScore}
+                  </span>
+                  <span style={{ fontSize: 11, color: "#9BB5A8", marginBottom: 2 }}>/100</span>
+                </div>
+                <span style={{ fontSize: 10, color: "#9BB5A8" }}>
+                  疲労度（低いほど良い）
                 </span>
-                <span style={{ fontSize: 11, color: "#9BB5A8", marginBottom: 2 }}>/ 100</span>
               </div>
             )}
           </div>
-          {fatigueScore !== null && (
-            <p style={{ margin: "-8px 0 0", fontSize: 10, color: "#9BB5A8", textAlign: "right" }}>
-              疲労スコア
-            </p>
-          )}
 
           {/* Fatigue type area */}
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -269,7 +276,7 @@ export default function HomePage() {
             gap: 10,
           }}>
             <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#1E2D2A" }}>
-              毎日記録することで...
+              毎日チェックインで疲労度を下げよう
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
