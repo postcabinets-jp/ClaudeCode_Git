@@ -29,8 +29,40 @@ remote-app/gen-icons.sh
 # 外部リポジトリ（サブモジュールではなく参照用clone）
 references/design-md-jp/
 
-# claude-config: シークレットは含めない（テンプレートのみ）
+# claude-config: 重いもの・キャッシュ・セッション固有ファイルは除外
+# ※ settings.local.json / CREDENTIALS_MAP.md / Memory は含める（これが同期の本体）
 claude-config/settings.local.json
+claude-config/mcp-servers/
+claude-config/plugins/
+claude-config/security/
+claude-config/sessions/
+claude-config/cache/
+claude-config/telemetry/
+claude-config/metrics/
+claude-config/shell-snapshots/
+claude-config/debug/
+claude-config/file-history/
+claude-config/history.jsonl
+claude-config/channels/
+claude-config/homunculus/
+claude-config/backups/
+claude-config/paste-cache/
+claude-config/stats-cache.json
+claude-config/statsig/
+claude-config/ide/
+claude-config/vercel-plugin-*
+claude-config/todos/
+claude-config/security_warnings_state_*
+claude-config/mcp-needs-auth-cache.json
+claude-config/claw/
+claude-config/CLAUDE.md.backup-*
+claude-config/settings.json.backup.*
+claude-config/settings.json.bak.*
+claude-config/session-state.json
+claude-config/projects/-Users-apple/[0-9a-f]*
+claude-config/projects/-Users-apple/*.jsonl
+claude-config/projects/-Users-apple-*/
+claude-config/projects/-/
 
 # LinkedIn session state (sensitive)
 .linkedin-session.json

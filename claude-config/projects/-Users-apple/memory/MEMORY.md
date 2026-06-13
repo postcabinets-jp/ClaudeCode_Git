@@ -1,0 +1,17 @@
+- [Nobuプロフィール](user_nobu_profile.md) — 前田将臣の基本情報・ミッション・思考グセ・行動原則
+- [政治活動コンテキスト](project_political_activity.md) — 維新府議団政調会長・2026年目標・2027年引退計画
+- [Obsidian noteの構造と差分ルール](reference_obsidian_note.md) — ~/noteのフォルダ構成・Dreaming時の差分チェック手順
+- [自己修正ループ＆できません禁止](feedback_quality_loop.md) — 提出前に2周セルフ検証、代替手段3つ試すまで諦めない
+- [ビジュアル成果物は参考イメージ先出し](feedback_design_reference_first.md) — スライド/LP/UI/画像は文字仕様だけで作らない、3〜5枚先に提示
+- [~/.claude セットアップ構成](reference_claude_md_setup.md) — CLAUDE.md / commands / agents の配置（2026-05-15更新）
+- [X Radar: X→Obsidian AI情報収集](project_x_radar.md) — twikit+Haiku/Opusで2h毎取得・分類→~/note/wiki/ai-radar/に保存
+- [請求書フォーマット（POST CABINETS）](reference_invoice_format.md) — 発行者情報・振込先・PDF生成コマンド・レイアウト注意点
+- [Mac電力消費の常駐アプリ対策](reference_mac_power_saver.md) — Dia/Obsidianが浪費。放置検知の自動省エネ常駐ジョブ設置済み。診断はpmset単独でなくtop+ps+RSSまで
+- [安全完全万全フロー 海外SCM拡張](project_anzen_manzen_scm.md) — かねひさ×住友林業の物流アプリ。海外SCM設計書docs/GLOBAL_SCM_DESIGN.md。粗利は荷主だけ＝最重要要件
+- [SQL設計は実DBで流して検証する](feedback_verify_sql_in_real_db.md) — スキーマ/RLS設計はローカルPG14で流すと机上で見えない穴が出る。手順あり
+- [anzen-flow モノレポ構成と落とし穴](reference_anzen_monorepo.md) — 安全完全万全フローを3アプリ分割(pnpm+Turbo+Next16)。二重React型/proxy規約/Tailwind v4 @sourceのハマり所
+- [足りない機能は外部を探して設計する](feedback_search_external_when_skill_missing.md) — 標準Skill/MCPに無い時は妥協せずGitHub/PyPI/OSSを能動検索して設計に組込む（例: NotebookLM→notebooklm-py）
+- [mtg_prep事前準備の障害対策](reference_mtg_prep_watchdog.md) — claude -pのMCPデッドロック対策。無人ジョブは--strict-mcp-config/15分timeout/stale-lock/verify_daily_prep/watchdog(06:20)/status反映通知。mtg_prep改修時必読
+- [筋トレログ(iron_log)アプリ](../../../note/raw/アプリ開発/筋トレログ.md) — Health Connect連携の筋トレ記録アプリ(~/dev/iron_log)。状況/機能/ビルドはVault raw/アプリ開発/に整理。実装ほぼ完了・実機テスト待ち
+- [Flutter/Android無人ビルドの罠](reference_flutter_android_build_env.md) — Gradleはsandbox無効化必須/CDNタイムアウトはローカルzip参照/同一プロジェクトのGradleは常に1本
+- [並行マルチエージェント実装の分担術](feedback_parallel_agent_foundation.md) — 単一コードベースに多機能並行投入は「共有基盤を親が先に1本化→1ファイル1担当→統合は親」で衝突ゼロ
