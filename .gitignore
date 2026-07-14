@@ -63,6 +63,10 @@ claude-config/projects/-Users-apple/[0-9a-f]*
 claude-config/projects/-Users-apple/*.jsonl
 claude-config/projects/-Users-apple-*/
 claude-config/projects/-/
+claude-config/tasks/
+claude-config/.last-cleanup
+claude-config/.last-update-result.json
+claude-config/session-env/
 
 # LinkedIn session state (sensitive)
 .linkedin-session.json

@@ -121,11 +121,22 @@
 ## Google Health API（2026-06-07）
 - 用途: 自分ログ収集OS / Google Health APIから歩数・心拍・活動・睡眠を読む
 - OAuth Client ID: `444348039130-5imjdmlaqqrrrdqb18902946n8bdc3so.apps.googleusercontent.com`（Desktop client）
-- Refresh token保存先: macOS Keychain `GOOGLE_HEALTH_REFRESH_TOKEN`（account=client_id）
+- Refresh token保存先: macOS Keychain `GOOGLE_HEALTH_REFRESH_TOKEN`（account=client_id）／⚠️失効(invalid_grant)時は `python dev/google_health_oauth_manual.py start` → 同意 → `... finish '<callback_url>'` で再発行（直近: 2026-06-16 再認証済）
 - Client ID保存先: macOS Keychain `GOOGLE_HEALTH_CLIENT_ID`（account=default）
 - Client secret保存先: macOS Keychain `GOOGLE_HEALTH_CLIENT_SECRET`（account=client_id）
 - プロトタイプ: `/Users/apple/dev/google_health_daily_summary.py` / `/Users/apple/dev/google_health_oauth_manual.py`
 - 生鍵はこのファイルに書かない。
+- ⚠️ 実測(2026-06-13): このAPIで取れるのは **Fitbit由来**(睡眠/歩数/心拍/活動/距離) ＋ **Health Connect経由の体重/体脂肪**のみ。**運動セッション型・栄養型は非対応**。Samsung Healthの睡眠はGoogleクラウドに来ない。筋トレ・食事はこのAPIでは読めない。
+- **体重→トレーニングノート自動連携（2026-06-23構築）**: `~/.note-system/scripts/update_training_weight.py`（+ラッパー`update_training_weight.sh`）が `google_health_daily_summary.py` の体重/体脂肪を `note/wiki/life/トレーニング.md` の `<!-- weight:auto -->` ブロックへ毎朝upsert（冪等・乗らない日はskip）。launchd `com.postcabinets.training-weight`（毎日08:30+12:30・昨日backfill+今日）。Nobu要望「現在地の体重を毎日Health Connectから徹底更新」。
+
+## 筋トレログ Firebase（iron_log・2026-06-13）
+- 用途: 筋トレ記録アプリ → Firestore → Vault `raw/トレーニング.md` へ日次自動取込（Google Health APIは運動セッション非対応のため別配線）
+- Firebaseプロジェクト: `ironlog-pc-2026`（GCP・postcabinets@gmail.com オーナー）/ Firestore: native・asia-northeast1
+- Android App ID: `1:525941574905:android:5e9c506cdbfa3373b9a628`（package co.postcabinets.iron_log）
+- **サービスアカウント鍵**: `/Users/apple/note/wiki/_meta/secrets/ironlog-firebase-sa.json`（SA: `ironlog-sync@ironlog-pc-2026.iam.gserviceaccount.com`・Owner）— システム側の読み取りに使用
+- 取込スクリプト: `/Users/apple/dev/ironlog_to_note.py`（launchd `com.postcabinets.ironlog-ingest`・毎時）
+- Firestoreルール: `workouts` は create のみ許可（読みはSAでルール迂回）。生鍵はこのファイルに書かない。
+- ⚠️ firebase CLIのトークンは失効しがち。CLI操作は `firebase logout` → `GOOGLE_APPLICATION_CREDENTIALS=<上記SA鍵> firebase <cmd>` でSA認証。
 
 ---
 
