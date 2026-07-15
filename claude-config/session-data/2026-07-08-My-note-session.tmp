@@ -1,0 +1,47 @@
+# Session: 2026-07-08
+**Date:** 2026-07-08
+**Started:** 08:56
+**Last Updated:** 09:02
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- デイリーページの2026/07/07のページが設計書どおりに作成されない。 原因調査と、今日の実際のページの情報の崩れやフォーマットの崩れ、およびプロジェクトが毎日更新されないことによる持ち越しの大量化など課題解消してもらいたい。
+- 実際に思った通りの内容が出るかテストしておいてもらいたい。
+- 今日以降、うまく機能するかな？  もっといい設計できそうな気がするんだけど、ゼロベースで一度考えてみてくれない？全部の内容が相互的に更新できるように。
+- よくわからん。いけるんかな？結局今のところLimitlessからとカレンダーからの情報以外ないからなんか微妙な感じなのかな？
+- 今日の内容で、コンディションとかおそらくまた変になってる。2026/07/08  表示の崩れも発生しているので、こういったことが起こるから信用できない。 設計の方向性もう一回シンプルにするのか、修正しても崩れないようにしたい。
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/mtg_prep.sh
+- /Users/nobu/.note-system/scripts/project_daily_sync.py
+- /Users/nobu/.note-system/scripts/update_weekly_sync.py
+- /Users/nobu/.note-system/scripts/mtg_prep_watchdog.sh
+- /Users/nobu/My note/wiki/weekly/2026-07/W2.md
+- /Users/nobu/My note/wiki/プロジェクト.md
+- /Users/nobu/.note-system/scripts/validate_daily.py
+- /Users/nobu/My note/wiki/_meta/prep-v6-design.md
+- /Users/nobu/.claude/projects/-Users-nobu-My-note/memory/MEMORY.md
+- /Users/nobu/.note-system/scripts/morning_kabeuchi.sh
+- /Users/nobu/.note-system/scripts/daily_guard.sh
+- /Users/nobu/.claude/projects/-Users-nobu-My-note/memory/feedback_single_writer_principle.md
+
+### Tools Used
+Read, Bash, Edit, Write, ToolSearch, TaskCreate, TaskUpdate, TaskOutput, TaskStop
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

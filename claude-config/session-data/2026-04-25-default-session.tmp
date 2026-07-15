@@ -1,0 +1,29 @@
+# Session: 2026-04-25
+**Date:** 2026-04-25
+**Started:** 04:08
+**Last Updated:** 07:03
+**Project:** unknown
+**Branch:** unknown
+**Worktree:** /
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- あなたはNotion Todoページの自動管理エージェントです。 以下の全ステップを順番に実行してください。  ---  ## 対象 - TodoページID: 3339bf08eefd80f4bcddf23daa837a9e  ---  ## 重要: 新規追加セクションの構造ルール  各カテゴリの「📥 新規追加」セクションには必ず以下の構造を維持する:  \`\`\` 📥 **新規追加** {col
+
+### Tools Used
+ToolSearch, mcp__notion__API-retrieve-a-page, mcp__notion__API-get-block-children
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

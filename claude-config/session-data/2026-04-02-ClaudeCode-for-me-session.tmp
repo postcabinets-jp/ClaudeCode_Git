@@ -1,0 +1,35 @@
+# Session: 2026-04-02
+**Date:** 2026-04-02
+**Started:** 05:50
+**Last Updated:** 10:47
+**Project:** ClaudeCode for me
+**Branch:** unknown
+**Worktree:** /Users/nobu/ClaudeCode for me
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- <user_query> わからんが、解消してもらいたい </user_query>
+- <user_query> もう解消できてる？ </user_query>
+- <user_query> ブラウザリロードしたけど、とにかく他あれば直しておいて。 </user_query>
+- <user_query> ⚠️ Something went wrong while processing your request. Please try again, or use /new to start a fresh session.これもでた。 </user_query>
+- <user_query> モデルキーの上限上げたんだけど無理なんだが、どうしたらいい？ </user_query>
+- <user_query> やっぱり返事がない。なんかメッセージGemini経由で送ってテストしてみてくれん？ </user_query>
+- <user_query> 追ってみて </user_query>
+- <user_query> stepfun/step-3.5-flashこれってOpenrouter側からAPIで使える＿ </user_query>
+- <user_query> Openrouterの仕組みと、Openclawから指示した場合のAPI分類についてどう設定できるのかわからない。 </user_query>
+- <user_query> 基本の使い方をOpenrouterメインに設計した場合、使用感とコスト感ってどんな感じになる？今はclaudeメインだけど、それをOpenrouterに変更することで得られるメリットを整理したい。 </user_query>
+
+### Stats
+- Total user messages: 15
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

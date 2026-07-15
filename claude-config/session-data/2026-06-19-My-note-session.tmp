@@ -1,0 +1,37 @@
+# Session: 2026-06-19
+**Date:** 2026-06-19
+**Started:** 06:02
+**Last Updated:** 06:19
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 結局Dreamingってどれくらい機能してそう？なんかlog残ってる？  <current_note> Daily/2026-06/2026-06-19.md </current_note>
+- 全部進めよう   実施した内容をデイリーページに毎回入れ込むようにしておいてもらおうかな。で、メモリ反映の内容を毎回確認しておきたい。  あとなんでPaperclipのことだけになっちゃってるんだろう
+- 一旦今日の内容を今すぐDreaming実施し、今日のページに作成してみて。
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/auto-dreaming.sh
+- /Users/nobu/.note-system/scripts/mtg_prep_v2.sh
+- /Users/nobu/My note/Daily/2026-06/2026-06-19.md
+- /Users/nobu/.claude/projects/-Users-nobu-My-note/memory/MEMORY.md
+
+### Tools Used
+Bash, Glob, Read, TodoWrite, Write, Edit
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

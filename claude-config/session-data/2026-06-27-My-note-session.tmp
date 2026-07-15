@@ -1,0 +1,39 @@
+# Session: 2026-06-27
+**Date:** 2026-06-27
+**Started:** 08:34
+**Last Updated:** 23:09
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 健康データ、B.ringから取れるようになったから、結構柔軟に睡眠やら、いろいろ取れるようになった。消費カロリーとかも計算してとれるはず、一回取得してみて。  <current_note> wiki/weekly/2026-06/W4.md </current_note>
+- やってるよ
+- やってる。ただ、まだ連携してないんかな？わからんけど。もうちょい調べてみて
+- いや、結局連携できてなかった。さいもかくにんして
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/google_health_auth.py
+- /Users/nobu/.note-system/scripts/google_health_summary.py
+
+### Tools Used
+Task, Grep, Read, Bash, AskUserQuestion, TodoWrite, Edit, Write
+
+### Stats
+- Total user messages: 4
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 15:51]** - Context was summarized

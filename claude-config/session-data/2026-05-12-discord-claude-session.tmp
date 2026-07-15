@@ -1,0 +1,29 @@
+# Session: 2026-05-12
+**Date:** 2026-05-12
+**Started:** 00:40
+**Last Updated:** 07:58
+**Project:** discord-claude
+**Branch:** unknown
+**Worktree:** /Users/nobu/discord-claude
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Use the fetch_messages tool to get the last 10 messages from channel 1484812872541536286. Look at the messages and find any that were NOT sent by 'me' (the bot). Only respond to messages with an id nu
+
+### Tools Used
+ToolSearch, mcp__plugin_discord_discord__fetch_messages
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,38 @@
+# Session: 2026-04-08
+**Date:** 2026-04-08
+**Started:** 08:46
+**Last Updated:** 08:46
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- OpenclawのAPI設定、ローカルにしたら全く反応しなくなったから、前の設定に戻したい。
+- いや、GeminiのAPIを適宜使うようにする。普段の会話は3Flsuhで、複雑タスクは３Proに切り替えるイメージ。Openrouterはまだ使わない。
+- Discordにメッセージしたら、Failed to parse URL from $OLLAMA_LOCAL_URL/api/chatこれがかえってきたので、多分まだうまく行ってない。
+- まだでるよ。
+- Failed to parse URL from $OLLAMA_LOCAL_URL/api/chat  まだだめだね。このあたりテストして完璧にしてから僕に教えて？
+- バッチリ会話できています！  ステータスを確認したところ、現在は ollama/gemma:7b（ローカルモデル）で正常に稼働しています。 モデルの変更、無事に成功したようです！  APIの制限などを気にせずローカルでガンガン動かせる状態ですが、何かテストで実行してみたいタスク（ファイルの読み書きや検索など）はありますか？返事これだけど、いけてる？返事はきた。前はローカルだったｋらこなかかったけど
+- セッションはリセットできるの？
+
+### Files Modified
+- /Users/nobu/.openclaw/openclaw.json
+
+### Tools Used
+ToolSearch, Read, Bash, Edit
+
+### Stats
+- Total user messages: 7
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

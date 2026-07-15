@@ -1,0 +1,32 @@
+# Session: 2026-04-29
+**Date:** 2026-04-29
+**Started:** 06:26
+**Last Updated:** 07:06
+**Project:** hermes-claude-slide-work
+**Branch:** unknown
+**Worktree:** /Users/nobu/hermes-claude-slide-work
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 日本語で10枚程度のスライドを作成して。テーマは「新規事業の構築ロードマップをClaude Codeで作成する方法」。Pencilで扱いやすいMarkdownスライド形式にして、/Users/nobu/hermes-claude-slide-work/output/roadmap.md に保存して。各スライドは見出しと要点のみで簡潔に。最後に作成したファイル名を報告して。必要な場合のみ既存知識で補
+
+### Files Modified
+- /Users/nobu/hermes-claude-slide-work/output/roadmap.md
+
+### Tools Used
+Bash, Write
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

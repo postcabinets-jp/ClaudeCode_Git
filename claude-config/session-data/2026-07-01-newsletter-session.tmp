@@ -1,0 +1,61 @@
+# Session: 2026-07-01
+**Date:** 2026-07-01
+**Started:** 11:21
+**Last Updated:** 11:21
+**Project:** newsletter
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/newsletter
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/newsletter/.env.example
+- /Users/nobu/dev/saas-factory/newsletter/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/newsletter/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/newsletter/src/middleware.ts
+- /Users/nobu/dev/saas-factory/newsletter/src/types/database.ts
+- /Users/nobu/dev/saas-factory/newsletter/supabase/migrations/0001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/newsletter/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/newsletter/supabase/config.toml
+- /Users/nobu/dev/saas-factory/newsletter/src/app/layout.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(auth)/login/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(auth)/register/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(auth)/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/newsletter/src/components/dashboard/sidebar.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/components/dashboard/header.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/components/dashboard/user-menu.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/layout.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/subscribers/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/campaigns/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/campaigns/new/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/campaigns/[id]/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/automations/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/automations/[id]/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/forms/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/analytics/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/components/dashboard/analytics-charts.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/monetization/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/(dashboard)/settings/page.tsx
+- /Users/nobu/dev/saas-factory/newsletter/src/app/page.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit, Task
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,42 @@
+# Session: 2026-07-14
+**Date:** 2026-07-14
+**Started:** 09:48
+**Last Updated:** 14:02
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 毎日のInboxのデイリーページってどこに保存されていってる？ あと、基本メモフォルダとして一つ用意して、そこにInbox的に入れ込みつつ、ジャンル分けだけ内容から分析して振り分けするってのを一週間に一回やるみたいなルーティン組んでもらいたい。  あと、第二の脳の構造をフォルダで作りたいので、今までのルール疑いつつ、最適なフォルダ構造を一回だけ検討し、それを実現してもらいたい。  無駄なデータ郡が
+- [Request interrupted by user]
+- あと、デイリーページに毎日ミッションステートメントを入れ込んでもらいたい。それをみて、自分の意識を最大化させたいため。リンクではなく、トグルで隠してていいいので、原文をお願い。
+- ん、全文はいってないけど。
+- 毎日のPrepについて、もっといい方向ないかな？ ミッションステートメントも結局崩れて表示されるから全部md形式でいいよ、。  あとは、プロジェクトが結局更新の際のネックになってきているから、なんかやり方考えたほうがいいと思う。 とにかく天才的な設計で崩れずに、目標の内容が完成するように整理してくれ。直近の内容きっちり見たら、何が崩れているのかとか全部わかると思う。
+- Stop hook feedback: Background subagents are still running. Use \`TaskOutput task_id="..." block=true\` to wait for their results before ending your turn.
+
+### Files Modified
+- /Users/nobu/My note/_system/templates/Daily.md
+- /Users/nobu/My note/Daily/2026-07/2026-07-13.md
+- /Users/nobu/.note-system/scripts/mtg_prep.sh
+- /Users/nobu/.note-system/scripts/weekly_review.sh
+- /Users/nobu/My note/Inbox/README.md
+- /Users/nobu/My note/Daily/2026-07/2026-07-14.md
+
+### Tools Used
+Read, Bash, TodoWrite, Glob, Grep, AskUserQuestion, Edit, Task, TaskOutput
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

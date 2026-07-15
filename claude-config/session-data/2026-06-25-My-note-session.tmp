@@ -1,0 +1,41 @@
+# Session: 2026-06-25
+**Date:** 2026-06-25
+**Started:** 08:02
+**Last Updated:** 15:53
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 開発自動化うまく進んでる？  <current_note> Daily/2026-06/2026-06-25.md </current_note>
+- SaaS自動化のやつ
+- 直しておいてくれ
+- じゃあ進めてくれ
+- <task-notification> <task-id>baxh3ytxc</task-id> <tool-use-id>toolu_011di27r1q3iz3HDtMkhknU1</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu-My-note/tasks/baxh3ytxc.output</output-file>
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/saas_factory.sh
+- /Users/nobu/My note/wiki/POSTCABINETS/saas-factory/testimonial-wall.md
+- /Users/nobu/My note/wiki/POSTCABINETS/saas-factory/link-in-bio.md
+
+### Tools Used
+Read, Bash, Glob, Edit
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 08:28]** - Context was summarized

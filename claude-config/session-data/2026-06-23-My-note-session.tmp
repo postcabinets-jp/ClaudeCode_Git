@@ -1,0 +1,52 @@
+# Session: 2026-06-23
+**Date:** 2026-06-23
+**Started:** 06:07
+**Last Updated:** 14:00
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 今日のページについてなんだけど、なんかやっぱり表示がおかしいから確認してマークダウンがきっちり設定されてるか再度確認してみて欲しい。 です。 またコンディションのデータが。 えっとちゃんと取れてないので、もう一回確認してもらいたいのとトレーニングログについては。  あのその日時点でのトレーニングの内容だけ拾ってくれたらオッケーです。 過去のデータを何回も引っ張ってくる必要はないので、そこは徹底して
+- ヘルスコネクトは毎回やってるんだけど。 とりあえずブラウザで開いてくれ。認証するから
+- エラーが起こっていたなら、この直近の数日。 コンディションデータが更新されていなかったページを探して正しく入力しておいて。
+- 今後もデータ取得Errorにならないように徹底してくれ。
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me chronologically analyze the co
+- あと、なんか今日のページのレイアウトおかしい部分あれば修正してもらいたい。
+- ステータスの指し夜のところ、なんかレイアウトくずれてない？
+- コンナレイアウトになる。
+
+### Files Modified
+- /Users/nobu/My note/Daily/2026-06/2026-06-23.md
+- /Users/nobu/.note-system/scripts/mtg_prep_v2.sh
+- /Users/nobu/.note-system/scripts/youtube_digest.py
+- /Users/nobu/.note-system/scripts/google_health_summary.py
+- /Users/nobu/My note/Daily/2026-06/2026-06-22.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-21.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-20.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-19.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-18.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-17.md
+- /Users/nobu/.note-system/scripts/update_daily_section.py
+
+### Tools Used
+Read, Bash, TodoWrite, Edit, WebSearch, WebFetch, Write, Task, Grep
+
+### Stats
+- Total user messages: 8
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 06:34]** - Context was summarized

@@ -1,0 +1,40 @@
+# Session: 2026-05-25
+**Date:** 2026-05-25
+**Started:** 06:56
+**Last Updated:** 08:45
+**Project:** nobu
+**Branch:** unknown
+**Worktree:** /Users/nobu
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 1484722390352265348 このサーバー読める？Discord・
+- うーん。ClaudeCodeのbot用意して、動くようにした過去があるんだけどね。君はこのサーバーにメッセージ毎日送ってるよ。？なんでだろうね・
+- さーばーね。 チャンネルは、1497502029357125642とか。
+- その他ClaudeCodeが送信している他のチャンネルも同様に探してもらいたいなと思うのと、各チャンネルごと返事する設計にしてもらいたい。
+- LimitlessLog以外は止めてもらってもOK
+- なんか急にメッセージ確認の通知がMacminiに連続で届くようになったんだけど、原因調べて。
+- 止めてくれ。
+- Continue from where you left off.
+- とまった？
+
+### Files Modified
+- /Users/nobu/discord-claude/run.sh
+
+### Tools Used
+ToolSearch, mcp__plugin_discord_discord__fetch_messages, Bash, CronList, Read, Edit
+
+### Stats
+- Total user messages: 9
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

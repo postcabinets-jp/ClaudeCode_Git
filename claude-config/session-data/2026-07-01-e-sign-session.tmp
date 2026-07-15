@@ -1,0 +1,65 @@
+# Session: 2026-07-01
+**Date:** 2026-07-01
+**Started:** 18:09
+**Last Updated:** 18:09
+**Project:** e-sign
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/e-sign
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me analyze the conversation chron
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/e-sign/supabase/config.toml
+- /Users/nobu/dev/saas-factory/e-sign/.env.example
+- /Users/nobu/dev/saas-factory/e-sign/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/middleware.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/types/database.ts
+- /Users/nobu/dev/saas-factory/e-sign/supabase/migrations/20260701000000_initial_schema.sql
+- /Users/nobu/dev/saas-factory/e-sign/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/e-sign/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/app/actions/envelopes.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/app/actions/signing.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/app/actions/templates.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(auth)/login/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/auth/login-form.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(auth)/register/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/auth/register-form.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(auth)/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(dashboard)/layout.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/dashboard/sidebar.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/dashboard/header.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(dashboard)/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/envelopes/status-badge.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(dashboard)/dashboard/envelopes/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(dashboard)/dashboard/envelopes/[id]/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/envelopes/envelope-actions.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/envelopes/signer-list.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/components/envelopes/audit-trail.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/(dashboard)/dashboard/new/page.tsx
+- /Users/nobu/dev/saas-factory/e-sign/src/app/sign/[token]/page.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit, Task, Grep
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 18:24]** - Context was summarized

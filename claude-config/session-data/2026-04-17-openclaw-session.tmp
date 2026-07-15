@@ -1,0 +1,42 @@
+# Session: 2026-04-17
+**Date:** 2026-04-17
+**Started:** 07:54
+**Last Updated:** 23:35
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- <task-notification> <task-id>bjbpxyxss</task-id> <tool-use-id>toolu_01NkAxSHwoHdVF3St6A3ynVE</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/08a93e89-e87c-4d81-8a31-24b2f8683e
+- なんて？
+- 返事こないね。あと、メッセージリアクションもない。
+- 教えて。
+- ! openclaw onboard
+- ! openclaw onboard
+- なんかわからんがオンボーディング進まんねんけど
+- <task-notification> <task-id>b46pkhaki</task-id> <tool-use-id>toolu_018kiAyYCqzseJtscdpYmTJg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/08a93e89-e87c-4d81-8a31-24b2f8683e
+- 前までメッセージにリアクションくれてたんだけど。 あと返事はきた。
+- それやっといて。
+
+### Files Modified
+- /Users/nobu/.claude/projects/-Users-nobu--openclaw/memory/MEMORY.md
+- /Users/nobu/Library/LaunchAgents/ai.openclaw.gateway.plist
+
+### Tools Used
+Bash, Agent, ToolSearch, Read, TaskOutput, Write, Edit
+
+### Stats
+- Total user messages: 21
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

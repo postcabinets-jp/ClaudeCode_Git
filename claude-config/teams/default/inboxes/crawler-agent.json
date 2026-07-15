@@ -1,0 +1,14 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776266381578@crawler-agent\",\"from\":\"team-lead\",\"reason\":\"crawler.jsをheadless:trueに修正しました。一度停止して再起動します。\",\"timestamp\":\"2026-04-15T15:19:41.578Z\"}",
+    "timestamp": "2026-04-15T15:19:41.578Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776266784943@crawler-agent\",\"from\":\"team-lead\",\"reason\":\"今回の分はここで終了してください。定期実行は別途設定します。\",\"timestamp\":\"2026-04-15T15:26:24.944Z\"}",
+    "timestamp": "2026-04-15T15:26:24.944Z",
+    "read": false
+  }
+]

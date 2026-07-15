@@ -1,0 +1,62 @@
+# Session: 2026-06-17
+**Date:** 2026-06-17
+**Started:** 07:40
+**Last Updated:** 08:44
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 毎回Obsidianのリンク出すようにしてくれる？
+- あ、君はV2作ったの？  君が作ったものを知りたい。今あるのを上書きしろとか言ってない。 要は Mac miniで。 クロードコードの設定を再度設定したんだけど、フーシデアのルーティーンについても今設定して。 たばっかりなのね。 だから君ができるかどうかっていうのを確認したいから Vツーっていうのを今あるページとは全く別で君のルーティーンの中で作成したものを確認して、 MacBookとの差分がない
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me chronologically analyze the co
+- そしたら今後Prepももろもろ君が実施するようにしよう。  その他のルーティンについても実行できる状態か、youtubeも含めて確認したい。整理して。
+- 全部作ってもらいたいし、組み込んでおいて。
+- 1,2やろ
+- [Request interrupted by user for tool use]
+- あ、youtubeの認証間違ったkら再度変更させて。
+- もっかいブラウザ認証
+- いや、アカウントを変えたいから認証かえさせてって。
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/parse_claude_sections.py
+- /Users/nobu/.note-system/scripts/mtg_prep_v2.sh
+- /Users/nobu/.claude/projects/-Users-nobu-My-note/memory/MEMORY.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-17_v2-test.md
+- /Users/nobu/.note-system/scripts/youtube_digest.py
+- /Users/nobu/.note-system/scripts/auto-dreaming.sh
+- /Users/nobu/.note-system/scripts/mtg_prep_watchdog.sh
+- /Users/nobu/.note-system/scripts/graph_autolink.py
+- /Users/nobu/.note-system/scripts/ironlog_ingest.py
+- /Users/nobu/.note-system/scripts/evening_review.sh
+- /Users/nobu/.note-system/scripts/morning_briefing.sh
+- /Users/nobu/.note-system/scripts/morning_kabeuchi.sh
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.youtube-digest.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.graph-autolink.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.ironlog-ingest.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.mtg-prep.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.evening-review.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.morning-briefing.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.morning-kabeuchi.plist
+
+### Tools Used
+Read, Glob, Bash, TodoWrite, Write, Edit, Task
+
+### Stats
+- Total user messages: 15
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 08:12]** - Context was summarized

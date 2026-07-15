@@ -1,0 +1,65 @@
+# Session: 2026-07-01
+**Date:** 2026-07-01
+**Started:** 21:41
+**Last Updated:** 21:41
+**Project:** social-scheduler
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/social-scheduler
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me analyze the conversation thoro
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/social-scheduler/.env.example
+- /Users/nobu/dev/saas-factory/social-scheduler/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/lib/supabase/middleware.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/middleware.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/types/database.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/supabase/migrations/20260701000001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/social-scheduler/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/social-scheduler/supabase/config.toml
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/actions/workspace.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/actions/posts.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/actions/social-accounts.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/login/page.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/register/page.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/auth/confirm/route.ts
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/auth/auth-form.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/auth/reset-password-form.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/(dashboard)/layout.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/layout/app-sidebar.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/layout/app-header.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/(dashboard)/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/dashboard/dashboard-stats.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/dashboard/upcoming-posts.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/dashboard/recent-posts.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/ui/platform-icon.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/app/(dashboard)/compose/page.tsx
+- /Users/nobu/dev/saas-factory/social-scheduler/src/components/compose/compose-editor.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 21:46]** - Context was summarized

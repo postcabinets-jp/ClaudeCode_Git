@@ -1,0 +1,31 @@
+# Session: 2026-05-16
+**Date:** 2026-05-16
+**Started:** 13:41
+**Last Updated:** 13:48
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 現状動いているClaude Codeの定期実行について、このフォルダ以外も含めて探してみて。
+- Discordのどこに送信されているかてわかる？ Claudeコードか、HERMESかで残すかどうか決める。
+- ここにあるスクリプトでいうと、Limitless以外はいらない状態。
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

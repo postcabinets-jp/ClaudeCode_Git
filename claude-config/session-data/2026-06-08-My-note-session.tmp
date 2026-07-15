@@ -1,0 +1,60 @@
+# Session: 2026-06-08
+**Date:** 2026-06-08
+**Started:** 06:22
+**Last Updated:** 06:39
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Mac mini側のClaude Codeには、これをそのまま投げればOKです。  \`\`\`text /Users/apple/note/wiki/_meta/Macmini定期実行移管指示書.md を読んで、Mac mini側でルーティン定期実行が完結するようにセットアップしてください。  前提： - Fathomは使わないので設定しない - Linear連携も使っていないので設定しない - Ma
+- 再度確認してみて。ファイルを。
+- こちらがそのMacminiだから作業進めてもらいたい。
+- MacBook不要でこのMacminiで完結させたいんだけど。
+- このページ変種した？なんか雑に編集されたから、おかしいと思う設定が。
+- こちらのMacminiで生成した内容をV2 という名称でこのフォルダに再度出してみてくれる？
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me analyze this conversation chro
+- マークダウン認識がちょっとズレて全部テキストになっちゃってるから修正してもらいたい。 今後もそうしてもらいたい。
+- 一旦ルーティン止めてもらいたい。なんかやっぱややこしくなった。
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/update_daily_section.py
+- /Users/nobu/.note-system/scripts/morning_brief.sh
+- /Users/nobu/.note-system/scripts/mtg_prep.sh
+- /Users/nobu/.note-system/scripts/limitless_sync.sh
+- /Users/nobu/.note-system/scripts/kokkai_fetch.sh
+- /Users/nobu/.note-system/scripts/kokkai_sync.sh
+- /Users/nobu/.note-system/scripts/nar.sh
+- /Users/nobu/.note-system/scripts/weekly_review.sh
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.mtg-prep.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.note.morning.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.limitless-sync.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.kokkai-fetch.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.kokkai-sync.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.nar.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.weekly-review.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.nightly-scan.plist
+- /Users/nobu/My note/Daily/2026-06/2026-06-08_V2.md
+- /Users/nobu/.claude/projects/-Users-nobu-My-note/memory/MEMORY.md
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, TaskStop, Write, Edit, Glob
+
+### Stats
+- Total user messages: 9
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 06:26]** - Context was summarized

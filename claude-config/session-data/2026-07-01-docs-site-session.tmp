@@ -1,0 +1,60 @@
+# Session: 2026-07-01
+**Date:** 2026-07-01
+**Started:** 21:49
+**Last Updated:** 21:49
+**Project:** docs-site
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/docs-site
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me analyze this conversation chro
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/docs-site/.env.example
+- /Users/nobu/dev/saas-factory/docs-site/.env.local
+- /Users/nobu/dev/saas-factory/docs-site/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/docs-site/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/docs-site/src/lib/supabase/types.ts
+- /Users/nobu/dev/saas-factory/docs-site/src/middleware.ts
+- /Users/nobu/dev/saas-factory/docs-site/supabase/migrations/001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/docs-site/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/docs-site/supabase/config.toml
+- /Users/nobu/dev/saas-factory/docs-site/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/docs-site/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(auth)/login/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(auth)/register/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(auth)/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/layout.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/components/layout/dashboard-sidebar.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/components/layout/dashboard-header.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/[org]/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/[org]/[site]/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/[org]/[site]/spaces/[space]/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/actions/pages.ts
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/[org]/[site]/spaces/[space]/pages/[page]/edit/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/components/editor/page-editor.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/(dashboard)/[org]/[site]/analytics/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/app/page.tsx
+- /Users/nobu/dev/saas-factory/docs-site/src/components/ui/button.tsx
+- /Users/nobu/dev/saas-factory/docs-site/README.md
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit, Task
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

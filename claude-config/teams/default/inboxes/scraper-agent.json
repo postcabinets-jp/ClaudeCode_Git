@@ -1,0 +1,8 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776266785157@scraper-agent\",\"from\":\"team-lead\",\"reason\":\"今回の分はここで終了してください。現在処理中の件まで完了したら止めてOKです。\",\"timestamp\":\"2026-04-15T15:26:25.157Z\"}",
+    "timestamp": "2026-04-15T15:26:25.157Z",
+    "read": false
+  }
+]

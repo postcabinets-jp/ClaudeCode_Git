@@ -1,0 +1,32 @@
+[
+  {
+    "from": "food-db",
+    "text": "Food composition SQLite database is complete.\n\n## Files created\n\n- **Script**: `/Users/nobu/dev/meal_log/tools/convert_food_db.py`\n- **Database**: `/Users/nobu/dev/meal_log/assets/foods.db` (416 KB)\n\n## Database summary\n\n- **2,478 foods** from the 日本食品標準成分表 (source: mext)\n- **18 categories**: 穀類, 野菜類, 魚介類, 肉類, 果実類, 菓子類, 豆類, 調味料及び香辛料類, etc.\n- **Schema**: `foods` table with id, name, name_en, category, cal_per100, protein, fat, carb, fiber, source, barcode, is_favorite, use_count, last_used\n- **FTS5 search index**: `foods_fts` virtual table for fast Japanese text search on name + category\n- **0 NULLs** in required fields (cal_per100, protein, fat, carb)\n\n## Data mapping applied\n\n- foodId → id, foodName → name, groupId → category (mapped to Japanese group names)\n- enercKcal → cal_per100, prot → protein, fat → fat\n- choavldf (差引き法) → carb (with chocdf fallback), fib → fiber\n- Special values handled: None → 0.0, \"null30.5\" → 30.5, \"14.0†\" → 14.0, parenthesized values stripped\n\n## Verified\n\n- FTS works correctly (e.g., searching \"にわとり\", \"豆腐\", \"キャベツ\", \"バナナ\" all return expected results)\n- Note: the official table uses traditional names (e.g., \"にわとり\" not \"鶏肉\", \"こめ [水稲穀粒]\" not \"ごはん\") — the app may want to add user-friendly aliases later\n- Value ranges are correct: cal 0-930, protein 0-87.6, fat 0-100, carb 0-100\n- DB size: 416 KB (well under the 5 MB target)",
+    "summary": "Food DB SQLite conversion complete: 2478 foods, 416KB",
+    "timestamp": "2026-07-05T04:04:48.230Z",
+    "color": "blue",
+    "read": false
+  },
+  {
+    "from": "food-db",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"food-db\",\"timestamp\":\"2026-07-05T04:04:56.717Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-07-05T04:04:56.717Z",
+    "color": "blue",
+    "read": false
+  },
+  {
+    "from": "scaffold",
+    "text": "Flutter project scaffold complete at `/Users/nobu/dev/meal_log/`. `flutter analyze` passes with **no issues**.\n\n**What was done:**\n\n1. **Flutter project created** — `co.postcabinets.meal_log`, display name `食事ログ`\n2. **pubspec.yaml** — all dependencies added (flutter_riverpod, sqflite, path_provider, image_picker, mobile_scanner, http, share_plus, health, intl)\n3. **theme.dart** — complete color palette from DESIGN.md (#FAFAF8 bg, #2D9F5D accent, PFC colors), Noto Sans JP font, Material 3\n4. **Data models** (`lib/models/`):\n   - `food.dart` — Food class with fromMap/toMap\n   - `meal_entry.dart` — MealEntry with mealType labels/ordering\n   - `water_entry.dart` — WaterEntry\n5. **database_service.dart** — sqflite init with full schema (foods, meal_entries, water_entries, user_settings tables), default settings insertion, CRUD methods for all tables, copies foods.db from assets on first run\n6. **food_db_service.dart** — search by name, get favorites, get recents, toggle favorite, increment use count, register custom food, find by barcode\n7. **Providers** (`lib/providers/`):\n   - `meal_provider.dart` — DailySummary state, CRUD, date range queries\n   - `food_provider.dart` — search state, favorites, recents\n   - `water_provider.dart` — daily total, add water\n   - `settings_provider.dart` — UserSettings with load/update from DB\n8. **main.dart + app.dart** — ProviderScope wrapping MaterialApp, bottom navigation with 3 tabs (今日/カレンダー/設定), IndexedStack\n9. **home_screen.dart** — full implementation: calorie summary card with remaining/progress, PFC bars (P red, F orange, C blue), water ring with tap (+200ml default) and long press amount picker, meal list grouped by type (朝食/昼食/夕食/間食) with swipe-to-delete, FAB to add meal\n10. **Widgets**:\n    - `pfc_bar.dart` — horizontal progress bar with label, current/target, percentage\n    - `water_ring.dart` — circular progress ring using CustomPainter\n    - `meal_card.dart` — meal entry card with optional photo thumbnail, PFC summary, swipe-to-delete\n11. **add_meal_screen.dart** — meal type selection (4 types with icons)\n12. **food_search_screen.dart** — text search, recent foods, favorites, manual entry option, favorite toggle\n13. **portion_screen.dart** — amount slider (10-500g), quick amount chips, nutrition preview, manual PFC entry mode, save button\n14. **calendar_screen.dart** — month view calendar, day tap for detail, meal list with PFC summary\n15. **settings_screen.dart** — target editing dialogs for cal/P/F/C/water/default amount, app version info\n16. **Android manifest** — Health Connect permissions (READ/WRITE_NUTRITION, READ/WRITE_HYDRATION), camera permission, Health Connect activity-alias and intent filters\n17. **assets/foods.db** — prepopulated Japanese food database (425KB, already created)\n\n**All text/labels in Japanese. Using flutter_riverpod WITHOUT codegen. No over-engineering.**\n\nProject structure:\n```\nlib/\n├── main.dart\n├── app.dart\n├── theme.dart\n├── models/     (food, meal_entry, water_entry)\n├── providers/  (meal, food, water, settings)\n├── screens/    (home, add_meal, food_search, portion, calendar, settings)\n├── services/   (database_service, food_db_service)\n└── widgets/    (pfc_bar, water_ring, meal_card)\n```",
+    "summary": "Flutter project scaffold complete, flutter analyze passes",
+    "timestamp": "2026-07-05T04:46:48.881Z",
+    "color": "green",
+    "read": false
+  },
+  {
+    "from": "scaffold",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"scaffold\",\"timestamp\":\"2026-07-05T04:46:53.617Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-07-05T04:46:53.617Z",
+    "color": "green",
+    "read": false
+  }
+]

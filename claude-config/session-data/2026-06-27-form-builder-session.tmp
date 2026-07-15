@@ -1,0 +1,61 @@
+# Session: 2026-06-27
+**Date:** 2026-06-27
+**Started:** 19:10
+**Last Updated:** 19:10
+**Project:** form-builder
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/form-builder
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/form-builder/.env.example
+- /Users/nobu/dev/saas-factory/form-builder/.env.local
+- /Users/nobu/dev/saas-factory/form-builder/supabase/config.toml
+- /Users/nobu/dev/saas-factory/form-builder/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/middleware.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/types/database.ts
+- /Users/nobu/dev/saas-factory/form-builder/supabase/migrations/001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/form-builder/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/form-builder/src/app/actions/forms.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/app/actions/questions.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/app/actions/submissions.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/app/(auth)/login/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/(auth)/register/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/(auth)/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/layout.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/components/dashboard/sidebar.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/components/dashboard/header.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/[formId]/layout.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/[formId]/edit/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/components/form-builder/form-builder.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/components/form-builder/question-editor.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/[formId]/responses/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/components/dashboard/export-button.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/[formId]/settings/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/dashboard/[formId]/share/page.tsx
+- /Users/nobu/dev/saas-factory/form-builder/src/app/f/[slug]/page.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit, Task
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

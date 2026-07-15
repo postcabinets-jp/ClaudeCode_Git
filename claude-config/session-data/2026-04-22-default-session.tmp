@@ -1,0 +1,33 @@
+# Session: 2026-04-22
+**Date:** 2026-04-22
+**Started:** 04:14
+**Last Updated:** 08:19
+**Project:** unknown
+**Branch:** unknown
+**Worktree:** /
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 今日は 2026年04月22日（Wednesday） です。以下を実行してください。  ## Step 1: 目標ページを読む notion-fetch でページID \`21a4e232c0aa464a93562e5f120f7e97\` を取得する。 子ブロックも含め全体を把握する。  ## Step 2: 思考ノートDBの最新エントリを読む notion-fetch でページID \`3149bf
+- <task-notification> <task-id>baj0hivtt</task-id> <tool-use-id>toolu_01UWjHkqCioFpfUvSjCiJg4B</tool-use-id> <output-file>/private/tmp/claude-501/-/6851e56e-1d97-4d2f-8d55-d34ddf0818b0/tasks/baj0hivtt.o
+
+### Files Modified
+- /Users/nobu/.openclaw/scripts/daily-context.json
+
+### Tools Used
+ToolSearch, ListMcpResourcesTool, Bash, Write, Read
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

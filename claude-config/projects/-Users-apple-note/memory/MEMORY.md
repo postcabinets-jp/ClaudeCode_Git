@@ -1,63 +1,152 @@
-# MEMORY.md
+# Nobu's Note System — Memory
 
-> このVaultの **絶対ルール集**。AIはこのファイルを起動時に必ず読む。
-> **索引のみ**（1エントリ150字以内）。詳細は各サブファイル参照。フォルダ構成・禁則・raw→wikiの正本は毎セッション注入の `note/CLAUDE.md`。
+## ユーザー設定・好み
 
-## 索引
+### Markdownフォーマット
+- **Dailyノートに書くとき、セクション内のラベル（「達成：」「持ち越し：」等）は必ず `**太字:**` で書く**
+- リストの直前には必ず空行を入れる
 
-- [ユーザープロフィール](user_profile.md) — 前田将臣（大阪府議会議員）、政調会長、南大阪発展が軸
-- [政治活動の業界用語](reference_業界用語.md) — 「叩き」=地域訪問・ポスティング（叩き台=draftとは別物）
-- [朝会のToDo整理フロー変更](feedback_mtg_todo_flow.md) — GTasks正本を先に読む / ルーティン惰性ToDo廃止 / 新規やりたいこと毎日捕捉 / SNS自動催促廃止 / venvは`_system/.venv`（`.system`は誤り）
-- [朝会は二択より現物整理が先](feedback_mtg_shiza_real_first.md) — 抽象的な二択を出す前にGTask/カレンダーを直読→整理・統合・断捨離してから具体案。Nobuは残骸を溜めたくない人
-- [朝会V3設計](feedback_mtg_v3_design.md) — /MTG V3の設計メモ（Phase構成・秘書ブリーフィングの詰め）
-- [カレンダー入力ルール](feedback_calendar_entry_rule.md) — カレンダーは①動かせない約束②60分以上の塊だけ。単発タスクは🧹雑務消化枠1個に集約・中身は説明欄/GTask。5分を15分枠にしない
-- [カレンダーは目視要約せずスクリプト出力を唯一ソース](feedback_calendar_source_of_truth.md) — 予定確認前に`fetch_calendars.py [日付]`を回す。prep表鵜呑み・生JSON目視要約でカレンダーを2連続で外した(2026-06-15)
-- [カレンダー書込み2原則](feedback_calendar_write_rules.md) — ①政治家=maeda.nobumi@gmail.com・個人=bachikanshikoku・事業=postcabinets ②colorIdは勝手に付けない/変えない。委任ドラフトは該当時間帯のイベント説明欄にobsidianリンク(2026-06-17)
-- [AI秘書のキャラ定義＋SUMの目的（鏡→分身）](reference_秘書キャラクター定義.md) — 冷静な参謀秘書1本に統一(先生/卑屈/口調模倣のブレ禁止)。思考はNobu・実行段取りと外向け生産が秘書。SUMは毎朝prepが「外に出る成果物」1本を完成形で用意→GO/赤入れだけ
-- [Claude設定はObsidianに一元化・Obsidian起点で動く](reference_claude設定_obsidian一元化.md) — 操作盤は[[wiki/_meta/Claude設定マップ.md]]。挙動変更は先にそこで対象ファイル特定。~/.claude物理移動は禁止(本体/launchd全壊)・cc-syncでGit同期済(2026-06-28)
-- [朝会SUM起動シーケンス＋週次todo運用](reference_朝会と週次todo運用.md) — 毎朝7:00→/MTGの5フェーズ・気力ゲージ廃止/今日の宣言方式・GTask読取専用・Dailyテンプレ固定・ISO木曜週採番・当日タスク正本=Google Tasks
-- [領域バランス＋経営者モード](project_領域バランス経営者モード.md) — 3本柱・POSTCABINETS3区分(👔経営/🔧振る/💭保留)・モード制・最低ライン(週3件/経営判断週1/思考枠週1枠)
-- [自動化インフラ＋launchd波及先](reference_自動化インフラとlaunchd.md) — 対面=Limitless/オンライン=Fathom・Calendar Bridge・自動取込・ルール変更/リネーム時に確認すべきスクリプト/コマンド/launchd台帳
-- [Inbox整理は移動のみ・手書き原本を消すな](feedback_inbox_整理_破壊禁止.md) — Inbox整理でファイル中身の削除/上書き/コンパイル後の原本削除は禁止。手書き素材はraw/へ移動し原本保存。削除は差分プレビュー→承認制。Daily/・Inbox/はgit外＝消すと復元不能
-- [Kindle同期の保存先と重複防止](reference_kindle_sync.md) — obsidian-kindle-pluginの保存先は必ずraw/Kindle。ルート(/)にすると起動毎に二重ファイル量産。重複はファイル内でなくファイル単位に出る＝保存先ズレが原因。raw/Kindleは手編集しない
-- [食事ログ(meal_log)アプリ](../../../../note/raw/アプリ開発/食事ログ_引き継ぎ.md) — PFC+水分記録Flutterアプリ。2026-07-05にMac mini→MacBook `~/dev/meal_log` へ再構築完了（Mac miniはSSH鍵未登録で入れない）。APKはGDrive マイドライブ/meal_log.apk
-- [トレーニング自動化＋v2プログラム](project_training_automation.md) — Nobuは/トレーニングを手動で回さない→週次スケジューリング自動化(training_autoschedule.py 日曜)。プログラムv2=Push/Legs/Pull・週3・上半身2:脚1（脚偏重データを是正）。大会=FWJ West Japan 2026-11-07メンズフィジーク。reconcile(月次)/fwj_entry_watch(毎朝)も稼働
+### ファイルリンク
+- **作成・変更したVault内ファイルは毎回Obsidianリンクで出す**
+- 形式: `[表示名](obsidian://open?vault=My%20note&file=パス)` （.md省略、スペースは%20）
+- Vault外のファイル（`~/.note-system/`等）はパスをそのまま表示
 
-<!-- ↓ 旧 -Users-apple proj から統合（開発・品質・政治活動系）2026-07-15。user_nobu_profile↔user_profile は重複の可能性・要整理 -->
-- [Nobuプロフィール](user_nobu_profile.md) — 前田将臣の基本情報・ミッション・思考グセ・行動原則
-- [政治活動コンテキスト](project_political_activity.md) — 維新府議団政調会長・2026年目標・2031年（40歳）引退計画
-- [Obsidian noteの構造と差分ルール](reference_obsidian_note.md) — ~/noteのフォルダ構成・Dreaming時の差分チェック手順
-- [自己修正ループ＆できません禁止](feedback_quality_loop.md) — 提出前に2周セルフ検証、代替手段3つ試すまで諦めない
-- [ビジュアル成果物は参考イメージ先出し](feedback_design_reference_first.md) — スライド/LP/UI/画像は文字仕様だけで作らない、3〜5枚先に提示
-- [~/.claude セットアップ構成](reference_claude_md_setup.md) — CLAUDE.md / commands / agents の配置（2026-05-15更新）
-- [X Radar: X→Obsidian AI情報収集](project_x_radar.md) — twikit+Haiku/Opusで2h毎取得・分類→~/note/wiki/ai-radar/に保存
-- [請求書フォーマット（POST CABINETS）](reference_invoice_format.md) — 発行者情報・振込先・PDF生成コマンド・レイアウト注意点
-- [Mac電力消費の常駐アプリ対策](reference_mac_power_saver.md) — Dia/Obsidianが浪費。放置検知の自動省エネ常駐ジョブ設置済み。診断はpmset単独でなくtop+ps+RSSまで
-- [安全完全万全フロー 海外SCM拡張](project_anzen_manzen_scm.md) — かねひさ×住友林業の物流アプリ。海外SCM設計書docs/GLOBAL_SCM_DESIGN.md。粗利は荷主だけ＝最重要要件
-- [SQL設計は実DBで流して検証する](feedback_verify_sql_in_real_db.md) — スキーマ/RLS設計はローカルPG14で流すと机上で見えない穴が出る。手順あり
-- [anzen-flow モノレポ構成と落とし穴](reference_anzen_monorepo.md) — 安全完全万全フローを3アプリ分割(pnpm+Turbo+Next16)。二重React型/proxy規約/Tailwind v4 @sourceのハマり所
-- [足りない機能は外部を探して設計する](feedback_search_external_when_skill_missing.md) — 標準Skill/MCPに無い時は妥協せずGitHub/PyPI/OSSを能動検索して設計に組込む（例: NotebookLM→notebooklm-py）
-- [mtg_prep事前準備の障害対策](reference_mtg_prep_watchdog.md) — claude -pのMCPデッドロック対策。無人ジョブは--strict-mcp-config/15分timeout/stale-lock/verify_daily_prep/watchdog(06:20)/status反映通知。mtg_prep改修時必読
-- [筋トレログ(iron_log)アプリ](../../../../note/raw/アプリ開発/筋トレログ.md) — Health Connect連携の筋トレ記録アプリ(~/dev/iron_log)。状況/機能/ビルドはVault raw/アプリ開発/に整理。実装ほぼ完了・実機テスト待ち
-- [Flutter/Android無人ビルドの罠](reference_flutter_android_build_env.md) — Gradleはsandbox無効化必須/CDNタイムアウトはローカルzip参照/同一プロジェクトのGradleは常に1本
-- [並行マルチエージェント実装の分担術](feedback_parallel_agent_foundation.md) — 単一コードベースに多機能並行投入は「共有基盤を親が先に1本化→1ファイル1担当→統合は親」で衝突ゼロ
-- [YouTubeダイジェストはAI/政治/ビジネス限定](feedback_youtube_digest_genre.md) — youtube_digest.pyはミッション3本柱をハードフィルタ化＋"ai"の語境界一致。スポーツ/エンタメ/健康は除外（2026-06-17修正）
-- [ブラウザGoogle自動認証の仕組み](reference_browser_auto_auth.md) — Chrome操作中にGoogleログイン/同意が出たら自動で通す。Keychain→クリップボード→MCP貼付で秘密を文脈に通さず入力（旧keystroke方式は失敗）
+### セッション運用ルール（2026-06-19確定）
+- **セッションで実施した内容をDailyページに毎回記録する** — `## 🌙 Dreaming` セクションをページ末尾に追記
+- **Memory反映内容をセッション開始時に毎回確認・報告する** — 「今日関連するMemoryはXX」を冒頭1行で示す
 
----
+## システム構成（Mac mini: nobunoMac-mini.local）
 
-## 📆 連携カレンダー（7アカウント）
+### ベースパス
+- Vault: `/Users/nobu/My note`
+- スクリプト: `~/.note-system/scripts/`
+- 既存ツール: `~/.openclaw/scripts/`
+- ログ: `~/.note-system/logs/`
+- LaunchAgents: `~/Library/LaunchAgents/com.postcabinets.*`
 
-`/MTG` の Phase 0 で全カレンダーから今日の予定を取得（CLAUDE.md §6 はここを参照）：
+### launchd 18ジョブ（2026-06-17 全面整備）
+| plist | 時刻 | スクリプト | 用途 |
+|---|---|---|---|
+| `auto-dreaming` | 01:00 | `auto-dreaming.sh` | セッション学び抽出→Memory |
+| `nar` | 02:30 | `nar.sh` | Night Auto-Review |
+| `youtube-digest` | 02:30 | `youtube_digest.py` | YouTube注目動画→raw/YouTube/ |
+| `mtg-prep` | 03:00,04:00 | **`mtg_prep.sh`** | **V6.4**（2026-07-07）: ナビ→🎯→📥→🧬→8.5書き戻し→9 Weekly→9.5連鎖ヘルス→10セルフ検証 |
+| `morning-briefing` | 05:00 | `morning_briefing.sh` | Notionコンテキスト+カレンダープリフェッチ |
+| `limitless-sync` | 06:30,22:00 | `limitless_sync.sh` | Limitless録音→raw/ |
+| `mtg-prep-watchdog` | **06:50** | `mtg_prep_watchdog.sh` | prep失敗リトライ+**Limitless後着検知→再生成**（V6.4で06:20→06:50、limitless-sync 06:30の後） |
+| `note.morning` | 07:00 | `morning_brief.sh` | Dailyノート作成+朝通知 |
+| `nightly-scan` | 07:05 | `notion-nightly-scan.mjs` | Notion→タスク自動登録 |
+| `morning-kabeuchi` | 08:00 | `morning_kabeuchi.sh` | 壁打ち質問3つ生成→通知 |
+| `graph-autolink` | 月曜08:30 | `graph_autolink.py` | wiki/リンク候補レポート |
+| `weekly-review` | 日曜20:00 | `weekly_review.sh` | 週次レビュー |
+| `evening-review` | 22:00 | `evening_review.sh` | **V5**: 突合+📌引き継ぎ+💭メモ転記 |
+| `midday-check` | 13:00 | `midday_check.sh` | **V5**: 午前消化チェック+午後リマインド（通知のみ） |
+| `kokkai-fetch` | 6h毎 | `kokkai_fetch.sh` | 国会API取得 |
+| `kokkai-sync` | 4h毎 | `kokkai_sync.sh` | 国会→Notion同期 |
+| `ironlog-ingest` | 1h毎 | `ironlog_ingest.py` | 筋トレログ→raw/トレーニング.md |
+| `git-autopull` | 5分毎 | インライン | claude for me リポ自動更新 |
+| `socat-proxy` | 常駐 | socat | TCP 3100転送 |
 
-| ID | ラベル |
-|---|---|
-| `bachikanshikoku@gmail.com` | My Calendar |
-| `maeda.nobumi@gmail.com` | 政治家（メイン・スケジュール集約先） |
-| `postcabinets@gmail.com` | POSTCABINETS |
-| `maeda.nobumi@oneosaka.jp` | 前田信美(維新) |
-| `hikaeshitsu@oneosaka.jp` | 維新府議団 控室 |
-| `fugikai.ishin@gmail.com` | 維新府議団 |
-| `duxdcw@gmail.com` | duxdcw |
+| `nikkei-digest` | 04:30 | `nikkei_digest.py` | 日経電子版ヘッドライン→logs/ |
 
-設定ファイル: `~/.config/calendar-sync/calendars.json`
+**停止済み（.disabled）**: linear-agent-loop, early-push, midnight-push, dashboard, **paperclip**（2026-06-19 auto-dreaming誤混入のため停止）, **condition-update**（2026-07-06 V6.3でStep 4.5に統合・copain競合解消のため停止）
+
+### 3フェーズ実行順序（V6 — 2026-07-01〜）
+**朝:** 01:00 dreaming → 02:30 nar+youtube → 03:00/04:00 **mtg-prep(V6.4)** → 04:30 nikkei-digest → 05:00 briefing → 06:30 limitless → **06:50 watchdog（後着リカバリ）** → 07:00 morning → 07:05 nightly-scan → 08:00 kabeuchi
+**昼:** 13:00 midday-check（通知のみ）
+**夜:** 22:00 limitless-sync → **22:05** evening-review（V6.2: 5分ずらしでレース条件回避。7/4事故の教訓）
+
+### 既存スクリプト（openclaw）
+- `~/.openclaw/scripts/gcal-helper.py` — Googleカレンダー取得
+- `~/.openclaw/scripts/limitless-daily-digest.sh` — Limitlessダイジェスト生成
+- `~/.openclaw/scripts/morning-notion-reader.sh` — Notion目標・優先事項取得
+
+## Dailyノート構成（V6.4 — 2026-07-07実装済み）
+テンプレート: `/Users/nobu/My note/_system/templates/Daily.md`
+設計書: `wiki/_meta/prep-v6-design.md` (status: V6.4)
+V6.4追加: **🔗ナビ行（`<!-- prep_nav -->`・Mission/ゴール/月次/週次/プロジェクト/Inbox）**、**連鎖⚠️行（`<!-- prep_chain -->`・上位層の鮮度警告）**、💭は常時表示（なし時「（メモなし）」）
+設計原理: **claude -p完全廃止・Python直書き。整合は週次/月次に任せ、日次は材料を横に置くだけ**
+V6.3追加: **[x]完了フィードバックループ（過去7日Daily→bi-gramマッチ→📌＋NARテーブル除外）、💭テンプレ判定、copainガード、set -e除去**
+
+**5セクション:**
+- `## ✍️` — Nobu手書き（AI触らない。翌朝Prepが📥に💭転記）
+- `## 🎯 今週の重要タスク` — Wn.mdの「今週の確実ライン」を転記（生成しない）
+- `## 📥 引き継ぎ` — **4サブセクション**: ✅やったこと(要点3つ+Limitlessトグル) / 🔎次の一手(NAR独立+ゴールタグ) / 📌持ち越し(日数カウント) / 💭メモ
+- `## 🧬 コンディション` — **分析付き**（折りたたみしない）。体重vs月次MS / トレ頻度vs週4 / BIG3推移 / 睡眠×回復 / コーチメモ
+- `## ✅ 突合` — evening_review **22:05**（limitless_sync 22:00の後）
+
+**注意**: `update_daily_section.py`が`## 📥`更新時に`<details>🧬`を飲み込むため、Step 4.5で再挿入ロジックあり
+
+**カレンダー書き戻し（Step 8.5）:**
+- `gcal_write_shikou.py` — 思考整理イベントに現在地サマリ
+- `gcal_write_training.py` — トレーニング枠にDay A/Bメニュー
+- `gcal_create_feedback.py` — ✍️メモ→13-17時空き枠にフィードバック赤イベント
+
+**V5→V6で廃止:**
+- `claude -p` 呼び出し全廃（レートリミット・認証切れの根治）
+- 🔗ナビ, 📊今月の進捗, 📍今週の進捗, 📅今日の予定, 🎯今日の3発, 📚読書, 📰ニュース, 🧬コンディション（旧##形式）
+- `mtg_prep_v2.sh` → `mtg_prep.sh` に差し替え（plist更新済み）
+
+## 未解決の課題
+- MacBook側の `com.postcabinets.mtg-prep` を停止する必要あり（二重書き込み防止）
+- YouTube OAuth初回認証が未実施（ブラウザ認証が必要）
+- **Health API OAuth認証が必要** — `python3 ~/.note-system/scripts/google_health_auth.py` を1回実行（ブラウザ認証）。GCPプロジェクト(444348039130)でHealth APIの有効化も要確認
+- **MacBook→Mac mini移行後に未実施のルーティンあり** — どれが未実施か確認・修正が必要（2026-06-21指摘）
+- **Prep未実装機能**: プロジェクト整合性チェック（2026-06-21確定要件。Weekly更新は2026-06-27実装済み）
+- **Obsidian Chrome拡張ブロック（2026-06-22発生）**: `mmlmfjhmonkocbjadbfplnigmagldckm`（Web Clipper）が `ERR_BLOCKED_BY_CLIENT` でブロックされる。uBlock等の広告ブロッカーが原因の可能性。解決策未確認
+- ~~**Prepニュース取得が機能していない（2026-06-27確認）**~~ → **V6で廃止**（ニュースセクション自体を削除）
+- **LimitlessAPIデータ取得エラー（2026-06-30確認）**: DailyページにLimitlessデータが反映されていない。Nobuは「必ずとれる。Errorになる理由がない」と明言 → [feedback_limitless_api_discipline.md](feedback_limitless_api_discipline.md)
+- ~~**Prep V6でも2026-07-04/07-07のDailyページが不正**~~ → **2026-07-07 V6.4で構造対処**: ①週番号を`week_of()`（ISO木曜規約・月〜日週）に一本化（旧`(日-1)/7+1`は禁止） ②📌は「M/Dまで」明示のみ期日・他は最終言及日から「N日停滞」 ③プロジェクト.md日次突合（`project_daily_sync.py`・Daily[x]→反転＋アーカイブ移動） ④Weekly同期を新ダッシュボード形式対応＋ソースは今日のDaily（前日ラベル） ⑤生成後セルフ検証（`validate_daily.py`）不合格で通知 ⑥Limitless後着はwatchdog 06:50が再生成。詳細: wiki/_meta/prep-v6-design.md V6.4
+- **B.ring健康データ連携（2026-06-27接続失敗）**: 睡眠・消費カロリーデータ取得を試みたが接続できず → [reference_bring_health_integration.md](reference_bring_health_integration.md)
+- **Inbox処理のPrep統合（2026-07-07再発）**: inbox_triage.pyは「実装済み」だが、Nobuが「InboxメモをPrepで拾えてるんかな？ファイルの移動も機能していない」と確認。実際には動作していない可能性。次回ログで要確認
+
+## Prep拡張要件（2026-06-21/28確定 → V3で大半実装済み）
+→ 詳細: [feedback_prep_requirements.md](feedback_prep_requirements.md) | [reference_weekly_link_issue.md](reference_weekly_link_issue.md)
+- ~~Prep作成時にWeeklyページも更新する~~ → **2026-06-27実装済**（Step 9）
+- ~~プロジェクト整合性チェックを毎回実施~~ → **V3で実装済**（Step 7 PROJECT_SYNC）
+- ~~月次情報もDailyに集約表示する~~ → **V3で実装済**（3発が月次マイルストーンから逆算）
+- 週番号Wnの正定義（2026-07-07一本化）: 週=月〜日、**Wn=その週の木曜が属する月の第n木曜週**（ISO木曜規約）。実装は`mtg_prep.sh`の`week_of()`。`date +%V`も`(日-1)/7+1`も使わない
+- ~~**ゴールファースト**~~ → **V3で実装済**（🎯3発 = 2026目標→月次→週次→カレンダーから逆算）
+- ~~**コンディションパイプライン**~~ → **V3で実装済**（🧬統合 + gcal_write_training.py書き戻し）
+- **Inbox統合（未実装）**: 毎日Inbox内容をPrepで処理し適切な場所に情報整理する
+
+## データ取得仕様
+- **トレーニングログは当日分のみ取得** — 過去データの重複取得禁止。日付フィルタ必須 → [feedback_training_log_spec.md](feedback_training_log_spec.md)
+
+## コンテキストルール
+- **企業訪問は全て政治家としての意見交換**。見積もり・営業提案等のビジネス推論禁止 → [feedback_enterprise_visit_context.md](feedback_enterprise_visit_context.md)
+
+## Dailyページ gold standard
+- **2026-06-29のDailyページが理想形**。「29日の表現が理想」とNobuが明言（2026-06-30） → [reference_daily_goldstandard.md](reference_daily_goldstandard.md)
+
+## 縦の連鎖ヘルスチェック（V6.2 — 2026-07-05開始）
+- **Dreamingで毎回5点チェック**: Weekly→Daily接続 / NAR独立 / 🧬分析の影響 / 📌肥大 / 3領域バランス → [feedback_vertical_chain_health.md](feedback_vertical_chain_health.md)
+- **初回診断（7/5）: 要改善** — Weekly空洞・NAR停止中・📌15件超・🏢Nobu行動ゼロ。V6.2実装で改善見込みの部分と、運用（SUM定着・📌棚卸し）でしか解決しない部分の両方がある
+
+## 事実ベース原則（2026-06-24確定）
+- **Dailyノート生成で推論・提案・アドバイス禁止** — 「今日の一手」「挽回の一手」「完了の目安」「AIによる選書」等は全て削除。prepは材料を並べるだけ、判断はNobuがMTGで行う → [feedback_factbase_principle.md](feedback_factbase_principle.md)
+
+## Claude CLI認証（launchd環境）
+- **OAuth期限切れで401エラーが発生する** — Claude CLIはOAuth認証を使用。トークンが `~/Library/Application Support/Claude/config.json` に保存されている。期限切れ時は `claude login` で手動更新が必要。mtg_prep_v2.shに事前認証チェック＋macOS通知を追加済み（2026-06-25）
+- **レートリミットで全セクション生成失敗**（2026-06-28発生）— "You've hit your limit"でClaude CLI出力が空。Daily/プロジェクト/月次すべて更新不可。Weekly(Step 9)のみDaily直読フォールバックで生存。月次にもフォールバック追加済み（📍中間現在地の日付カウンタ自動更新）
+- **Fableモデル切り替えでスクリプト動作不可**（2026-07-06確認）— `claude -p` や Claude SDK呼び出しでFable（claude-fable等）を指定すると動作しない。理由は不明（API非対応 or モデルID不一致の可能性）。Prepスクリプトはモデル名ハードコードを避け、デフォルトモデルを使うか、動作確認済みモデル（claude-opus-4-6等）を明示する
+
+## エージェント操作ルール
+- **単一ライター原則（2026-07-08確定）**: Vaultへの自動書き込みは決定的コードのみ。launchdのclaude -pは必ず`--disallowedTools "Write,Edit,NotebookEdit,Bash"`（bypassPermissions禁止）。7/8のcopain🧬上書き事故が根拠。daily_guard（08:30/12:50）が破壊検知→復元＋🧬朝リフレッシュ → [feedback_single_writer_principle.md](feedback_single_writer_principle.md)
+- **バックグラウンドタスク起動後は必ず`TaskOutput block=true`で待機してから終了** — 待機せずに終了しようとすると Stop hook が警告（2026-06-25に6回発生） → [feedback_background_task_discipline.md](feedback_background_task_discipline.md)
+
+## プロジェクト
+- **SaaS Factory** (2026-06-26〜): 改良版OSSを量産。repo: `postcabinets-oss`。18本+修復多発（knowledge-base最多4回）。v3商用化実装中（7/5: 14850行、7/6: 25811行セッション。Cloudflareデプロイ＋セキュリティ＋フルスタック確認を毎回走らせる設計） → [project_saas_factory.md](project_saas_factory.md)
+- **一日一生論** (2026-07-02〜): 哲学的書籍執筆。Voice design重視・空想的日常排除。7/5に過去最大110046行セッション。Stop hook 10回 → [project_ichinichiissei_ron.md](project_ichinichiissei_ron.md)
+- **WOOD SMART GACHA** (2026-07-04〜): 木製×QR決済×DXのスマートガチャ新規事業。基板待ちで実機テスト前準備のみ完了 → [project_wood_smart_gacha.md](project_wood_smart_gacha.md)
+- **食事記録アプリ** (2026-07-05〜): Android。シンプルな水分・食事記録+PFCデータベース。Mac mini→MacBook引き継ぎ済み → [project_food_tracker_app.md](project_food_tracker_app.md)
+
+## 解決済み
+- ~~auto-dreaming.sh品質問題~~ → **2026-06-19修正済**: Paperclip除外・JSONLパーサー修正・Memory書き込み有効化・Daily追記Python化。Paperclip plist(.disabled化)も停止済み
+- ~~Firebase認証情報でIronトレーニングデータ取得不可~~ → **2026-06-22修正済**: `ironlog_ingest.py` をFirestore REST API経由に書き換え。firebase-toolsのOAuthトークンを再利用してサービスアカウント不要に
+- ~~🧬コンディションがN/A固定~~ → **2026-06-24修正（3度目で根治）**: 原因は2つ。①`timeout`コマンドがmacOSに存在せずlaunchdでスクリプト実行自体が失敗→`_timeout`関数で`gtimeout`→`timeout`→直接実行のフォールバックに修正。②`google_health_summary.py`のAPIレスポンスパースが壊れていた（`points[0].get("values")`を参照するが実構造は`points[0]["steps"]["countSum"]`等）→実APIレスポンスに合わせてパースロジックを全面書き直し。修正後6/22,6/23のデータ取得を確認済み
+- ~~月次情報のDaily集約~~ → **2026-06-22解決済**: `mtg_prep_v2.sh` のStep 5 Claude一括生成で月次.mdを入力に含め、📊ステータスで月次マイルストーンを表示中
+- ~~Weekly更新がprepに未実装~~ → **2026-06-27解決済**: Step 9追加（`update_weekly_sync.py`）
+- ~~Prepゴールファースト設計未実装~~ → **2026-06-29 V3デプロイで解決**: 🎯3発 = 目標→月次→週次→カレンダーから逆算。1st=後援会固定
+- ~~コンディション→カレンダーパイプライン未実装~~ → **2026-06-29 V3デプロイで解決**: 🧬統合セクション + gcal_write_training.py（Day A/Bメニュー書き戻し）+ gcal_create_feedback.py（メモ→フィードバック枠）
+- ~~Daily 17セクション過多~~ → **2026-06-29 V3デプロイで解決**: 7セクション + ✅突合に削減。V2の📊ステータス/🎯メイン/🔧任せる/⏭やらない/📍週次進捗/📓ログ/🚀MTGを廃止

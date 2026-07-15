@@ -1,0 +1,29 @@
+# Session: 2026-05-25
+**Date:** 2026-05-25
+**Started:** 08:36
+**Last Updated:** 08:44
+**Project:** discord-claude
+**Branch:** unknown
+**Worktree:** /Users/nobu/discord-claude
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- チャンネルコンテキスト: このチャンネルは #limittless-log。LimitlessAI で記録した Nobu の1日の行動ログ・議事録サマリーを毎日投稿するチャンネル。ユーザーから「まとめて」「振り返り」「先週」などの依頼が来たら、fetch_messages で過去のログを取得して日本語で丁寧にまとめて返答する。  Use the fetch_messages tool to get
+
+### Tools Used
+ToolSearch, mcp__plugin_discord_discord__fetch_messages
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

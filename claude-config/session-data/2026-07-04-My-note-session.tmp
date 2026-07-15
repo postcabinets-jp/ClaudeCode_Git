@@ -1,0 +1,63 @@
+# Session: 2026-07-04
+**Date:** 2026-07-04
+**Started:** 00:00
+**Last Updated:** 22:35
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- いや、それでもコンディションとかその他前まで書いていた内容が一挙に書かれていないなどが起こっているし、データの取得方法についてもおそらく間違っているので、なんか変なデータになっている。  どういった状態になっているのか調査し、修正かけてくれ。過去のデイリーページみてみて。
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me chronologically analyze the co
+- 今日のページ修正してよ。 今後もこんなError出ないように、根本対策もしてくれる？
+- 結局Inboxにあるデイリーの僕のメモってPrepで拾えてるんかな？ファイルの移動も機能時点ではしてくれてないから、おそらくなんかおかしいと思う。  あと、昨日Limitlessのデータ終日録音してたから、とれるはず。今日のデイリーページも修正かけてくれ。  なんか最近Prepが特に挙動不安定だから、対策と根本設計が崩れないように徹底した設定にしたいので、チームくんで並行して、これらの対策実行して
+- どう
+- Prepの設計書どれだっけ
+- 進捗どう
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me chronologically analyze the co
+- 今日のページもう一回しっかり整理して作成し直してくれ。Limitlessのデータも更新した。
+- ３日と４日間違えてない？
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/mtg_prep_watchdog.sh
+- /Users/nobu/.note-system/scripts/condition_daily_update.sh
+- /Users/nobu/.note-system/scripts/morning_brief.sh
+- /Users/nobu/My note/Daily/2026-07/2026-07-04.md
+- /Users/nobu/.note-system/scripts/morning_kabeuchi.sh
+- /Users/nobu/.note-system/scripts/mtg_prep.sh
+- /Users/nobu/.note-system/scripts/evening_review.sh
+- /Users/nobu/.note-system/scripts/nar.sh
+
+### Tools Used
+Read, TodoWrite, Grep, Edit, Write, Bash, Task, TeamCreate, Glob
+
+### Stats
+- Total user messages: 12
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 02:43]** - Context was summarized
+
+---
+**[Compaction occurred at 05:53]** - Context was summarized
+
+---
+**[Compaction occurred at 08:13]** - Context was summarized
+
+---
+**[Compaction occurred at 08:48]** - Context was summarized
+
+---
+**[Compaction occurred at 09:19]** - Context was summarized

@@ -1,0 +1,36 @@
+# Session: 2026-07-11
+**Date:** 2026-07-11
+**Started:** 06:40
+**Last Updated:** 22:00
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- このMacminiに登録してあるすべてのルーティンを停止したい。 まず何をおいているかと、claudeのトークン使っているのかを整理してもらいたい。  <current_note> Daily/2026-07/2026-07-08.md </current_note>
+- 消費ジョブのうち、４のメモ整理の部分は消すが４は残す、７も残す、あとは停止。 消費しないジョブについては、２４、１８，１９，９、のみ停止。でいこう。
+- コンディションの情報がいかんせんうまく取れていなくて、なんか活用できない。どうなってる。
+- フィットチャージはいまつかっていなくて、B.ringだけ使ってる。あとトレーニングのアプリだけ。
+
+### Files Modified
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.mtg-prep.plist
+- /Users/nobu/.note-system/scripts/google_health_summary.py
+
+### Tools Used
+Bash, Task, TodoWrite, Grep, Read, Edit
+
+### Stats
+- Total user messages: 4
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

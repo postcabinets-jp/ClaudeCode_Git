@@ -1,0 +1,41 @@
+# Session: 2026-04-12
+**Date:** 2026-04-12
+**Started:** 15:25
+**Last Updated:** 15:34
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- いや、CEOも2.5にしたい。コストかかりすぎるため。
+- 本当になってる？
+- An unknown error occurred
+- まだ同じエラー出る
+- いや、これで返ってくるのはどっちでも良くて、2.5で運用したいんよ。
+- 返事返ってこない。
+- やっぱりモデルを3
+- [Request interrupted by user]
+- やっぱりモデルを3Flushに戻したい。すべての処理を全モデルこれに戻してもらえる？
+- AnthropicがOpenclawをOAth枠で使用するとサードパーティ制だから有料APIじゃないと動かなくしたらしい。実際そうなのか、試してみてもらいたい。
+
+### Files Modified
+- /Users/nobu/.openclaw/openclaw.json
+
+### Tools Used
+ToolSearch, Read, Bash, Edit, TaskOutput
+
+### Stats
+- Total user messages: 21
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

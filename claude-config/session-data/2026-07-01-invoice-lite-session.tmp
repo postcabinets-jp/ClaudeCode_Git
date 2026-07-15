@@ -1,0 +1,50 @@
+# Session: 2026-07-01
+**Date:** 2026-07-01
+**Started:** 18:30
+**Last Updated:** 18:30
+**Project:** invoice-lite
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/invoice-lite
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me analyze this conversation thor
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/invoice-lite/.env.example
+- /Users/nobu/dev/saas-factory/invoice-lite/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/invoice-lite/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/invoice-lite/src/middleware.ts
+- /Users/nobu/dev/saas-factory/invoice-lite/src/types/database.ts
+- /Users/nobu/dev/saas-factory/invoice-lite/supabase/migrations/20260701000001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/invoice-lite/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/invoice-lite/src/app/layout.tsx
+- /Users/nobu/dev/saas-factory/invoice-lite/src/app/page.tsx
+- /Users/nobu/dev/saas-factory/invoice-lite/src/app/pay/[token]/page.tsx
+- /Users/nobu/dev/saas-factory/invoice-lite/vercel.json
+- /Users/nobu/dev/saas-factory/invoice-lite/supabase/config.toml
+- /Users/nobu/dev/saas-factory/invoice-lite/src/app/(dashboard)/invoices/[id]/RecordPaymentDialog.tsx
+- /Users/nobu/dev/saas-factory/invoice-lite/src/app/api/invoices/[id]/payments/route.ts
+- /Users/nobu/dev/saas-factory/invoice-lite/src/lib/supabase/helpers.ts
+- /Users/nobu/dev/saas-factory/invoice-lite/src/app/(dashboard)/clients/[id]/page.tsx
+- /Users/nobu/dev/saas-factory/invoice-lite/README.md
+- /Users/nobu/.claude/projects/-Users-nobu-dev-saas-factory-invoice-lite/memory/MEMORY.md
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Task, Edit, Glob
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

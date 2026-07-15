@@ -1,0 +1,47 @@
+# Session: 2026-06-21
+**Date:** 2026-06-21
+**Started:** 15:24
+**Last Updated:** 16:53
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Obsidianでclaudeclaude動かしたら、急にChrome開いて「mmlmfjhmonkocbjadbfplnigmagldckm はブロックされています このページは Chrome によってブロックされています ERR_BLOCKED_BY_CLIENT」  とでてくる。これ対策しておいて。  <current_note> wiki/weekly/2026-06/W3.md </cu
+- Prep作成するときに、プロジェクトとか意識した形で動かしていたり、プロジェクトを更新していたりするのかな？
+- 常にこのあたりは徹底してもらいたい。Prep作成時において、適切に情報食わせたり、最近動いていない場合プロジェクトの進捗と今の動きの整合性と、違う場合の行動対策についてなど整理して、毎日のページにしっかりどちらも更新してもらいたい。
+- あと月次の情報とかも更新してまとめてもらうのがいいと思うな。  このあたりは、Prep作成の際に全部見やすいような情報データベースとかなにかしらわかりやすいやつをデイリーページに入れ込んでもらうのもありかなと思う。  <editor_selection path="wiki/weekly/2026-06/W3.md" lines="12-12"> --- </editor_selection>
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me chronologically analyze the en
+
+### Files Modified
+- /Users/nobu/.claude/plugins/marketplaces/everything-claude-code/.mcp.json
+- /Users/nobu/.claude/plugins/cache/everything-claude-code/everything-claude-code/1.9.0/.mcp.json
+- /Users/nobu/.note-system/scripts/update_project_sync.py
+- /Users/nobu/.note-system/scripts/mtg_prep_v2.sh
+- /Users/nobu/My note/_system/templates/Daily.md
+- /Users/nobu/My note/Daily/2026-06/2026-06-21.md
+
+### Tools Used
+Glob, Read, Grep, Edit, TodoWrite, Write, Bash
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 15:32]** - Context was summarized
+
+---
+**[Compaction occurred at 16:48]** - Context was summarized

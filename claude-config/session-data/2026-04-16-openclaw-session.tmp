@@ -1,0 +1,43 @@
+# Session: 2026-04-16
+**Date:** 2026-04-16
+**Started:** 00:10
+**Last Updated:** 08:58
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Openclaw経由でNotionのTodoページ。https://www.notion.so/postcabinets/Todo-3419bf08eefd80eb8262cf5949311bfb?source=copy_link  1494114632833437706 DiscordのTodoチャンネル  これをひたすら一緒に実行していくっていうチャンネルを作って。 コツコツトゥール推進をして
+- あと、トゥードゥの実行は全てクロールコード経由でやるような形に設計しておいてもらえると、オープンクローの推論の弱さを保管できです。 じゃないかなと思うので、ここは連携してもらいたいです。
+- [Request interrupted by user]
+- 入ってるはずなので、このチャンネルに向けて、今の Notionの To Do構造をメッセージテキストレベルで送るようにしてください。。 毎朝あるいは 3時間ごとにい回い現状のトゥードゥーツリー構造を送ってもらうような形をとってみたいと思います。  一旦。 このチャットで送ってみてください
+- まだのTodoは▢なりわかりやすいようにつけといて。あと Chrone登録に来ていてなんだけど。 0時 3時 6時の深夜帯は別にいらないかなと思います。 逆に朝 6時。 9時、 12時、 15時、 18時、 21時。  2送ってくれる形にしたらいいかなと思います。 ただ、トゥードゥの実行が重要なので、何やるっていうのを正論して、これこうやっていった方がいいんじゃないみたいなこれやっていきましょうよ
+- <task-notification> <task-id>b9iyuoz7p</task-id> <tool-use-id>toolu_01NZe8W9LUNkHb3DqZmXhXWt</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/01e5563f-f078-414a-8571-07274a39fa
+- <task-notification> <task-id>bdmtbrah9</task-id> <tool-use-id>toolu_016SFwhKMZ7PMC6S1AV55c7m</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/01e5563f-f078-414a-8571-07274a39fa
+- <task-notification> <task-id>bhfkh28bl</task-id> <tool-use-id>toolu_01FhDS3LdvXKGNSQgbGut8wC</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/01e5563f-f078-414a-8571-07274a39fa
+- <task-notification> <task-id>bs7av6976</task-id> <tool-use-id>toolu_019KTzoAPEsDv1Xe1TREMXYd</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/01e5563f-f078-414a-8571-07274a39fa
+- <task-notification> <task-id>bpwrukhf5</task-id> <tool-use-id>toolu_01BBtz9fBsw8cXhV15QfP9va</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/01e5563f-f078-414a-8571-07274a39fa
+
+### Files Modified
+- /Users/nobu/.openclaw/workspace-main/SOUL.md
+- /Users/nobu/.openclaw/workspace-main/todo-prompt-template.md
+- /Users/nobu/.openclaw/scripts/send-todo-to-discord.sh
+
+### Tools Used
+ToolSearch, Read, Edit, Write, mcp__claude_ai_Notion__notion-fetch, Bash, TaskOutput
+
+### Stats
+- Total user messages: 10
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

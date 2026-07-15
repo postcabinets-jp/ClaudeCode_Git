@@ -1,0 +1,47 @@
+{
+  "name": "meal-log",
+  "description": "食事ログアプリ（meal_log）のFlutter実装チーム",
+  "createdAt": 1783224081916,
+  "leadAgentId": "team-lead@meal-log",
+  "leadSessionId": "96f7ce5b-3bce-4fb0-b64a-d161e628b171",
+  "members": [
+    {
+      "agentId": "team-lead@meal-log",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1783224081916,
+      "tmuxPaneId": "",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": []
+    },
+    {
+      "agentId": "food-db@meal-log",
+      "name": "food-db",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "You need to create a SQLite database from the Japanese Standard Food Composition Table (日本食品標準成分表) for the meal_log app.\n\n## Your Task\n\n### 1. Download the food composition data\nThe data is available at: https://github.com/katoharu432/standards-tables-of-food-composition-in-japan\nClone or download the JSON/CSV data from this repository.\n\n### 2. Create a Python conversion script\nWrite a script at `/Users/nobu/dev/meal_log/tools/convert_food_db.py` that:\n- Reads the food composition data (JSON or CSV)\n- Creates a SQLite database at `/Users/nobu/dev/meal_log/assets/foods.db`\n- Schema:\n```sql\nCREATE TABLE foods (\n  id          INTEGER PRIMARY KEY,\n  name        TEXT NOT NULL,\n  name_en     TEXT,\n  category    TEXT,\n  cal_per100  REAL NOT NULL,\n  protein     REAL NOT NULL,\n  fat         REAL NOT NULL,\n  carb        REAL NOT NULL,\n  fiber       REAL,\n  source      TEXT DEFAULT 'mext',\n  barcode     TEXT,\n  is_favorite INTEGER DEFAULT 0,\n  use_count   INTEGER DEFAULT 0,\n  last_used   TEXT\n);\n```\n\n### 3. Data mapping\nFrom the food composition table, map:\n- 食品番号 → id\n- 食品名 → name\n- English name (if available) → name_en\n- 食品群 → category\n- エネルギー(kcal) → cal_per100\n- たんぱく質 → protein\n- 脂質 → fat\n- 炭水化物 (利用可能炭水化物 or 差し引き法) → carb\n- 食物繊維総量 → fiber\n\n### 4. Handle special values\n- \"Tr\" (trace) → 0.0\n- \"-\" (not measured) → 0.0\n- \"(0)\" (estimated zero) → 0.0\n- Remove parentheses from values like \"(12.3)\" → 12.3\n\n### 5. Run the script and verify\n- Generate the SQLite file\n- Print summary: total foods, categories, sample entries\n- Verify the DB is readable and has correct data\n- The final foods.db should be at `/Users/nobu/dev/meal_log/assets/foods.db`\n\n### 6. Also create a search index\nAdd a full-text search table for fast Japanese text search:\n```sql\nCREATE VIRTUAL TABLE foods_fts USING fts5(name, category, content=foods, content_rowid=id);\nINSERT INTO foods_fts(rowid, name, category) SELECT id, name, category FROM foods;\n```\n\nIMPORTANT: Make sure the output DB file is small (should be under 5MB for ~2,500 foods).",
+      "color": "blue",
+      "planModeRequired": false,
+      "joinedAt": 1783224124827,
+      "tmuxPaneId": "in-process",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": [],
+      "backendType": "in-process"
+    },
+    {
+      "agentId": "scaffold@meal-log",
+      "name": "scaffold",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "You are building a Flutter Android app called \"meal_log\" (食事ログ).\n\n## Your Task\nSet up the complete Flutter project at `/Users/nobu/dev/meal_log/` with ALL the foundation code. Read the design doc at `/Users/nobu/dev/meal_log/docs/DESIGN.md` first for full details.\n\n## Steps\n\n### 1. Create Flutter project\n```bash\ncd /Users/nobu/dev\nflutter create --org co.postcabinets --project-name meal_log --platforms android meal_log_tmp\n# Then move contents (since meal_log dir already exists with docs/)\ncp -r meal_log_tmp/* meal_log/\ncp -r meal_log_tmp/.* meal_log/ 2>/dev/null || true\nrm -rf meal_log_tmp\n```\n\n### 2. Update pubspec.yaml\nAdd these dependencies:\n```yaml\ndependencies:\n  flutter:\n    sdk: flutter\n  flutter_riverpod: ^2.6.1\n  sqflite: ^2.4.1\n  path_provider: ^2.1.5\n  path: ^1.9.1\n  image_picker: ^1.1.2\n  mobile_scanner: ^6.0.5\n  http: ^1.3.0\n  share_plus: ^10.1.4\n  health: ^11.1.0\n  intl: ^0.19.0\n  \nflutter:\n  assets:\n    - assets/\n```\n\n### 3. Create theme.dart\nColors from design:\n- Background: #FAFAF8\n- Card: #FFFFFF  \n- Text: #1A1A1A\n- SubText: #6B7280\n- Accent/Primary: #2D9F5D (healthy green)\n- Protein: #E85D5D\n- Fat: #F5A623\n- Carb: #4A90D9\n- Water: #5CB8E6\n- Border: #E5E7EB\n\nFont: Noto Sans JP (use as fontFamily in theme, system will provide it on Android)\n\n### 4. Create data models (lib/models/)\n- `food.dart` - Food class with fromMap/toMap\n- `meal_entry.dart` - MealEntry class\n- `water_entry.dart` - WaterEntry class\n\n### 5. Create database_service.dart (lib/services/)\n- Initialize sqflite with schema from DESIGN.md\n- Schema version 1\n- Methods for CRUD on all 3 tables + user_settings\n- Copy foods.db from assets on first run (prepopulated DB)\n\n### 6. Create food_db_service.dart (lib/services/)\n- Search foods by name (Japanese)\n- Get favorites\n- Get recently used (ordered by use_count desc, last_used desc)\n- Toggle favorite\n- Increment use count\n- Register custom food (source='user')\n\n### 7. Create all providers (lib/providers/)\n- meal_provider.dart - CRUD meals, daily summary, date range queries\n- food_provider.dart - search, favorites, recents\n- water_provider.dart - add water, daily total, target progress\n- settings_provider.dart - user goals/settings\n\n### 8. Create main.dart and app.dart\n- ProviderScope wrapping MaterialApp\n- Theme application\n- Bottom navigation with 3 tabs (Today, Calendar, Settings)\n- Root shell with navigation\n\n### 9. Create home_screen.dart (the \"Today\" tab)\nFull implementation including:\n- Today's calorie summary (large number showing remaining)\n- PFC progress bars (colored)\n- Water ring (circular progress)\n- Meal list grouped by type (breakfast/lunch/dinner/snack)\n- FAB button to add meal\n- Water add button (tap +200ml, long press to change amount)\n\n### 10. Create widgets/\n- pfc_bar.dart - horizontal progress bar for P/F/C\n- water_ring.dart - circular progress indicator for water\n- meal_card.dart - card showing meal entry with optional photo thumbnail\n\n### 11. Android manifest\nAdd Health Connect permissions and queries (same pattern as iron_log):\n```xml\n<uses-permission android:name=\"android.permission.health.READ_NUTRITION\" />\n<uses-permission android:name=\"android.permission.health.WRITE_NUTRITION\" />\n<uses-permission android:name=\"android.permission.health.READ_HYDRATION\" />\n<uses-permission android:name=\"android.permission.health.WRITE_HYDRATION\" />\n```\nAdd camera permission for photo/barcode.\n\n### 12. Create empty assets/ directory with a placeholder\n```bash\nmkdir -p /Users/nobu/dev/meal_log/assets\n```\n\n## IMPORTANT\n- Use flutter_riverpod WITHOUT codegen (no @riverpod annotations, use Provider/StateNotifierProvider/etc directly)\n- All text/labels in Japanese\n- Keep it SIMPLE - no over-engineering\n- Follow the exact color scheme and layout from the design doc\n- Package name: co.postcabinets.meal_log\n- Display name: 食事ログ\n\nBuild and verify with `flutter analyze` at the end.",
+      "color": "green",
+      "planModeRequired": false,
+      "joinedAt": 1783224124847,
+      "tmuxPaneId": "in-process",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

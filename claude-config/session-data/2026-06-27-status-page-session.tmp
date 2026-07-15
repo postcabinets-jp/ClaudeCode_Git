@@ -1,0 +1,61 @@
+# Session: 2026-06-27
+**Date:** 2026-06-27
+**Started:** 18:50
+**Last Updated:** 18:50
+**Project:** status-page
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/status-page
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/status-page/.env.example
+- /Users/nobu/dev/saas-factory/status-page/supabase/config.toml
+- /Users/nobu/dev/saas-factory/status-page/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/status-page/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/status-page/src/middleware.ts
+- /Users/nobu/dev/saas-factory/status-page/src/types/database.ts
+- /Users/nobu/dev/saas-factory/status-page/supabase/migrations/20260627000001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/status-page/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/status-page/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/actions/pages.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/actions/components.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/actions/incidents.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/actions/maintenances.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/(auth)/login/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/components/auth/auth-form.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/(auth)/register/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/(auth)/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/(dashboard)/layout.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/components/dashboard/nav.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/(dashboard)/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/components/dashboard/create-page-dialog.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/lib/status.ts
+- /Users/nobu/dev/saas-factory/status-page/src/app/(dashboard)/dashboard/[pageId]/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/components/dashboard/component-list.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/components/dashboard/add-component-dialog.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/(dashboard)/dashboard/[pageId]/incidents/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/(dashboard)/dashboard/[pageId]/incidents/new/page.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/components/dashboard/new-incident-form.tsx
+- /Users/nobu/dev/saas-factory/status-page/src/app/(dashboard)/dashboard/[pageId]/incidents/[incidentId]/page.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

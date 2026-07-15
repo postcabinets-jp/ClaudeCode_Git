@@ -1,0 +1,35 @@
+# Session: 2026-06-18
+**Date:** 2026-06-18
+**Started:** 12:50
+**Last Updated:** 13:00
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Prep未完成の理由洗い出して、作成してくれ。  <current_note> Daily/2026-06/2026-06-17.md </current_note>
+- なぜそうなったかの整理をして、原因改善しておいて。
+
+### Files Modified
+- /Users/nobu/My note/Daily/2026-06/2026-06-18.md
+- /Users/nobu/.note-system/scripts/mtg_prep_v2.sh
+- /Users/nobu/.note-system/scripts/mtg_prep_watchdog.sh
+
+### Tools Used
+Glob, Read, Bash, TodoWrite, Write, Edit
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

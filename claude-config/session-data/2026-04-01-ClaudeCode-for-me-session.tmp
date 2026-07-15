@@ -1,0 +1,31 @@
+# Session: 2026-04-01
+**Date:** 2026-04-01
+**Started:** 19:54
+**Last Updated:** 23:05
+**Project:** ClaudeCode for me
+**Branch:** unknown
+**Worktree:** /Users/nobu/ClaudeCode for me
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- <user_query> @/Users/nobu/.cursor/projects/Users-nobu-ClaudeCode-for-me/terminals/12.txt オープンクローはレートリミックになったので、ジェミニ 3.0フラッシュにモデル変更したいです。 APIQはこちらを使ってください。 AIzaSyAU2JZSHoJpkZ9WRMv33t3RJ7pZP6QQ408 </use
+- <user_query> 続き </user_query>
+- <user_query> openclaw.jsonでリミットが来たら。 ジミニに切り替えるようにしてほしいです。  </user_query>
+- <user_query> モデル名が、Gemini 3.1 Flash-Liteだったので、それでっ確認して </user_query>
+- <user_query> OpenclawからたまにHTTP 401: "Invalid token"が来るけど返事は来る。これなに？調べて。 </user_query>
+- <user_query> わからんが、解消してもらいたい </user_query>
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,38 @@
+# Session: 2026-04-21
+**Date:** 2026-04-21
+**Started:** 23:43
+**Last Updated:** 23:54
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- <task-notification> <task-id>bvzmpn83l</task-id> <tool-use-id>toolu_01PZYKcWwpVXt5dyUN3AwhSJ</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>b85htk0rq</task-id> <tool-use-id>toolu_01CNNihqaVqbV21wWndWbE5n</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>bqzlj5232</task-id> <tool-use-id>toolu_01LZG3LKkF9ygZM2u6qAR6F4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>b3l1t4ag2</task-id> <tool-use-id>toolu_01SPYNJnehFuRMme8Uhr1z9y</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>bbbzqe96t</task-id> <tool-use-id>toolu_01Ah1a5P8TBf6swktYy7Cs3B</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- {"detail":"The 'gpt-5.1-codex-mini' model is not supported when using Codex with a ChatGPT account."}
+- これ、Paperclip走ってるっぽいかな？  全部起動しないように止めたつもりだったんだけど。現状どうなってる？
+- [Image: source: /var/folders/01/ch2zl_7x7sn3t3k7qg82glqh0000gn/T/TemporaryItems/NSIRD_screencaptureui_ca2Dit/スクリーンショット 2026-04-21 23.45.08.png]
+- とめる
+- そうして
+
+### Tools Used
+ToolSearch, Read, Bash
+
+### Stats
+- Total user messages: 13
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

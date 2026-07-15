@@ -1,0 +1,61 @@
+# Session: 2026-06-26
+**Date:** 2026-06-26
+**Started:** 10:32
+**Last Updated:** 10:32
+**Project:** link-in-bio
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/link-in-bio
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/link-in-bio/.env.example
+- /Users/nobu/dev/saas-factory/link-in-bio/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/lib/supabase/middleware.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/middleware.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/types/database.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/supabase/migrations/001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/link-in-bio/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/link-in-bio/supabase/config.toml
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/actions/links.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/actions/profile.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(auth)/layout.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(auth)/login/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(auth)/register/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(auth)/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/link-in-bio/src/components/dashboard/sidebar.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/layout.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/components/dashboard/link-list.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/components/dashboard/profile-preview.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/appearance/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/appearance/appearance-editor.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/analytics/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/analytics/analytics-dashboard.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/settings/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/(dashboard)/dashboard/settings/settings-form.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/[username]/page.tsx
+- /Users/nobu/dev/saas-factory/link-in-bio/src/app/[username]/public-profile.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit, Task
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

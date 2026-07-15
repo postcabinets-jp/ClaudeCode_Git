@@ -1,0 +1,37 @@
+# Session: 2026-06-26
+**Date:** 2026-06-26
+**Started:** 09:03
+**Last Updated:** 09:23
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- SaaS   s　　　のプロジェクトについて、なんか設定のやつ作成したから一度かくにんしてみて。MacBook Airとの連携のやつ。
+- １⭕️、２進めて、３それで
+- !bash ~/brain-seed.sh cd ~/brain gh repo create brain --private --source=. --remote=origin --push
+
+### Files Modified
+- /Users/nobu/brain-seed.sh
+- /Users/nobu/brain-bootstrap.sh
+- /Users/nobu/My note/Inbox/脳みそ統一_Git同期セットアップ.md
+- /Users/nobu/brain/.gitignore
+
+### Tools Used
+Bash, Grep, Read, TodoWrite, Write, Edit
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

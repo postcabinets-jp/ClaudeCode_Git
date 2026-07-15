@@ -1,0 +1,41 @@
+# Session: 2026-04-10
+**Date:** 2026-04-10
+**Started:** 10:36
+**Last Updated:** 22:58
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- そうしよう
+- モデルについてｈ，2.5flushに変更しようかと思う。できる？
+- 複雑なタスクは、Proでいいけど、普段の会話は、2.5でいいよ。
+- Openclawで今日どれくらい、トークン使用されたかってログある？ 結構食うのが早くて、モデル間違ってるんじゃないかと思って。
+- いや、CEOも2.5にしたい。コストかかりすぎるため。
+- 本当になってる？
+- An unknown error occurred
+- まだ同じエラー出る
+- いや、これで返ってくるのはどっちでも良くて、2.5で運用したいんよ。
+- 返事返ってこない。
+
+### Files Modified
+- /Users/nobu/.openclaw/openclaw.json
+
+### Tools Used
+ToolSearch, Read, Bash, Edit, TaskOutput
+
+### Stats
+- Total user messages: 17
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

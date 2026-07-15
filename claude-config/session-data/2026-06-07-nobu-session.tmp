@@ -1,0 +1,33 @@
+# Session: 2026-06-07
+**Date:** 2026-06-07
+**Started:** 23:41
+**Last Updated:** 23:41
+**Project:** nobu
+**Branch:** unknown
+**Worktree:** /Users/nobu
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 結局HermesAgentがLINEでちゃんと動いてくれないので、それなんとか修正してもらいたい。
+- HermesAgentのLINE接続のうごきがあんまり良くないんだけどどうしたらいい
+
+### Files Modified
+- /Users/nobu/.hermes/config.yaml
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

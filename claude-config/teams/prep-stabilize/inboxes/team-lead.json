@@ -1,0 +1,47 @@
+[
+  {
+    "from": "daily-updater",
+    "text": "## 完了: 7/4 Dailyページ 📥引き継ぎ更新\n\n### 確認結果\n`raw/Limitless/2026-07-03.md` を全文確認した結果、**録音データがあるのは 09:30 前田事務所会議のみ**。他の全時間帯は「（録音なし）」でした。\n\nつまり、Nobuが「終日録音してた」と言っているにもかかわらず、Limitlessの同期済みデータ（raw/Limitless/2026-07-03.md）には09:30の会議以外の録音が含まれていません。考えられる原因:\n- `limitless_sync.sh` が7/3分のデータを正しく取得できていない\n- Limitless側でまだ処理中（録音→文字起こし→API公開のタイムラグ）\n- 録音はしていたが、Limitless APIへの同期がまだ完了していない\n\n### 実施した変更\n`/Users/nobu/My note/Daily/2026-07/2026-07-04.md` の📥引き継ぎセクション:\n\n1. **「> Limitless: 録音なし」の引用ブロックを全削除** — V6フォーマットでは不要な表記\n2. **09:30 事務所会議の内容はそのまま維持** — すでにLimitless録音内容が正しく反映済み\n3. **「昆布のふりかけの話」を削除** — 本筋でない雑談\n4. **「たたき」に「（戸別訪問）」を補足**\n5. **📌残っていること / 💭メモ / 🧬データ / ✅突合 は変更なし**\n\n### Nobuへの提案\nもしLimitlessに本当に終日の録音があるなら、`limitless_sync.sh` を手動で再実行して最新データを取り込む必要があるかもしれません:\n```\n~/.note-system/scripts/limitless_sync.sh\n```\nその後、再度この📥セクションを更新できます。",
+    "summary": "Daily更新完了。Limitless録音は09:30のみ",
+    "timestamp": "2026-07-04T00:00:03.240Z",
+    "color": "yellow",
+    "read": false
+  },
+  {
+    "from": "daily-updater",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"daily-updater\",\"timestamp\":\"2026-07-04T00:00:07.466Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-07-04T00:00:07.466Z",
+    "color": "yellow",
+    "read": false
+  },
+  {
+    "from": "inbox-fixer",
+    "text": "## Inbox拾い上げパイプライン調査・修正完了\n\n### 特定した問題\n\n**根本原因: 空テンプレートのInbox日付ページが永久に残り続ける**\n\nフロー:\n1. Step 0.5 が毎朝 `Inbox/TODAY.md` を空テンプレートで生成（タイトル + プレースホルダーのみ）\n2. Nobuが何も書かなかった場合、翌朝の Step 2.5 がそのファイルを見つける\n3. `grep -vE '^# .*✍️'` でタイトル除去、`grep -vE '^_（.*）_$'` でプレースホルダー除去 → BODY が空\n4. BODY が空 → `MEMO_SRC` が設定されない → Step 2.7（Inbox→raw/notebook移動）がスキップ\n5. inbox_triage.py (Step 4.9) も `DATE_PAGE_RE` で日付ページを明示的にスキップ\n6. **結果: 空テンプレートファイルが誰にも処理されずInboxに永久に残る**\n\n現在の状態:\n- `Inbox/2026-07-03.md` — 空テンプレート（88バイト）。削除対象\n- `Inbox/2026-07-04.md` — Nobuが実メモを書いている（2352バイト）。明日のprepで正常に処理される\n\nログの裏付け: 7/4のprepログで Step 2.5 の後にメモ取得のログが出ず、Step 2.6/2.7 もスキップ。Step 4.9 は \"Inbox: 2件\" と表示するが inbox_triage.py は \"空\" と返す（日付ページをスキップするため）。\n\n### 適用した修正（`/Users/nobu/.note-system/scripts/mtg_prep.sh`）\n\n**修正1: Step 2.8 追加（行400-418）— 空テンプレートInbox日付ページの掃除**\n\nStep 2.7 の直後に新ステップを追加。`Inbox/YYYY-MM-DD.md` を全件走査し:\n- TODAY のファイルはスキップ（Nobuがこれから書く可能性がある）\n- テンプレート行を除去して実質的な中身があるか判定\n- 空テンプレートのみ → 削除、実メモあり → 残置（ログに記録）\n\nシミュレーション結果:\n```\nWOULD DELETE (empty template): 2026-07-03.md\nSKIP (today): 2026-07-04.md\n```\n\n**修正2: Step 4.9 のカウント修正（行624-626）**\n\n`find` コマンドに `-not -regex '.*/[0-9]{4}-[0-9]{2}-[0-9]{2}\\.md'` を追加し、日付ページを除外してカウント。inbox_triage.py の実カウントと一致するようにした。ログの \"2件→振り分け実行\" → \"空\" という混乱を解消。\n\n### 検証\n- `bash -n mtg_prep.sh` — 構文エラーなし\n- BSD find の `-regex` — macOS上で動作確認済み\n- Step 2.8 のシミュレーション — 期待通りの挙動\n\n### 補足: inbox_triage.py は問題なし\ninbox_triage.py 自体のロジックは正しい。日付ページ（`YYYY-MM-DD.md`）を除外するのは設計通り（Step 2.7/2.8 の管轄）。非日付ページの振り分けロジックも正常。\n\n### 次回prepでの挙動\n明朝 03:00 の prep 実行時:\n1. Step 2.5: `Inbox/2026-07-04.md` を検出 → BODY あり → `MEMO_SRC` 設定\n2. Step 2.6: LLM でメモ整理\n3. Step 2.7: `Inbox/2026-07-04.md` → `raw/notebook/2026-07-04.md` に移動\n4. Step 2.8: 残りの日付ページ（7/3 の空テンプレ）を削除\n5. Step 4.9: 日付ページ除外でカウント → 正確なログ出力",
+    "summary": "Inbox pipeline fix: empty template cleanup + count fix",
+    "timestamp": "2026-07-04T00:02:33.330Z",
+    "color": "blue",
+    "read": false
+  },
+  {
+    "from": "inbox-fixer",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"inbox-fixer\",\"timestamp\":\"2026-07-04T00:02:44.812Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-07-04T00:02:44.812Z",
+    "color": "blue",
+    "read": false
+  },
+  {
+    "from": "prep-hardener",
+    "text": "## 完了: mtg_prep.sh / condition_daily_update.sh / evening_review.sh エッジケース修正\n\n全3スクリプトを`set -euo pipefail`下で精査し、7件の問題を修正しました。全ファイル `bash -n` syntax check通過済み。\n\n---\n\n### mtg_prep.sh — 3件修正\n\n| # | 行 | 問題 | 修正 |\n|---|---|---|---|\n| 1 | 359 | `grep -vE` が全行マッチ時に exit 1 → `set -e` でクラッシュ | `|| true` 追加 |\n| 2 | 530 | `ls -t ... \\| head -7` が for ループのワードリスト内で pipefail クラッシュ | `|| true` 追加 |\n| 3 | 625 | `find ... \\| wc -l \\| tr -d ' '` が find 失敗時に pipefail クラッシュ | `2>/dev/null` + `|| echo \"0\"` 追加 |\n\n### condition_daily_update.sh — 2件修正\n\n| # | 行 | 問題 | 修正 |\n|---|---|---|---|\n| 4 | 53 | YESTERDAY が line 24 と重複定義 | 削除（コメントで既存定義を参照） |\n| 5 | 87-90 | **既存バグ**: `<< 'PYEOF' ... \\|\\| { }` の `}` が heredoc に飲まれて syntax error（`bash -n` でも検出される構文エラー）| heredoc後に `PYEXIT=$?` + if チェックに構造変更 |\n\n### evening_review.sh — 2件修正\n\n| # | 行 | 問題 | 修正 |\n|---|---|---|---|\n| 6 | (新規) | `_timeout` 関数が未定義 — タイムアウト保護が使えない | `_timeout()` 関数を追加（mtg_prep.sh と同一実装） |\n| 7 | 76, 149 | gcal fetch と Claude CLI 呼び出しにタイムアウトなし — 22:00 自動ジョブが無限ハング可能 | gcal: `_timeout 30`、Claude CLI: `_timeout 300` で保護 |\n\n---\n\n### 修正ファイルパス\n- `/Users/nobu/.note-system/scripts/mtg_prep.sh`\n- `/Users/nobu/.note-system/scripts/condition_daily_update.sh`\n- `/Users/nobu/.note-system/scripts/evening_review.sh`\n\n### 注目: condition_daily_update.sh の既存構文エラー（Fix #5）\nこのファイルは修正前から `bash -n` で syntax error が出ていました。heredoc内に `|| { ... }` を書く構文が原因です。実行時にも同様のエラーで動作していなかった可能性があります。",
+    "summary": "7件のエッジケース修正完了（全スクリプトsyntax OK）",
+    "timestamp": "2026-07-04T00:05:21.583Z",
+    "color": "green",
+    "read": false
+  },
+  {
+    "from": "prep-hardener",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"prep-hardener\",\"timestamp\":\"2026-07-04T00:05:25.429Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-07-04T00:05:25.429Z",
+    "color": "green",
+    "read": false
+  }
+]

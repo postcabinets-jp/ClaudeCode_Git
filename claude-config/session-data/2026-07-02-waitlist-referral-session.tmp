@@ -1,0 +1,35 @@
+# Session: 2026-07-02
+**Date:** 2026-07-02
+**Started:** 07:32
+**Last Updated:** 07:32
+**Project:** waitlist-referral
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/waitlist-referral
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/waitlist-referral/next.config.ts
+- /Users/nobu/dev/saas-factory/waitlist-referral/src/middleware.ts
+- /Users/nobu/dev/saas-factory/waitlist-referral/src/app/update-password/page.tsx
+- /Users/nobu/dev/saas-factory/waitlist-referral/README.md
+
+### Tools Used
+Read, Bash, TaskOutput, TodoWrite, Write, Edit
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

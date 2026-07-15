@@ -1,0 +1,62 @@
+# Session: 2026-06-27
+**Date:** 2026-06-27
+**Started:** 19:09
+**Last Updated:** 19:09
+**Project:** feedback-board
+**Branch:** main
+**Worktree:** /Users/nobu/dev/saas-factory/feedback-board
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- # SaaS Factory — Build Prompt Template  このプロンプトは \`saas_factory.sh\` が変数展開して Claude Code に渡す。 \`{{VAR}}\` はシェルスクリプトが置換する。  ---  You are building a production-ready open-source SaaS application.  ## Projec
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  Analysis: Let me analyze this conversation chro
+
+### Files Modified
+- /Users/nobu/dev/saas-factory/feedback-board/.env.example
+- /Users/nobu/dev/saas-factory/feedback-board/src/lib/supabase/client.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/lib/supabase/server.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/middleware.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/lib/supabase/types.ts
+- /Users/nobu/dev/saas-factory/feedback-board/supabase/migrations/001_initial_schema.sql
+- /Users/nobu/dev/saas-factory/feedback-board/supabase/seed.sql
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/actions/auth.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/actions/boards.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/actions/posts.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/login/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/auth/login-form.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/register/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/auth/register-form.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/forgot-password/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/auth/forgot-password-form.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/auth/callback/route.ts
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/auth/update-password/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/dashboard/layout.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/dashboard/sidebar.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/dashboard/header.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/dashboard/create-board-dialog.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/dashboard/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/dashboard/[boardId]/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/dashboard/admin-post-list.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/dashboard/[boardId]/settings/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/dashboard/board-settings-form.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/b/[slug]/layout.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/app/b/[slug]/page.tsx
+- /Users/nobu/dev/saas-factory/feedback-board/src/components/board/post-list.tsx
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, Write, Edit, Task, Glob
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

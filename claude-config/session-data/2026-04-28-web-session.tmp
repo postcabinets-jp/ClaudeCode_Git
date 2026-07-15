@@ -1,0 +1,41 @@
+# Session: 2026-04-28
+**Date:** 2026-04-28
+**Started:** 23:48
+**Last Updated:** 23:48
+**Project:** web
+**Branch:** unknown
+**Worktree:** /Users/nobu/POSTCABINETS.co,ltd/projects/caddy-generator/apps/web
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Martygolfというサービスと、この会社の事業を調査し、最適なビジネス提案をしたい。まずは徹底的にリサーチしてくれ。
+- Base directory for this skill: /Users/nobu/.claude/plugins/cache/everything-claude-code/everything-claude-code/1.9.0/skills/deep-research  # Deep Research  Produce thorough, cited research reports fro
+- マーケティングリサーチについては、エムリーファイルにしておいてほしいのと。 えとできるだけソフト面の提案がいいかなと思ってます。 マーティーゴルフのゲームだったり、サービスの中身の構築だったり、そういったところ。 なったりなんかその。  どういったところで提案すれば一番この企業にとって最適かっていうところを明確にして、たちができる AIでの支援っていうところがはまればいいかなというふうに思っていま
+- 1と3は良さそう。設計と実装までチーム組んで進めてもらいたい。
+- # Orchestrate Command  Sequential agent workflow for complex tasks.  ## Usage  \`/orchestrate [workflow-type] [task-description]\`  ## Workflow Types  ### feature Full feature implementation workflow: \`
+- Generatorいこ
+
+### Files Modified
+- /Users/nobu/.claude/projects/-Users-nobu-POSTCABINETS-co-ltd/memory/MEMORY.md
+- /Users/nobu/.claude/projects/-Users-nobu-POSTCABINETS-co-ltd/memory/research_martygolf.md
+- /Users/nobu/POSTCABINETS.co,ltd/projects/caddy-generator/apps/api/db/client.py
+- /Users/nobu/POSTCABINETS.co,ltd/projects/caddy-generator/apps/api/.env.example
+- /Users/nobu/POSTCABINETS.co,ltd/projects/caddy-generator/apps/web/tailwind.config.ts
+
+### Tools Used
+Agent, Skill, ToolSearch, mcp__plugin_everything-claude-code_exa__web_search_exa, mcp__plugin_everything-claude-code_exa__web_fetch_exa, Read, Write, Bash, Edit
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

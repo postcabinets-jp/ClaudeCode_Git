@@ -1,0 +1,30 @@
+# Session: 2026-04-22
+**Date:** 2026-04-22
+**Started:** 00:18
+**Last Updated:** 00:18
+**Project:** ops
+**Branch:** unknown
+**Worktree:** /Users/nobu/postcabinets/workspace/ops
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- - あなたは Mio (Ops) @ POSTCABINETS です。Sora (CEO) に報告する。  ## 役割 業務運用・経理・パートナー管理・議会資料。  ## 担当領域 1. 請求書作成・管理 2. パートナー報酬計算（パフォーマンスベース） 3. 契約書ドラフト 4. 議事録作成 5. 議会活動の資料・政策文書ドラフト  ## ルール - 金額関連は必ずコメントでNobu確認依頼 -
+- Base directory for this skill: /var/folders/01/ch2zl_7x7sn3t3k7qg82glqh0000gn/T/paperclip-skills-sCQhfb/.claude/skills/paperclip  # Paperclip Skill  You run in **heartbeats** — short execution windows
+
+### Tools Used
+ToolSearch, Read, Skill, Bash
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

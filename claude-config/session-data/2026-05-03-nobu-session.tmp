@@ -1,0 +1,29 @@
+# Session: 2026-05-03
+**Date:** 2026-05-03
+**Started:** 23:47
+**Last Updated:** 23:47
+**Project:** nobu
+**Branch:** unknown
+**Worktree:** /Users/nobu
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- MacBookのシステムデータ削減、いくつか効果的な方法があるで。  **まず現状確認** Appleメニュー → このMacについて → ストレージ で「システムデータ」の容量チェック。  **効きやすい順に**  1. **再起動する** これだけで数GB〜十数GB減ることある。スリープ運用続けてるとキャッシュ・スワップが溜まりっぱなしになるから。  2. **Time Machineのローカ
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,18 @@
+{
+  "name": "session-99083b56",
+  "createdAt": 1783380110511,
+  "leadAgentId": "team-lead@session-99083b56",
+  "leadSessionId": "99083b56-081a-4ea0-bb33-c436bf4889f2",
+  "members": [
+    {
+      "agentId": "team-lead@session-99083b56",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "joinedAt": 1783380110511,
+      "tmuxPaneId": "leader",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

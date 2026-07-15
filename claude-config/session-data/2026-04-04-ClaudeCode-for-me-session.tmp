@@ -1,0 +1,30 @@
+# Session: 2026-04-04
+**Date:** 2026-04-04
+**Started:** 09:45
+**Last Updated:** 10:10
+**Project:** ClaudeCode for me
+**Branch:** unknown
+**Worktree:** /Users/nobu/ClaudeCode for me
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- <user_query> Openclawに接続するAPI、どれを設計するのが最も最高品質で低コスト化を考えている。  Openrouterで適宜切り替えしつつ、難しいことは全部ClaudeCodeみたいな感じに使い分けしたらいいかなと思うんだけど、このあたりの設計を天才思考でやりきってみてもらいたい。 </user_query>
+- <user_query> 今時点のまとめを作成して。 </user_query>
+- <user_query> Hi,  Starting April 4 at 12pm PT / 8pm BST, you’ll no longer be able to use your Claude subscription limits for third-party harnesses including OpenClaw. You can still use them with your 
+- <user_query> 現状claude20倍で全部使い切るくらいの想定なので、それを加味した場合、どういった状態が一番良いか？ </user_query>
+- <user_query> そしたらOpenclawに設定するAPI設計について、Openrouterを起点に考えたときの状態を考えてみてもらいたい。  かつ、その中にローカルLLMも組み込んで、低コストでclaude20倍と同等の性能を発揮できる状態を構築したい。 </user_query>
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

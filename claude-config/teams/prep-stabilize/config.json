@@ -1,0 +1,61 @@
+{
+  "name": "prep-stabilize",
+  "description": "Prep安定化: Inbox拾い上げ修正 + Dailyページ修正 + 全体的なPrep防御強化",
+  "createdAt": 1783123088578,
+  "leadAgentId": "team-lead@prep-stabilize",
+  "leadSessionId": "4d4a26a2-3e96-4a5e-9ccb-415e046f0c10",
+  "members": [
+    {
+      "agentId": "team-lead@prep-stabilize",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1783123088578,
+      "tmuxPaneId": "",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": []
+    },
+    {
+      "agentId": "inbox-fixer@prep-stabilize",
+      "name": "inbox-fixer",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "## タスク: Inbox → Prep の拾い上げパイプラインを調査・修正\n\n### 背景\nNobuは `/Users/nobu/My note/Inbox/YYYY-MM-DD.md` に日々メモをダンプする。翌朝の mtg_prep.sh (V6) がこれを拾い上げて:\n1. Step 2.5: Inbox/YESTERDAY.md の内容を取得\n2. Step 2.6: claude -p でメモ整理\n3. Step 2.7: Inbox/YESTERDAY.md → raw/notebook/YESTERDAY.md に退避（移動）\n4. 📥引き継ぎセクションに 💭 として書き込み\n\nユーザーは「ファイルの移動も機能していない」と言っている。\n\n### やること\n\n1. **Inboxディレクトリの現状確認**\n   - `ls -la \"/Users/nobu/My note/Inbox/\"` で溜まっているファイル一覧\n   - `ls -la \"/Users/nobu/My note/raw/notebook/\"` で退避済みファイル一覧\n   - 退避されずに残っているファイルを特定\n\n2. **mtg_prep.sh の Step 2.5-2.7 を精読**\n   - `/Users/nobu/.note-system/scripts/mtg_prep.sh` の行343〜395を読む\n   - ファイル移動のロジックが正しいか検証\n   - 特に: 空テンプレートのInboxファイル（Step 0.5で自動生成されたもの）が残り続ける問題\n\n3. **問題の特定と修正**\n   おそらくの問題:\n   - Step 0.5 が「今日の」空Inboxを作る → 翌朝にはそれが YESTERDAY のInboxになる\n   - 中身がテンプレートのみの場合、BODY が空 → MEMO_SRC が設定されない → Step 2.7 の退避が走らない\n   - 結果: 空テンプレートのInboxファイルが永遠に残り続ける\n   \n   修正すべき点:\n   a. Step 2.7 の後に「空テンプレートのInboxファイルもクリーンアップ」するロジックを追加\n   b. または Step 0.5 で作った空Inboxは翌朝に掃除するステップを追加\n\n4. **mtg_prep.sh に修正を適用**\n   - Step 2.7 の後（line 395 の後あたり）に、空Inbox掃除ロジックを追加\n   - 修正後のコードは Edit ツールで直接適用\n\n5. **Step 4.9（inbox_triage.py）との連携確認**\n   - `/Users/nobu/.note-system/scripts/inbox_triage.py` を読んで、Inboxの振り分けが正しく動いているか確認\n   - mtg_prep.sh の Step 4.9 でこのスクリプトがどう呼ばれているかも確認\n\n### 注意\n- `set -euo pipefail` 環境。grep等のパイプラインには `|| true` を忘れない\n- ファイルパスにスペースを含む（\"/Users/nobu/My note\"）ので必ずクォート\n- テスト用のファイル作成・削除はしない。既存ファイルの編集のみ",
+      "color": "blue",
+      "planModeRequired": false,
+      "joinedAt": 1783123155920,
+      "tmuxPaneId": "in-process",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": [],
+      "backendType": "in-process"
+    },
+    {
+      "agentId": "prep-hardener@prep-stabilize",
+      "name": "prep-hardener",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "## タスク: mtg_prep.sh V6 の全ステップを精査し、エッジケースを修正\n\n### 背景\nmtg_prep.sh (V6) が不安定。直近の問題:\n- Step 2.5: grep pipefail で空メモ時にサイレントクラッシュ（修正済み: line 361 に || true 追加）\n- ERRトラップ追加済み（line 83）\n- mtg_prep_v2.sh は .bak にリネーム済み\n\nしかし他のステップにも同様のエッジケースがある可能性がある。\n\n### やること\n\n1. **mtg_prep.sh の全コードを読む**（711行）\n   - `/Users/nobu/.note-system/scripts/mtg_prep.sh` を全文読む\n   - 各ステップの処理フローを把握\n\n2. **各ステップのエッジケースを洗い出す**\n   以下の観点でチェック:\n   \n   a. **`set -euo pipefail` 下で死ぬパイプライン**\n      - `grep | sed`, `grep | awk`, `grep | head` 等で grep が exit 1 を返すケース\n      - `$(command)` 内の失敗がスクリプトを殺すケース\n      - 既に修正済みの line 361 以外にもあるか？\n   \n   b. **未定義変数の参照（`set -u`）**\n      - 変数が空の場合に `${VAR}` で参照してエラーになるケース\n      - `${VAR:-default}` で保護すべき箇所\n   \n   c. **ファイル不在時の処理**\n      - 各ステップで参照するファイル（Weekly, Monthly, プロジェクト.md, トレーニング.md等）が存在しない場合\n      - `[ -f \"$FILE\" ]` チェックが漏れている箇所\n   \n   d. **Python heredoc の失敗**\n      - `python3 - args << 'PYEOF'` でPythonスクリプトがエラーを返す場合\n      - sys.argv の数が足りない、ファイルが開けない等\n   \n   e. **外部コマンドのタイムアウト**\n      - `_timeout` で囲まれていないAPI呼び出し\n      - 無限ハング可能性がある処理\n\n3. **発見した問題を修正**\n   - 危険なパイプラインには `|| true` or `{ cmd || true; }` を追加\n   - 未保護の変数参照には `${VAR:-}` を使用\n   - Python heredocには必要に応じてtry/exceptを追加\n   - 各修正は Edit ツールで直接適用\n\n4. **condition_daily_update.sh も精査**\n   - `/Users/nobu/.note-system/scripts/condition_daily_update.sh` も同様にチェック\n   - YESTERDAY変数の重複定義（line 24 と line 52 で2回定義）を整理\n\n5. **evening_review.sh も精査**\n   - `/Users/nobu/.note-system/scripts/evening_review.sh` も同様にチェック\n\n### 注意\n- 修正は最小限のdiff。構造変更やリファクタリングはしない\n- `set -euo pipefail` は維持する（外さない）\n- 既存の正常動作を壊さないこと\n- 修正した箇所のリストを最後にまとめること",
+      "color": "green",
+      "planModeRequired": false,
+      "joinedAt": 1783123155933,
+      "tmuxPaneId": "in-process",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": [],
+      "backendType": "in-process"
+    },
+    {
+      "agentId": "daily-updater@prep-stabilize",
+      "name": "daily-updater",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "## タスク: 7/4 Dailyページを正しいLimitlessデータで更新\n\n### 背景\nユーザー(Nobu)は「昨日Limitlessのデータ終日録音してた」と言っている。しかし現在の7/4 Dailyページの📥引き継ぎセクションには、多くのイベントに「Limitless: 録音なし」と書かれている。これはmtg_prep_v2.sh（旧スクリプト）が書いた内容で、Limitlessデータを正しく反映していない可能性がある。\n\n### やること\n\n1. **raw/Limitless/2026-07-03.md を完全に読む**\n   - `/Users/nobu/My note/raw/Limitless/2026-07-03.md` を全文読む\n   - 各録音の時間帯・内容を把握\n\n2. **現在のDailyページを読む**\n   - `/Users/nobu/My note/Daily/2026-07/2026-07-04.md` を読む\n   - 📥引き継ぎセクションの現状を確認\n\n3. **Limitlessデータに基づいて📥引き継ぎを更新**\n   \n   V6の📥引き継ぎフォーマット（シンプル版）:\n   ```\n   **✅ やったこと（2026-07-03）:**\n   \n   - 🏠 HH:MM イベント名\n     - Limitlessの録音内容からの要点\n   - 🏛 HH:MM イベント名\n     - 要点\n   ...\n   ```\n   \n   ルール:\n   - Limitlessに録音がある時間帯は内容を反映する（「Limitless: 録音なし」は削除）\n   - Limitlessに録音がない時間帯はそのまま残す\n   - 🏠=プライベート、🏛=政治家、🏢=ビジネス（カレンダーのcalendar_idベース）\n   - 企業訪問は全て政治家としての意見交換。営業推論禁止\n   - 事実ベース。推測や提案は入れない\n\n4. **📌 残っていることは既存のものを維持**（変更不要）\n\n5. **Edit ツールで `/Users/nobu/My note/Daily/2026-07/2026-07-04.md` を更新**\n\n### 重要\n- Limitlessの録音内容は事実のみ記載。解釈・提案は入れない\n- Markdownフォーマット: ラベルは `**太字:**` で書く\n- リストの直前に空行を入れる",
+      "color": "yellow",
+      "planModeRequired": false,
+      "joinedAt": 1783123155962,
+      "tmuxPaneId": "in-process",
+      "cwd": "/Users/nobu/My note",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

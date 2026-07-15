@@ -1,0 +1,60 @@
+# Session: 2026-04-06
+**Date:** 2026-04-06
+**Started:** 13:15
+**Last Updated:** 13:30
+**Project:** limitless-lifelogs
+**Branch:** main
+**Worktree:** /Users/nobu/.openclaw/obsidian-vault/.obsidian/plugins/limitless-lifelogs
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Limittless AIを活用して、最高のコンテキスト構築体制をつくりたい。現にの課題観としては、えとリミットレス AIで情報を収集したとしても、結局そんでって自分が話した。 こと以外の情報が入っちゃうので、あの複雑な情報構造になってしまう可能性があるんだけど、その部分だけなんとかつけへんしたいんだけど、どうしたらいいと思う。
+- いや、そのノイズというか、例えば会議に出た時に、会議って自分が話す内容よりも、他の人が話す内容が多い場合、それは他の人の情報を。 なんだけど、それすらイメントレス AIを拾っちゃうがゆえに全部コンテキスト化しちゃうというのがあります。  で、 AIの要約とかを入れるにしても、まあそもそも論それらが必要なのかどうかみたいなところも含まえて、通常コンテキストだけじゃなくて、要約は少なくともしてほしいな
+- https://obsidian.md/ja/help/install そしたら一旦インストールすすめつつ、Limittless AIプラグインも入れ込んでおいてもらえば！
+- <task-notification> <task-id>bjfkwvf07</task-id> <tool-use-id>toolu_011NH6yQeDq41HYx9nmy4Jom</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/5d787424-9c3a-42bf-8df0-8563dace51
+- もう全部進めておいて。フォルダはこのフォルダで。
+- プラグインいれといて。
+- これでリミットレス AIの情報がガンガン入ってくるような状態になったけど、ここからどういう風に活用していくのかっていうところをクロードコードとひづける形に。 したいなと思っています。  オブシリアントクロードコードとオープンクローをうまく接続した形で、自分自身のゴールとか動いていくためのタスクとか、プロジェクトの整理とか、このあたりをやりきっている状態にまで持っていきたいです
+
+### Files Modified
+- /Users/nobu/.openclaw/obsidian-vault/.obsidian/app.json
+- /Users/nobu/.openclaw/obsidian-vault/.obsidian/community-plugins.json
+- /Users/nobu/.openclaw/obsidian-vault/Limitless-AI-Curation-Strategy.md
+- /Users/nobu/.claude/projects/-Users-nobu--openclaw/memory/Limitless-AI-Curation-Strategy.md
+- /Users/nobu/.openclaw/obsidian-vault/README.md
+- /Users/nobu/.openclaw/obsidian-vault/captures/2026-04-06/example-session.md
+- /Users/nobu/.openclaw/obsidian-vault/.obsidian/plugins/limitless-lifelogs/data.json
+- /Users/nobu/.openclaw/obsidian-vault/PLUGIN-SETUP.md
+- /Users/nobu/.openclaw/obsidian-vault/Limitless-AI-to-Execution-Pipeline.md
+- /Users/nobu/.claude/projects/-Users-nobu--openclaw/memory/MEMORY.md
+- /Users/nobu/.openclaw/obsidian-vault/WEEK-1-ACTION-PLAN.md
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/package.json
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/main.js
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/processors/file-scanner.js
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/processors/claude-classifier.js
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/processors/file-generator.js
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/config.json
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/README.md
+- /Users/nobu/.openclaw/skills/limitless-ai-processor/test/test-processor.js
+- /Users/nobu/.claude/projects/-Users-nobu--openclaw/memory/Week-1-Implementation-Log.md
+
+### Tools Used
+Bash, TaskOutput, Write, WebSearch, Edit
+
+### Stats
+- Total user messages: 7
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 13:31]** - Context was summarized

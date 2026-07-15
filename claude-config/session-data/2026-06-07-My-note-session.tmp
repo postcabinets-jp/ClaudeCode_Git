@@ -1,0 +1,50 @@
+# Session: 2026-06-07
+**Date:** 2026-06-07
+**Started:** 21:28
+**Last Updated:** 23:26
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Mac mini側のClaude Codeには、これをそのまま投げればOKです。  \`\`\`text /Users/apple/note/wiki/_meta/Macmini定期実行移管指示書.md を読んで、Mac mini側でルーティン定期実行が完結するようにセットアップしてください。  前提： - Fathomは使わないので設定しない - Linear連携も使っていないので設定しない - Ma
+- 再度確認してみて。ファイルを。
+- こちらがそのMacminiだから作業進めてもらいたい。
+- MacBook不要でこのMacminiで完結させたいんだけど。
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/update_daily_section.py
+- /Users/nobu/.note-system/scripts/morning_brief.sh
+- /Users/nobu/.note-system/scripts/mtg_prep.sh
+- /Users/nobu/.note-system/scripts/limitless_sync.sh
+- /Users/nobu/.note-system/scripts/kokkai_fetch.sh
+- /Users/nobu/.note-system/scripts/kokkai_sync.sh
+- /Users/nobu/.note-system/scripts/nar.sh
+- /Users/nobu/.note-system/scripts/weekly_review.sh
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.mtg-prep.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.note.morning.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.limitless-sync.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.kokkai-fetch.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.kokkai-sync.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.nar.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.weekly-review.plist
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.nightly-scan.plist
+
+### Tools Used
+Read, Bash, TodoWrite, TaskOutput, TaskStop, Write, Edit
+
+### Stats
+- Total user messages: 4
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,36 @@
+# Session: 2026-04-20
+**Date:** 2026-04-20
+**Started:** 10:47
+**Last Updated:** 20:53
+**Project:** .openclaw
+**Branch:** unknown
+**Worktree:** /Users/nobu/.openclaw
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Openclawの動きが遅い。 LLMモデルをOpenAIのモデルのうち、もう少し軽くて早い応答をしてくれるモデルに変えてもらいたい。
+- 5.1かな。
+- openclaw restart
+- <task-notification> <task-id>bvzmpn83l</task-id> <tool-use-id>toolu_01PZYKcWwpVXt5dyUN3AwhSJ</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>b85htk0rq</task-id> <tool-use-id>toolu_01CNNihqaVqbV21wWndWbE5n</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>bqzlj5232</task-id> <tool-use-id>toolu_01LZG3LKkF9ygZM2u6qAR6F4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>b3l1t4ag2</task-id> <tool-use-id>toolu_01SPYNJnehFuRMme8Uhr1z9y</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+- <task-notification> <task-id>bbbzqe96t</task-id> <tool-use-id>toolu_01Ah1a5P8TBf6swktYy7Cs3B</tool-use-id> <output-file>/private/tmp/claude-501/-Users-nobu--openclaw/4e8ea8f9-4e2c-4ffb-a37d-31ef241787
+
+### Tools Used
+ToolSearch, Read, Bash
+
+### Stats
+- Total user messages: 8
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

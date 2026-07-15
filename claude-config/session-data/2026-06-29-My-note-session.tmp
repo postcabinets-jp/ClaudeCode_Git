@@ -1,0 +1,55 @@
+# Session: 2026-06-29
+**Date:** 2026-06-29
+**Started:** 00:02
+**Last Updated:** 09:20
+**Project:** My note
+**Branch:** unknown
+**Worktree:** /Users/nobu/My note
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Kindleの実装についての指示書あるから、探して実装して。  <current_note> Daily/2026-06/2026-06-29.md </current_note>
+
+### Files Modified
+- /Users/nobu/.note-system/scripts/kindle_sync.py
+- /Users/nobu/.note-system/scripts/extract_kindle_cookies.py
+- /Users/nobu/Library/LaunchAgents/com.postcabinets.kindle-sync.plist
+
+### Tools Used
+Grep, Glob, Read, TodoWrite, Bash, Write
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 00:29]** - Context was summarized
+
+---
+**[Compaction occurred at 00:43]** - Context was summarized
+
+---
+**[Compaction occurred at 01:00]** - Context was summarized
+
+---
+**[Compaction occurred at 07:30]** - Context was summarized
+
+---
+**[Compaction occurred at 07:56]** - Context was summarized
+
+---
+**[Compaction occurred at 08:31]** - Context was summarized
+
+---
+**[Compaction occurred at 09:04]** - Context was summarized

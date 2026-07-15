@@ -1,0 +1,26 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776265965029@hunter-agent\",\"from\":\"team-lead\",\"reason\":\"hunter.jsを修正したので再起動します。現在の作業を中止してください。\",\"timestamp\":\"2026-04-15T15:12:45.029Z\"}",
+    "timestamp": "2026-04-15T15:12:45.029Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776266000115@hunter-agent\",\"from\":\"team-lead\",\"reason\":\"Braveの起動設定を再修正します。作業を止めてください。\",\"timestamp\":\"2026-04-15T15:13:20.115Z\"}",
+    "timestamp": "2026-04-15T15:13:20.115Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776266089413@hunter-agent\",\"from\":\"team-lead\",\"reason\":\"headlessモードに変更します。中止してください。\",\"timestamp\":\"2026-04-15T15:14:49.413Z\"}",
+    "timestamp": "2026-04-15T15:14:49.414Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1776266203984@hunter-agent\",\"from\":\"team-lead\",\"reason\":\"スクショ取得を中止します。停止してください。\",\"timestamp\":\"2026-04-15T15:16:43.984Z\"}",
+    "timestamp": "2026-04-15T15:16:43.984Z",
+    "read": false
+  }
+]

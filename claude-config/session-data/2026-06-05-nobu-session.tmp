@@ -1,0 +1,35 @@
+# Session: 2026-06-05
+**Date:** 2026-06-05
+**Started:** 07:29
+**Last Updated:** 17:58
+**Project:** nobu
+**Branch:** unknown
+**Worktree:** /Users/nobu
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- 結局HermesAgentがLINEでちゃんと動いてくれないので、それなんとか修正してもらいたい。
+
+### Files Modified
+- /Users/nobu/.hermes/config.yaml
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```
+
+---
+**[Compaction occurred at 23:07]** - Context was summarized
