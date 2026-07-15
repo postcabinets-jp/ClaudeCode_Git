@@ -62,6 +62,10 @@ claude-config/session-state.json
 claude-config/projects/-Users-apple/[0-9a-f]*
 claude-config/projects/-Users-apple/*.jsonl
 claude-config/projects/-Users-apple-*/
+# ただし正準Memory(-Users-apple-note/memory)だけは3台共有のため追跡する
+!claude-config/projects/-Users-apple-note/
+claude-config/projects/-Users-apple-note/*
+!claude-config/projects/-Users-apple-note/memory/
 claude-config/projects/-/
 claude-config/tasks/
 claude-config/.last-cleanup

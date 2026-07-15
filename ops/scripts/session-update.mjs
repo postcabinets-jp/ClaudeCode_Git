@@ -82,7 +82,7 @@ if (state.turnCount % UPDATE_EVERY !== 0) process.exit(0);
 import { spawn } from "node:child_process";
 
 function claudeAsk(prompt, systemPrompt, model = "haiku") {
-  const claudeBin = process.env.CLAUDE_BIN ?? "/Users/apple/.nvm/versions/node/v20.19.5/bin/claude";
+  const claudeBin = process.env.CLAUDE_BIN ?? (process.env.HOME + "/.nvm/versions/node/v20.19.5/bin/claude");
   return new Promise((resolve, reject) => {
     const child = spawn(claudeBin, [
       "--print",

@@ -21,7 +21,7 @@ import { spawn } from "node:child_process";
 import { loadDotEnv, projectRoot } from "./lib/env.mjs";
 import { notionHeaders } from "./lib/notion.mjs";
 
-const claudeBin = process.env.CLAUDE_BIN ?? "/Users/apple/.nvm/versions/node/v20.19.5/bin/claude";
+const claudeBin = process.env.CLAUDE_BIN ?? (process.env.HOME + "/.nvm/versions/node/v20.19.5/bin/claude");
 
 /** claude --print にstdinでテキストを渡してstdoutを返す */
 function claudeAsk(prompt, systemPrompt, model = "haiku") {
